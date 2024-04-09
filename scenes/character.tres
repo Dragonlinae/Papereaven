@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://y4ol0mki3u1h"]
+
+[ext_resource type="Shader" path="res://scenes/character.gdshader" id="1_nq0t0"]
+[ext_resource type="Texture2D" uid="uid://b8wux46ia1gnb" path="res://assets/paper.png" id="2_1y5ox"]
+
+[resource]
+shader = ExtResource("1_nq0t0")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 100.0
+shader_parameter/paper = ExtResource("2_1y5ox")

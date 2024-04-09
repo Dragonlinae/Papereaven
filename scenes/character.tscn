@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmwkp4j3ey4hg"]
+
+[ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/character.tres" id="2_8namq"]
+[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="2_lnip5"]
+[ext_resource type="Texture2D" uid="uid://dhttuuq8d6mbv" path="res://assets/block.png" id="3_vsg2j"]
+[ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="4_vdr71"]
+[ext_resource type="Texture2D" uid="uid://behqikadmvo3o" path="res://assets/jump.png" id="5_3ax37"]
+[ext_resource type="Texture2D" uid="uid://dd62rgrk5odxn" path="res://assets/parry1.png" id="6_haw2k"]
+[ext_resource type="Texture2D" uid="uid://f01b2dciabb" path="res://assets/parry2.png" id="7_e8y3w"]
+[ext_resource type="Texture2D" uid="uid://sfyuqvq3ib3b" path="res://assets/parry3.png" id="8_34vbe"]
+[ext_resource type="Texture2D" uid="uid://dahhs3bhm6rog" path="res://assets/walk2.png" id="9_4nvlp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nw1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vsg2j")
+}],
+"loop": false,
+"name": &"Block",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vdr71")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3ax37")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_haw2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e8y3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_34vbe")
+}],
+"loop": false,
+"name": &"Parry",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vdr71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4nvlp")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rk82w"]
+radius = 93.0
+height = 372.0
+
+[node name="Character" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(1000, 0)
+script = ExtResource("2_lnip5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+material = ExtResource("2_8namq")
+scale = Vector2(0.455093, 0.455093)
+sprite_frames = SubResource("SpriteFrames_2nw1d")
+animation = &"Block"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_rk82w")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-1, 0)
+zoom = Vector2(0.7, 0.7)
