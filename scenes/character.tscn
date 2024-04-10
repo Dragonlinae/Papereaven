@@ -83,4 +83,4 @@ shape = SubResource("CapsuleShape2D_rk82w")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1, 0)
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(0.5, 0.5)
