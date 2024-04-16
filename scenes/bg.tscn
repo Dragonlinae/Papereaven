@@ -1,41 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://brijh47f4oref"]
+[gd_scene load_steps=2 format=3 uid="uid://51gl4tp26xr8"]
 
-[ext_resource type="Shader" path="res://scenes/bg.gdshader" id="1_t0vir"]
 [ext_resource type="Texture2D" uid="uid://b8wux46ia1gnb" path="res://assets/paper.png" id="1_t3urt"]
-[ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="1_uamg4"]
-[ext_resource type="Shader" path="res://scenes/bgpre.gdshader" id="2_1fhqw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_euu75"]
-shader = ExtResource("2_1fhqw")
-shader_parameter/offsetX = -100.0
-shader_parameter/offsetY = -100.0
-
-[sub_resource type="CurveTexture" id="CurveTexture_jkmf7"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqb3l"]
-shader = ExtResource("1_t0vir")
 
 [node name="Bg" type="ParallaxBackground"]
 
-[node name="Paper" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(187, 1972)
-texture = ExtResource("1_uamg4")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
-material = SubResource("ShaderMaterial_euu75")
-position = Vector2(-1.68555, 83)
-scale = Vector2(112.547, 19046)
-texture = SubResource("CurveTexture_jkmf7")
-
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(4096, 4096)
 
 [node name="Paper" type="Sprite2D" parent="ParallaxLayer"]
-material = SubResource("ShaderMaterial_gqb3l")
 position = Vector2(2048, 2048)
 scale = Vector2(8, 8)
 texture = ExtResource("1_t3urt")

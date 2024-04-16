@@ -1,13 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=5 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://cmwkp4j3ey4hg" path="res://scenes/character.tscn" id="2_spruq"]
-[ext_resource type="PackedScene" uid="uid://brijh47f4oref" path="res://scenes/bg.tscn" id="4_t0ony"]
-[ext_resource type="Shader" path="res://scenes/vignette.gdshader" id="5_py5q8"]
+[ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3qgv"]
-shader = ExtResource("5_py5q8")
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
@@ -18,14 +14,3 @@ material = ExtResource("1_dxjqc")
 position = Vector2(278, 189)
 
 [node name="Bg" parent="." instance=ExtResource("4_t0ony")]
-layer = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_d3qgv")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
