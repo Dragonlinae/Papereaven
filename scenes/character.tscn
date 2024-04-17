@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmwkp4j3ey4hg"]
+[gd_scene load_steps=11 format=3 uid="uid://cmwkp4j3ey4hg"]
 
-[ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/character.tres" id="2_8namq"]
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="2_lnip5"]
 [ext_resource type="Texture2D" uid="uid://dhttuuq8d6mbv" path="res://assets/block.png" id="3_vsg2j"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="4_vdr71"]
@@ -69,11 +68,9 @@ height = 372.0
 [node name="Character" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(1000, 0)
 script = ExtResource("2_lnip5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-material = ExtResource("2_8namq")
 scale = Vector2(0.455093, 0.455093)
 sprite_frames = SubResource("SpriteFrames_2nw1d")
 animation = &"Block"
@@ -83,4 +80,4 @@ shape = SubResource("CapsuleShape2D_rk82w")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1, 0)
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(0.5, 0.5)

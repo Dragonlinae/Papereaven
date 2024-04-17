@@ -24,6 +24,11 @@ project/assembly_name="PaperHeaven"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[physics]
+
+2d/default_gravity=3000.0
+
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)
