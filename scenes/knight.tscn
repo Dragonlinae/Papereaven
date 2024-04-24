@@ -94,6 +94,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [1.78547]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("right_foot_IK_target:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(235.07, 287)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("polygons/left_foot:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140.873, 281.503)]
+}
 
 [sub_resource type="Animation" id="Animation_7badi"]
 resource_name = "walk"
@@ -265,7 +289,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0), "hip/chest", PackedFloat32Array(
 
 [node name="right_foot" type="Polygon2D" parent="polygons"]
 position = Vector2(268, 287)
-rotation = -0.241413
+rotation = -0.307263
 scale = Vector2(-1, 1)
 offset = Vector2(-261, -424)
 texture = ExtResource("1_o6xqo")
@@ -379,7 +403,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0), "hip/chest", PackedFloat32Arr
 modification_stack = SubResource("SkeletonModificationStack2D_1aqc1")
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2(210, 191.397)
+position = Vector2(210, 194.046)
 rest = Transform2D(1, 0, 0, 1, 210, 191)
 auto_calculate_length_and_angle = false
 length = 50.0
@@ -450,8 +474,8 @@ editor_settings/show_bone_gizmo = false
 
 [node name="right_shoulder" type="Bone2D" parent="Skeleton2D/hip/chest"]
 position = Vector2(20, 1)
-rotation = 0.966855
-scale = Vector2(0.99989, 0.99989)
+rotation = 0.970749
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 20, 1)
 auto_calculate_length_and_angle = false
 length = 42.19
@@ -555,10 +579,10 @@ bone_angle = 0.0
 editor_settings/show_bone_gizmo = false
 
 [node name="right_foot_IK_target" type="Node2D" parent="."]
-position = Vector2(249.252, 287)
+position = Vector2(235.07, 287)
 
 [node name="left_foot_IK_target" type="Node2D" parent="."]
-position = Vector2(151.748, 292)
+position = Vector2(157.407, 292)
 
 [node name="right_hand_IK_target" type="Node2D" parent="."]
 position = Vector2(275, 225)
