@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5m2qo7btuy8t"]
+[gd_scene load_steps=12 format=3 uid="uid://b5m2qo7btuy8t"]
 
+[ext_resource type="Script" path="res://scenes/knight.gd" id="1_7yoot"]
 [ext_resource type="Texture2D" uid="uid://m1dkdjs2b717" path="res://assets/player/player.png" id="1_o6xqo"]
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_iwdoh"]
@@ -216,6 +217,7 @@ _data = {
 
 [node name="CharacterRoot" type="Node2D"]
 position = Vector2(10, -44)
+script = ExtResource("1_7yoot")
 
 [node name="polygons" type="Node2D" parent="."]
 
@@ -403,7 +405,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0), "hip/chest", PackedFloat32Arr
 modification_stack = SubResource("SkeletonModificationStack2D_1aqc1")
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2(210, 194.046)
+position = Vector2(210, 192.401)
 rest = Transform2D(1, 0, 0, 1, 210, 191)
 auto_calculate_length_and_angle = false
 length = 50.0
