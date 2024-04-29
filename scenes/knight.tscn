@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5m2qo7btuy8t"]
+[gd_scene load_steps=13 format=3 uid="uid://b5m2qo7btuy8t"]
 
 [ext_resource type="Script" path="res://scenes/knight.gd" id="1_7yoot"]
 [ext_resource type="Texture2D" uid="uid://m1dkdjs2b717" path="res://assets/player/player.png" id="1_o6xqo"]
@@ -209,10 +209,112 @@ tracks/6/keys = {
 "values": [Vector2(-1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_jugvg"]
+resource_name = "walk_fence"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right_foot_IK_target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(220, 287), Vector2(220, 287), Vector2(270, 287)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("left_foot_IK_target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(131, 292), Vector2(201, 292), Vector2(131, 292)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("polygons/left_foot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("polygons/right_foot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.39626]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/hip/chest/right_shoulder:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.959931, 1.0472]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/hip:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(210, 191), Vector2(210, 196)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("polygons/right_foot:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/path = NodePath("Skeleton2D/hip/chest/right_shoulder/right_elbow/right_hand:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = false
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 62.8319]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_24lvc"]
 _data = {
 "idle": SubResource("Animation_wl803"),
-"walk": SubResource("Animation_7badi")
+"walk": SubResource("Animation_7badi"),
+"walk_fence": SubResource("Animation_jugvg")
 }
 
 [node name="CharacterRoot" type="Node2D"]
@@ -291,7 +393,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0), "hip/chest", PackedFloat32Array(
 
 [node name="right_foot" type="Polygon2D" parent="polygons"]
 position = Vector2(268, 287)
-rotation = -0.307263
+rotation = -0.671049
 scale = Vector2(-1, 1)
 offset = Vector2(-261, -424)
 texture = ExtResource("1_o6xqo")
@@ -405,7 +507,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0), "hip/chest", PackedFloat32Arr
 modification_stack = SubResource("SkeletonModificationStack2D_1aqc1")
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2(210, 192.401)
+position = Vector2(210, 193.355)
 rest = Transform2D(1, 0, 0, 1, 210, 191)
 auto_calculate_length_and_angle = false
 length = 50.0
@@ -474,7 +576,8 @@ editor_settings/show_bone_gizmo = false
 
 [node name="right_shoulder" type="Bone2D" parent="Skeleton2D/hip/chest"]
 position = Vector2(20, 1)
-rotation = 0.970749
+rotation = 1.00103
+scale = Vector2(0.99984, 0.99984)
 rest = Transform2D(1, 0, 0, 1, 20, 1)
 auto_calculate_length_and_angle = false
 length = 42.19
@@ -493,7 +596,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" type="Bone2D" parent="Skeleton2D/hip/chest/right_shoulder/right_elbow"]
 position = Vector2(44, -1)
-rotation = 1.78547
+rotation = -1.47655
+scale = Vector2(0.999867, 0.999867)
 rest = Transform2D(0.166211, -0.98609, 0.98609, 0.166211, 44, -1)
 auto_calculate_length_and_angle = false
 length = 40.0
@@ -575,16 +679,16 @@ bone_angle = 0.0
 editor_settings/show_bone_gizmo = false
 
 [node name="right_foot_IK_target" type="Node2D" parent="."]
-position = Vector2(235.07, 287)
+position = Vector2(220, 287)
 
 [node name="left_foot_IK_target" type="Node2D" parent="."]
-position = Vector2(157.407, 292)
+position = Vector2(198.285, 292)
 
 [node name="right_hand_IK_target" type="Node2D" parent="."]
-position = Vector2(275, 225)
+position = Vector2(337, 219)
 
 [node name="left_hand_IK_target" type="Node2D" parent="."]
-position = Vector2(205, 215)
+position = Vector2(102, 263)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationRootNode_8h7ff")
