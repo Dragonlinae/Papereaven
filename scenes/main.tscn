@@ -1,10 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=8 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://cmwkp4j3ey4hg" path="res://scenes/character.tscn" id="2_spruq"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="5_5yqf3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_u2ndm"]
+target_nodepath = NodePath("../../ik_test_target")
+tip_nodepath = NodePath("hip/chest/left_upper_arm/left_hand/end")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 6
+joint_data/0/bone2d_node = NodePath("hip/chest/left_upper_arm")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 174.316
+joint_data/0/constraint_angle_max = 248.842
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 7
+joint_data/1/bone2d_node = NodePath("hip/chest/left_upper_arm/left_hand")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -175.0
+joint_data/1/constraint_angle_max = 360.0
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_ydwqj"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DCCDIK_u2ndm")
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
@@ -190,6 +218,7 @@ uv = PackedVector2Array(76.3021, 25.2604, 60.1562, 3.125, 34.1146, 5.98958, 15.8
 bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_bang", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_pony", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "hip/chest/left_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand/sword", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/cape", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/torso_cloth", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg/left_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg/right_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="knight_skeleton" type="Skeleton2D" parent="root"]
+modification_stack = SubResource("SkeletonModificationStack2D_ydwqj")
 
 [node name="hip" type="Bone2D" parent="root/knight_skeleton"]
 position = Vector2(114, 180)
@@ -230,6 +259,7 @@ rest = Transform2D(1, 0, 0, 1, 12, -35)
 auto_calculate_length_and_angle = false
 length = 40.28
 bone_angle = -359.128
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" type="Bone2D" parent="root/knight_skeleton/hip/chest/left_upper_arm"]
 position = Vector2(47, 1)
@@ -237,6 +267,7 @@ rest = Transform2D(1, 0, 0, 1, 47, 1)
 auto_calculate_length_and_angle = false
 length = 48.244
 bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="sword" type="Bone2D" parent="root/knight_skeleton/hip/chest/left_upper_arm/left_hand"]
 position = Vector2(41, 0)
@@ -244,6 +275,9 @@ rest = Transform2D(1, 0, 0, 1, 41, 0)
 auto_calculate_length_and_angle = false
 length = 209.461
 bone_angle = -78.395
+
+[node name="end" type="Marker2D" parent="root/knight_skeleton/hip/chest/left_upper_arm/left_hand"]
+position = Vector2(41.0001, -7.7388)
 
 [node name="right_shoulder" type="Bone2D" parent="root/knight_skeleton/hip/chest"]
 position = Vector2(-9, -36)
@@ -265,6 +299,9 @@ rest = Transform2D(1, 0, 0, 1, -32, 41)
 auto_calculate_length_and_angle = false
 length = 39.45
 bone_angle = 90.774
+
+[node name="end" type="Marker2D" parent="root/knight_skeleton/hip/chest/right_upper_arm/right_hand"]
+position = Vector2(0, 44)
 
 [node name="cape" type="Bone2D" parent="root/knight_skeleton/hip/chest"]
 position = Vector2(-9, -37)
@@ -299,6 +336,9 @@ rest = Transform2D(1, 0, 0, 1, 28, 60)
 position = Vector2(19, 39)
 rest = Transform2D(1, 0, 0, 1, 19, 39)
 
+[node name="end" type="Marker2D" parent="root/knight_skeleton/hip/left_upper_leg/left_lower_leg/left_foot"]
+position = Vector2(-19, -39)
+
 [node name="right_upper_leg" type="Bone2D" parent="root/knight_skeleton/hip"]
 position = Vector2(-12, -8)
 rest = Transform2D(1, 0, 0, 1, -12, -8)
@@ -317,3 +357,8 @@ rest = Transform2D(1, 0, 0, 1, -44, 58)
 [node name="right_foot" type="Bone2D" parent="root/knight_skeleton/hip/right_upper_leg/right_lower_leg"]
 position = Vector2(-21, 41)
 rest = Transform2D(1, 0, 0, 1, -21, 41)
+
+[node name="end" type="Marker2D" parent="root/knight_skeleton/hip/right_upper_leg/right_lower_leg/right_foot"]
+
+[node name="ik_test_target" type="Node2D" parent="."]
+position = Vector2(-246, -139)
