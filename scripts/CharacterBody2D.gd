@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const SPEED = 1200.0
 const JUMP_VELOCITY = -1600.0
@@ -24,6 +25,8 @@ enum STATE {
 }
 
 var currState = STATE.IDLE
+
+var current_checkpoint : Checkpoint
 
 func setState(new_state):
 	if currState == new_state:
@@ -163,3 +166,9 @@ func exitState(state):
 
 func _physics_process(delta):
 	updateState(delta)
+	if (position.y > 2000):
+		respawn_player()
+	
+func respawn_player():
+	if current_checkpoint != null:
+		global_position = current_checkpoint.global_position
