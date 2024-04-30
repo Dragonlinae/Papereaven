@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=7 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/character.tres" id="1_dxjqc"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="2_clf4g"]
 [ext_resource type="PackedScene" uid="uid://cmwkp4j3ey4hg" path="res://scenes/character.tscn" id="2_spruq"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
@@ -10,7 +9,6 @@
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
-script = ExtResource("2_clf4g")
 
 [node name="Node2D" parent="." instance=ExtResource("9_mo5sx")]
 
@@ -20,12 +18,16 @@ position = Vector2(427, 141)
 [node name="Bg" parent="." instance=ExtResource("4_t0ony")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
 script = ExtResource("6_j48h2")
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource("6_wkpwb")]
+visible = false
 modulate = Color(0.972549, 1, 1, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = 0.0
+offset_right = 0.0
