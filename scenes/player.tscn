@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dudhrqgdeg35m"]
+[gd_scene load_steps=13 format=3 uid="uid://dudhrqgdeg35m"]
 
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="1_iunsa"]
 
@@ -279,10 +279,14 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_wxfic"]
+resource_name = "walk_loop"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37tsb"]
 _data = {
 "RESET": SubResource("Animation_d5sym"),
 "idle": SubResource("Animation_bevrd"),
+"walk_loop": SubResource("Animation_wxfic"),
 "walk_start": SubResource("Animation_kswel")
 }
 
