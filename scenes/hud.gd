@@ -1,21 +1,16 @@
 extends CanvasLayer
 @onready var pause_menu = $PauseMenu
-var paused = true
-
-func _ready():
-	paused = true
-	pauseMenu()
+var paused = false 
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-
+		
 func pauseMenu():
 	paused = !paused
 	if paused:
 		pause_menu.show()
-		Engine.time_scale = 0
+		get_tree().paused = true
 	else:
 		pause_menu.hide()
-		Engine.time_scale = 1
-
+		get_tree().paused = false
