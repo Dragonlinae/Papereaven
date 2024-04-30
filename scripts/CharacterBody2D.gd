@@ -5,6 +5,12 @@ const JUMP_VELOCITY = -1600.0
 
 var canParry = true
 
+var maxHealth = 30
+var health = 30
+var iframes: float = 0.0
+
+var HealthBar: ProgressBar
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -31,6 +37,8 @@ func _ready():
 	setState(STATE.IDLE)
 	floor_snap_length = 100
 	floor_constant_speed = true
+	HealthBar = get_node("CanvasLayer/HealthBar")
+	HealthBar.max_value = maxHealth
 
 func updateState(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -108,6 +116,24 @@ func updateState(delta):
 		velocity.y += gravity * delta
 
 	move_and_slide()
+	if $EnemyDetector.has_overlapping_bodies() and iframes == 0:
+		for body in $EnemyDetector.get_overlapping_bodies():
+			if body.is_in_group("enemy"):
+				if body.global_position.y < global_position.y + 100:
+					health -= 10
+					HealthBar.value = health
+					print(health)
+					velocity.y = JUMP_VELOCITY
+					iframes = 120.0
+					if health <= 0:
+						set_collision_mask_value(1, false)
+					break
+				elif velocity.y > 0:
+					velocity.y = JUMP_VELOCITY
+					body.takeDamage(10)
+
+	if iframes > 0:
+		iframes -= min(delta * 60, iframes)
 
 func enterState(state):
 	match state:
@@ -137,37 +163,3 @@ func exitState(state):
 
 func _physics_process(delta):
 	updateState(delta)
-	# # Add the gravity.
-	# if not is_on_floor():
-	# 	velocity.y += gravity * delta
-	# else:
-	# 	canParry = true
-
-	# # Handle jump.
-	# if Input.is_action_just_pressed("ui_up") and is_on_floor():
-	# 	velocity.y = JUMP_VELOCITY
-	# 	$AnimatedSprite2D.play("Jump")
-	# if Input.is_action_just_pressed("ui_accept") and not is_on_floor() and canParry:
-	# 	$AnimatedSprite2D.play("Parry")
-	# 	canParry = false
-
-	# # Get the input direction and handle the movement/deceleration.
-	# # As good practice, you should replace UI actions with custom gameplay actions.
-	# var direction = Input.get_axis("ui_left", "ui_right")
-	# if direction:
-	# 	velocity.x = direction * SPEED
-	# 	if is_on_floor():
-	# 		$AnimatedSprite2D.play("Walk")
-	# 	if direction > 0:
-	# 		$AnimatedSprite2D.flip_h = false
-	# 	else:
-	# 		$AnimatedSprite2D.flip_h = true
-	# else:
-	# 	velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	# if Input.is_action_pressed("ui_down") and is_on_floor():
-	# 	$AnimatedSprite2D.play("Block")
-	# elif not direction and is_on_floor():
-	# 	$AnimatedSprite2D.play("Idle")
-
-	# move_and_slide()

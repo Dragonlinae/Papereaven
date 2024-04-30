@@ -68,16 +68,33 @@ height = 372.0
 [node name="Character" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("2_lnip5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.455093, 0.455093)
 sprite_frames = SubResource("SpriteFrames_2nw1d")
-animation = &"Block"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_rk82w")
+
+[node name="EnemyDetector" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/EnemyDetector"]
 shape = SubResource("CapsuleShape2D_rk82w")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1, 0)
 zoom = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody2D"]
+
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D/CanvasLayer"]
+modulate = Color(1, 0, 0, 1)
+offset_right = 796.0
+offset_bottom = 72.0
+value = 50.0
