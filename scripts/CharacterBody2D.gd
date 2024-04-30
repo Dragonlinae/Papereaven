@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const SPEED = 1200.0
 const JUMP_VELOCITY = -1600.0
@@ -24,6 +25,8 @@ enum STATE {
 }
 
 var currState = STATE.IDLE
+
+var current_checkpoint : Checkpoint
 
 func setState(new_state):
 	if currState == new_state:
@@ -120,13 +123,9 @@ func updateState(delta):
 		for body in $EnemyDetector.get_overlapping_bodies():
 			if body.is_in_group("enemy"):
 				if body.global_position.y < global_position.y + 100:
-					health -= 10
-					HealthBar.value = health
-					print(health)
+					set_health(health - 10)
 					velocity.y = JUMP_VELOCITY
 					iframes = 120.0
-					if health <= 0:
-						set_collision_mask_value(1, false)
 					break
 				elif velocity.y > 0:
 					velocity.y = JUMP_VELOCITY
@@ -163,3 +162,20 @@ func exitState(state):
 
 func _physics_process(delta):
 	updateState(delta)
+	if (position.y > 2000):
+		respawn_player()
+	
+func respawn_player():
+	if current_checkpoint != null:
+		global_position = current_checkpoint.global_position
+		set_health(maxHealth)
+		HealthBar.value = maxHealth
+
+func set_health(new_health):
+	health = new_health
+	HealthBar.value = health
+	if health <= 0: # no collision perms when dead
+		set_collision_mask_value(1, false)
+	else:
+		set_collision_mask_value(1, true)
+	

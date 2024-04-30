@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://sfyuqvq3ib3b" path="res://assets/parry3.png" id="8_34vbe"]
 [ext_resource type="Texture2D" uid="uid://dahhs3bhm6rog" path="res://assets/walk2.png" id="9_4nvlp"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rk82w"]
+radius = 93.0
+height = 372.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2nw1d"]
 animations = [{
 "frames": [{
@@ -61,16 +65,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rk82w"]
-radius = 93.0
-height = 372.0
-
 [node name="Character" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("2_lnip5")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("CapsuleShape2D_rk82w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_rk82w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.455093, 0.455093)
