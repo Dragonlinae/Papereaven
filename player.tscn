@@ -43,10 +43,19 @@ polygon = PackedVector2Array(466.114, 323.223, 440.521, 334.834, 385.782, 353.08
 uv = PackedVector2Array(466.114, 323.223, 440.521, 334.834, 385.782, 353.081, 346.683, 379.858, 338.389, 392.417, 353.318, 402.133, 373.697, 422.512, 381.043, 417.536, 383.886, 403.318, 399.526, 407.109, 408.768, 409.242, 419.194, 421.09, 434.597, 422.275, 455.687, 396.683, 470.616, 359.005, 480.095, 325.592)
 bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_bang", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_pony", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand/sword", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/cape", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "hip/chest/torso_cloth", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg/left_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg/right_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
-[node name="sword" type="Polygon2D" parent="polygons"]
-position = Vector2(-216.389, -94.6304)
+[node name="sword_position" type="Node2D" parent="polygons"]
+top_level = true
+position = Vector2(-236.005, -134.435)
+rotation = -0.0276738
+scale = Vector2(0.999983, 0.999983)
+
+[node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
+
+[node name="sword" type="Polygon2D" parent="polygons/sword_position/sword_rotation"]
+rotation = -0.200713
+scale = Vector2(0.999984, 0.999984)
+offset = Vector2(-430.237, -225.136)
 texture = ExtResource("1_iunsa")
-skeleton = NodePath("../../knight_skeleton")
 polygon = PackedVector2Array(474.499, 2.63037, 444.699, 57.9312, 423.209, 167.673, 401.433, 181.427, 403.152, 198.046, 419.771, 202.917, 417.765, 231.57, 410.888, 245.037, 419.771, 258.791, 436.676, 255.926, 442.12, 242.458, 438.109, 235.582, 442.12, 212.086, 461.031, 210.367, 473.066, 194.894, 457.307, 179.994, 481.948, 61.6562, 488.825, 9.22063)
 uv = PackedVector2Array(474.499, 2.63037, 444.699, 57.9312, 423.209, 167.673, 401.433, 181.427, 403.152, 198.046, 419.771, 202.917, 417.765, 231.57, 410.888, 245.037, 419.771, 258.791, 436.676, 255.926, 442.12, 242.458, 438.109, 235.582, 442.12, 212.086, 461.031, 210.367, 473.066, 194.894, 457.307, 179.994, 481.948, 61.6562, 488.825, 9.22063)
 bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_bang", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_pony", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand/sword", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "hip/chest/right_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/cape", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/torso_cloth", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg/left_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg/right_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
@@ -209,14 +218,17 @@ modification_stack = SubResource("SkeletonModificationStack2D_urws0")
 [node name="hip" type="Bone2D" parent="knight_skeleton"]
 position = Vector2(114, 180)
 rest = Transform2D(1, 0, 0, 1, 114, 180)
+editor_settings/show_bone_gizmo = false
 
 [node name="chest" type="Bone2D" parent="knight_skeleton/hip"]
 position = Vector2(0, -20)
 rest = Transform2D(1, 0, 0, 1, 0, -20)
+editor_settings/show_bone_gizmo = false
 
 [node name="head" type="Bone2D" parent="knight_skeleton/hip/chest"]
 position = Vector2(-5, -59)
 rest = Transform2D(1, 0, 0, 1, -5, -59)
+editor_settings/show_bone_gizmo = false
 
 [node name="head_bang" type="Bone2D" parent="knight_skeleton/hip/chest/head"]
 position = Vector2(1, -54)
@@ -224,6 +236,7 @@ rest = Transform2D(1, 0, 0, 1, 1, -54)
 auto_calculate_length_and_angle = false
 length = 45.312
 bone_angle = 101.089
+editor_settings/show_bone_gizmo = false
 
 [node name="head_pony" type="Bone2D" parent="knight_skeleton/hip/chest/head"]
 position = Vector2(-49, -57)
@@ -231,6 +244,7 @@ rest = Transform2D(1, 0, 0, 1, -49, -57)
 auto_calculate_length_and_angle = false
 length = 42.381
 bone_angle = -175.358
+editor_settings/show_bone_gizmo = false
 
 [node name="left_shoulder" type="Bone2D" parent="knight_skeleton/hip/chest"]
 position = Vector2(14, -44)
@@ -238,6 +252,7 @@ rest = Transform2D(1, 0, 0, 1, 14, -44)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -47.45
+editor_settings/show_bone_gizmo = false
 
 [node name="left_upper_arm" type="Bone2D" parent="knight_skeleton/hip/chest"]
 position = Vector2(12, -35)
@@ -246,6 +261,7 @@ rest = Transform2D(1, 0, 0, 1, 12, -35)
 auto_calculate_length_and_angle = false
 length = 40.28
 bone_angle = -359.128
+editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" type="Bone2D" parent="knight_skeleton/hip/chest/left_upper_arm"]
@@ -255,6 +271,7 @@ rest = Transform2D(1, 0, 0, 1, 47, 1)
 auto_calculate_length_and_angle = false
 length = 48.244
 bone_angle = 0.0
+editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="sword" type="Bone2D" parent="knight_skeleton/hip/chest/left_upper_arm/left_hand"]
@@ -263,9 +280,16 @@ rest = Transform2D(1, 0, 0, 1, 41, 0)
 auto_calculate_length_and_angle = false
 length = 209.461
 bone_angle = -78.395
+editor_settings/show_bone_gizmo = false
 
 [node name="end" type="Marker2D" parent="knight_skeleton/hip/chest/left_upper_arm/left_hand"]
 position = Vector2(41.0001, -7.7388)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="knight_skeleton/hip/chest/left_upper_arm/left_hand/end"]
+position = Vector2(-0.00012207, 7.7388)
+scale = Vector2(1, 1)
+remote_path = NodePath("../../../../../../../polygons/sword_position")
+update_rotation = false
 
 [node name="right_shoulder" type="Bone2D" parent="knight_skeleton/hip/chest"]
 position = Vector2(-9, -36)
@@ -273,6 +297,7 @@ rest = Transform2D(1, 0, 0, 1, -9, -36)
 auto_calculate_length_and_angle = false
 length = 24.794
 bone_angle = -154.728
+editor_settings/show_bone_gizmo = false
 
 [node name="right_upper_arm" type="Bone2D" parent="knight_skeleton/hip/chest"]
 position = Vector2(-12, -35)
@@ -280,6 +305,7 @@ rest = Transform2D(1, 0, 0, 1, -12, -35)
 auto_calculate_length_and_angle = false
 length = 42.521
 bone_angle = -230.322
+editor_settings/show_bone_gizmo = false
 
 [node name="right_hand" type="Bone2D" parent="knight_skeleton/hip/chest/right_upper_arm"]
 position = Vector2(-32, 41)
@@ -287,6 +313,7 @@ rest = Transform2D(1, 0, 0, 1, -32, 41)
 auto_calculate_length_and_angle = false
 length = 39.45
 bone_angle = 90.774
+editor_settings/show_bone_gizmo = false
 
 [node name="end" type="Marker2D" parent="knight_skeleton/hip/chest/right_upper_arm/right_hand"]
 position = Vector2(0, 44)
@@ -297,6 +324,7 @@ rest = Transform2D(1, 0, 0, 1, -9, -37)
 auto_calculate_length_and_angle = false
 length = 101.006
 bone_angle = -224.871
+editor_settings/show_bone_gizmo = false
 
 [node name="torso_cloth" type="Bone2D" parent="knight_skeleton/hip/chest"]
 position = Vector2(0, 6)
@@ -304,10 +332,12 @@ rest = Transform2D(1, 0, 0, 1, 0, 6)
 auto_calculate_length_and_angle = false
 length = 83.418
 bone_angle = 95.651
+editor_settings/show_bone_gizmo = false
 
 [node name="left_upper_leg" type="Bone2D" parent="knight_skeleton/hip"]
 position = Vector2(9, -10)
 rest = Transform2D(1, 0, 0, 1, 9, -10)
+editor_settings/show_bone_gizmo = false
 
 [node name="left_knee" type="Bone2D" parent="knight_skeleton/hip/left_upper_leg"]
 position = Vector2(28, 60)
@@ -315,14 +345,17 @@ rest = Transform2D(1, 0, 0, 1, 28, 60)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -20.63
+editor_settings/show_bone_gizmo = false
 
 [node name="left_lower_leg" type="Bone2D" parent="knight_skeleton/hip/left_upper_leg"]
 position = Vector2(28, 60)
 rest = Transform2D(1, 0, 0, 1, 28, 60)
+editor_settings/show_bone_gizmo = false
 
 [node name="left_foot" type="Bone2D" parent="knight_skeleton/hip/left_upper_leg/left_lower_leg"]
 position = Vector2(19, 39)
 rest = Transform2D(1, 0, 0, 1, 19, 39)
+editor_settings/show_bone_gizmo = false
 
 [node name="end" type="Marker2D" parent="knight_skeleton/hip/left_upper_leg/left_lower_leg/left_foot"]
 position = Vector2(-19, -39)
@@ -330,6 +363,7 @@ position = Vector2(-19, -39)
 [node name="right_upper_leg" type="Bone2D" parent="knight_skeleton/hip"]
 position = Vector2(-12, -8)
 rest = Transform2D(1, 0, 0, 1, -12, -8)
+editor_settings/show_bone_gizmo = false
 
 [node name="right_knee" type="Bone2D" parent="knight_skeleton/hip/right_upper_leg"]
 position = Vector2(-44, 58)
@@ -337,16 +371,19 @@ rest = Transform2D(1, 0, 0, 1, -44, 58)
 auto_calculate_length_and_angle = false
 length = 13.821
 bone_angle = 94.428
+editor_settings/show_bone_gizmo = false
 
 [node name="right_lower_leg" type="Bone2D" parent="knight_skeleton/hip/right_upper_leg"]
 position = Vector2(-44, 58)
 rest = Transform2D(1, 0, 0, 1, -44, 58)
+editor_settings/show_bone_gizmo = false
 
 [node name="right_foot" type="Bone2D" parent="knight_skeleton/hip/right_upper_leg/right_lower_leg"]
 position = Vector2(-21, 41)
 rest = Transform2D(1, 0, 0, 1, -21, 41)
+editor_settings/show_bone_gizmo = false
 
 [node name="end" type="Marker2D" parent="knight_skeleton/hip/right_upper_leg/right_lower_leg/right_foot"]
 
 [node name="ik_test_target" type="Node2D" parent="."]
-position = Vector2(204, 119)
+position = Vector2(327, 104)
