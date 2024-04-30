@@ -1,16 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=8 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/character.tres" id="1_dxjqc"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="2_clf4g"]
 [ext_resource type="PackedScene" uid="uid://cmwkp4j3ey4hg" path="res://scenes/character.tscn" id="2_spruq"]
-[ext_resource type="PackedScene" path="res://scenes/bg.tscn" id="4_t0ony"]
+[ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
+[ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
+[ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
+script = ExtResource("2_clf4g")
 
 [node name="Node2D" parent="." instance=ExtResource("9_mo5sx")]
 
 [node name="Character" parent="." instance=ExtResource("2_spruq")]
-position = Vector2(278, 189)
+position = Vector2(427, 141)
 
 [node name="Bg" parent="." instance=ExtResource("4_t0ony")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("6_j48h2")
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("6_wkpwb")]
+modulate = Color(0.972549, 1, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
