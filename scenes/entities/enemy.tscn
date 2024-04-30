@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://4glvf1i34ddf"]
+
+[ext_resource type="Script" path="res://scripts/EnemyCharacter.gd" id="1_sc3nm"]
+[ext_resource type="Texture2D" uid="uid://dhttuuq8d6mbv" path="res://assets/block.png" id="2_jh6o3"]
+[ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="3_p8p5l"]
+[ext_resource type="Texture2D" uid="uid://behqikadmvo3o" path="res://assets/jump.png" id="4_os7t3"]
+[ext_resource type="Texture2D" uid="uid://dd62rgrk5odxn" path="res://assets/parry1.png" id="5_co83h"]
+[ext_resource type="Texture2D" uid="uid://f01b2dciabb" path="res://assets/parry2.png" id="6_imgxj"]
+[ext_resource type="Texture2D" uid="uid://sfyuqvq3ib3b" path="res://assets/parry3.png" id="7_pl13w"]
+[ext_resource type="Texture2D" uid="uid://dahhs3bhm6rog" path="res://assets/walk2.png" id="8_dtwks"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nw1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jh6o3")
+}],
+"loop": false,
+"name": &"Block",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p8p5l")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_os7t3")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_co83h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_imgxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pl13w")
+}],
+"loop": false,
+"name": &"Parry",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p8p5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dtwks")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rk82w"]
+radius = 93.0
+height = 372.0
+
+[node name="Character" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["enemy"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_sc3nm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.455093, 0.455093)
+sprite_frames = SubResource("SpriteFrames_2nw1d")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_rk82w")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-1, 0)
+zoom = Vector2(0.5, 0.5)
