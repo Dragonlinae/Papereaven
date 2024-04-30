@@ -151,9 +151,9 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/
 
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
-position = Vector2(-285.386, -163.384)
-rotation = -1.75061
-scale = Vector2(0.999978, 0.999978)
+position = Vector2(-285.386, -163.383)
+rotation = -1.75054
+scale = Vector2(0.999999, 0.999999)
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 
