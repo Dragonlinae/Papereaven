@@ -8,6 +8,7 @@ size = Vector2(114, 202)
 
 [node name="Checkpoint" type="Node2D"]
 script = ExtResource("1_ndf58")
+spawnpoint = null
 
 [node name="Area2D" type="Area2D" parent="."]
 monitorable = false

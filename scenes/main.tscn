@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://cmwkp4j3ey4hg" path="res://scenes/character.tscn" id="2_spruq"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
-[ext_resource type="Texture2D" uid="uid://dqklg1cdf3l3d" path="res://assets/flag.png" id="5_8fyuv"]
+[ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
 
 [node name="Node2D" type="Node2D"]
@@ -12,14 +12,14 @@ material = ExtResource("1_dxjqc")
 [node name="Node2D" parent="." instance=ExtResource("9_mo5sx")]
 
 [node name="Character" parent="." instance=ExtResource("2_spruq")]
-position = Vector2(278, 189)
+position = Vector2(258, 113)
 
 [node name="Bg" parent="." instance=ExtResource("4_t0ony")]
 
-[node name="Flag" type="Sprite2D" parent="."]
-position = Vector2(508, 165)
-texture = ExtResource("5_8fyuv")
+[node name="Checkpoint" parent="." instance=ExtResource("6_1g06w")]
+position = Vector2(531, 161)
+spawnpoint = null
 
-[node name="Flag2" type="Sprite2D" parent="."]
-position = Vector2(1361, 33)
-texture = ExtResource("5_8fyuv")
+[node name="Checkpoint2" parent="." instance=ExtResource("6_1g06w")]
+position = Vector2(1335, 34)
+spawnpoint = null
