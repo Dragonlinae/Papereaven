@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dudhrqgdeg35m"]
+[gd_scene load_steps=12 format=3 uid="uid://dudhrqgdeg35m"]
 
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="1_iunsa"]
 
@@ -112,6 +112,182 @@ modifications/1 = SubResource("SkeletonModification2DCCDIK_kikn2")
 modifications/2 = SubResource("SkeletonModification2DCCDIK_6f87r")
 modifications/3 = SubResource("SkeletonModification2DCCDIK_mp4k7")
 
+[sub_resource type="Animation" id="Animation_bevrd"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("knight_skeleton/hip:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(114, 180), Vector2(114, 182)]
+}
+
+[sub_resource type="Animation" id="Animation_d5sym"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ik_left_hand_target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(157, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ik_right_hand_target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(97, 200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ik_left_foot_target:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(152, 281)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ik_right_foot_target:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(77, 281)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:use_global_coordinates")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("knight_skeleton/hip:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(114, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_kswel"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ik_left_hand_target:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(2, 1.5, 1, 0.7),
+"update": 0,
+"values": [Vector2(157, 96), Vector2(135, 96), Vector2(167, 154), Vector2(134, 219)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37tsb"]
+_data = {
+"RESET": SubResource("Animation_d5sym"),
+"idle": SubResource("Animation_bevrd"),
+"walk_start": SubResource("Animation_kswel")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qnosg"]
+
 [node name="root" type="Node2D"]
 position = Vector2(-450, -258)
 
@@ -151,9 +327,8 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/
 
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
-position = Vector2(-285.386, -163.383)
-rotation = -1.75054
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-242.883, -131.917)
+rotation = -0.414631
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 
@@ -491,3 +666,16 @@ position = Vector2(152, 281)
 
 [node name="ik_right_foot_target" type="Node2D" parent="."]
 position = Vector2(77, 281)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_37tsb")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_37tsb")
+}
+tree_root = SubResource("AnimationNodeStateMachine_qnosg")
+anim_player = NodePath("../AnimationPlayer")
