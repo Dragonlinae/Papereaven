@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dudhrqgdeg35m"]
+[gd_scene load_steps=14 format=3 uid="uid://dudhrqgdeg35m"]
 
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="1_iunsa"]
 
@@ -83,11 +83,15 @@ ccdik_data_chain_length = 3
 joint_data/0/bone_index = 18
 joint_data/0/bone2d_node = NodePath("hip/right_upper_leg")
 joint_data/0/rotate_from_joint = false
-joint_data/0/enable_constraint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 60.0
+joint_data/0/constraint_angle_max = 235.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
 joint_data/0/editor_draw_gizmo = true
 joint_data/1/bone_index = 20
 joint_data/1/bone2d_node = NodePath("hip/right_upper_leg/right_lower_leg")
-joint_data/1/rotate_from_joint = false
+joint_data/1/rotate_from_joint = true
 joint_data/1/enable_constraint = true
 joint_data/1/constraint_angle_min = 12.903
 joint_data/1/constraint_angle_max = 166.332
@@ -104,13 +108,21 @@ joint_data/2/constraint_angle_invert = false
 joint_data/2/constraint_in_localspace = true
 joint_data/2/editor_draw_gizmo = true
 
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_g13ak"]
+target_nodepath = NodePath("../ik_right_foot_target")
+joint_one_bone_idx = 18
+joint_one_bone2d_node = NodePath("hip/right_upper_leg")
+joint_two_bone_idx = 20
+joint_two_bone2d_node = NodePath("hip/right_upper_leg/right_lower_leg")
+
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_urws0"]
 enabled = true
-modification_count = 4
+modification_count = 5
 modifications/0 = SubResource("SkeletonModification2DCCDIK_wtyqd")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_kikn2")
 modifications/2 = SubResource("SkeletonModification2DCCDIK_6f87r")
 modifications/3 = SubResource("SkeletonModification2DCCDIK_mp4k7")
+modifications/4 = SubResource("SkeletonModification2DTwoBoneIK_g13ak")
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -246,6 +258,30 @@ tracks/10/keys = {
 "update": 1,
 "values": [-3]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("polygons/left_leg/left_foot:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("polygons/left_leg/left_foot:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_bevrd"]
 resource_name = "idle"
@@ -266,6 +302,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_wxfic"]
 resource_name = "walk_loop"
+loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -273,10 +311,10 @@ tracks/0/path = NodePath("polygons/right_leg:z_index")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-2]
+"values": [-2, -4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -297,10 +335,10 @@ tracks/2/path = NodePath("ik_right_foot_target:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(77, 281), Vector2(128, 283)]
+"values": [Vector2(77, 281), Vector2(102, 270), Vector2(127, 281)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -309,10 +347,46 @@ tracks/3/path = NodePath("ik_left_foot_target:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(152, 281), Vector2(84, 281)]
+"values": [Vector2(152, 281), Vector2(102, 281), Vector2(117, 274), Vector2(152, 281)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("knight_skeleton/hip:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(114, 180), Vector2(114, 178), Vector2(114, 180), Vector2(114, 178)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("polygons/left_leg/left_foot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("polygons/left_leg/left_foot:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.750492]
 }
 
 [sub_resource type="Animation" id="Animation_kswel"]
@@ -372,9 +446,9 @@ position = Vector2(-450, -258)
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
 z_index = -6
-position = Vector2(-285.386, -163.383)
-rotation = -1.75054
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-285.387, -163.385)
+rotation = -1.75079
+scale = Vector2(0.999855, 0.999855)
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 
@@ -480,7 +554,8 @@ uv = PackedVector2Array(188.152, 327.962, 179.147, 341.943, 187.678, 363.507, 19
 bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_bang", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_pony", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand/sword", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/cape", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/torso_cloth", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "hip/left_upper_leg/left_lower_leg/left_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg/right_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="left_foot" type="Polygon2D" parent="polygons/left_leg"]
-position = Vector2(-89.3887, -156.63)
+position = Vector2(173, 268)
+offset = Vector2(-262.389, -424.63)
 texture = ExtResource("1_iunsa")
 skeleton = NodePath("../../../knight_skeleton")
 polygon = PackedVector2Array(242.18, 431.043, 259.716, 412.322, 274.408, 413.507, 280.806, 431.991, 251.896, 436.493)
