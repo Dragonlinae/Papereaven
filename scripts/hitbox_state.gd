@@ -1,3 +1,4 @@
+class_name HitboxState
 extends StateMachine
 
 func _init():
