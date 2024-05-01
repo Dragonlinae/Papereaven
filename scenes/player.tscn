@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dudhrqgdeg35m"]
+[gd_scene load_steps=25 format=3 uid="uid://dudhrqgdeg35m"]
 
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="1_iunsa"]
 
@@ -295,7 +295,6 @@ tracks/12/keys = {
 [sub_resource type="Animation" id="Animation_bevrd"]
 resource_name = "idle"
 length = 2.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -359,7 +358,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(152, 281), Vector2(102, 281), Vector2(117, 274), Vector2(152, 281)]
+"values": [Vector2(152, 281), Vector2(102, 281), Vector2(117, 270), Vector2(152, 281)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -437,15 +436,91 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_hbloa"]
+resource_name = "walk_end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ik_left_hand_target:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(0.7, 1, 1.5, 2),
+"update": 0,
+"values": [Vector2(134, 219), Vector2(167, 154), Vector2(135, 96), Vector2(157, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37tsb"]
 _data = {
 "RESET": SubResource("Animation_d5sym"),
 "idle": SubResource("Animation_bevrd"),
+"walk_end": SubResource("Animation_hbloa"),
 "walk_loop": SubResource("Animation_wxfic"),
 "walk_start": SubResource("Animation_kswel")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lpv37"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sxrd2"]
+animation = &"walk_end"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cilps"]
+animation = &"walk_loop"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3y4j2"]
+animation = &"walk_start"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kna4p"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ummu8"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u1akg"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_30cvm"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oxcu3"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qnosg"]
+states/idle/node = SubResource("AnimationNodeAnimation_lpv37")
+states/idle/position = Vector2(297, 100)
+states/walk_end/node = SubResource("AnimationNodeAnimation_sxrd2")
+states/walk_end/position = Vector2(555, 22)
+states/walk_loop/node = SubResource("AnimationNodeAnimation_cilps")
+states/walk_loop/position = Vector2(424, 22)
+states/walk_start/node = SubResource("AnimationNodeAnimation_3y4j2")
+states/walk_start/position = Vector2(297, 22)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kna4p"), "walk_start", "walk_loop", SubResource("AnimationNodeStateMachineTransition_ummu8"), "walk_loop", "walk_end", SubResource("AnimationNodeStateMachineTransition_u1akg"), "walk_end", "idle", SubResource("AnimationNodeStateMachineTransition_30cvm"), "idle", "walk_start", SubResource("AnimationNodeStateMachineTransition_oxcu3")]
+graph_offset = Vector2(0, -73.4426)
 
 [node name="root" type="Node2D"]
 position = Vector2(-450, -258)
@@ -455,7 +530,7 @@ position = Vector2(-450, -258)
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
 z_index = -6
-position = Vector2(-242.883, -132.41)
+position = Vector2(-242.883, -132.98)
 rotation = -0.414631
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
