@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dudhrqgdeg35m"]
+[gd_scene load_steps=27 format=3 uid="uid://dudhrqgdeg35m"]
 
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="1_iunsa"]
 
@@ -291,6 +291,42 @@ tracks/12/keys = {
 "update": 0,
 "values": [0.698132]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("polygons/sword_position:z_index")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-6]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("polygons/right_hand:z_index")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("polygons/sword_position:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5653]
+}
 
 [sub_resource type="Animation" id="Animation_bevrd"]
 resource_name = "idle"
@@ -517,9 +553,99 @@ tracks/2/keys = {
 "values": [Vector2(114, 180), Vector2(114, 180), Vector2(116, 176), Vector2(116, 176), Vector2(132, 180), Vector2(132, 180), Vector2(114, 180)]
 }
 
+[sub_resource type="Animation" id="Animation_i6a31"]
+resource_name = "attack_heavy"
+length = 1.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ik_left_hand_target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(157, 96), Vector2(170, 168), Vector2(151, 181), Vector2(120, 157), Vector2(120, 157), Vector2(181, 157), Vector2(181, 157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("polygons/sword_position:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-6, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ik_right_hand_target:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(97, 200), Vector2(97, 200), Vector2(146, 186), Vector2(120, 157), Vector2(120, 157), Vector2(220, 181), Vector2(220, 181)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("polygons/right_hand:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("polygons/sword_position:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-1.77318, 0.166018, 1.5708, 1.5708, 1.5708]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("knight_skeleton/hip:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9, 0.975, 1.025, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(114, 180), Vector2(114, 180), Vector2(109, 180), Vector2(104, 180), Vector2(124, 180), Vector2(124, 180)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37tsb"]
 _data = {
 "RESET": SubResource("Animation_d5sym"),
+"attack_heavy": SubResource("Animation_i6a31"),
 "attack_light": SubResource("Animation_fmq2n"),
 "idle": SubResource("Animation_bevrd"),
 "walk_end": SubResource("Animation_hbloa"),
@@ -573,9 +699,8 @@ position = Vector2(-450, -258)
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
 z_index = -6
-position = Vector2(-288.042, -154.305)
-rotation = -1.85686
-scale = Vector2(0.999871, 0.999871)
+position = Vector2(-226, -132)
+rotation = 1.5653
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 
@@ -806,7 +931,6 @@ editor_settings/show_bone_gizmo = false
 
 [node name="left_upper_arm" type="Bone2D" parent="knight_skeleton/hip/chest"]
 position = Vector2(12, -35)
-rotation = 0.362458
 rest = Transform2D(1, 0, 0, 1, 12, -35)
 auto_calculate_length_and_angle = false
 length = 40.28
@@ -815,8 +939,7 @@ editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" type="Bone2D" parent="knight_skeleton/hip/chest/left_upper_arm"]
-position = Vector2(46.9999, 1.00004)
-rotation = -0.777089
+position = Vector2(47, 1)
 rest = Transform2D(1, 0, 0, 1, 47, 1)
 auto_calculate_length_and_angle = false
 length = 48.244
@@ -870,7 +993,6 @@ position = Vector2(-0.294134, 29.9761)
 
 [node name="cape" type="Bone2D" parent="knight_skeleton/hip/chest"]
 position = Vector2(-9, -37)
-rotation = -0.718329
 rest = Transform2D(1, 0, 0, 1, -9, -37)
 auto_calculate_length_and_angle = false
 length = 101.006
@@ -921,7 +1043,7 @@ editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="right_knee" type="Bone2D" parent="knight_skeleton/hip/right_upper_leg"]
-position = Vector2(-39.2001, 48.137)
+position = Vector2(-44, 58)
 rest = Transform2D(1, 0, 0, 1, -44, 58)
 auto_calculate_length_and_angle = false
 length = 13.821
@@ -929,9 +1051,7 @@ bone_angle = 94.428
 editor_settings/show_bone_gizmo = false
 
 [node name="right_lower_leg" type="Bone2D" parent="knight_skeleton/hip/right_upper_leg"]
-position = Vector2(-39.2004, 48.1401)
-rotation = 0.2252
-scale = Vector2(0.999928, 0.999928)
+position = Vector2(-44, 58)
 rest = Transform2D(1, 0, 0, 1, -44, 58)
 editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
