@@ -1,14 +1,18 @@
 class_name MovementState
 extends StateMachine
 
-func _init():
-	super("still_ground")
-	add_state("moving_ground")
+var input_interface : InputHandler
+
+func _init(input_interface_inject : InputHandler):
+	input_interface = input_interface_inject
+	
+	super("idle")
+	add_state("moving")
 	add_state("dash")
 
-	add_transition("still_ground", "moving_ground")
-	add_transition("still_ground", "dash")
-	add_transition("moving_ground", "dash")
-	add_transition("moving_Ground", "still_ground")
-	add_transition("dash", "moving_ground")
-	add_transition("dash", "still_ground")
+	add_transition("idle", "moving")
+	add_transition("idle", "dash")
+	add_transition("moving", "dash")
+	add_transition("moving", "idle")
+	add_transition("dash", "moving")
+	add_transition("dash", "idle")
