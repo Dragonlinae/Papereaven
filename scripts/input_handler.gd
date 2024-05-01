@@ -11,3 +11,5 @@ func get_movement_direction() -> float:
 func get_jump_input() -> bool:
 	assert(false, "Virtual function must be defined in child class")
 	return false
+
+# TODO: Implement virual func protos for combat input

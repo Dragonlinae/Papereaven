@@ -11,16 +11,16 @@ func _init(input_interface_inject : InputHandler, char_controller_inject : Chara
 	print(input_interface)
 	print(char_controller)
 
-	super("idle")
-	add_state("moving")
-	add_state("dash")
+	super("Idle")
+	add_state("Moving")
+	add_state("Dash")
 
-	add_transition("idle", "moving")
-	add_transition("idle", "dash")
-	add_transition("moving", "dash")
-	add_transition("moving", "idle")
-	add_transition("dash", "moving")
-	add_transition("dash", "idle")
+	add_transition("Idle", "Moving")
+	add_transition("Idle", "Dash")
+	add_transition("Moving", "Dash")
+	add_transition("Moving", "Idle")
+	add_transition("Dash", "Moving")
+	add_transition("Dash", "Idle")
 
 func handle_jump():
 	var jump_input : bool = input_interface.get_jump_input()
@@ -30,9 +30,9 @@ func handle_jump():
 func process_idle():
 	var movement_direction : float = input_interface.get_movement_direction()
 	if movement_direction:
-		transition_state("moving")
+		transition_state("Moving")
 	elif false:
-		transition_state("dash")
+		transition_state("Dash")
 	else:
 		handle_jump()
 		char_controller.velocity.x = 0
@@ -45,7 +45,7 @@ func process_moving():
 		handle_jump()
 		char_controller.velocity.x = movement_direction * char_controller.move_velocity
 	else:
-		transition_state("idle")
+		transition_state("Idle")
 	return
 
 func process_dash():
@@ -53,11 +53,11 @@ func process_dash():
 	return
 
 func _on_state_transition(_previous_state : String, new_state : String):
-	if new_state == "idle":
+	if new_state == "Idle":
 		process_idle()
-	elif new_state == "moving":
+	elif new_state == "Moving":
 		process_moving()
-	elif new_state == "dash":
+	elif new_state == "Dash":
 		process_dash()
 	else:
 		assert(false, "Unreachable state")
@@ -65,9 +65,9 @@ func _on_state_transition(_previous_state : String, new_state : String):
 
 func process_state():
 	match current_state:
-		"idle":
+		"Idle":
 			process_idle()
-		"moving":
+		"Moving":
 			process_moving()
-		"dash":
+		"Dash":
 			process_dash()

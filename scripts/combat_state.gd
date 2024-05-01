@@ -16,3 +16,8 @@ func _init():
 	
 	add_transition("Attacking", "Stagger")
 	add_transition("Blocking", "Stagger")
+
+# TODO: Create attack type class and make child classes?
+#       LightAttack, HeavyAttack, AerialAttack inherit from AttackBase?
+
+# TODO: Implement standard state functions
