@@ -12,11 +12,6 @@ var valid_states : Array[String] = []
 
 var valid_transitions = {} # {[string] : Array[String]}
 
-# Constructor
-func _init(defaultState : String):
-	currentState = defaultState
-	return
-
 func validState(state : String) -> bool:
 	return valid_states.has(state)
 
@@ -60,3 +55,8 @@ func transition_state(targetState : String):
 	currentState = targetState
 	onStateTransition.emit(previousState, currentState)
 
+# Constructor
+func _init(defaultState : String):
+	currentState = defaultState
+	add_state(defaultState)
+	return
