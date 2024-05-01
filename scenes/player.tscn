@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dudhrqgdeg35m"]
+[gd_scene load_steps=28 format=3 uid="uid://dudhrqgdeg35m"]
 
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="1_iunsa"]
 
@@ -327,6 +327,161 @@ tracks/15/keys = {
 "update": 0,
 "values": [1.5653]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("polygons/sword_position/sword_rotation:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("knight_skeleton:modification_stack:modifications/1:target_nodepath")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [NodePath("../ik_right_hand_target")]
+}
+
+[sub_resource type="Animation" id="Animation_i6a31"]
+resource_name = "attack_heavy"
+length = 1.4
+loop_mode = 2
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ik_left_hand_target:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 0.93, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(157, 96), Vector2(170, 168), Vector2(151, 181), Vector2(120, 157), Vector2(120, 157), Vector2(181, 157), Vector2(181, 157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("polygons/sword_position:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-6, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ik_right_hand_target:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 0.93, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(97, 200), Vector2(97, 200), Vector2(146, 186), Vector2(120, 157), Vector2(120, 157), Vector2(220, 181), Vector2(220, 181)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("polygons/right_hand:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("polygons/sword_position:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-1.77318, 0.166018, 1.5708, 1.5708, 1.5708]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("knight_skeleton/hip:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.84, 0.93, 1.025, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(114, 180), Vector2(114, 180), Vector2(104, 180), Vector2(109, 180), Vector2(124, 180), Vector2(124, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_fmq2n"]
+resource_name = "attack_light"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ik_left_hand_target:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 4.8),
+"transitions": PackedFloat32Array(1, 1.6, 0.8, 0.8, 1),
+"update": 0,
+"values": [Vector2(157, 96), Vector2(157, 96), Vector2(206, 95), Vector2(131, 286), Vector2(157, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ik_right_hand_target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0001, 0.2, 0.3, 0.5, 0.7, 4.8),
+"transitions": PackedFloat32Array(1, 1.6, 0.8, 1, 1, 1),
+"update": 0,
+"values": [Vector2(97, 200), Vector2(157, 96), Vector2(206, 95), Vector2(138, 218), Vector2(138, 218), Vector2(97, 200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("knight_skeleton/hip:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(114, 180), Vector2(114, 180), Vector2(116, 176), Vector2(116, 176), Vector2(132, 180), Vector2(132, 180), Vector2(114, 180)]
+}
 
 [sub_resource type="Animation" id="Animation_bevrd"]
 resource_name = "idle"
@@ -342,6 +497,45 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2, 2),
 "update": 0,
 "values": [Vector2(114, 180), Vector2(114, 182)]
+}
+
+[sub_resource type="Animation" id="Animation_hbloa"]
+resource_name = "walk_end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ik_left_hand_target:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(0.7, 1, 1.5, 2),
+"update": 0,
+"values": [Vector2(134, 219), Vector2(167, 154), Vector2(135, 96), Vector2(157, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_wxfic"]
@@ -472,48 +666,8 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_hbloa"]
-resource_name = "walk_end"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ik_left_hand_target:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.6, 1),
-"transitions": PackedFloat32Array(0.7, 1, 1.5, 2),
-"update": 0,
-"values": [Vector2(134, 219), Vector2(167, 154), Vector2(135, 96), Vector2(157, 96)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_fmq2n"]
-resource_name = "attack_light"
-length = 1.2
+[sub_resource type="Animation" id="Animation_m18rj"]
+resource_name = "attack_light_2"
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -523,10 +677,10 @@ tracks/0/path = NodePath("ik_left_hand_target:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1.2),
-"transitions": PackedFloat32Array(1, 1.6, 0.8, 0.8, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.45, 0.5, 0.6, 4.8),
+"transitions": PackedFloat32Array(1, 1.6, 0.8, 0.8, 1, 1, 1),
 "update": 0,
-"values": [Vector2(157, 96), Vector2(157, 96), Vector2(206, 95), Vector2(131, 286), Vector2(157, 96)]
+"values": [Vector2(157, 96), Vector2(157, 96), Vector2(206, 95), Vector2(131, 286), Vector2(116.913, 300.102), Vector2(116.913, 300.102), Vector2(157, 96)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -535,10 +689,10 @@ tracks/1/path = NodePath("ik_right_hand_target:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0001, 0.2, 0.4, 0.6, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1.6, 0.8, 1, 1, 1),
+"times": PackedFloat32Array(0.0001, 0.2, 0.3, 0.45, 0.5, 0.6, 0.7, 4.8),
+"transitions": PackedFloat32Array(1, 1.6, 0.8, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(97, 200), Vector2(157, 96), Vector2(206, 95), Vector2(138, 218), Vector2(138, 218), Vector2(97, 200)]
+"values": [Vector2(160, 195), Vector2(157, 96), Vector2(206, 95), Vector2(138, 218), Vector2(149, 206.5), Vector2(149, 206.5), Vector2(160, 195), Vector2(97, 200)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -547,99 +701,46 @@ tracks/2/path = NodePath("knight_skeleton/hip:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6, 0.9, 1.2),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.45, 0.6, 4.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(114, 180), Vector2(114, 180), Vector2(116, 176), Vector2(116, 176), Vector2(132, 180), Vector2(132, 180), Vector2(114, 180)]
 }
-
-[sub_resource type="Animation" id="Animation_i6a31"]
-resource_name = "attack_heavy"
-length = 1.4
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ik_left_hand_target:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(157, 96), Vector2(170, 168), Vector2(151, 181), Vector2(120, 157), Vector2(120, 157), Vector2(181, 157), Vector2(181, 157)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("polygons/sword_position:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [-6, 1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ik_right_hand_target:position")
+tracks/3/path = NodePath("polygons/sword_position/sword_rotation:rotation")
 tracks/3/interp = 1
-tracks/3/loop_wrap = true
+tracks/3/loop_wrap = false
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.35, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(97, 200), Vector2(97, 200), Vector2(146, 186), Vector2(120, 157), Vector2(120, 157), Vector2(220, 181), Vector2(220, 181)]
+"values": [0.0, 0.0, 0.785398, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = false
-tracks/4/path = NodePath("polygons/right_hand:z_index")
+tracks/4/enabled = true
+tracks/4/path = NodePath("knight_skeleton:modification_stack:modifications/1:target_nodepath")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1]
+"values": [NodePath("hip/chest/left_upper_arm/left_hand/end")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("polygons/sword_position:rotation")
+tracks/5/path = NodePath("polygons/sword_position:z_index")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [-1.77318, 0.166018, 1.5708, 1.5708, 1.5708]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("knight_skeleton/hip:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 0.975, 1.025, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(114, 180), Vector2(114, 180), Vector2(109, 180), Vector2(104, 180), Vector2(124, 180), Vector2(124, 180)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37tsb"]
@@ -647,6 +748,7 @@ _data = {
 "RESET": SubResource("Animation_d5sym"),
 "attack_heavy": SubResource("Animation_i6a31"),
 "attack_light": SubResource("Animation_fmq2n"),
+"attack_light_2": SubResource("Animation_m18rj"),
 "idle": SubResource("Animation_bevrd"),
 "walk_end": SubResource("Animation_hbloa"),
 "walk_loop": SubResource("Animation_wxfic"),
@@ -699,7 +801,7 @@ position = Vector2(-450, -258)
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
 z_index = -6
-position = Vector2(-226, -132)
+position = Vector2(-245.584, -132)
 rotation = 1.5653
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
