@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dudhrqgdeg35m"]
+[gd_scene load_steps=15 format=3 uid="uid://dudhrqgdeg35m"]
 
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="1_iunsa"]
 
@@ -115,17 +115,26 @@ joint_one_bone2d_node = NodePath("hip/right_upper_leg")
 joint_two_bone_idx = 20
 joint_two_bone2d_node = NodePath("hip/right_upper_leg/right_lower_leg")
 
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_l2y4b"]
+target_nodepath = NodePath("../ik_left_foot_target")
+joint_one_bone_idx = 14
+joint_one_bone2d_node = NodePath("hip/left_upper_leg")
+joint_two_bone_idx = 16
+joint_two_bone2d_node = NodePath("hip/left_upper_leg/left_lower_leg")
+
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_urws0"]
 enabled = true
-modification_count = 5
+modification_count = 6
 modifications/0 = SubResource("SkeletonModification2DCCDIK_wtyqd")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_kikn2")
 modifications/2 = SubResource("SkeletonModification2DCCDIK_6f87r")
 modifications/3 = SubResource("SkeletonModification2DCCDIK_mp4k7")
 modifications/4 = SubResource("SkeletonModification2DTwoBoneIK_g13ak")
+modifications/5 = SubResource("SkeletonModification2DTwoBoneIK_l2y4b")
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -280,7 +289,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [0.698132]
 }
 
 [sub_resource type="Animation" id="Animation_bevrd"]
@@ -386,7 +395,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.750492]
+"values": [0.439823]
 }
 
 [sub_resource type="Animation" id="Animation_kswel"]
@@ -446,9 +455,8 @@ position = Vector2(-450, -258)
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
 z_index = -6
-position = Vector2(-285.387, -163.385)
-rotation = -1.75079
-scale = Vector2(0.999855, 0.999855)
+position = Vector2(-242.883, -132.41)
+rotation = -0.414631
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 
@@ -555,6 +563,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedF
 
 [node name="left_foot" type="Polygon2D" parent="polygons/left_leg"]
 position = Vector2(173, 268)
+rotation = 0.698132
 offset = Vector2(-262.389, -424.63)
 texture = ExtResource("1_iunsa")
 skeleton = NodePath("../../../knight_skeleton")
