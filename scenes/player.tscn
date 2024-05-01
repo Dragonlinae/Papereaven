@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dudhrqgdeg35m"]
+[gd_scene load_steps=26 format=3 uid="uid://dudhrqgdeg35m"]
 
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="1_iunsa"]
 
@@ -475,9 +475,52 @@ tracks/2/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_fmq2n"]
+resource_name = "attack_light"
+length = 1.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ik_left_hand_target:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1.6, 0.8, 0.8, 1),
+"update": 0,
+"values": [Vector2(157, 96), Vector2(157, 96), Vector2(206, 95), Vector2(131, 286), Vector2(157, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ik_right_hand_target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0001, 0.2, 0.4, 0.6, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1.6, 0.8, 1, 1, 1),
+"update": 0,
+"values": [Vector2(97, 200), Vector2(157, 96), Vector2(206, 95), Vector2(138, 218), Vector2(138, 218), Vector2(97, 200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("knight_skeleton/hip:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(114, 180), Vector2(114, 180), Vector2(116, 176), Vector2(116, 176), Vector2(132, 180), Vector2(132, 180), Vector2(114, 180)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37tsb"]
 _data = {
 "RESET": SubResource("Animation_d5sym"),
+"attack_light": SubResource("Animation_fmq2n"),
 "idle": SubResource("Animation_bevrd"),
 "walk_end": SubResource("Animation_hbloa"),
 "walk_loop": SubResource("Animation_wxfic"),
@@ -530,8 +573,9 @@ position = Vector2(-450, -258)
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
 z_index = -6
-position = Vector2(-242.883, -132.98)
-rotation = -0.414631
+position = Vector2(-288.042, -154.305)
+rotation = -1.85686
+scale = Vector2(0.999871, 0.999871)
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 
