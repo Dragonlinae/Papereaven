@@ -1,26 +1,27 @@
 [gd_scene load_steps=4 format=3 uid="uid://ea378vbc8syb"]
 
-[ext_resource type="Script" path="res://scripts/BossCharacter.gd" id="1_sjy24"]
+[ext_resource type="Script" path="res://scripts/boss_character.gd" id="1_u81my"]
 [ext_resource type="Texture2D" uid="uid://decu1ve71ao7o" path="res://assets/artistblock.png" id="2_dhjvd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rk82w"]
 radius = 93.0
 height = 530.0
 
-[node name="Character" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 5
-script = ExtResource("1_sjy24")
+script = ExtResource("1_u81my")
+attacks = ["star"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rk82w")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
 zoom = Vector2(0.5, 0.5)
 
-[node name="Artistblock" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Artistblock" type="Sprite2D" parent="."]
 position = Vector2(-10, 0)
 texture = ExtResource("2_dhjvd")
+
+[node name="Character" type="Node2D" parent="."]

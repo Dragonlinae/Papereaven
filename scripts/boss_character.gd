@@ -3,15 +3,10 @@ extends CharacterBody2D
 const SPEED: float = 500.0
 const JUMP_VELOCITY: float = -1600.0
 
-# Array of resource paths to txt files containing attack names, need to append res://scripts/attacks/ to the beginning of the path and .txt to the end
 @export var attacks: Array = []
 
 var health: int = 50
-var atk_time: float = 0.0
-var atk_total_duration: float = 0.0
-var attack: String = ""
-var attack_metadata: Array = []
-var attack_data: Array = []
+var attack: Attack
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -42,21 +37,12 @@ func update_state(delta):
 
 	match curr_state:
 		STATE.IDLE:
-			attack = attacks[randi() % attacks.size()]
-			print(attack)
-			attack_metadata = load("res://scripts/attacks/" + attack + ".txt").get_text().split("[Pattern]")
-			attack_data = attack_metadata[1].split("\n")
-			attack_metadata = attack_metadata[0].split(",")
-
-			atk_time = 0.0
-			atk_total_duration = float(attack_metadata[1])
-
+			attack = Attack.new(attacks[randi() % attacks.size()])
 			set_state(STATE.ATTACK)
 		STATE.ATTACK:
-			if atk_time >= atk_total_duration:
+			attack.update_attack_time(delta)
+			if attack.attack_finished():
 				set_state(STATE.IDLE)
-			else:
-				atk_time -= delta
 		STATE.LEFT:
 			set_state(STATE.RIGHT)
 		STATE.RIGHT:
@@ -65,6 +51,12 @@ func update_state(delta):
 	match curr_state:
 		STATE.IDLE:
 			velocity.x = 0
+			pass
+		STATE.ATTACK:
+			while attack.next_bullet_ready():
+				var bullet = attack.get_bullet(global_position, deg_to_rad(Time.get_ticks_msec() / 10 % 360))
+				get_parent().add_child(bullet)
+				attack.next_bullet()
 			pass
 		STATE.LEFT:
 			velocity.x = -SPEED

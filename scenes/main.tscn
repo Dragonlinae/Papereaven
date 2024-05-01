@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=8 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://cmwkp4j3ey4hg" path="res://scenes/entities/character.tscn" id="2_spruq"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
 [ext_resource type="PackedScene" uid="uid://4glvf1i34ddf" path="res://scenes/entities/enemy.tscn" id="5_qn6y2"]
-[ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
+[ext_resource type="PackedScene" uid="uid://ea378vbc8syb" path="res://scenes/entities/boss.tscn" id="7_xcagy"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
 
 [node name="Node2D" type="Node2D"]
@@ -16,7 +17,7 @@ material = ExtResource("1_dxjqc")
 position = Vector2(270, 57)
 
 [node name="Bg" parent="." instance=ExtResource("4_t0ony")]
-scroll_offset = Vector2(342, 595.749)
+scroll_offset = Vector2(176.366, 266.627)
 
 [node name="Character2" parent="." instance=ExtResource("5_qn6y2")]
 position = Vector2(1997, 180)
@@ -26,3 +27,6 @@ position = Vector2(531, 161)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(4509, -351)
+
+[node name="Character3" parent="." instance=ExtResource("7_xcagy")]
+position = Vector2(1191.27, -507.253)
