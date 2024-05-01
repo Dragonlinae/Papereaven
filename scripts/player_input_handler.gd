@@ -2,7 +2,7 @@ class_name PlayerInputHandler
 extends InputHandler
 
 func _init():
-	print("Test")
+	print("A PIH has been instantiated")
 
 func get_movement_direction() -> float:
 	var direction_x : float = Input.get_axis("left", "right")

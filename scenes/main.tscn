@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=10 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
 [ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
+[ext_resource type="Script" path="res://scripts/player_input_handler.gd" id="9_wb3ff"]
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
@@ -48,6 +49,9 @@ position = Vector2(236, 121)
 scale = Vector2(4, 4)
 move_velocity = 750.0
 jump_velocity = 1000.0
+
+[node name="PlayerInputHandler" type="Node" parent="CharacterController"]
+script = ExtResource("9_wb3ff")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterController"]
 remote_path = NodePath("../../Camera2D")
