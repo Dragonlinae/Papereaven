@@ -1,28 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=9 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
-[ext_resource type="PackedScene" uid="uid://cmwkp4j3ey4hg" path="res://scenes/entities/character.tscn" id="2_spruq"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
 [ext_resource type="PackedScene" uid="uid://dudhrqgdeg35m" path="res://scenes/player.tscn" id="5_gg2p7"]
-[ext_resource type="PackedScene" uid="uid://4glvf1i34ddf" path="res://scenes/entities/enemy.tscn" id="5_qn6y2"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
+[ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
 
 [node name="Node2D" parent="." instance=ExtResource("9_mo5sx")]
 
-[node name="Character" parent="." instance=ExtResource("2_spruq")]
-position = Vector2(427, 141)
-
 [node name="Bg" parent="." instance=ExtResource("4_t0ony")]
 scroll_offset = Vector2(342, 595.749)
 
 [node name="player_root" parent="." instance=ExtResource("5_gg2p7")]
-position = Vector2(297, -36)
+position = Vector2(-566, -282)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -41,11 +37,30 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="Character2" parent="." instance=ExtResource("5_qn6y2")]
-position = Vector2(1997, 180)
-
 [node name="Checkpoint" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(531, 161)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(4509, -351)
+
+[node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
+position = Vector2(236, 121)
+scale = Vector2(4, 4)
+move_velocity = 750.0
+jump_velocity = 1000.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterController"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(236, 121)
+scale = Vector2(4, 4)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.13
+drag_top_margin = 0.13
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
