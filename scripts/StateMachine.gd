@@ -13,7 +13,7 @@ var valid_states : Array[String] = []
 var valid_transitions = {} # {[string] : Array[String]}
 
 # Constructor
-func _init(defaultState : String, history_depth :int):
+func _init(defaultState : String):
 	currentState = defaultState
 	return
 
