@@ -34,13 +34,15 @@ func process_idle():
 	elif false:
 		transition_state("dash")
 	else:
-		transition_state("idle")
+		handle_jump()
+		char_controller.velocity.x = 0
 	return
 
 func process_moving():
 	var movement_direction : float = input_interface.get_movement_direction()
 	if movement_direction:
 		# TODO: Add checks for stun or anything that might prevent the character from moving
+		handle_jump()
 		char_controller.velocity.x = movement_direction * char_controller.move_velocity
 	else:
 		transition_state("idle")

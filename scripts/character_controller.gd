@@ -16,7 +16,6 @@ var input_handler : InputHandler
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _init():
-	print("Initializing player controller")
 	assert(input_handler_type == "Player" or input_handler_type == "NPC", "Invalid Input Handler Type")
 	if input_handler_type == "Player":
 		input_handler = PlayerInputHandler.new()
@@ -37,16 +36,5 @@ func jump():
 func _physics_process(delta : float):
 	apply_gravity(delta)
 	movement_state.process_state()
-
-	# Jump logic
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = -1 * jump_velocity
-	
-	# Input
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * move_velocity
-	else:
-		velocity.x = move_toward(velocity.x, 0, move_velocity)
 	
 	move_and_slide()
