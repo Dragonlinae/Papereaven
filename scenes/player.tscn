@@ -801,9 +801,9 @@ position = Vector2(-450, -258)
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
 z_index = -6
-position = Vector2(-287.229, -156.572)
+position = Vector2(-285.386, -163.384)
 rotation = 1.5653
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(0.99998, 0.99998)
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 
@@ -1080,6 +1080,7 @@ auto_calculate_length_and_angle = false
 length = 42.521
 bone_angle = -230.322
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" type="Bone2D" parent="knight_skeleton/hip/chest/right_upper_arm"]
 position = Vector2(-32, 41)
@@ -1088,6 +1089,7 @@ auto_calculate_length_and_angle = false
 length = 39.45
 bone_angle = 90.774
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="knight_skeleton/hip/chest/right_upper_arm/right_hand"]
 position = Vector2(-0.294134, 29.9761)

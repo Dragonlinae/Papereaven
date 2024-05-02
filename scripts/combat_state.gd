@@ -1,10 +1,10 @@
 class_name CombatState
 extends StateMachine
 
-var input_interface : InputHandler
-var char_controller : CharacterController
+var input_interface: InputHandler
+var char_controller: CharacterController
 
-func _init(input_interface_inject : InputHandler, char_controller_inject : CharacterController):
+func _init(input_interface_inject: InputHandler, char_controller_inject: CharacterController):
 	input_interface = input_interface_inject
 	char_controller = char_controller_inject
 
@@ -28,9 +28,20 @@ func _init(input_interface_inject : InputHandler, char_controller_inject : Chara
 
 # TODO: Implement standard state functions
 
+func can_attack() -> bool:
+	if current_state != "Idle":
+		return false
+	return true
+
 func process_idle():
 	# Handle player input (?)
-	return 
+	var attack_input: bool = input_interface.get_attack_input()
+	if attack_input and can_attack():
+		# Call attack function(?)
+		transition_state("Attacking")
+	else:
+		pass
+	return
 
 func process_attacking():
 	return
@@ -41,7 +52,15 @@ func process_blocking():
 func process_stagger():
 	return
 
-func _on_state_transition(_previous_state : String, _new_state : String):
+func _on_state_transition(_previous_state: String, new_state: String):
+	if new_state == "Idle":
+		pass
+	if new_state == "Attacking":
+		pass
+	if new_state == "Blocking":
+		pass
+	if new_state == "Stagger":
+		pass
 	return
 
 func process_state():
