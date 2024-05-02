@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=15 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
@@ -10,6 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Script" path="res://scripts/player_input_handler.gd" id="9_wb3ff"]
 [ext_resource type="Script" path="res://scripts/combat_state.gd" id="10_6fti6"]
+[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="11_xvx5f"]
+[ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bude"]
+size = Vector2(54, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
+size = Vector2(60, 60)
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
@@ -64,6 +72,15 @@ coyote_time = null
 [node name="CombatState" type="Node" parent="CharacterController"]
 script = ExtResource("10_6fti6")
 
+[node name="Hitbox" type="Area2D" parent="CharacterController"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("11_xvx5f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterController/Hitbox"]
+position = Vector2(27, 0)
+shape = SubResource("RectangleShape2D_2bude")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(236, 121)
 scale = Vector2(4, 4)
@@ -77,3 +94,11 @@ drag_left_margin = 0.13
 drag_top_margin = 0.13
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(888, 263)
+script = ExtResource("12_5s1u7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_1k57n")
