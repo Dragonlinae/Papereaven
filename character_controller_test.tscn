@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://mam8d73tn4l6"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
-[ext_resource type="Texture2D" uid="uid://b2sx88rah01pv" path="res://assets/Idle-Sheet.png" id="2_xbq17"]
+[ext_resource type="PackedScene" uid="uid://dudhrqgdeg35m" path="res://scenes/player.tscn" id="2_il8na"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v5tj2"]
-radius = 7.5
-height = 45.0
+height = 67.5
 
 [node name="CharacterController" type="CharacterBody2D"]
 script = ExtResource("1_8b33x")
+move_velocity = null
+jump_velocity = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_v5tj2")
 
-[node name="Sprite" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(0, -2)
-texture = ExtResource("2_xbq17")
-hframes = 4
+[node name="player_root" parent="CollisionShape2D" instance=ExtResource("2_il8na")]
+position = Vector2(-28, -38)
+scale = Vector2(0.25, 0.25)

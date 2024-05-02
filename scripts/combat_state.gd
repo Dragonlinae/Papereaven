@@ -1,7 +1,13 @@
 class_name CombatState
 extends StateMachine
 
-func _init():
+var input_interface : InputHandler
+var char_controller : CharacterController
+
+func _init(input_interface_inject : InputHandler, char_controller_inject : CharacterController):
+	input_interface = input_interface_inject
+	char_controller = char_controller_inject
+
 	super("Idle")
 	add_state("Attacking")
 	add_state("Blocking")
@@ -21,3 +27,31 @@ func _init():
 #       LightAttack, HeavyAttack, AerialAttack inherit from AttackBase?
 
 # TODO: Implement standard state functions
+
+func process_idle():
+	# Handle player input (?)
+	return 
+
+func process_attacking():
+	return
+
+func process_blocking():
+	return
+
+func process_stagger():
+	return
+
+func _on_state_transition(_previous_state : String, _new_state : String):
+	return
+
+func process_state():
+	match current_state:
+		"Idle":
+			pass
+		"Attacking":
+			pass
+		"Blocking":
+			pass
+		"Stagger":
+			pass
+	return
