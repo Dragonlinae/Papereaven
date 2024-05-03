@@ -24,6 +24,10 @@ func _ready():
 func _ready_deferred():
 	movement_state._inject_char_controller(self)
 	movement_state._inject_input_interface(input_handler)
+
+	combat_state._inject_char_controller(self)
+	combat_state._inject_input_interface(input_handler)
+
 	set_physics_process(true)
 	return
 
@@ -46,5 +50,6 @@ func jump():
 func _physics_process(delta: float):
 	apply_gravity(delta)
 	movement_state.process_state()
+	combat_state.process_state()
 	
 	move_and_slide()

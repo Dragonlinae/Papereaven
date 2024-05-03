@@ -8,12 +8,10 @@ height = 67.5
 
 [node name="CharacterController" type="CharacterBody2D"]
 script = ExtResource("1_8b33x")
-move_velocity = null
-jump_velocity = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CharacterCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_v5tj2")
 
-[node name="player_root" parent="CollisionShape2D" instance=ExtResource("2_il8na")]
+[node name="character_root" parent="CharacterCollisionShape" instance=ExtResource("2_il8na")]
 position = Vector2(-28, -38)
 scale = Vector2(0.25, 0.25)

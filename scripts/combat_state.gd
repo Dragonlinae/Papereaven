@@ -4,9 +4,7 @@ extends StateMachine
 var input_interface: InputHandler
 var char_controller: CharacterController
 
-func _init(input_interface_inject: InputHandler, char_controller_inject: CharacterController):
-	input_interface = input_interface_inject
-	char_controller = char_controller_inject
+func _init():
 
 	super("Idle")
 	add_state("Attacking")
@@ -28,16 +26,34 @@ func _init(input_interface_inject: InputHandler, char_controller_inject: Charact
 
 # TODO: Implement standard state functions
 
+func _ready():
+	return
+
+func _inject_char_controller(controller: CharacterController):
+	char_controller = controller
+	return
+
+func _inject_input_interface(interface: InputHandler):
+	input_interface = interface
+	return
+
 func can_attack() -> bool:
 	if current_state != "Idle":
 		return false
 	return true
+
+func attack():
+	print("Attacks")
+	var anim_player: AnimationPlayer = char_controller.get_node("CharacterCollisionShape/character_root/AnimationPlayer")
+	anim_player.play("attack_light")
+	return
 
 func process_idle():
 	# Handle player input (?)
 	var attack_input: bool = input_interface.get_attack_input()
 	if attack_input and can_attack():
 		# Call attack function(?)
+		attack()
 		transition_state("Attacking")
 	else:
 		pass
@@ -66,11 +82,11 @@ func _on_state_transition(_previous_state: String, new_state: String):
 func process_state():
 	match current_state:
 		"Idle":
-			pass
+			process_idle()
 		"Attacking":
-			pass
+			process_attacking()
 		"Blocking":
-			pass
+			process_blocking()
 		"Stagger":
-			pass
+			process_stagger()
 	return

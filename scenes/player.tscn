@@ -444,7 +444,6 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_fmq2n"]
 resource_name = "attack_light"
-loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -791,7 +790,7 @@ states/walk_loop/position = Vector2(424, 22)
 states/walk_start/node = SubResource("AnimationNodeAnimation_3y4j2")
 states/walk_start/position = Vector2(297, 22)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kna4p"), "walk_start", "walk_loop", SubResource("AnimationNodeStateMachineTransition_ummu8"), "walk_loop", "walk_end", SubResource("AnimationNodeStateMachineTransition_u1akg"), "walk_end", "idle", SubResource("AnimationNodeStateMachineTransition_30cvm"), "idle", "walk_start", SubResource("AnimationNodeStateMachineTransition_oxcu3")]
-graph_offset = Vector2(0, -73.4426)
+graph_offset = Vector2(-91.7871, -19.8318)
 
 [node name="root" type="Node2D"]
 position = Vector2(-450, -258)
@@ -801,9 +800,9 @@ position = Vector2(-450, -258)
 [node name="sword_position" type="Node2D" parent="polygons"]
 top_level = true
 z_index = -6
-position = Vector2(-285.386, -163.384)
+position = Vector2(-285.386, -163.383)
 rotation = 1.5653
-scale = Vector2(0.99998, 0.99998)
+scale = Vector2(1, 1)
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 
