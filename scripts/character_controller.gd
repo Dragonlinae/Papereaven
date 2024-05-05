@@ -53,3 +53,10 @@ func _physics_process(delta: float):
 	combat_state.process_state()
 	
 	move_and_slide()
+	
+# Checkpoint logic
+var current_checkpoint : Checkpoint
+func respawn():
+	if current_checkpoint != null:
+		global_position = current_checkpoint.global_position
+	

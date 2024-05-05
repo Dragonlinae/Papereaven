@@ -39,9 +39,11 @@ offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(531, 161)
+spawnpoint = false
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(4509, -351)
+spawnpoint = false
 
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)

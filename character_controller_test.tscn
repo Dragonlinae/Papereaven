@@ -703,15 +703,16 @@ position = Vector2(-28, -38)
 scale = Vector2(0.25, 0.25)
 
 [node name="sword_position" parent="CharacterCollisionShape/character_root/polygons" index="0"]
-position = Vector2(28, -6.5)
+position = Vector2(25.5, -6.5)
 rotation = 1.5653
 scale = Vector2(0.25, 0.25)
 
-[node name="right_upper_arm" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest" index="4"]
-metadata/_local_pose_override_enabled_ = true
+[node name="CheckpointHitbox" type="Area2D" parent="."]
+visible = false
+monitoring = false
 
-[node name="right_hand" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm" index="0"]
-metadata/_local_pose_override_enabled_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpointHitbox"]
+shape = SubResource("CapsuleShape2D_v5tj2")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
