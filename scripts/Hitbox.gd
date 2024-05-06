@@ -29,7 +29,7 @@ func _init():
 
 func _ready():
 	#area_entered.connect(_on_area_entered)
-	enable_hitbox()
+	enable_hitbox_damage(damage)
 
 func enable_hitbox():
 	set_collision_layer(2 if friendly else 4)
