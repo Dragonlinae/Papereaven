@@ -263,6 +263,30 @@ tracks/20/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../../Hitbox:damage")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../../Hitbox:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_i6a31"]
 resource_name = "attack_heavy"
@@ -352,6 +376,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(114, 180), Vector2(114, 180), Vector2(104, 180), Vector2(109, 180), Vector2(124, 180), Vector2(124, 180)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../Hitbox:damage")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.02),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 25, 0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../Hitbox:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(35, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_fmq2n"]
 resource_name = "attack_light"
@@ -391,6 +439,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(114, 180), Vector2(114, 180), Vector2(116, 176), Vector2(116, 176), Vector2(132, 180), Vector2(132, 180), Vector2(114, 180)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Hitbox:damage")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 5, 0]
 }
 
 [sub_resource type="Animation" id="Animation_m18rj"]
@@ -1108,6 +1168,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 root_node = NodePath("../CharacterCollisionShape/character_root")
 libraries = {
 "": SubResource("AnimationLibrary_37tsb")
