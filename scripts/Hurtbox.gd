@@ -29,5 +29,6 @@ func stop_listening():
 
 func _on_hitbox_area_entered(hitbox: Hitbox):
 	if hitbox is Hitbox:
+		print("ow" , hitbox.damage)
 		if hitbox.damage > 0 and entity.is_alive():
 			entity.take_damage(hitbox.damage)
