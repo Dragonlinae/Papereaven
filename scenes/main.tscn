@@ -51,8 +51,6 @@ spawnpoint = false
 
 [node name="Character3" parent="." instance=ExtResource("7_xcagy")]
 position = Vector2(1191.27, -507.253)
-max_health = 50
-current_health = 50
 
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)
