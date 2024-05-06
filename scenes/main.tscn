@@ -1,13 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=14 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
-[ext_resource type="PackedScene" uid="uid://4glvf1i34ddf" path="res://scenes/entities/enemy.tscn" id="5_qn6y2"]
-[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
-[ext_resource type="PackedScene" uid="uid://ea378vbc8syb" path="res://scenes/entities/boss.tscn" id="7_xcagy"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
+[ext_resource type="PackedScene" uid="uid://ea378vbc8syb" path="res://scenes/entities/boss.tscn" id="7_xcagy"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
@@ -53,6 +51,8 @@ spawnpoint = false
 
 [node name="Character3" parent="." instance=ExtResource("7_xcagy")]
 position = Vector2(1191.27, -507.253)
+max_health = 50
+current_health = 50
 
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ea378vbc8syb"]
+[gd_scene load_steps=5 format=3 uid="uid://ea378vbc8syb"]
 
 [ext_resource type="Script" path="res://scripts/boss_character.gd" id="1_u81my"]
 [ext_resource type="Texture2D" uid="uid://decu1ve71ao7o" path="res://assets/artistblock.png" id="2_dhjvd"]
+[ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="3_6c5ra"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rk82w"]
 radius = 93.0
@@ -25,3 +26,10 @@ position = Vector2(-10, 0)
 texture = ExtResource("2_dhjvd")
 
 [node name="Character" type="Node2D" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("entity")]
+script = ExtResource("3_6c5ra")
+entity = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_rk82w")

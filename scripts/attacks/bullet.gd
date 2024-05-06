@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Entity
 
 var acceleration: float = 0.0
 var damage: float = 0.0

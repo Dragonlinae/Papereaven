@@ -1,11 +1,10 @@
-extends CharacterBody2D
+extends Entity
 
 const SPEED: float = 500.0
 const JUMP_VELOCITY: float = -1600.0
 
 @export var attacks: Array = []
 
-var health: int = 50
 var attack: Attack
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -90,7 +89,3 @@ func exit_state(state):
 func _physics_process(delta):
 	update_state(delta)
 
-func take_damage(damage):
-	health -= damage
-	if health <= 0:
-		set_collision_mask_value(1, false)
