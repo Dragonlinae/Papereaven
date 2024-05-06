@@ -3,6 +3,7 @@ extends StateMachine
 
 var input_interface : InputHandler
 var char_controller : CharacterController
+var animation_playback: AnimationNodeStateMachinePlayback
 
 @export var coyote_time : float = 0.10
 var coyote_window : bool = false
@@ -43,6 +44,18 @@ func _inject_input_interface(interface : InputHandler):
 	input_interface = interface
 	return
 
+func _inject_animation_tree(tree: AnimationTree):
+	if tree is AnimationTree:
+		animation_playback = tree.get("parameters/main/playback")
+		if animation_playback is AnimationNodeStateMachinePlayback:
+			print(animation_playback.get_current_play_position())
+
+func play_animation(new_state: String):
+	if animation_playback != null:
+		#print(animation_playback.get_current_node())
+		if animation_playback.get_current_node() != new_state:
+			animation_playback.travel(new_state)
+
 func handle_jump():
 	# TODO: Add checks for stun to prevent jump
 	var jump_input : bool = input_interface.get_jump_input()
@@ -58,6 +71,7 @@ func process_idle():
 		transition_state("Dash")
 	else:
 		char_controller.velocity.x = 0
+		play_animation("idle")
 	return
 
 func process_moving():
@@ -65,6 +79,7 @@ func process_moving():
 	if movement_direction:
 		# TODO: Add checks for stun or anything that might prevent the character from moving
 		char_controller.velocity.x = movement_direction * char_controller.move_velocity
+		play_animation("walk")
 	else:
 		transition_state("Idle")
 	return

@@ -12,6 +12,8 @@ extends CharacterBody2D
 @export var movement_state: MovementState
 @export var combat_state: CombatState
 
+@export var animation_tree: AnimationTree
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _init():
@@ -24,6 +26,7 @@ func _ready():
 func _ready_deferred():
 	movement_state._inject_char_controller(self)
 	movement_state._inject_input_interface(input_handler)
+	movement_state._inject_animation_tree(animation_tree)
 
 	combat_state._inject_char_controller(self)
 	combat_state._inject_input_interface(input_handler)
