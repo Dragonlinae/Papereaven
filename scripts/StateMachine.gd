@@ -26,7 +26,6 @@ func add_state(state : String):
 		return
 	valid_states.append(state)
 	valid_transitions[state] = []
-	return
 
 func add_transition(origin_state : String, target_state : String):
 	if not validState(origin_state) or not validState(target_state):
@@ -36,7 +35,6 @@ func add_transition(origin_state : String, target_state : String):
 		push_error("Duplicate transition added to target state machine")
 		return
 	valid_transitions[origin_state].append(target_state)
-	return
 
 func override_state(forced_state : String):
 	var prev_state : String = current_state
@@ -59,4 +57,3 @@ func transition_state(target_state : String):
 func _init(default_state : String):
 	current_state = default_state
 	add_state(default_state)
-	return

@@ -34,15 +34,12 @@ func _ready():
 	if not coyote_timer.is_stopped():
 		coyote_timer.stop()
 	coyote_timer.timeout.connect(_on_coyote_timeout)
-	return
 
 func _inject_char_controller(controller : CharacterController):
 	char_controller = controller
-	return
 
 func _inject_input_interface(interface : InputHandler):
 	input_interface = interface
-	return
 
 func handle_jump():
 	# TODO: Add checks for stun to prevent jump
@@ -60,7 +57,6 @@ func process_idle():
 	else:
 		char_controller.velocity.x = 0
 		char_controller.play_animation("idle")
-	return
 
 func process_moving():
 	var movement_direction : float = input_interface.get_movement_direction()
@@ -70,11 +66,9 @@ func process_moving():
 		char_controller.play_animation("walk")
 	else:
 		transition_state("Idle")
-	return
 
 func process_dash():
 	assert(false, "Called an unimplemented function")
-	return
 
 func _on_state_transition(_previous_state : String, new_state : String):
 	if new_state == "Idle":
@@ -85,7 +79,6 @@ func _on_state_transition(_previous_state : String, new_state : String):
 		process_dash()
 	else:
 		assert(false, "Unreachable state")
-	return
 
 func process_state():
 	if !char_controller.is_on_floor() and floor_prev:

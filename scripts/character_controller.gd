@@ -19,7 +19,7 @@ var animation_playback: AnimationNodeStateMachinePlayback
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _init():
-	return
+	pass
 
 func _ready():
 	set_physics_process(false)
@@ -36,7 +36,6 @@ func _ready_deferred():
 		animation_playback = animation_tree.get("parameters/main/playback")
 
 	set_physics_process(true)
-	return
 
 func play_animation(new_state: String):
 	if animation_playback != null:
@@ -53,7 +52,6 @@ func get_combat_state() -> CombatState:
 func apply_gravity(delta: float):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	return
 
 func jump():
 	velocity.y = -1 * jump_velocity

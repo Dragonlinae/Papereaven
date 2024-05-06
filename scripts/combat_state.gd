@@ -5,7 +5,6 @@ var input_interface: InputHandler
 var char_controller: CharacterController
 
 func _init():
-
 	super("Idle")
 	add_state("Attacking")
 	add_state("Blocking")
@@ -27,15 +26,13 @@ func _init():
 # TODO: Implement standard state functions
 
 func _ready():
-	return
+	pass
 
 func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
-	return
 
 func _inject_input_interface(interface: InputHandler):
 	input_interface = interface
-	return
 
 func can_attack() -> bool:
 	if current_state != "Idle":
@@ -44,7 +41,6 @@ func can_attack() -> bool:
 
 func attack():
 	char_controller.play_animation("attack_light")
-	return
 
 func process_idle():
 	var attack_input: bool = input_interface.get_attack_input()
@@ -53,16 +49,15 @@ func process_idle():
 		#transition_state("Attacking")
 	else:
 		pass
-	return
 
 func process_attacking():
-	return
+	pass
 
 func process_blocking():
-	return
+	pass
 
 func process_stagger():
-	return
+	pass
 
 func _on_state_transition(_previous_state: String, new_state: String):
 	if new_state == "Idle":
@@ -73,7 +68,6 @@ func _on_state_transition(_previous_state: String, new_state: String):
 		pass
 	if new_state == "Stagger":
 		pass
-	return
 
 func process_state():
 	match current_state:
@@ -85,4 +79,3 @@ func process_state():
 			process_blocking()
 		"Stagger":
 			process_stagger()
-	return
