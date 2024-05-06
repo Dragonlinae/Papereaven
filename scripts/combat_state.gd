@@ -43,15 +43,14 @@ func can_attack() -> bool:
 	return true
 
 func attack():
-	var anim_player: AnimationPlayer = char_controller.get_node("CharacterCollisionShape/character_root/AnimationPlayer")
-	anim_player.play("attack_light")
+	char_controller.play_animation("attack_light")
 	return
 
 func process_idle():
 	var attack_input: bool = input_interface.get_attack_input()
 	if attack_input and can_attack():
 		attack()
-		transition_state("Attacking")
+		#transition_state("Attacking")
 	else:
 		pass
 	return

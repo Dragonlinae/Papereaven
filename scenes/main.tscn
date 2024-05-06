@@ -48,7 +48,6 @@ spawnpoint = false
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)
 scale = Vector2(4, 4)
-move_velocity = 750.0
 jump_velocity = 1000.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterController"]
