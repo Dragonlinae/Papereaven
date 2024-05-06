@@ -1,5 +1,5 @@
 class_name CharacterController
-extends CharacterBody2D
+extends Entity
 
 ## Pixels per second horizontal movement velocity
 @export var move_velocity: float = 200.0
@@ -57,8 +57,14 @@ func apply_gravity(delta: float):
 
 func jump():
 	velocity.y = -1 * jump_velocity
+	if velocity.x != 0:
+		velocity.x += abs(velocity.x) / velocity.x * 100
 
 # Do we want to put movement into a function too?
+
+func _process(delta: float):
+	if is_dead():
+		respawn()
 
 func _physics_process(delta: float):
 	apply_gravity(delta)
@@ -72,4 +78,5 @@ var current_checkpoint : Checkpoint
 func respawn():
 	if current_checkpoint != null:
 		global_position = current_checkpoint.global_position
+		restore_health()
 	

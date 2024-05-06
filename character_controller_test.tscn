@@ -1,8 +1,9 @@
-[gd_scene load_steps=56 format=3 uid="uid://mam8d73tn4l6"]
+[gd_scene load_steps=58 format=3 uid="uid://mam8d73tn4l6"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="3_kye36"]
+[ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="3_tib08"]
 [ext_resource type="Script" path="res://scripts/player_input_handler.gd" id="4_7aeu4"]
 [ext_resource type="Script" path="res://scripts/movement_state.gd" id="5_7hae6"]
 [ext_resource type="Script" path="res://scripts/combat_state.gd" id="6_1kj5d"]
@@ -944,7 +945,7 @@ transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransitio
 graph_offset = Vector2(0, -16.4793)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_22yuy"]
-graph_offset = Vector2(-11.5595, -63.2122)
+graph_offset = Vector2(-64.9682, -69.2135)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ptfbj")
 nodes/TimeScale/position = Vector2(300, 0)
 nodes/main/node = SubResource("AnimationNodeStateMachine_sklym")
@@ -1084,6 +1085,10 @@ modifications/2 = SubResource("SkeletonModification2DCCDIK_6f87r")
 modifications/3 = SubResource("SkeletonModification2DCCDIK_mp4k7")
 modifications/4 = SubResource("SkeletonModification2DTwoBoneIK_g13ak")
 modifications/5 = SubResource("SkeletonModification2DTwoBoneIK_l2y4b")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mbhme"]
+radius = 8.0
+height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xct56"]
 size = Vector2(54, 70)
@@ -1513,10 +1518,18 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpointHitbox"]
 shape = SubResource("CapsuleShape2D_v5tj2")
 
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("entity")]
+monitorable = false
+script = ExtResource("3_tib08")
+entity = NodePath("..")
+friendly = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_mbhme")
+
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
 script = ExtResource("3_kye36")
+friendly = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(27, 0)
