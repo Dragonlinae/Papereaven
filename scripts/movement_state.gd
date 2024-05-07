@@ -48,19 +48,26 @@ func handle_jump():
 		char_controller.jump()
 		coyote_window = false
 
+func can_move() -> bool:
+	if char_controller.combat_state.current_state == "Idle":
+		return true
+	else:
+		return false
+
 func process_idle():
 	var movement_direction: float = input_interface.get_movement_direction()
-	if movement_direction:
+	if movement_direction and can_move():
 		transition_state("Moving")
 	elif false:
 		transition_state("Dash")
 	else:
 		char_controller.velocity.x = 0
-		char_controller.play_animation("idle")
+		if char_controller.combat_state.current_state == "Idle":
+			char_controller.play_animation("idle")
 
 func process_moving():
 	var movement_direction: float = input_interface.get_movement_direction()
-	if movement_direction:
+	if movement_direction and can_move():
 		# TODO: Add checks for stun or anything that might prevent the character from moving
 		char_controller.velocity.x = movement_direction * char_controller.move_velocity * char_controller.animation_walk
 		char_controller.play_animation("walk")

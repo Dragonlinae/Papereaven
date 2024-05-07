@@ -1009,6 +1009,7 @@ point_count = 2
 xfade_time = 0.2
 xfade_curve = SubResource("Curve_ea800")
 switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kq6jh"]
 
@@ -1058,13 +1059,13 @@ states/attack_light/position = Vector2(81, 208.218)
 states/idle/node = SubResource("AnimationNodeAnimation_s2v8c")
 states/idle/position = Vector2(240, 148.951)
 states/walk/node = SubResource("AnimationNodeAnimation_ukrk0")
-states/walk/position = Vector2(437, -37)
+states/walk/position = Vector2(444, -31)
 states/walk_end/node = SubResource("AnimationNodeBlendTree_f2wsn")
-states/walk_end/position = Vector2(437, 60)
+states/walk_end/position = Vector2(444, 60)
 states/walk_start/node = SubResource("AnimationNodeBlendTree_83odd")
 states/walk_start/position = Vector2(240, -37)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_go4uu"), "RESET", "attack_light", SubResource("AnimationNodeStateMachineTransition_lnv7x"), "attack_light", "RESET", SubResource("AnimationNodeStateMachineTransition_fvqav"), "RESET", "attack_heavy", SubResource("AnimationNodeStateMachineTransition_kq6jh"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_14koc"), "idle", "RESET", SubResource("AnimationNodeStateMachineTransition_2sdka"), "attack_heavy", "attack_heavy_back", SubResource("AnimationNodeStateMachineTransition_bx34q"), "RESET_recover", "idle", SubResource("AnimationNodeStateMachineTransition_2j5v6"), "attack_heavy_back", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_r0rde"), "RESET", "walk_start", SubResource("AnimationNodeStateMachineTransition_xt5v6"), "walk_start", "walk", SubResource("AnimationNodeStateMachineTransition_ixqai"), "walk_end", "RESET", SubResource("AnimationNodeStateMachineTransition_mraed"), "walk", "walk_end", SubResource("AnimationNodeStateMachineTransition_oyvii"), "walk_end", "walk", SubResource("AnimationNodeStateMachineTransition_i6jff")]
-graph_offset = Vector2(-272.599, 17.7273)
+graph_offset = Vector2(-91.7658, -47.3532)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_22yuy"]
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ptfbj")
@@ -1230,7 +1231,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 root_node = NodePath("../CharacterCollisionShape/character_root")
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
@@ -1252,7 +1252,7 @@ top_level = true
 z_index = -6
 position = Vector2(6.29179, -16.542)
 rotation = 1.5653
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.249999, 0.249999)
 
 [node name="sword_rotation" type="Node2D" parent="CharacterCollisionShape/character_root/polygons/sword_position"]
 
