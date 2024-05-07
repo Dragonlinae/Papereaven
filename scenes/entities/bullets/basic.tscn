@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://f4v5yyrgdrso"]
+
+[ext_resource type="Script" path="res://scripts/attacks/bullet.gd" id="1_45og5"]
+[ext_resource type="Texture2D" uid="uid://b1pecii1din0f" path="res://assets/sprites/bullets/basic.png" id="2_3vmel"]
+[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="3_0nidg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mmri8"]
+radius = 5.0
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_45og5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_3vmel")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_0nidg")
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_mmri8")

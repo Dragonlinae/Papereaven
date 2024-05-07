@@ -1,12 +1,12 @@
-<atk name>, <atk time>
+<atk name>, <atk end delay>
 
 [Pattern]
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
-<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>
+<delay>, <rel or abs>, <x>, <y>, <angle>, <vel>, <accel>, <atk dmg>, <lifetime>, <sprite>

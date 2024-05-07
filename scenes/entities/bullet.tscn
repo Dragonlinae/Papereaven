@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbs6v7x72f5eu"]
+[gd_scene load_steps=4 format=3 uid="uid://cncxwn6ijpgr4"]
 
 [ext_resource type="Texture2D" uid="uid://b1pecii1din0f" path="res://assets/sprites/bullets/basic.png" id="1_atd20"]
 [ext_resource type="Script" path="res://scripts/attacks/bullet.gd" id="1_unfq8"]
-[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="3_uis1g"]
-[ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="4_yaiwv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e7in4"]
 radius = 5.0
@@ -12,26 +10,9 @@ radius = 5.0
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_unfq8")
-max_health = 1
-current_health = 1
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_atd20")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_e7in4")
-disabled = true
-
-[node name="Hitbox" type="Area2D" parent="."]
-script = ExtResource("3_uis1g")
-damage = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_e7in4")
-
-[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("entity")]
-script = ExtResource("4_yaiwv")
-entity = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_e7in4")

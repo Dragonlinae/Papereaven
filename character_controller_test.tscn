@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://mam8d73tn4l6"]
+[gd_scene load_steps=60 format=3 uid="uid://bqy7gtdix5bk5"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -1171,9 +1171,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
-libraries = {
-"": SubResource("AnimationLibrary_37tsb")
-}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5
@@ -1194,7 +1191,7 @@ top_level = true
 z_index = -6
 position = Vector2(6.29179, -16.542)
 rotation = 1.5653
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.249999, 0.249999)
 
 [node name="sword_rotation" type="Node2D" parent="CharacterCollisionShape/character_root/polygons/sword_position"]
 

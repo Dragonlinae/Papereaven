@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
-[ext_resource type="PackedScene" uid="uid://bqy7gtdix5bk5" path="res://character_controller_test.tscn" id="9_ujg57"]
+[ext_resource type="PackedScene" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 
@@ -49,18 +49,15 @@ spawnpoint = false
 position = Vector2(4509, -351)
 spawnpoint = false
 
-[node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_xcagy")]
+[node name="Character3" parent="." instance=ExtResource("7_xcagy")]
 position = Vector2(1191.27, -507.253)
 attacks = Array[String](["star", "square", "break"])
-attack_weights = Array[int]([1, 1, 1])
-player_character = NodePath("../CharacterController")
+attackWeights = Array[int]([10, 1, 1])
 
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)
 scale = Vector2(4, 4)
-move_velocity = 2000.0
-jump_velocity = 2000.0
-max_health = 1000
+jump_velocity = 1000.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterController"]
 remote_path = NodePath("../../Camera2D")
