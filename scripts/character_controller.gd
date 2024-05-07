@@ -84,5 +84,9 @@ func respawn():
 func attackEnded():
 	combat_state.on_attack_end()
 
+func parryEnded():
+	pass
+
 func blockEnded():
+	combat_state.on_block_end()
 	pass

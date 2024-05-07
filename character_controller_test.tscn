@@ -908,10 +908,24 @@ tracks/0/path = NodePath("knight_skeleton/hip/chest/head/head_pony:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1.23413e-05, 1),
 "update": 0,
-"values": [0.0, 1.89041]
+"values": [0.0, 1.89041, 2.7385]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"blockEnded"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37tsb"]
@@ -1449,7 +1463,7 @@ editor_settings/show_bone_gizmo = false
 
 [node name="head_pony" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/head"]
 position = Vector2(-49, -57)
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -49, -57)
 auto_calculate_length_and_angle = false
 length = 42.381

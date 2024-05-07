@@ -42,7 +42,6 @@ func can_attack() -> bool:
 
 func attack():
 	# TODO: Implement combat_state transitions somehow
-	# TODO: Hook state transition to end of animation signal
 	transition_state("Attacking")
 	char_controller.play_animation("attack_light")
 
@@ -62,6 +61,10 @@ func block():
 	# print("Block Called")
 	# char_controller.play_animation("block")
 	pass
+
+func on_block_end():
+	# TODO: Think about what would happen if an attack pierces block -> stagger
+	transition_state("Idle")
 
 func process_idle():
 	var attack_input: bool = input_interface.get_attack_input()
