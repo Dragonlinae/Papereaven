@@ -60,7 +60,7 @@ func jump():
 
 # Do we want to put movement into a function too?
 
-func _process(delta: float):
+func _process(_delta: float):
 	if is_dead():
 		respawn()
 
