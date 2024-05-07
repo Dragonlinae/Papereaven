@@ -30,11 +30,9 @@ func _ready():
 
 func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
-	pass
 
 func _inject_input_interface(interface: InputHandler):
 	input_interface = interface
-	pass
 
 func can_attack() -> bool:
 	if current_state != "Idle":
@@ -45,7 +43,6 @@ func attack():
 	# TODO: Implement combat_state transitions somehow
 	# TODO: Hook state transition to end of animation signal
 	char_controller.play_animation("attack_light")
-	pass
 
 func can_block() -> bool:
 	if current_state != "Idle":
@@ -55,9 +52,9 @@ func can_block() -> bool:
 func block():
 	# TODO: Implement combat_state transitions somehow
 	# TODO: Hook state transition to end of animation signal
+	# TODO: 
 	print("Block Called")
 	# char_controller.play_animation("block")
-	pass
 
 func process_idle():
 	var attack_input: bool = input_interface.get_attack_input()
