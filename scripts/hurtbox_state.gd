@@ -1,4 +1,4 @@
-class_name HitboxState
+class_name HurtboxState
 extends StateMachine
 
 ## Time spent in the parry window
