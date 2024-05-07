@@ -15,6 +15,7 @@ extends Entity
 @export var animation_tree: AnimationTree
 @export var animation_walk: int = 0
 var animation_playback: AnimationNodeStateMachinePlayback
+var animation_changed_signal
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -26,14 +27,16 @@ func _ready():
 	call_deferred("_ready_deferred")
 
 func _ready_deferred():
+	if animation_tree is AnimationTree:
+		animation_playback = animation_tree.get("parameters/main/playback")
+		var animPlayer: AnimationPlayer = $AnimationPlayer
+		animation_changed_signal = animPlayer.current_animation_changed
+	
 	movement_state._inject_char_controller(self)
 	movement_state._inject_input_interface(input_handler)
 
 	combat_state._inject_char_controller(self)
 	combat_state._inject_input_interface(input_handler)
-
-	if animation_tree is AnimationTree:
-		animation_playback = animation_tree.get("parameters/main/playback")
 
 	set_physics_process(true)
 
@@ -72,9 +75,14 @@ func _physics_process(delta: float):
 	move_and_slide()
 	
 # Checkpoint logic
-var current_checkpoint : Checkpoint
+var current_checkpoint: Checkpoint
 func respawn():
 	if current_checkpoint != null:
 		global_position = current_checkpoint.global_position
 		restore_health()
-	
+
+func attackEnded():
+	combat_state.on_attack_end()
+
+func blockEnded():
+	pass

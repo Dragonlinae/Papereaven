@@ -30,6 +30,7 @@ func _ready():
 
 func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
+	char_controller.animation_changed_signal.connect(on_anim_changing)
 
 func _inject_input_interface(interface: InputHandler):
 	input_interface = interface
@@ -42,7 +43,12 @@ func can_attack() -> bool:
 func attack():
 	# TODO: Implement combat_state transitions somehow
 	# TODO: Hook state transition to end of animation signal
+	transition_state("Attacking")
 	char_controller.play_animation("attack_light")
+
+func on_attack_end():
+	# TODO: Think about what would happen if attack gets interrupted -> stagger
+	transition_state("Idle")
 
 func can_block() -> bool:
 	if current_state != "Idle":
@@ -53,8 +59,9 @@ func block():
 	# TODO: Implement combat_state transitions somehow
 	# TODO: Hook state transition to end of animation signal
 	# TODO: 
-	print("Block Called")
+	# print("Block Called")
 	# char_controller.play_animation("block")
+	pass
 
 func process_idle():
 	var attack_input: bool = input_interface.get_attack_input()
@@ -62,7 +69,6 @@ func process_idle():
 	if attack_input and can_attack():
 		print("Calling attack()")
 		attack()
-		#transition_state("Attacking")
 	elif block_input and can_block():
 		print("Calling block()")
 		block()
@@ -87,6 +93,9 @@ func _on_state_transition(_previous_state: String, new_state: String):
 		pass
 	if new_state == "Stagger":
 		pass
+
+func on_anim_changing(animationName: String):
+	print(animationName, " was played.")
 
 func process_state():
 	match current_state:

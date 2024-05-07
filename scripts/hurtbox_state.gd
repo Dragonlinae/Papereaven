@@ -22,17 +22,16 @@ func _init():
 	add_transition("Invulnerable", "Hittable")
 
 func _ready():
+	print("Hurtbox connecting...")
 	internalTimer.timeout.connect(_on_internal_timer_timeout)
 
 func _on_parry_end():
 	print("Parry ended")
 	transition_state("Block")
 	startBlockTimer()
-	pass
 
 func _on_block_end():
 	print("Block ended")
-	pass
 
 func _on_internal_timer_timeout():
 	if current_state == "Block":
@@ -54,6 +53,12 @@ func startBlockTimer():
 		return
 	internalTimer.wait_time = block_time
 	internalTimer.start()
+
+func startParry():
+	if current_state != "Hittable":
+		return
+	transition_state("Parry")
+	startParryTimer()
 
 func cancel_internal_timer():
 	internalTimer.stop()
