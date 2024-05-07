@@ -41,7 +41,6 @@ func can_attack() -> bool:
 	return true
 
 func attack():
-	# TODO: Implement combat_state transitions somehow
 	transition_state("Attacking")
 	char_controller.play_animation("attack_light")
 
@@ -55,11 +54,9 @@ func can_block() -> bool:
 	return true
 
 func block():
-	# TODO: Implement combat_state transitions somehow
-	# TODO: Hook state transition to end of animation signal
-	# TODO: 
-	# print("Block Called")
-	# char_controller.play_animation("block")
+	print("In Block()")
+	transition_state("Blocking")
+	char_controller.play_animation("block")
 	pass
 
 func on_block_end():

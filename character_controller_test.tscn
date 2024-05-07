@@ -1,9 +1,10 @@
-[gd_scene load_steps=60 format=3 uid="uid://mam8d73tn4l6"]
+[gd_scene load_steps=61 format=3 uid="uid://mam8d73tn4l6"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="3_kye36"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="3_tib08"]
+[ext_resource type="Script" path="res://scripts/hurtbox_state.gd" id="4_1c3yk"]
 [ext_resource type="Script" path="res://scripts/player_input_handler.gd" id="4_7aeu4"]
 [ext_resource type="Script" path="res://scripts/movement_state.gd" id="5_7hae6"]
 [ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="5_iu6dk"]
@@ -558,6 +559,38 @@ tracks/5/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_302f1"]
+resource_name = "block"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("knight_skeleton/hip/chest/head/head_pony:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1.23413e-05, 1),
+"update": 0,
+"values": [0.0, 1.89041, 2.7385]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"parryEnded"
+}, {
+"args": [],
+"method": &"blockEnded"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_bevrd"]
 resource_name = "idle"
 length = 2.0
@@ -897,35 +930,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_302f1"]
-resource_name = "block"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("knight_skeleton/hip/chest/head/head_pony:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1.23413e-05, 1),
-"update": 0,
-"values": [0.0, 1.89041, 2.7385]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"blockEnded"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37tsb"]
@@ -1644,6 +1648,9 @@ friendly = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_mbhme")
+
+[node name="HurtboxState" type="Node" parent="Hurtbox"]
+script = ExtResource("4_1c3yk")
 
 [node name="Hitbox" type="Area2D" parent="."]
 script = ExtResource("3_kye36")
