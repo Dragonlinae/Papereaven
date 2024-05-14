@@ -44,8 +44,13 @@ func attack():
 	transition_state("Attacking")
 	char_controller.play_animation("attack_light")
 
+func attack_heavy():
+	transition_state("Attacking")
+	char_controller.play_animation("attack_heavy")
+
 func on_attack_end():
 	# TODO: Think about what would happen if attack gets interrupted -> stagger
+	print("Attack ended!")
 	transition_state("Idle")
 
 func can_block() -> bool:
@@ -65,8 +70,12 @@ func on_block_end():
 
 func process_idle():
 	var attack_input: bool = input_interface.get_attack_input()
+	var attack_heavy_input: bool = input_interface.get_attack_heavy_input()
 	var block_input: bool = input_interface.get_block_input()
-	if attack_input and can_attack():
+	if attack_heavy_input and can_attack():
+		print("Calling heavy attack()")
+		attack_heavy()
+	elif attack_input and can_attack():
 		print("Calling attack()")
 		attack()
 	elif block_input and can_block():
@@ -98,9 +107,14 @@ func on_anim_changing(animationName: String):
 	print(animationName, " was played.")
 
 func process_state():
+	if Input.is_action_pressed("debug_print"):
+		print(current_state)
+		pass
 	match current_state:
 		"Idle":
 			process_idle()
+			if char_controller.animation_playback.get_current_node() != "idle":
+				print(char_controller.animation_playback.get_current_node())
 		"Attacking":
 			process_attacking()
 		"Blocking":

@@ -82,6 +82,7 @@ func respawn():
 		restore_health()
 
 func attackEnded():
+	print("Called AttackEnded")
 	combat_state.on_attack_end()
 
 func parryEnded():

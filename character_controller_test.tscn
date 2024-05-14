@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://mam8d73tn4l6"]
+[gd_scene load_steps=65 format=3 uid="uid://mam8d73tn4l6"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -292,7 +292,7 @@ tracks/22/keys = {
 
 [sub_resource type="Animation" id="Animation_i6a31"]
 resource_name = "attack_heavy"
-length = 1.1
+length = 2.2
 step = 0.03
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -325,10 +325,10 @@ tracks/2/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -337,7 +337,7 @@ tracks/3/path = NodePath("ik_right_hand_target:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 0.93, 1.1),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 0.93, 1.11),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(97, 200), Vector2(97, 200), Vector2(146, 186), Vector2(120, 157), Vector2(120, 157), Vector2(220, 181), Vector2(220, 181)]
@@ -410,6 +410,20 @@ tracks/8/keys = {
 "method": &"disable_hitbox"
 }]
 }
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = false
+tracks/9/path = NodePath("../..")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attackEnded"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_fmq2n"]
 resource_name = "attack_light"
@@ -469,7 +483,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "method"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("../..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -626,6 +640,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2, 2),
 "update": 0,
 "values": [Vector2(114, 180), Vector2(114, 182)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attackEnded"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_hbloa"]
@@ -1042,7 +1070,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bx34q"]
 switch_mode = 2
-advance_mode = 2
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2j5v6"]
 advance_mode = 2
@@ -1072,6 +1100,10 @@ switch_mode = 1
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c36av"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sklym"]
 states/End/position = Vector2(695, 60)
 states/RESET/node = SubResource("AnimationNodeAnimation_5dt8m")
@@ -1082,7 +1114,7 @@ states/Start/position = Vector2(81, 60)
 states/attack_heavy/node = SubResource("AnimationNodeAnimation_5givq")
 states/attack_heavy/position = Vector2(437, 208.218)
 states/attack_heavy_back/node = SubResource("AnimationNodeAnimation_4ol1v")
-states/attack_heavy_back/position = Vector2(437, 261.218)
+states/attack_heavy_back/position = Vector2(523, 304.218)
 states/attack_light/node = SubResource("AnimationNodeAnimation_euplr")
 states/attack_light/position = Vector2(81, 208.218)
 states/block/node = SubResource("AnimationNodeAnimation_7rf6b")
@@ -1095,10 +1127,11 @@ states/walk_end/node = SubResource("AnimationNodeBlendTree_f2wsn")
 states/walk_end/position = Vector2(444, 60)
 states/walk_start/node = SubResource("AnimationNodeBlendTree_83odd")
 states/walk_start/position = Vector2(240, -37)
-transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_go4uu"), "RESET", "attack_light", SubResource("AnimationNodeStateMachineTransition_lnv7x"), "attack_light", "RESET", SubResource("AnimationNodeStateMachineTransition_fvqav"), "RESET", "attack_heavy", SubResource("AnimationNodeStateMachineTransition_kq6jh"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_14koc"), "idle", "RESET", SubResource("AnimationNodeStateMachineTransition_2sdka"), "attack_heavy", "attack_heavy_back", SubResource("AnimationNodeStateMachineTransition_bx34q"), "RESET_recover", "idle", SubResource("AnimationNodeStateMachineTransition_2j5v6"), "attack_heavy_back", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_r0rde"), "RESET", "walk_start", SubResource("AnimationNodeStateMachineTransition_xt5v6"), "walk_start", "walk", SubResource("AnimationNodeStateMachineTransition_ixqai"), "walk_end", "RESET", SubResource("AnimationNodeStateMachineTransition_mraed"), "walk", "walk_end", SubResource("AnimationNodeStateMachineTransition_oyvii"), "walk_end", "walk", SubResource("AnimationNodeStateMachineTransition_i6jff"), "RESET", "block", SubResource("AnimationNodeStateMachineTransition_0cl4l"), "block", "RESET", SubResource("AnimationNodeStateMachineTransition_cucfq")]
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_go4uu"), "RESET", "attack_light", SubResource("AnimationNodeStateMachineTransition_lnv7x"), "attack_light", "RESET", SubResource("AnimationNodeStateMachineTransition_fvqav"), "RESET", "attack_heavy", SubResource("AnimationNodeStateMachineTransition_kq6jh"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_14koc"), "idle", "RESET", SubResource("AnimationNodeStateMachineTransition_2sdka"), "attack_heavy", "attack_heavy_back", SubResource("AnimationNodeStateMachineTransition_bx34q"), "RESET_recover", "idle", SubResource("AnimationNodeStateMachineTransition_2j5v6"), "attack_heavy_back", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_r0rde"), "RESET", "walk_start", SubResource("AnimationNodeStateMachineTransition_xt5v6"), "walk_start", "walk", SubResource("AnimationNodeStateMachineTransition_ixqai"), "walk_end", "RESET", SubResource("AnimationNodeStateMachineTransition_mraed"), "walk", "walk_end", SubResource("AnimationNodeStateMachineTransition_oyvii"), "walk_end", "walk", SubResource("AnimationNodeStateMachineTransition_i6jff"), "RESET", "block", SubResource("AnimationNodeStateMachineTransition_0cl4l"), "block", "RESET", SubResource("AnimationNodeStateMachineTransition_cucfq"), "attack_heavy", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_c36av")]
 graph_offset = Vector2(-232.114, -61.0543)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_22yuy"]
+graph_offset = Vector2(-175.773, -65.4684)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ptfbj")
 nodes/TimeScale/position = Vector2(300, 0)
 nodes/main/node = SubResource("AnimationNodeStateMachine_sklym")
@@ -1520,6 +1553,7 @@ auto_calculate_length_and_angle = false
 length = 40.28
 bone_angle = -359.128
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm"]
 position = Vector2(47, 1)
@@ -1528,6 +1562,7 @@ auto_calculate_length_and_angle = false
 length = 48.244
 bone_angle = 0.0
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="sword" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm/left_hand"]
 position = Vector2(41, 0)
@@ -1559,6 +1594,7 @@ auto_calculate_length_and_angle = false
 length = 42.521
 bone_angle = -230.322
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm"]
 position = Vector2(-32, 41)
@@ -1567,6 +1603,7 @@ auto_calculate_length_and_angle = false
 length = 39.45
 bone_angle = 90.774
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm/right_hand"]
 position = Vector2(-0.294134, 29.9761)
@@ -1592,6 +1629,7 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(9, -10)
 rest = Transform2D(1, 0, 0, 1, 9, -10)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_knee" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg"]
 position = Vector2(28, 60)
@@ -1605,11 +1643,13 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(28, 60)
 rest = Transform2D(1, 0, 0, 1, 28, 60)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg/left_lower_leg"]
 position = Vector2(19, 39)
 rest = Transform2D(1, 0, 0, 1, 19, 39)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg/left_lower_leg/left_foot"]
 position = Vector2(2.00001, 5)
@@ -1618,6 +1658,7 @@ position = Vector2(2.00001, 5)
 position = Vector2(-12, -8)
 rest = Transform2D(1, 0, 0, 1, -12, -8)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_knee" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg"]
 position = Vector2(-44, 58)
@@ -1631,11 +1672,13 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(-44, 58)
 rest = Transform2D(1, 0, 0, 1, -44, 58)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg"]
 position = Vector2(-21, 41)
 rest = Transform2D(1, 0, 0, 1, -21, 41)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg/right_foot"]
 position = Vector2(1, 4)
@@ -1674,6 +1717,7 @@ shape = SubResource("CapsuleShape2D_mbhme")
 script = ExtResource("4_1c3yk")
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 script = ExtResource("3_kye36")
 friendly = true
 
