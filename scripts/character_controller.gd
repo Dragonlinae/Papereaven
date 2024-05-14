@@ -98,7 +98,7 @@ func _physics_process(delta: float):
 	movement_state.process_state()
 	combat_state.process_state()
 	if is_on_floor():
-		jump_flag = false	
+		jump_flag = false
 	
 	# smoother movement code
 	floor_snap_length = 100
