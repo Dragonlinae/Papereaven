@@ -10,11 +10,17 @@ var coyote_window : bool = false
 var floor_prev : bool = false
 var coyote_timer : Timer
 
+var dash_timer_elapsed : bool = true
+var used_dash : bool = false
+var dash_factor : int = 10
+
 func _on_coyote_timeout():
 	coyote_window = false
 
-func _init():
+func _on_dash_timer_timeout():
+	dash_timer_elapsed = true
 
+func _init():
 	super("Idle")
 	add_state("Moving")
 	add_state("Dash")
@@ -60,6 +66,14 @@ func process_idle():
 
 func process_moving():
 	var movement_direction : float = input_interface.get_movement_direction()
+
+	if char_controller.is_on_floor() and dash_timer_elapsed:
+		used_dash = false
+
+	if input_interface.get_dash_input() and !used_dash and movement_direction:
+		dash_timer_elapsed = false
+		$DashTimer.start()
+		transition_state("Dash")
 	if movement_direction:
 		# TODO: Add checks for stun or anything that might prevent the character from moving
 		char_controller.velocity.x = movement_direction * char_controller.move_velocity * char_controller.animation_walk
@@ -68,7 +82,15 @@ func process_moving():
 		transition_state("Idle")
 
 func process_dash():
-	assert(false, "Called an unimplemented function")
+	if dash_timer_elapsed:
+		transition_state("Idle")
+		char_controller.velocity.x = 0
+	else:
+		var movement_direction : float = input_interface.get_movement_direction()
+		char_controller.velocity.x = dash_factor * movement_direction * char_controller.move_velocity
+		char_controller.velocity.y = 0
+
+	used_dash = true
 
 func _on_state_transition(_previous_state : String, new_state : String):
 	if new_state == "Idle":

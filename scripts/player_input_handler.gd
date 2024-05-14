@@ -15,4 +15,9 @@ func get_jump_input() -> bool:
 func get_attack_input() -> bool:
 	var attack_input: bool = Input.is_action_pressed("attack")
 	return attack_input
+
+func get_dash_input() -> bool:
+	var dash_input: bool = Input.is_action_pressed("dash")
+	return dash_input
+
 # TODO: Implement get combat inputs
