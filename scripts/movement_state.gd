@@ -28,6 +28,7 @@ func _init():
 
 func _ready():
 	coyote_timer = Timer.new()
+	add_child(coyote_timer)
 	coyote_timer.autostart = false
 	coyote_timer.one_shot = false
 	coyote_timer.wait_time = coyote_time
