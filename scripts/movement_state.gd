@@ -10,7 +10,7 @@ var coyote_window : bool = false
 var floor_prev : bool = false
 var coyote_timer : Timer
 
-var used_second_jump = false
+var used_second_jump = true
 var do_second_jump = false
 
 func _on_coyote_timeout():
