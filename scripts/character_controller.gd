@@ -15,8 +15,9 @@ extends Entity
 @export var animation_tree: AnimationTree
 @export var animation_walk: int = 0
 var animation_playback: AnimationNodeStateMachinePlayback
-
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var counter: int = 0
+var jump_flag: bool = false
 
 func _init():
 	pass
@@ -49,10 +50,34 @@ func get_movement_state() -> MovementState:
 func get_combat_state() -> CombatState:
 	return combat_state
 
+#func apply_gravity(delta: float):
+	#
+	#if not is_on_floor():
+		#velocity.y += gravity * delta
+	#if Input.is_action_pressed("jump") and counter <= 20:
+		#print("less")
+		#velocity.y = velocity.y - .01*gravity
+		#counter += 1
+	#elif Input.is_action_pressed("jump") and counter > 20:
+		#print("greater")
+		#velocity.y += gravity * delta
+	#else:
+		#print("ground")
+		#counter = 0
+		
 func apply_gravity(delta: float):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	if Input.is_action_pressed("jump") and not jump_flag:
+		if counter <= 25:
+			velocity.y -= 0.01 * gravity
+			counter += 1
+	else:
+		if not is_on_floor():
+			jump_flag = true
+		counter = 0
+		
 func jump():
 	velocity.y = -1 * jump_velocity
 	if velocity.x != 0:
@@ -68,6 +93,8 @@ func _physics_process(delta: float):
 	apply_gravity(delta)
 	movement_state.process_state()
 	combat_state.process_state()
+	if is_on_floor():
+		jump_flag = false	
 	
 	move_and_slide()
 	

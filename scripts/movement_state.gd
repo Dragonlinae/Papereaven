@@ -4,7 +4,7 @@ extends StateMachine
 var input_interface : InputHandler
 var char_controller : CharacterController
 var animation_playback: AnimationNodeStateMachinePlayback
-
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var coyote_time : float = 0.10
 var coyote_window : bool = false
 var floor_prev : bool = false
@@ -47,7 +47,7 @@ func handle_jump():
 	if jump_input and (char_controller.is_on_floor() or coyote_window):
 		char_controller.jump()
 		coyote_window = false
-
+	
 func process_idle():
 	var movement_direction : float = input_interface.get_movement_direction()
 	if movement_direction:
