@@ -96,6 +96,10 @@ func _physics_process(delta: float):
 	if is_on_floor():
 		jump_flag = false	
 	
+	# smoother movement code
+	floor_snap_length = 100
+	floor_constant_speed = true
+	
 	move_and_slide()
 	
 # Checkpoint logic
