@@ -12,11 +12,12 @@ extends Area2D
 
 ## The amount of damage this hitbox deals when touched.
 @export var damage: int
+@export var can_block: bool = true
 
 #@export var hitbox_state : HitboxState = HitboxState.new()
 
 # Declare Signals
-signal triggered(hurtbox : Hurtbox)
+signal triggered(hurtbox: Hurtbox)
 
 var initial_scale: Vector2
 # Constructor & Methods

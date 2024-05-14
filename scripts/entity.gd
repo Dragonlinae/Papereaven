@@ -15,10 +15,18 @@ var hit_counter: int = 0
 const hit_color := Color(1, 0, 0)
 const default_color := Color(1, 1, 1)
 
+## Damage modifier (used in block & parry)
+var damage_factor: float = 1.0
+
 func restore_health():
 	current_health = max_health
 
 func take_damage(damage: int):
+	current_health -= int(damage * damage_factor)
+	if is_dead() and destroy_when_dead:
+		queue_free()
+
+func force_full_damage(damage: int):
 	current_health -= damage
 	if is_dead() and destroy_when_dead:
 		queue_free()
@@ -38,3 +46,7 @@ func is_dead():
 
 func is_alive():
 	return current_health > 0
+
+func set_damage_factor(new_damage_factor: float):
+	# print("Set new damage factor to", new_damage_factor)
+	damage_factor = new_damage_factor

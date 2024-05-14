@@ -75,6 +75,7 @@ position = Vector2(0, 941)
 scale = Vector2(100, 1)
 script = ExtResource("8_nmi2r")
 damage = 9999
+can_block = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxFloor"]
 scale = Vector2(3, 3)
