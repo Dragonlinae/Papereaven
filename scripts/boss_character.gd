@@ -3,10 +3,12 @@ extends Entity
 const SPEED: float = 500.0
 const JUMP_VELOCITY: float = -1600.0
 
-@export var attacks: Array[String] = []
-@export var attack_weights: Array[int] = []
+@export var attacks: Array[PackedStringArray] = []
+@export var attack_weights: Array[PackedInt32Array] = []
+@export var health_thresholds: Array[float] = []
 @export var player_character: CharacterController = null
 
+var stage = 0
 var attack: Attack
 var curr_time_msec: int = 0
 
@@ -31,6 +33,15 @@ func set_state(new_state):
 	enter_state(curr_state)
 
 func _ready():
+
+	# Ensure attack parameters are valid
+	print(attacks)
+	print(attack_weights)
+	assert(attacks.size() == attack_weights.size())
+	assert(attacks.size()-1 == health_thresholds.size())
+	for i in range(attacks.size()):
+		assert(attacks[i].size() == attack_weights[i].size())
+
 	set_state(STATE.IDLE)
 	floor_snap_length = 100
 	floor_constant_speed = true
@@ -53,7 +64,9 @@ func update_state(delta):
 	match curr_state:
 		STATE.IDLE:
 			if randf() < 0.01:
-				attack = Attack.new(attacks[randomChoice(attack_weights)])
+				if stage < health_thresholds.size() and current_health < max_health * health_thresholds[stage]:
+					stage += 1
+				attack = Attack.new(attacks[stage][randomChoice(attack_weights[stage])])
 				set_state(STATE.ATTACK)
 				modulate = Color(1, 0, 0, 1)
 		STATE.ATTACK:

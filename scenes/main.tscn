@@ -51,8 +51,9 @@ spawnpoint = false
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_xcagy")]
 position = Vector2(1191.27, -507.253)
-attacks = Array[String](["star", "square", "break"])
-attack_weights = Array[int]([1, 1, 1])
+attacks = Array[PackedStringArray]([PackedStringArray("star", "square"), PackedStringArray("break")])
+attack_weights = Array[PackedInt32Array]([PackedInt32Array(1, 1), PackedInt32Array(1)])
+health_thresholds = Array[float]([0.6])
 player_character = NodePath("../CharacterController")
 
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
