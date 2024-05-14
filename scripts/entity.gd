@@ -32,5 +32,5 @@ func is_alive():
 	return current_health > 0
 
 func set_damage_factor(new_damage_factor: float):
-	print("Set new damage factor to", new_damage_factor)
+	# print("Set new damage factor to", new_damage_factor)
 	damage_factor = new_damage_factor
