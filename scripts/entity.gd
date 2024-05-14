@@ -20,6 +20,11 @@ func take_damage(damage: int):
 	if is_dead() and destroy_when_dead:
 		queue_free()
 
+func force_full_damage(damage: int):
+	current_health -= damage
+	if is_dead() and destroy_when_dead:
+		queue_free()
+
 func is_dead():
 	return current_health <= 0
 
