@@ -10,6 +10,9 @@ var coyote_window : bool = false
 var floor_prev : bool = false
 var coyote_timer : Timer
 
+var used_second_jump = true
+var do_second_jump = false
+
 func _on_coyote_timeout():
 	coyote_window = false
 
@@ -48,6 +51,20 @@ func handle_jump():
 		char_controller.jump()
 		coyote_window = false
 	
+
+	if !jump_input and !used_second_jump:
+		do_second_jump = true
+
+	if jump_input:
+		if char_controller.is_on_floor() or coyote_window:
+			char_controller.jump()
+			coyote_window = false
+			used_second_jump = false
+		elif do_second_jump:
+			char_controller.jump()
+			do_second_jump = false
+			used_second_jump = true
+
 func process_idle():
 	var movement_direction : float = input_interface.get_movement_direction()
 	if movement_direction:
