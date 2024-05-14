@@ -15,4 +15,13 @@ func get_jump_input() -> bool:
 func get_attack_input() -> bool:
 	var attack_input: bool = Input.is_action_pressed("attack")
 	return attack_input
+
+func get_attack_heavy_input() -> bool:
+	var attack_heavy_input: bool = Input.is_action_pressed("attack heavy")
+	return attack_heavy_input
+
+func get_block_input() -> bool:
+	var block_input: bool = Input.is_action_pressed("block")
+	return block_input
+
 # TODO: Implement get combat inputs
