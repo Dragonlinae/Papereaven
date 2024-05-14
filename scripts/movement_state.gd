@@ -1,14 +1,20 @@
 class_name MovementState
 extends StateMachine
 
-var input_interface : InputHandler
-var char_controller : CharacterController
+var input_interface: InputHandler
+var char_controller: CharacterController
 var animation_playback: AnimationNodeStateMachinePlayback
 
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+## (Should be) Grace period after leaving the ground that you can still jump.
 @export var coyote_time : float = 0.10
 var coyote_window : bool = false
 var floor_prev : bool = false
 var coyote_timer : Timer
+
+var used_second_jump = true
+var do_second_jump = false
 
 func _on_coyote_timeout():
 	coyote_window = false
@@ -35,32 +41,53 @@ func _ready():
 		coyote_timer.stop()
 	coyote_timer.timeout.connect(_on_coyote_timeout)
 
-func _inject_char_controller(controller : CharacterController):
+func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
 
-func _inject_input_interface(interface : InputHandler):
+func _inject_input_interface(interface: InputHandler):
 	input_interface = interface
 
 func handle_jump():
 	# TODO: Add checks for stun to prevent jump
-	var jump_input : bool = input_interface.get_jump_input()
+	var jump_input: bool = input_interface.get_jump_input()
 	if jump_input and (char_controller.is_on_floor() or coyote_window):
 		char_controller.jump()
 		coyote_window = false
+	
+
+	if !jump_input and !used_second_jump:
+		do_second_jump = true
+
+	if jump_input:
+		if char_controller.is_on_floor() or coyote_window:
+			char_controller.jump()
+			coyote_window = false
+			used_second_jump = false
+		elif do_second_jump:
+			char_controller.jump()
+			do_second_jump = false
+			used_second_jump = true
+
+func can_move() -> bool:
+	if char_controller.combat_state.current_state == "Idle":
+		return true
+	else:
+		return false
 
 func process_idle():
-	var movement_direction : float = input_interface.get_movement_direction()
-	if movement_direction:
+	var movement_direction: float = input_interface.get_movement_direction()
+	if movement_direction and can_move():
 		transition_state("Moving")
 	elif false:
 		transition_state("Dash")
 	else:
 		char_controller.velocity.x = 0
-		char_controller.play_animation("idle")
+		if char_controller.combat_state.current_state == "Idle":
+			char_controller.play_animation("idle")
 
 func process_moving():
-	var movement_direction : float = input_interface.get_movement_direction()
-	if movement_direction:
+	var movement_direction: float = input_interface.get_movement_direction()
+	if movement_direction and can_move():
 		# TODO: Add checks for stun or anything that might prevent the character from moving
 		char_controller.velocity.x = movement_direction * char_controller.move_velocity * char_controller.animation_walk
 		char_controller.play_animation("walk")
@@ -70,7 +97,7 @@ func process_moving():
 func process_dash():
 	assert(false, "Called an unimplemented function")
 
-func _on_state_transition(_previous_state : String, new_state : String):
+func _on_state_transition(_previous_state: String, new_state: String):
 	if new_state == "Idle":
 		process_idle()
 	elif new_state == "Moving":

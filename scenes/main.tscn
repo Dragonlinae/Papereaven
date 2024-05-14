@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
-[ext_resource type="PackedScene" path="res://pause_menu.tscn" id="6_wkpwb"]
+[ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
 [ext_resource type="PackedScene" uid="uid://ea378vbc8syb" path="res://scenes/entities/boss.tscn" id="7_xcagy"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
-[ext_resource type="PackedScene" uid="uid://bqy7gtdix5bk5" path="res://character_controller_test.tscn" id="9_ujg57"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 
@@ -84,6 +84,7 @@ position = Vector2(0, 941)
 scale = Vector2(100, 1)
 script = ExtResource("8_nmi2r")
 damage = 9999
+can_block = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxFloor"]
 scale = Vector2(3, 3)
