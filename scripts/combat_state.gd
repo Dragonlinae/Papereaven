@@ -113,8 +113,6 @@ func process_state():
 	match current_state:
 		"Idle":
 			process_idle()
-			if char_controller.animation_playback.get_current_node() != "idle":
-				print(char_controller.animation_playback.get_current_node())
 		"Attacking":
 			process_attacking()
 		"Blocking":
