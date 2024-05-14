@@ -9,8 +9,10 @@ var atk_metadata: Array = []
 var atk_data: Array = []
 var curr_atk_data: Array = []
 var next_atk_data_index: int = 1
+var player_character: Node2D
 
-func _init(attack_name: String):
+func _init(attack_name: String, player_controller: Node2D = null):
+	player_character = player_controller
 	atk_name = attack_name
 	atk_metadata = FileAccess.open("res://scripts/attacks/" + attack_name + ".txt", FileAccess.READ).get_as_text().strip_edges().split("[Pattern]")
 	atk_data = atk_metadata[1].strip_edges().split("\n")
@@ -34,6 +36,10 @@ func next_bullet_position(bullet_global_position: Vector2, bullet_rotation: floa
 	# Checks if bullet is relative or absolute position, and convert to global position if relative (0 is relative)
 	if curr_atk_data[1] == "0":
 		return bullet_global_position + Vector2(float(curr_atk_data[2]), float(curr_atk_data[3])).rotated(bullet_rotation)
+	if curr_atk_data[1] == "2":
+		print(bullet_rotation)
+		print(player_character.global_position + Vector2(float(curr_atk_data[2]), float(curr_atk_data[3])).rotated(bullet_rotation))
+		return player_character.global_position + Vector2(float(curr_atk_data[2]), float(curr_atk_data[3])).rotated(bullet_rotation)
 	return Vector2(float(curr_atk_data[2]), float(curr_atk_data[3]))
 
 # Makes and returns a bullet object

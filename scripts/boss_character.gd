@@ -66,7 +66,7 @@ func update_state(delta):
 			if randf() < 0.01:
 				if stage < health_thresholds.size() and current_health < max_health * health_thresholds[stage]:
 					stage += 1
-				attack = Attack.new(attacks[stage][randomChoice(attack_weights[stage])])
+				attack = Attack.new(attacks[stage][randomChoice(attack_weights[stage])], player_character)
 				set_state(STATE.ATTACK)
 				modulate = Color(1, 0, 0, 1)
 		STATE.ATTACK:
@@ -85,7 +85,7 @@ func update_state(delta):
 			pass
 		STATE.ATTACK:
 			while attack.next_bullet_ready():
-				var bullet_rotation:float = deg_to_rad(curr_time_msec / 10 % 360) if attack.atk_name=="star" else deg_to_rad(curr_time_msec/2 % 360) if attack.atk_name=="break" else 0
+				var bullet_rotation:float = deg_to_rad(curr_time_msec / 10 % 360) if attack.atk_name=="star" else deg_to_rad(curr_time_msec/2 % 360) if attack.atk_name!="square" else 0
 				var bullet = attack.get_bullet(global_position, bullet_rotation, 5.0)
 				get_parent().add_child(bullet)
 				attack.next_bullet()
