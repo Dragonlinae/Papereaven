@@ -18,7 +18,7 @@ func _init(attack_name: String, player_controller: Node2D = null):
 	atk_data = atk_metadata[1].strip_edges().split("\n")
 	curr_atk_data = atk_data[0].strip_edges().split(",")
 	atk_metadata = atk_metadata[0].strip_edges().split(",")
-	atk_total_duration = float(atk_metadata[1])
+	atk_total_duration = float(atk_metadata[2])
 
 # Returns true if the next bullet is ready to be spawned
 func next_bullet_ready():
@@ -45,8 +45,8 @@ func next_bullet_position(bullet_global_position: Vector2, bullet_rotation: floa
 # Makes and returns a bullet object
 func get_bullet(bullet_global_position: Vector2, bullet_rotation_offset: float = 0.0, bullet_velocity_multiplier: float = 1.0):
 	var bullet = load("res://scenes/entities/bullets/" + curr_atk_data[9] + ".tscn").instantiate()
-	bullet.global_position = next_bullet_position(bullet_global_position, bullet_rotation_offset)
-	bullet.rotation = deg_to_rad(float(curr_atk_data[4])) + bullet_rotation_offset
+	bullet.global_position = next_bullet_position(bullet_global_position, deg_to_rad(fmod(bullet_rotation_offset*float(atk_metadata[1]), 360)))
+	bullet.rotation = deg_to_rad(float(curr_atk_data[4]) + fmod(bullet_rotation_offset*float(atk_metadata[1]), 360))
 	bullet.velocity = Vector2(float(curr_atk_data[5]) * bullet_velocity_multiplier, 0).rotated(bullet.rotation)
 	bullet.acceleration = float(curr_atk_data[6])
 	bullet.damage = float(curr_atk_data[7])

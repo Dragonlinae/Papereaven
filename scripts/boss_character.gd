@@ -85,7 +85,7 @@ func update_state(delta):
 			pass
 		STATE.ATTACK:
 			while attack.next_bullet_ready():
-				var bullet_rotation:float = deg_to_rad(curr_time_msec / 10 % 360) if attack.atk_name=="star" else deg_to_rad(curr_time_msec/2 % 360) if attack.atk_name!="square" else 0
+				var bullet_rotation:float = curr_time_msec
 				var bullet = attack.get_bullet(global_position, bullet_rotation, 5.0)
 				get_parent().add_child(bullet)
 				attack.next_bullet()
