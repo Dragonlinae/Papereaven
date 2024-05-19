@@ -16,15 +16,16 @@ var coyote_timer : Timer
 var used_second_jump = true
 var do_second_jump = false
 
-var dash_timer_elapsed : bool = true
+var dashing : bool = false
 var used_dash : bool = false
 var dash_factor : int = 10
+var dash_direction : float = 1
 
 func _on_coyote_timeout():
 	coyote_window = false
 
 func _on_dash_timer_timeout():
-	dash_timer_elapsed = true
+	dashing = false
 
 func _init():
 	super("Idle")
@@ -60,7 +61,6 @@ func handle_jump():
 		char_controller.jump()
 		coyote_window = false
 
-
 	if !jump_input and !used_second_jump:
 		do_second_jump = true
 
@@ -94,11 +94,12 @@ func process_idle():
 func process_moving():
 	var movement_direction : float = input_interface.get_movement_direction()
 
-	if char_controller.is_on_floor() and dash_timer_elapsed and can_move():
+	if char_controller.is_on_floor() and !dashing and can_move():
 		used_dash = false
 
 	if input_interface.get_dash_input() and !used_dash and can_move():
-		dash_timer_elapsed = false
+		dashing = true
+		dash_direction = movement_direction
 		$DashTimer.start()
 		transition_state("Dash")
 	if movement_direction:
@@ -109,15 +110,13 @@ func process_moving():
 		transition_state("Idle")
 
 func process_dash():
-	if dash_timer_elapsed:
+	if !dashing:
 		transition_state("Idle")
 		char_controller.velocity.x = 0
 	else:
-		var movement_direction : float = input_interface.get_movement_direction()
-		char_controller.velocity.x = dash_factor * movement_direction * char_controller.move_velocity
+		char_controller.velocity.x = dash_factor * dash_direction * char_controller.move_velocity
 		char_controller.velocity.y = 0
-
-	used_dash = true
+		used_dash = true
 
 func _on_state_transition(_previous_state: String, new_state: String):
 	if new_state == "Idle":
