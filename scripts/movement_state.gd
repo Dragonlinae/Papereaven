@@ -57,10 +57,6 @@ func _inject_input_interface(interface: InputHandler):
 func handle_jump():
 	# TODO: Add checks for stun to prevent jump
 	var jump_input: bool = input_interface.get_jump_input()
-	if jump_input and (char_controller.is_on_floor() or coyote_window):
-		char_controller.jump()
-		coyote_window = false
-
 	if !jump_input and !used_second_jump:
 		do_second_jump = true
 
