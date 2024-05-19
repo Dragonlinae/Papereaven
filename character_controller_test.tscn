@@ -1292,6 +1292,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
+libraries = {
+"": SubResource("AnimationLibrary_37tsb")
+}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5
@@ -1735,5 +1738,11 @@ script = ExtResource("4_7aeu4")
 [node name="MovementState" type="Node" parent="."]
 script = ExtResource("5_7hae6")
 
+[node name="CoyoteTimer" type="Timer" parent="MovementState"]
+wait_time = 0.2
+one_shot = true
+
 [node name="CombatState" type="Node" parent="."]
 script = ExtResource("6_1kj5d")
+
+[connection signal="timeout" from="MovementState/CoyoteTimer" to="MovementState" method="_on_coyote_timeout"]
