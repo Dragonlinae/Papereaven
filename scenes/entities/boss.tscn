@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ea378vbc8syb"]
+[gd_scene load_steps=7 format=3 uid="uid://ea378vbc8syb"]
 
 [ext_resource type="Script" path="res://scripts/boss_character.gd" id="1_u81my"]
 [ext_resource type="Texture2D" uid="uid://decu1ve71ao7o" path="res://assets/artistblock.png" id="2_dhjvd"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="3_6c5ra"]
+[ext_resource type="PackedScene" uid="uid://dresn5a02bkgt" path="res://scenes/overlay/boss_health.tscn" id="4_cr82f"]
+[ext_resource type="PackedScene" uid="uid://dux442ho50gkg" path="res://scenes/overlay/glow.tscn" id="5_t7km0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rk82w"]
 radius = 93.0
@@ -12,13 +14,15 @@ height = 530.0
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_u81my")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_rk82w")
+max_health = 20
+current_health = 20
 
 [node name="Artistblock" type="Sprite2D" parent="."]
 position = Vector2(-10, 0)
 texture = ExtResource("2_dhjvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rk82w")
 
 [node name="Character" type="Node2D" parent="."]
 
@@ -28,3 +32,7 @@ entity = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_rk82w")
+
+[node name="BossHealthBar" parent="." instance=ExtResource("4_cr82f")]
+
+[node name="Glow" parent="." instance=ExtResource("5_t7km0")]

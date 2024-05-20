@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dresn5a02bkgt"]
+
+[ext_resource type="Texture2D" uid="uid://bf4b500u643m" path="res://assets/overlay/healthbar.png" id="1_wf6ov"]
+[ext_resource type="Texture2D" uid="uid://b06x2toxowx4n" path="res://assets/overlay/health.png" id="2_snw4i"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lbuae"]
+
+[node name="BossHealthBar" type="CanvasLayer"]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+material = SubResource("CanvasItemMaterial_lbuae")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 120.0
+grow_horizontal = 2
+value = 100.0
+texture_over = ExtResource("1_wf6ov")
+texture_progress = ExtResource("2_snw4i")
