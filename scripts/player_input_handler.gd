@@ -24,4 +24,8 @@ func get_block_input() -> bool:
 	var block_input: bool = Input.is_action_pressed("block")
 	return block_input
 
+func get_interact_input() -> bool:
+	var interact_input: bool = Input.is_action_just_pressed("interact")
+	return interact_input
+
 # TODO: Implement get combat inputs

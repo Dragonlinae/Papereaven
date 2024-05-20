@@ -123,7 +123,7 @@ func update_state(delta):
 
 	move_and_slide()
 
-	health_bar.value = health_bar.value + (current_health - health_bar.value) * 0.1
+	health_bar.value = current_health
 
 func enter_state(state):
 	match state:

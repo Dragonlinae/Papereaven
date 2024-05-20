@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbpt6kmsiap0"]
+
+[ext_resource type="Script" path="res://scripts/boss_character_npc.gd" id="1_15prv"]
+[ext_resource type="Texture2D" uid="uid://decu1ve71ao7o" path="res://assets/artistblock.png" id="2_lvqyt"]
+[ext_resource type="PackedScene" uid="uid://chovastkvv1sp" path="res://scenes/overlay/dialoguearea.tscn" id="2_v1tsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whpgb"]
+size = Vector2(186, 526)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wuis7"]
+particle_flag_disable_z = true
+angle_max = 360.0
+direction = Vector3(1, 1, 0)
+spread = 0.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="Gradient" id="Gradient_k25uk"]
+colors = PackedColorArray(1, 0, 0, 1, 0.639216, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_skrqt"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_k25uk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r2e8s"]
+particle_flag_disable_z = true
+angle_max = 360.0
+direction = Vector3(-1, 1, 0)
+spread = 0.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+
+[node name="CharacterBody2D" type="Area2D" groups=["npc"]]
+collision_layer = 31
+collision_mask = 31
+script = ExtResource("1_15prv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_whpgb")
+
+[node name="Artistblock" type="Sprite2D" parent="."]
+position = Vector2(-10, 0)
+texture = ExtResource("2_lvqyt")
+
+[node name="Dialoguearea" parent="." instance=ExtResource("2_v1tsy")]
+dialogues = Array[String](["Hello!", "I am a friendly NPC!"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialoguearea"]
+shape = SubResource("RectangleShape2D_whpgb")
+
+[node name="AttackFX" type="Node2D" parent="."]
+
+[node name="AttackParticles" type="GPUParticles2D" parent="AttackFX"]
+position = Vector2(-171, -119)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_wuis7")
+texture = SubResource("GradientTexture2D_skrqt")
+lifetime = 0.4
+one_shot = true
+
+[node name="AttackParticles2" type="GPUParticles2D" parent="AttackFX"]
+position = Vector2(143, -103)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_r2e8s")
+texture = SubResource("GradientTexture2D_skrqt")
+lifetime = 0.4
+one_shot = true
