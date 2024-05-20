@@ -13,15 +13,19 @@ func _process(delta):
 	if activated:
 		activated = false
 		dialogue_box = get_node("Dialogue")
+		var audio : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+		audio.stream = load("res://assets/audio/leva-in-the-dark-176514.mp3")
+		get_parent().add_child(audio)
+		audio.play()
 		for particle in get_node("AttackFX").get_children():
 			particle.emitting = true
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(3).timeout
 		dialogue_box.next_dialogue()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(3).timeout
 		dialogue_box.next_dialogue()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(3).timeout
 		dialogue_box.next_dialogue()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(3).timeout
 		var boss : CharacterBody2D = load("res://scenes/entities/boss.tscn").instantiate()
 		boss.player_character = player_character
 		boss.global_position = global_position
