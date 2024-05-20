@@ -13,9 +13,9 @@ func _process(delta):
 	if activated:
 		activated = false
 		dialogue_box = get_node("Dialogue")
-		var audio : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+		var audio : AudioStreamPlayer = AudioStreamPlayer.new()
 		audio.stream = load("res://assets/audio/leva-in-the-dark-176514.mp3")
-		player_character.add_child(audio)
+		get_parent().add_child(audio)
 		audio.play()
 		for particle in get_node("AttackFX").get_children():
 			particle.emitting = true
