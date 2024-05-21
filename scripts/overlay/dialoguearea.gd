@@ -1,4 +1,5 @@
 extends Area2D
+class_name DialogueArea2D
 
 @export_file var dialogue_file : String
 var dialogues : PackedStringArray = []
@@ -20,7 +21,7 @@ func interact():
 func _ready():
 	if dialogue_file != "":
 		var file = FileAccess.open(dialogue_file, FileAccess.READ)
-		dialogues = FileAccess.open(dialogue_file, FileAccess.READ).get_as_text().strip_edges(true, true).split("\n")
+		dialogues = FileAccess.open(dialogue_file, FileAccess.READ).get_as_text().strip_edges().split("\n")
 		file.close()
 		# print(dialogues)
 	area_exited.connect(Callable(self, "_on_area_exited"))
