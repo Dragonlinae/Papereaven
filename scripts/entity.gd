@@ -10,6 +10,8 @@ class_name Entity
 ## Should the tree be removed when health <= 0
 @export var destroy_when_dead: bool = true
 
+signal damage_taken(damage_amount)
+
 # Hit indicators
 var hit_counter: int = 0
 const hit_color := Color(1, 0, 0)
@@ -22,6 +24,7 @@ func restore_health():
 	current_health = max_health
 
 func private_deal_damage(damage: int):
+	damage_taken.emit(damage)
 	current_health -= damage
 	return
 

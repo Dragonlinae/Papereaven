@@ -1743,4 +1743,5 @@ script = ExtResource("6_1kj5d")
 [node name="ComboTracker" type="Node" parent="."]
 script = ExtResource("10_wcbpo")
 
+[connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]

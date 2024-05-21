@@ -8,16 +8,6 @@ var combo_count: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	# Set up the connection
-	var char_controller: CharacterController = get_parent() as CharacterController
-	if char_controller == null or not char_controller is CharacterController:
-		return
-	
-	var char_hitbox: Hitbox = char_controller.get_node("Hitbox") as Hitbox
-	if char_hitbox == null or not char_hitbox is Hitbox:
-		return
-
 	# Set up the timer
 	combo_timer = Timer.new()
 	combo_timer.autostart = false
@@ -38,11 +28,18 @@ func _on_hit_registered():
 	combo_timer.start()
 	return
 
-func _on_combo_timeout():
+func end_combo():
 	print("Combo decayed back to 0")
 	combo_count = 0
 	combo_timer.stop()
 	return
 
+func _on_combo_timeout():
+	end_combo()
+
 func _on_hitbox_hitbox_triggered(_hurtbox: Hurtbox, _hitbox: Hitbox):
 	_on_hit_registered()
+
+func _on_character_controller_damage_taken(_damage_amount: Variant):
+	print("Damage taken! Resetting combo!")
+	end_combo()

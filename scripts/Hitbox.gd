@@ -52,7 +52,7 @@ func _on_area_entered(area2d: Area2D):
 		return
 	
 	var processed_damage: int = damage
-	var combo_tracker: ComboTracker = get_parent().get_node("ComboTracker") as ComboTracker
+	var combo_tracker: ComboTracker = get_parent().get_node_or_null("ComboTracker") as ComboTracker
 	if combo_tracker != null and combo_tracker is ComboTracker:
 		processed_damage = int(((combo_tracker.combo_count * 0.10) + 1) * damage)
 
