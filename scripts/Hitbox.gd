@@ -63,7 +63,7 @@ func _on_area_entered(area2d: Area2D):
 	print("Ow ", processed_damage)
 	if hurtbox.entity.is_alive():
 		if can_block == true:
-			hurtbox.entity.take_damage(processed_damage)
+			hurtbox.entity.process_incoming_attack(processed_damage, self, hurtbox)
 			hitbox_triggered.emit(hurtbox, self)
 		else:
 			hurtbox.entity.force_full_damage(processed_damage)

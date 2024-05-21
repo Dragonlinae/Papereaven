@@ -59,7 +59,6 @@ func can_block() -> bool:
 	return true
 
 func block():
-	print("In Block()")
 	transition_state("Blocking")
 	char_controller.play_animation("block")
 

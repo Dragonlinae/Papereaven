@@ -28,12 +28,23 @@ func restore_health():
 
 ## Damage taken will have damage reduction applied.
 ## This method scales the damage before applying.
-func take_damage(damage: int):
-	force_full_damage(int(damage * damage_factor))
+func process_incoming_attack(damage: int, source_hitbox: Hitbox, entity_hurtbox: Hurtbox):
+	var entity_hurtbox_state: HurtboxState = entity_hurtbox.get_node_or_null("HurtboxState") as HurtboxState
+	if entity_hurtbox_state.current_state == "Parry":
+		var source_entity: Entity = source_hitbox.get_parent() as Entity
+		var entity_hitbox: Hitbox = get_node_or_null("Hitbox") as Hitbox
+		var source_hurtbox: Hurtbox = source_entity.get_node_or_null("Hurtbox") as Hurtbox
+
+		if source_hurtbox != null and entity_hitbox != null:
+			source_entity.process_incoming_attack(damage, entity_hitbox, source_hurtbox)
+		else:
+			source_entity.force_full_damage(damage)
+	else:
+		force_full_damage(int(damage * damage_factor))
 
 ## Damage will not have damage reduction applied.
 ## This method does the actual damaging and post-damage events.
-## `take_damage` will scale damage before passing it though.
+## `process_incoming_attack` will scale damage before passing it though.
 func force_full_damage(damage: int):
 	damage_taken.emit(damage)
 	current_health -= damage
@@ -49,9 +60,9 @@ func force_full_damage(damage: int):
 		var curr_hit_counter = hit_counter
 		var flicker_frames = 6
 		while flicker_frames != 0 and curr_hit_counter == hit_counter:
-			set_modulate(default_color if flicker_frames & 1 else hit_color)
+			set_modulate(default_color if flicker_frames&1 else hit_color)
 			flicker_frames -= 1
-			await get_tree().create_timer(2/60.0).timeout
+			await get_tree().create_timer(2 / 60.0).timeout
 
 func is_dead():
 	return current_health <= 0

@@ -121,9 +121,31 @@ func attackEnded():
 	# print("Called AttackEnded")
 	combat_state.on_attack_end()
 
+func parryStarted():
+	print("Debug: Parry started")
+	var char_hurtbox: Hurtbox = get_node_or_null("Hurtbox")
+	if char_hurtbox != null:
+		var char_hurtbox_state: HurtboxState = char_hurtbox.get_node("HurtboxState") as HurtboxState
+		if char_hurtbox_state != null:
+			char_hurtbox_state.startParry()
+	pass
+
 func parryEnded():
+	print("Debug: Parry ended")
+	var char_hurtbox: Hurtbox = get_node_or_null("Hurtbox")
+	if char_hurtbox != null:
+		var char_hurtbox_state: HurtboxState = char_hurtbox.get_node("HurtboxState") as HurtboxState
+		if char_hurtbox_state != null:
+			char_hurtbox_state._on_parry_end()
 	pass
 
 func blockEnded():
+	print("Debug: Block ended")
 	combat_state.on_block_end()
+
+	var char_hurtbox: Hurtbox = get_node_or_null("Hurtbox")
+	if char_hurtbox != null:
+		var char_hurtbox_state: HurtboxState = char_hurtbox.get_node("HurtboxState") as HurtboxState
+		if char_hurtbox_state != null:
+			char_hurtbox_state._on_block_end()
 	pass

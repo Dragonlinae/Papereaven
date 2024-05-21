@@ -32,6 +32,6 @@ func stop_listening():
 # 		print("ow", hitbox.damage)
 # 		if hitbox.damage > 0 and entity.is_alive():
 # 			if hitbox.can_block == true:
-# 				entity.take_damage(hitbox.damage)
+# 				entity.process_incoming_attack(hitbox.damage)
 # 			else:
 # 				entity.force_full_damage(hitbox.damage)
