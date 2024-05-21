@@ -21,16 +21,20 @@ var damage_factor: float = 1.0
 func restore_health():
 	current_health = max_health
 
+func private_deal_damage(damage: int):
+	current_health -= damage
+	return
+
 func take_damage(damage: int):
-	current_health -= int(damage * damage_factor)
+	private_deal_damage(int(damage * damage_factor))
 	if is_dead() and destroy_when_dead:
 		queue_free()
 
 func force_full_damage(damage: int):
-	current_health -= damage
+	private_deal_damage(damage)
 	if is_dead() and destroy_when_dead:
 		queue_free()
-	else:
+	else: # Wrap this into a function? Also, do all entities have the same knockup? Are some enemies immune to knockup?
 		set_velocity(Vector2(0, -400))
 		# flicker
 		hit_counter += 1
