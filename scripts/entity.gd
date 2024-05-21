@@ -26,18 +26,17 @@ var damage_factor: float = 1.0
 func restore_health():
 	current_health = max_health
 
-func private_deal_damage(damage: int):
-	damage_taken.emit(damage)
-	current_health -= damage
-	return
-
+## Damage taken will have damage reduction applied.
+## This method scales the damage before applying.
 func take_damage(damage: int):
 	force_full_damage(int(damage * damage_factor))
-	if is_dead() and destroy_when_dead:
-		queue_free()
 
+## Damage will not have damage reduction applied.
+## This method does the actual damaging and post-damage events.
+## `take_damage` will scale damage before passing it though.
 func force_full_damage(damage: int):
-	private_deal_damage(damage)
+	damage_taken.emit(damage)
+	current_health -= damage
 	if is_dead() and destroy_when_dead:
 		if audio_stream_player != null:
 			audio_stream_player.stop()
