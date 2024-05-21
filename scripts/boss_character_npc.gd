@@ -10,7 +10,7 @@ var activated = false
 
 func _ready():
 	var file = FileAccess.open(dialogue_file, FileAccess.READ)
-	dialogues = file.get_as_text().strip_edges(true, true).split("\n")
+	dialogues = file.get_as_text().strip_edges().split("\n")
 	file.close()
 	area_exited.connect(Callable(self, "_on_area_exited"))
 
@@ -39,7 +39,8 @@ func _process(delta):
 		queue_free()
 
 func _on_area_exited(area):
-	if get_node("Dialoguearea").spoken:
+	var dialogue_area: DialogueArea2D = get_node("Dialoguearea")
+	if dialogue_area != null and dialogue_area.spoken:
 		get_node("Dialoguearea").queue_free()
 		get_node("CollisionShape2D2").queue_free()
 		dialogue_box = dialogue_box_scene.instantiate()
