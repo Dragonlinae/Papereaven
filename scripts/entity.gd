@@ -10,6 +10,8 @@ class_name Entity
 ## Should the tree be removed when health <= 0
 @export var destroy_when_dead: bool = true
 
+signal damage_taken(damage_amount)
+
 # Hit indicators
 var hit_counter: int = 0
 const hit_color := Color(1, 0, 0)
@@ -24,17 +26,24 @@ var damage_factor: float = 1.0
 func restore_health():
 	current_health = max_health
 
+func private_deal_damage(damage: int):
+	damage_taken.emit(damage)
+	current_health -= damage
+	return
+
 func take_damage(damage: int):
-	force_full_damage(damage * damage_factor)
+	force_full_damage(int(damage * damage_factor))
+	if is_dead() and destroy_when_dead:
+		queue_free()
 
 func force_full_damage(damage: int):
-	current_health -= damage
+	private_deal_damage(damage)
 	if is_dead() and destroy_when_dead:
 		if audio_stream_player != null:
 			audio_stream_player.stop()
 			audio_stream_player.queue_free()
 		queue_free()
-	else:
+	else: # Wrap this into a function? Also, do all entities have the same knockup? Are some enemies immune to knockup?
 		set_velocity(Vector2(0, -400))
 		# flicker
 		hit_counter += 1

@@ -58,6 +58,7 @@ position = Vector2(236, 121)
 scale = Vector2(4, 4)
 move_velocity = 2000.0
 jump_velocity = 2000.0
+destroy_when_dead = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -90,6 +91,8 @@ shape = SubResource("RectangleShape2D_1k57n")
 [node name="SomethingToHit" type="CharacterBody2D" parent="."]
 position = Vector2(1892, 419)
 script = ExtResource("9_6onl3")
+max_health = 1000
+current_health = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit"]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://xld7e8viee0m"]
+[gd_scene load_steps=67 format=3 uid="uid://xld7e8viee0m"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/movement_state.gd" id="5_7hae6"]
 [ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="5_iu6dk"]
 [ext_resource type="Script" path="res://scripts/combat_state.gd" id="6_1kj5d"]
+[ext_resource type="Script" path="res://scripts/combo_tracker.gd" id="10_wcbpo"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -1318,7 +1319,7 @@ top_level = true
 z_index = -6
 position = Vector2(6.29179, -16.542)
 rotation = 1.5653
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.249999, 0.249999)
 
 [node name="sword_rotation" type="Node2D" parent="CharacterCollisionShape/character_root/polygons/sword_position"]
 
@@ -1729,6 +1730,7 @@ script = ExtResource("4_1c3yk")
 visible = false
 script = ExtResource("3_kye36")
 friendly = true
+damage = 5
 
 [node name="Polygon2D" type="Polygon2D" parent="Hitbox"]
 position = Vector2(28.0397, 0.684922)
@@ -1764,5 +1766,10 @@ script = ExtResource("6_1kj5d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("RectangleShape2D_vwx3l")
 
+[node name="ComboTracker" type="Node" parent="."]
+script = ExtResource("10_wcbpo")
+
+[connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
+[connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
 [connection signal="timeout" from="MovementState/CoyoteTimer" to="MovementState" method="_on_coyote_timeout"]
 [connection signal="timeout" from="MovementState/DashTimer" to="MovementState" method="_on_dash_timer_timeout"]
