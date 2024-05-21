@@ -22,9 +22,9 @@ func _ready():
 		var file = FileAccess.open(dialogue_file, FileAccess.READ)
 		dialogues = FileAccess.open(dialogue_file, FileAccess.READ).get_as_text().strip_edges(true, true).split("\n")
 		file.close()
-		print(dialogues)
+		# print(dialogues)
 	area_exited.connect(Callable(self, "_on_area_exited"))
-	print("ready")
+	# print("ready")
 
 func _on_area_exited(area):
 	if dialogue_box != null:

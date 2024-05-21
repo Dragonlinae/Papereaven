@@ -92,11 +92,14 @@ func process_idle():
 	var movement_direction: float = input_interface.get_movement_direction()
 	if movement_direction and can_move():
 		transition_state("Moving")
+		char_controller.play_animation("walk")
 	elif false:
 		transition_state("Dash")
 	else:
 		char_controller.velocity.x = 0
-		if char_controller.combat_state.current_state == "Idle":
+		
+		# only start idle animation when the combat state isn't doing anything
+		if can_move():
 			char_controller.play_animation("idle")
 
 func process_moving():
@@ -112,8 +115,7 @@ func process_moving():
 		transition_state("Dash")
 	if movement_direction:
 		# TODO: Add checks for stun or anything that might prevent the character from moving
-		char_controller.velocity.x = movement_direction * char_controller.move_velocity * char_controller.animation_walk
-		char_controller.play_animation("walk")
+		char_controller.velocity.x = movement_direction * char_controller.move_velocity
 	else:
 		transition_state("Idle")
 
@@ -126,7 +128,10 @@ func process_dash():
 		char_controller.velocity.y = 0
 		used_dash = true
 
+
+# Is this even used?
 func _on_state_transition(_previous_state: String, new_state: String):
+	print("new_state " + new_state)
 	if new_state == "Idle":
 		process_idle()
 	elif new_state == "Moving":

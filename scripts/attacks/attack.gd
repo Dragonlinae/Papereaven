@@ -37,8 +37,8 @@ func next_bullet_position(bullet_global_position: Vector2, bullet_rotation: floa
 	if curr_atk_data[1] == "0":
 		return bullet_global_position + Vector2(float(curr_atk_data[2]), float(curr_atk_data[3])).rotated(bullet_rotation)
 	if curr_atk_data[1] == "2":
-		print(bullet_rotation)
-		print(player_character.global_position + Vector2(float(curr_atk_data[2]), float(curr_atk_data[3])).rotated(bullet_rotation))
+		# (bullet_rotation)
+		# print(player_character.global_position + Vector2(float(curr_atk_data[2]), float(curr_atk_data[3])).rotated(bullet_rotation))
 		return player_character.global_position + Vector2(float(curr_atk_data[2]), float(curr_atk_data[3])).rotated(bullet_rotation)
 	return Vector2(float(curr_atk_data[2]), float(curr_atk_data[3]))
 
