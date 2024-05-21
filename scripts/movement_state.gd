@@ -22,7 +22,7 @@ var did_manual_jump = false
 var dash_timer: Timer
 var dashing : bool = false
 var used_dash : bool = false
-var dash_factor : int = 10
+var dash_velocity : int = 3000
 var dash_direction : float = 1
 
 func _on_coyote_timeout():
@@ -124,7 +124,7 @@ func process_dash():
 		transition_state("Idle")
 		char_controller.velocity.x = 0
 	else:
-		char_controller.velocity.x = dash_factor * dash_direction * char_controller.move_velocity
+		char_controller.velocity.x = dash_velocity * dash_direction
 		char_controller.velocity.y = 0
 		used_dash = true
 
