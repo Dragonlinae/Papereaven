@@ -7,15 +7,19 @@ var animation_playback: AnimationNodeStateMachinePlayback
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-## (Should be) Grace period after leaving the ground that you can still jump.
+## Grace period after leaving the ground that you can still jump.
+@export var coyote_time: float = 0.2
 var coyote_window : bool = false
 var floor_prev : bool = false
-@onready var coyote_timer : Timer = $CoyoteTimer
+var coyote_timer: Timer
 
 var used_second_jump = false
 var do_second_jump = false
 var did_manual_jump = false
 
+## Duration of dash (note: May replace with animation in future)
+@export var dash_time: float = 0.2
+var dash_timer: Timer
 var dashing : bool = false
 var used_dash : bool = false
 var dash_factor : int = 10
@@ -24,7 +28,7 @@ var dash_direction : float = 1
 func _on_coyote_timeout():
 	coyote_window = false
 
-func _on_dash_timer_timeout():
+func _on_dash_timeout():
 	dashing = false
 
 func _init():
@@ -38,6 +42,22 @@ func _init():
 	add_transition("Moving", "Idle")
 	add_transition("Dash", "Moving")
 	add_transition("Dash", "Idle")
+
+func _ready():
+	# Initialize timers
+	coyote_timer = Timer.new()
+	add_child(coyote_timer)
+	coyote_timer.autostart = false
+	coyote_timer.one_shot = false
+	coyote_timer.wait_time = coyote_time
+	coyote_timer.timeout.connect(_on_coyote_timeout)
+	
+	dash_timer = Timer.new()
+	add_child(dash_timer)
+	dash_timer.autostart = false
+	dash_timer.one_shot = false
+	dash_timer.wait_time = dash_time
+	dash_timer.timeout.connect(_on_dash_timeout)
 
 func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
@@ -88,7 +108,7 @@ func process_moving():
 	if input_interface.get_dash_input() and !used_dash and can_move():
 		dashing = true
 		dash_direction = movement_direction
-		$DashTimer.start()
+		dash_timer.start()
 		transition_state("Dash")
 	if movement_direction:
 		# TODO: Add checks for stun or anything that might prevent the character from moving

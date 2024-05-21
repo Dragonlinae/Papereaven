@@ -1750,14 +1750,6 @@ script = ExtResource("4_7aeu4")
 [node name="MovementState" type="Node" parent="."]
 script = ExtResource("5_7hae6")
 
-[node name="CoyoteTimer" type="Timer" parent="MovementState"]
-wait_time = 0.2
-one_shot = true
-
-[node name="DashTimer" type="Timer" parent="MovementState"]
-wait_time = 0.2
-one_shot = true
-
 [node name="CombatState" type="Node" parent="."]
 script = ExtResource("6_1kj5d")
 
@@ -1771,5 +1763,3 @@ script = ExtResource("10_wcbpo")
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
-[connection signal="timeout" from="MovementState/CoyoteTimer" to="MovementState" method="_on_coyote_timeout"]
-[connection signal="timeout" from="MovementState/DashTimer" to="MovementState" method="_on_dash_timer_timeout"]
