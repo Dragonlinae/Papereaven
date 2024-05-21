@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy0u0ihwveud2"]
+
+[ext_resource type="Script" path="res://scripts/attacks/bullet.gd" id="1_kk3b7"]
+[ext_resource type="Texture2D" uid="uid://b1pecii1din0f" path="res://assets/sprites/bullets/basic.png" id="2_b25et"]
+
+[node name="Bullet" type="CharacterBody2D"]
+modulate = Color(1, 1, 0, 1)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_kk3b7")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.235294)
+scale = Vector2(800, 5)
+texture = ExtResource("2_b25et")

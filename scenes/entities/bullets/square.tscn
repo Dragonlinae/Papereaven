@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmfuc5f7cggij"]
+
+[ext_resource type="Script" path="res://scripts/attacks/bullet.gd" id="1_d233c"]
+[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="2_of1dy"]
+
+[sub_resource type="Gradient" id="Gradient_otfn5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vknsk"]
+gradient = SubResource("Gradient_otfn5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bte1m"]
+size = Vector2(300, 300)
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_d233c")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(4.6875, 4.6875)
+texture = SubResource("GradientTexture2D_vknsk")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_of1dy")
+damage = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_bte1m")

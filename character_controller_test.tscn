@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://mam8d73tn4l6"]
+[gd_scene load_steps=65 format=3 uid="uid://xld7e8viee0m"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="3_tib08"]
 [ext_resource type="Script" path="res://scripts/hurtbox_state.gd" id="4_1c3yk"]
 [ext_resource type="Script" path="res://scripts/player_input_handler.gd" id="4_7aeu4"]
+[ext_resource type="Texture2D" uid="uid://quqursee4de3" path="res://assets/tilesheet.png" id="4_380wk"]
 [ext_resource type="Script" path="res://scripts/movement_state.gd" id="5_7hae6"]
 [ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="5_iu6dk"]
 [ext_resource type="Script" path="res://scripts/combat_state.gd" id="6_1kj5d"]
@@ -1082,6 +1083,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xt5v6"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ixqai"]
+xfade_time = 1.0
 switch_mode = 2
 advance_mode = 2
 
@@ -1268,9 +1270,7 @@ modifications/3 = SubResource("SkeletonModification2DCCDIK_mp4k7")
 modifications/4 = SubResource("SkeletonModification2DTwoBoneIK_g13ak")
 modifications/5 = SubResource("SkeletonModification2DTwoBoneIK_l2y4b")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mbhme"]
-radius = 8.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbxtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xct56"]
 size = Vector2(54, 70)
@@ -1552,7 +1552,6 @@ auto_calculate_length_and_angle = false
 length = 40.28
 bone_angle = -359.128
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm"]
 position = Vector2(47, 1)
@@ -1561,7 +1560,6 @@ auto_calculate_length_and_angle = false
 length = 48.244
 bone_angle = 0.0
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="sword" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm/left_hand"]
 position = Vector2(41, 0)
@@ -1593,7 +1591,6 @@ auto_calculate_length_and_angle = false
 length = 42.521
 bone_angle = -230.322
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm"]
 position = Vector2(-32, 41)
@@ -1602,7 +1599,6 @@ auto_calculate_length_and_angle = false
 length = 39.45
 bone_angle = 90.774
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm/right_hand"]
 position = Vector2(-0.294134, 29.9761)
@@ -1628,7 +1624,6 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(9, -10)
 rest = Transform2D(1, 0, 0, 1, 9, -10)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="left_knee" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg"]
 position = Vector2(28, 60)
@@ -1642,13 +1637,11 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(28, 60)
 rest = Transform2D(1, 0, 0, 1, 28, 60)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="left_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg/left_lower_leg"]
 position = Vector2(19, 39)
 rest = Transform2D(1, 0, 0, 1, 19, 39)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg/left_lower_leg/left_foot"]
 position = Vector2(2.00001, 5)
@@ -1657,7 +1650,6 @@ position = Vector2(2.00001, 5)
 position = Vector2(-12, -8)
 rest = Transform2D(1, 0, 0, 1, -12, -8)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="right_knee" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg"]
 position = Vector2(-44, 58)
@@ -1671,13 +1663,11 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(-44, 58)
 rest = Transform2D(1, 0, 0, 1, -44, 58)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="right_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg"]
 position = Vector2(-21, 41)
 rest = Transform2D(1, 0, 0, 1, -21, 41)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg/right_foot"]
 position = Vector2(1, 4)
@@ -1709,8 +1699,15 @@ script = ExtResource("3_tib08")
 entity = NodePath("..")
 friendly = true
 
+[node name="Polygon2D" type="Polygon2D" parent="Hurtbox"]
+position = Vector2(-106.466, -200.732)
+scale = Vector2(0.6195, 0.487805)
+texture = ExtResource("4_380wk")
+polygon = PackedVector2Array(157, 391, 156.463, 431.973, 188, 432, 187.755, 391.156)
+uv = PackedVector2Array(160.544, 399.32, 156.463, 431.973, 187.075, 429.932, 187.755, 391.156)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("CapsuleShape2D_mbhme")
+shape = SubResource("RectangleShape2D_sbxtj")
 
 [node name="HurtboxState" type="Node" parent="Hurtbox"]
 script = ExtResource("4_1c3yk")

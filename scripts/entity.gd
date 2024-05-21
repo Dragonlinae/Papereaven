@@ -22,9 +22,7 @@ func restore_health():
 	current_health = max_health
 
 func take_damage(damage: int):
-	current_health -= int(damage * damage_factor)
-	if is_dead() and destroy_when_dead:
-		queue_free()
+	force_full_damage(damage * damage_factor)
 
 func force_full_damage(damage: int):
 	current_health -= damage
