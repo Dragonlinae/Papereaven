@@ -15,6 +15,9 @@ var hit_counter: int = 0
 const hit_color := Color(1, 0, 0)
 const default_color := Color(1, 1, 1)
 
+# Music to unload when dead
+var audio_stream_player: AudioStreamPlayer = null
+
 ## Damage modifier (used in block & parry)
 var damage_factor: float = 1.0
 
@@ -27,6 +30,9 @@ func take_damage(damage: int):
 func force_full_damage(damage: int):
 	current_health -= damage
 	if is_dead() and destroy_when_dead:
+		if audio_stream_player != null:
+			audio_stream_player.stop()
+			audio_stream_player.queue_free()
 		queue_free()
 	else:
 		set_velocity(Vector2(0, -400))
@@ -48,3 +54,7 @@ func is_alive():
 func set_damage_factor(new_damage_factor: float):
 	# print("Set new damage factor to", new_damage_factor)
 	damage_factor = new_damage_factor
+
+## This music will be cut short when the entity dies.
+func set_audio_stream_player(new_audio_stream_player: AudioStreamPlayer):
+	audio_stream_player = new_audio_stream_player
