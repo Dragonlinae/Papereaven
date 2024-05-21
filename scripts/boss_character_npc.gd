@@ -1,12 +1,17 @@
 extends Area2D
 
 @export var player_character : CharacterBody2D
+@export_file var dialogue_file : String
+
 var dialogue_box_scene = preload("res://scenes/overlay/dialogue_box.tscn")
 var dialogue_box = null
-var dialogues : Array[String] = ["You... dodged that?", "I'm impressed.", "But you're not getting away that easily!"]
+var dialogues : PackedStringArray
 var activated = false
 
 func _ready():
+	var file = FileAccess.open(dialogue_file, FileAccess.READ)
+	dialogues = file.get_as_text().strip_edges(true, true).split("\n")
+	file.close()
 	area_exited.connect(Callable(self, "_on_area_exited"))
 
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbpt6kmsiap0"]
+[gd_scene load_steps=9 format=3 uid="uid://cdf011y3wlhce"]
 
 [ext_resource type="Script" path="res://scripts/boss_character_npc.gd" id="1_15prv"]
 [ext_resource type="Texture2D" uid="uid://decu1ve71ao7o" path="res://assets/artistblock.png" id="2_lvqyt"]
@@ -45,7 +45,7 @@ position = Vector2(-10, 0)
 texture = ExtResource("2_lvqyt")
 
 [node name="Dialoguearea" parent="." instance=ExtResource("2_v1tsy")]
-dialogues = Array[String](["Hello!", "I am a friendly NPC!"])
+dialogue_file = "res://assets/dialogues/bossnpc.txt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialoguearea"]
 shape = SubResource("RectangleShape2D_whpgb")
