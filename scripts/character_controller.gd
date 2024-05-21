@@ -90,6 +90,10 @@ func jump():
 # Do we want to put movement into a function too?
 
 func _process(_delta: float):
+	if input_handler.get_interact_input():
+		for interactable in get_node("Interact").get_overlapping_areas():
+			if interactable.has_method("interact"):
+				interactable.interact()
 	if is_dead():
 		respawn()
 
@@ -98,7 +102,7 @@ func _physics_process(delta: float):
 	movement_state.process_state()
 	combat_state.process_state()
 	if is_on_floor():
-		jump_flag = false	
+		jump_flag = false
 	
 	# smoother movement code
 	floor_snap_length = 100

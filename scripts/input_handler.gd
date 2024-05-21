@@ -16,11 +16,19 @@ func get_attack_input() -> bool:
 	assert(false, "Virtual function must be defined in child class")
 	return false
 
+func get_dash_input() -> bool:
+	assert(false, "Virtual function must be defined in child class")
+	return false
+
 func get_attack_heavy_input() -> bool:
 	assert(false, "Virtual function must be defined in child class")
 	return false
 
 func get_block_input() -> bool:
+	assert(false, "Virtual function must be defined in child class")
+	return false
+
+func get_interact_input() -> bool:
 	assert(false, "Virtual function must be defined in child class")
 	return false
 
