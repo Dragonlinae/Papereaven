@@ -31,9 +31,10 @@ func _process(delta):
 		await get_tree().create_timer(3).timeout
 		dialogue_box.next_dialogue()
 		await get_tree().create_timer(3).timeout
-		var boss : CharacterBody2D = load("res://scenes/entities/boss.tscn").instantiate()
+		var boss : Entity = load("res://scenes/entities/boss.tscn").instantiate()
 		boss.player_character = player_character
 		boss.global_position = global_position
+		boss.set_audio_stream_player(audio)
 		get_parent().add_child(boss)
 		queue_free()
 

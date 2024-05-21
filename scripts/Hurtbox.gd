@@ -12,26 +12,26 @@ signal triggered(hurtbox: Hitbox)
 
 # Constructor & Methods
 func _init():
-	set_collision_layer(0)
+	set_collision_mask(0)
 	stop_listening()
-	set_monitoring(true)
-	set_monitorable(false)
+	set_monitoring(false)
+	set_monitorable(true)
 
 func _ready():
 	start_listening()
-	area_entered.connect(_on_hitbox_area_entered)
+	# area_entered.connect(_on_hitbox_area_entered)
 
 func start_listening():
-	set_collision_mask(4 if friendly else 2)
+	set_collision_layer(4 if friendly else 2)
 
 func stop_listening():
-	set_collision_mask(0)
+	set_collision_layer(0)
 
-func _on_hitbox_area_entered(hitbox: Hitbox):
-	if hitbox is Hitbox:
-		print("ow", hitbox.damage)
-		if hitbox.damage > 0 and entity.is_alive():
-			if hitbox.can_block == true:
-				entity.take_damage(hitbox.damage)
-			else:
-				entity.force_full_damage(hitbox.damage)
+# func _on_hitbox_area_entered(hitbox: Hitbox):
+# 	if hitbox is Hitbox:
+# 		print("ow", hitbox.damage)
+# 		if hitbox.damage > 0 and entity.is_alive():
+# 			if hitbox.can_block == true:
+# 				entity.take_damage(hitbox.damage)
+# 			else:
+# 				entity.force_full_damage(hitbox.damage)

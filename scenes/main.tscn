@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
-[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_8yg16"]
+[ext_resource type="PackedScene" uid="uid://dbpt6kmsiap0" path="res://scenes/entities/bossnpc.tscn" id="7_8yg16"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
-[ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 
@@ -78,7 +78,7 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 
 [node name="HitboxFloor" type="Area2D" parent="."]
-position = Vector2(0, 941)
+position = Vector2(0, 5000)
 scale = Vector2(100, 1)
 script = ExtResource("8_nmi2r")
 damage = 9999
@@ -91,6 +91,8 @@ shape = SubResource("RectangleShape2D_1k57n")
 [node name="SomethingToHit" type="CharacterBody2D" parent="."]
 position = Vector2(1892, 419)
 script = ExtResource("9_6onl3")
+max_health = 1000
+current_health = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit"]
 visible = false

@@ -50,10 +50,11 @@ func attack_heavy():
 
 func on_attack_end():
 	# TODO: Think about what would happen if attack gets interrupted -> stagger
-	print("Attack ended!")
+	# print("Attack ended!")
 	transition_state("Idle")
 
 func can_block() -> bool:
+	return false # temporarily disabled (incomptability with Dash)
 	if current_state != "Idle":
 		return false
 	return true
