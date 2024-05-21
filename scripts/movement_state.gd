@@ -8,13 +8,13 @@ var animation_playback: AnimationNodeStateMachinePlayback
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 ## (Should be) Grace period after leaving the ground that you can still jump.
-@export var coyote_time : float = 0.10
 var coyote_window : bool = false
 var floor_prev : bool = false
-var coyote_timer : Timer
+@onready var coyote_timer : Timer = $CoyoteTimer
 
-var used_second_jump = true
+var used_second_jump = false
 var do_second_jump = false
+var did_manual_jump = false
 
 func _on_coyote_timeout():
 	coyote_window = false
@@ -32,16 +32,6 @@ func _init():
 	add_transition("Dash", "Moving")
 	add_transition("Dash", "Idle")
 
-func _ready():
-	coyote_timer = Timer.new()
-	add_child(coyote_timer)
-	coyote_timer.autostart = false
-	coyote_timer.one_shot = false
-	coyote_timer.wait_time = coyote_time
-	if not coyote_timer.is_stopped():
-		coyote_timer.stop()
-	coyote_timer.timeout.connect(_on_coyote_timeout)
-
 func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
 
@@ -51,11 +41,6 @@ func _inject_input_interface(interface: InputHandler):
 func handle_jump():
 	# TODO: Add checks for stun to prevent jump
 	var jump_input: bool = input_interface.get_jump_input()
-	if jump_input and (char_controller.is_on_floor() or coyote_window):
-		char_controller.jump()
-		coyote_window = false
-	
-
 	if !jump_input and !used_second_jump:
 		do_second_jump = true
 
@@ -63,7 +48,8 @@ func handle_jump():
 		if char_controller.is_on_floor() or coyote_window:
 			char_controller.jump()
 			coyote_window = false
-			used_second_jump = false
+			do_second_jump = false
+			did_manual_jump = true
 		elif do_second_jump:
 			char_controller.jump()
 			do_second_jump = false
@@ -109,9 +95,13 @@ func _on_state_transition(_previous_state: String, new_state: String):
 		assert(false, "Unreachable state")
 
 func process_state():
-	if !char_controller.is_on_floor() and floor_prev:
-		coyote_window = true
-		coyote_timer.start()
+	if !char_controller.is_on_floor():
+		if floor_prev and !did_manual_jump:
+			coyote_window = true
+			coyote_timer.start()
+	else:
+		did_manual_jump = false
+		used_second_jump = false
 
 	match current_state:
 		"Idle":
