@@ -1,2 +1,2 @@
-Hello!
-I am a friendly NPC!
+Artist Block`artistblock_pfp.png` Hello!
+Artist Block`artistblock_pfp.png` I am a friendly NPC!

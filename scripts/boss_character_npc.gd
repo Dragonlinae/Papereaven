@@ -10,7 +10,7 @@ var activated = false
 
 func _ready():
 	var file = FileAccess.open(dialogue_file, FileAccess.READ)
-	dialogues = file.get_as_text().strip_edges(true, true).split("\n")
+	dialogues = file.get_as_text().strip_edges().split("\n")
 	file.close()
 	area_exited.connect(Callable(self, "_on_area_exited"))
 
