@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
-[ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://Objects/moving_platform.tscn" id="12_60juf"]
+[ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://objects/moving_platform.tscn" id="12_60juf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
