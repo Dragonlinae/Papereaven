@@ -115,4 +115,4 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="Moving Platform" parent="." instance=ExtResource("12_60juf")]
-position = Vector2(691, -71)
+position = Vector2(1647, 130)
