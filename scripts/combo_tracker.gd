@@ -41,6 +41,7 @@ func _on_hit_registered():
 func _on_combo_timeout():
 	print("Combo decayed back to 0")
 	combo_count = 0
+	combo_timer.stop()
 	return
 
 func _on_hitbox_hitbox_triggered(_hurtbox: Hurtbox, _hitbox: Hitbox):
