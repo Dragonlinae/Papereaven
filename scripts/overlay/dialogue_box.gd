@@ -15,7 +15,7 @@ func next_dialogue():
 	visible = true
 	if currentDialogue < dialogues.size():
 		get_node("ColorRect/Label").text = dialogues[currentDialogue]
-		print("Current dialogue: " + dialogues[currentDialogue])
+		# print("Current dialogue: " + dialogues[currentDialogue])
 		currentDialogue += 1
 	else:
 		queue_free()

@@ -53,13 +53,10 @@ func updateState(delta):
 	match currState:
 		STATE.IDLE:
 			velocity.x = 0
-			pass
 		STATE.LEFT:
 			velocity.x = -SPEED
-			pass
 		STATE.RIGHT:
 			velocity.x = SPEED
-			pass
 
 	velocity.y += gravity * delta
 

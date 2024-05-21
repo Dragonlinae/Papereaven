@@ -36,11 +36,8 @@ func _on_block_end():
 func _on_internal_timer_timeout():
 	if current_state == "Block":
 		_on_block_end()
-		return
 	elif current_state == "Parry":
 		_on_parry_end()
-		return
-	return
 
 func startParryTimer():
 	if current_state != "Parry":

@@ -80,7 +80,6 @@ func updateState(delta):
 	match currState:
 		STATE.IDLE:
 			velocity.x = 0
-			pass
 		STATE.WALK:
 			if direction:
 				velocity.x = direction * SPEED

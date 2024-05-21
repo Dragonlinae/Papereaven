@@ -129,6 +129,7 @@ func process_dash():
 		used_dash = true
 
 
+# Is this even used?
 func _on_state_transition(_previous_state: String, new_state: String):
 	print("new_state " + new_state)
 	if new_state == "Idle":

@@ -19,20 +19,16 @@ func _ready():
 
 	add_child(combo_timer)
 
-	return
-
 func _on_hit_registered():
 	combo_count += 1
 	print(combo_count)
 	combo_timer.stop()
 	combo_timer.start()
-	return
 
 func end_combo():
 	print("Combo decayed back to 0")
 	combo_count = 0
 	combo_timer.stop()
-	return
 
 func _on_combo_timeout():
 	end_combo()

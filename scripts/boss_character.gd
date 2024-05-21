@@ -37,8 +37,8 @@ func set_state(new_state):
 func _ready():
 
 	# Ensure attack parameters are valid
-	print(attacks)
-	print(attack_weights)
+	# print(attacks)
+	# print(attack_weights)
 	assert(attacks.size() == attack_weights.size())
 	assert(attacks.size()-1 == health_thresholds.size())
 	for i in range(attacks.size()):
@@ -95,20 +95,16 @@ func update_state(delta):
 	match curr_state:
 		STATE.IDLE:
 			velocity.x = 0
-			pass
 		STATE.ATTACK:
 			while attack.next_bullet_ready():
 				var bullet_rotation:float = curr_time_msec
 				var bullet = attack.get_bullet(global_position, bullet_rotation, 5.0)
 				get_parent().add_child(bullet)
 				attack.next_bullet()
-			pass
 		STATE.LEFT:
 			velocity.x = -SPEED
-			pass
 		STATE.RIGHT:
 			velocity.x = SPEED
-			pass
 
 	# move in infinity pattern
 	velocity.x = sin(deg_to_rad(curr_time_msec / 10)) * SPEED
