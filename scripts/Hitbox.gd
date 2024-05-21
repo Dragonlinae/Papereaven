@@ -10,7 +10,9 @@ extends Area2D
 ## Friendly hitboxes deal damage to unfriendly hurtboxes.
 @export var friendly: bool
 
-## The amount of damage this hitbox deals when touched.
+## The amount of damage this hitbox deals when touched. When nonzero,
+## the hitbox will be initially enabled. Otherwise, use `enable_hitbox_damage`
+## to set the damage (nonzero will enable, zero will disable).
 @export var damage: int
 @export var can_block: bool = true
 
@@ -40,7 +42,9 @@ func disable_hitbox():
 	set_collision_mask(0)
 	set_scale(Vector2(0, 0))
 
-## Sets damage and enables hitbox
+## Sets damage. Enables hitbox when nonzero damage, disables
+## hitbox when zero damage. Enabling hitbox will allow it to
+## collide again with anything currently intersecting it.
 func enable_hitbox_damage(new_damage: int):
 	damage = new_damage
 	if new_damage > 0: enable_hitbox()
