@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=14 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
+[ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://Objects/moving_platform.tscn" id="12_60juf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
@@ -82,7 +83,7 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="SomethingToHit" type="CharacterBody2D" parent="."]
-position = Vector2(824, 285)
+position = Vector2(1972, 448)
 script = ExtResource("9_6onl3")
 current_health = 1
 
@@ -96,9 +97,14 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_r3y1e")
 
 [node name="Hurtbox" type="Area2D" parent="SomethingToHit" node_paths=PackedStringArray("entity")]
+position = Vector2(131, 35)
 script = ExtResource("12_5s1u7")
 entity = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit/Hurtbox"]
+position = Vector2(-106, -29)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
+
+[node name="Moving Platform" parent="." instance=ExtResource("12_60juf")]
+position = Vector2(691, -71)
