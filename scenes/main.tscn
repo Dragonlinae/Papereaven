@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
-[ext_resource type="PackedScene" uid="uid://dbpt6kmsiap0" path="res://scenes/entities/bossnpc.tscn" id="7_8yg16"]
+[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_8yg16"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
-[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="9_ujg57"]
+[ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 
@@ -52,6 +52,7 @@ spawnpoint = false
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_8yg16")]
 position = Vector2(614, -18)
 player_character = NodePath("../Player")
+dialogue_file = "res://assets/dialogues/bossprefight.txt"
 
 [node name="Player" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)

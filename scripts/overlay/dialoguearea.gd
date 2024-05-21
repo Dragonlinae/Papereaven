@@ -1,6 +1,7 @@
 extends Area2D
 
-@export var dialogues : Array[String] = []
+@export_file var dialogue_file : String
+var dialogues : PackedStringArray = []
 var dialogue_box_scene = preload("res://scenes/overlay/dialogue_box.tscn")
 
 var dialogue_box = null
@@ -17,6 +18,11 @@ func interact():
 		dialogue_box.next_dialogue()
 
 func _ready():
+	if dialogue_file != "":
+		var file = FileAccess.open(dialogue_file, FileAccess.READ)
+		dialogues = FileAccess.open(dialogue_file, FileAccess.READ).get_as_text().strip_edges(true, true).split("\n")
+		file.close()
+		print(dialogues)
 	area_exited.connect(Callable(self, "_on_area_exited"))
 	print("ready")
 
