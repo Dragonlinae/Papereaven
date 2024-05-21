@@ -35,6 +35,7 @@ func take_damage(damage: int):
 ## This method does the actual damaging and post-damage events.
 ## `take_damage` will scale damage before passing it though.
 func force_full_damage(damage: int):
+	if damage <= 0: return # don't start the flicker behavior
 	damage_taken.emit(damage)
 	current_health -= damage
 	if is_dead() and destroy_when_dead:
