@@ -90,6 +90,10 @@ func jump():
 # Do we want to put movement into a function too?
 
 func _process(_delta: float):
+	if input_handler.get_interact_input():
+		for interactable in get_node("Interact").get_overlapping_areas():
+			if interactable.has_method("interact"):
+				interactable.interact()
 	if is_dead():
 		respawn()
 

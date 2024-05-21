@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjw4b23ii6xpx"]
+
+[ext_resource type="Script" path="res://scripts/overlay/dialogue_box.gd" id="1_6bvlt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xjlcf"]
+font_size = 52
+
+[node name="Dialogue" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_6bvlt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.933333)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 313.0
+offset_bottom = 92.0
+text = "Hello World
+"
+label_settings = SubResource("LabelSettings_xjlcf")
