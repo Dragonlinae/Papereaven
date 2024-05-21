@@ -54,6 +54,7 @@ func on_attack_end():
 	transition_state("Idle")
 
 func can_block() -> bool:
+	return false # temporarily disabled (incomptability with Dash)
 	if current_state != "Idle":
 		return false
 	return true
