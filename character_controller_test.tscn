@@ -1742,7 +1742,12 @@ script = ExtResource("5_7hae6")
 wait_time = 0.2
 one_shot = true
 
+[node name="DashTimer" type="Timer" parent="MovementState"]
+wait_time = 0.2
+one_shot = true
+
 [node name="CombatState" type="Node" parent="."]
 script = ExtResource("6_1kj5d")
 
 [connection signal="timeout" from="MovementState/CoyoteTimer" to="MovementState" method="_on_coyote_timeout"]
+[connection signal="timeout" from="MovementState/DashTimer" to="MovementState" method="_on_dash_timer_timeout"]
