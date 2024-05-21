@@ -24,6 +24,8 @@ enum STATE {
 
 var curr_state: STATE = STATE.IDLE
 
+var health_bar: TextureProgressBar
+
 func set_state(new_state):
 	if curr_state == new_state:
 		return
@@ -45,6 +47,17 @@ func _ready():
 	set_state(STATE.IDLE)
 	floor_snap_length = 100
 	floor_constant_speed = true
+
+	# Set up the health bar
+	health_bar = get_node("BossHealthBar/HealthBar")
+	health_bar.max_value = max_health
+	health_bar.value = current_health
+
+	# wait 2 seconds before starting the boss
+	set_physics_process(false)
+	await get_tree().create_timer(4.0).timeout
+	set_physics_process(true)
+
 
 func randomChoice(weights: Array[int]) -> int:
 	var total = 0
@@ -109,6 +122,8 @@ func update_state(delta):
 			velocity += ((player_character.global_position + Vector2(0, -50) - global_position).normalized() * sqrt((distance-1000)/1000)) * SPEED
 
 	move_and_slide()
+
+	health_bar.value = health_bar.value + (current_health - health_bar.value) * 0.1
 
 func enter_state(state):
 	match state:
