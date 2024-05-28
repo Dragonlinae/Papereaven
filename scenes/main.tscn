@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=14 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
+[ext_resource type="PackedScene" uid="uid://cuwbjxg3a1bjw" path="res://scenes/door_button.tscn" id="7_x6aqs"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
@@ -42,11 +43,12 @@ offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(186, 161)
-spawnpoint = false
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(4509, -351)
-spawnpoint = false
+
+[node name="DoorButton" parent="." instance=ExtResource("7_x6aqs")]
+position = Vector2(1138, 24)
 
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)
