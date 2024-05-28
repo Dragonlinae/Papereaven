@@ -8,6 +8,7 @@ var activated = false
 var activated_texture = load("res://assets/flag_filled.png")
 
 func _on_area_2d_area_entered(area):
+
 	if area.get_parent() is CharacterController && !activated:
 		activated = true
 		area.get_parent().current_checkpoint = self
