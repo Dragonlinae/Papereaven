@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=17 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
@@ -9,13 +9,25 @@
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
-[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="9_ujg57"]
+[ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
-[ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="12_60juf"]
+[ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://scenes/moving_platform.tscn" id="12_60juf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
+
+[sub_resource type="Curve2D" id="Curve2D_6bifu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -2, 0, 0, 0, 0, 562, -2)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_nfvlx"]
+_data = {
+"points": PackedVector2Array(-49.5569, 5.03968, 49.5569, -5.03968, 0, 0, -2.51984, 128.512, 2.51984, -128.512, 190, -181, 127.672, 0.839947, -127.672, -0.839947, 0, -381, -1.67989, -102.474, 1.67989, 102.474, -192, -182, -130.071, -16.3331, 130.071, 16.3331, 0, 1)
+}
+point_count = 5
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
@@ -116,3 +128,11 @@ shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="Moving Platform" parent="." instance=ExtResource("12_60juf")]
 position = Vector2(1647, 130)
+curve = SubResource("Curve2D_6bifu")
+closed = false
+speed_scale = 3.0
+
+[node name="MovingPlatform" parent="." instance=ExtResource("12_60juf")]
+position = Vector2(1243, -233)
+curve = SubResource("Curve2D_nfvlx")
+speed = 10.0

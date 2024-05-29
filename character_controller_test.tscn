@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://xld7e8viee0m"]
+[gd_scene load_steps=67 format=3 uid="uid://mam8d73tn4l6"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -1761,4 +1761,3 @@ shape = SubResource("RectangleShape2D_vwx3l")
 script = ExtResource("10_wcbpo")
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
-[connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
