@@ -18,7 +18,6 @@ position = Vector2(95, 4.38776)
 scale = Vector2(0.182819, 0.184641)
 collision_layer = 0
 collision_mask = 0
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-21.619, -3.05176e-05)
@@ -34,11 +33,11 @@ position = Vector2(168, -286.583)
 scale = Vector2(0.333333, 0.785582)
 texture = ExtResource("2_i05qs")
 
-[node name="Door" type="StaticBody2D" parent="DoorSprite"]
+[node name="RigidBody2D" type="RigidBody2D" parent="DoorSprite"]
 position = Vector2(6.10352e-05, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorSprite/Door"]
-position = Vector2(-6.5, -11.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorSprite/RigidBody2D"]
+position = Vector2(-6.50003, -11.5)
 shape = SubResource("RectangleShape2D_jud70")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

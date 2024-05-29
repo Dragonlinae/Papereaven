@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_1g06w"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="6_j48h2"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
-[ext_resource type="PackedScene" uid="uid://cuwbjxg3a1bjw" path="res://scenes/door_button.tscn" id="7_x6aqs"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
+[ext_resource type="PackedScene" uid="uid://dyyoiodf3idvr" path="res://scenes/DoorButton2.tscn" id="8_v68nr"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
 [ext_resource type="PackedScene" uid="uid://mam8d73tn4l6" path="res://character_controller_test.tscn" id="9_ujg57"]
@@ -47,8 +47,8 @@ position = Vector2(186, 161)
 [node name="Checkpoint2" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(4509, -351)
 
-[node name="DoorButton" parent="." instance=ExtResource("7_x6aqs")]
-position = Vector2(1138, 24)
+[node name="DoorButton2" parent="." instance=ExtResource("8_v68nr")]
+position = Vector2(1182, 32)
 
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)
