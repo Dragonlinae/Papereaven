@@ -1130,7 +1130,6 @@ transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransitio
 graph_offset = Vector2(-346.306, -95.9263)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_22yuy"]
-graph_offset = Vector2(-47.3157, -57.7094)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ptfbj")
 nodes/TimeScale/position = Vector2(300, 0)
 nodes/main/node = SubResource("AnimationNodeStateMachine_sklym")
@@ -1750,6 +1749,7 @@ script = ExtResource("5_7hae6")
 script = ExtResource("6_1kj5d")
 
 [node name="Interact" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("RectangleShape2D_vwx3l")
