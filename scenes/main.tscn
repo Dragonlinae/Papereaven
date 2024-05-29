@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="12_60juf"]
-[ext_resource type="PackedScene" uid="uid://sk4uybgb5ml8" path="res://ninja.tscn" id="14_4tvnp"]
+[ext_resource type="PackedScene" uid="uid://cxjyhq0tnelfk" path="res://character_controller_ninja_test.tscn" id="14_po4vg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
@@ -118,4 +118,6 @@ shape = SubResource("RectangleShape2D_1k57n")
 [node name="Moving Platform" parent="." instance=ExtResource("12_60juf")]
 position = Vector2(1647, 130)
 
-[node name="ninja" parent="." instance=ExtResource("14_4tvnp")]
+[node name="CharacterController" parent="." instance=ExtResource("14_po4vg")]
+
+[editable path="CharacterController"]
