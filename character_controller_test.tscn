@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://xld7e8viee0m"]
+[gd_scene load_steps=68 format=3 uid="uid://xld7e8viee0m"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="5_iu6dk"]
 [ext_resource type="Script" path="res://scripts/combat_state.gd" id="6_1kj5d"]
 [ext_resource type="Script" path="res://scripts/combo_tracker.gd" id="10_wcbpo"]
+[ext_resource type="PackedScene" uid="uid://cehvx52odj6y8" path="res://scenes/overlay/combo.tscn" id="12_iqvf3"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -1296,9 +1297,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
-libraries = {
-"": SubResource("AnimationLibrary_37tsb")
-}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5
@@ -1757,8 +1755,11 @@ script = ExtResource("6_1kj5d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("RectangleShape2D_vwx3l")
 
-[node name="ComboTracker" type="Node" parent="."]
+[node name="ComboTracker" type="Node" parent="." node_paths=PackedStringArray("combo_UI")]
 script = ExtResource("10_wcbpo")
+combo_UI = NodePath("../Combo")
+
+[node name="Combo" parent="." instance=ExtResource("12_iqvf3")]
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
