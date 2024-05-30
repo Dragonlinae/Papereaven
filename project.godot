@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="PaperHeaven"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/homelevel.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneData="*res://scripts/interactables/scene_data.gd"
 
 [dotnet]
 

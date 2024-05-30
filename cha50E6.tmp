@@ -1282,7 +1282,6 @@ size = Vector2(54, 70)
 size = Vector2(40, 66)
 
 [node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree")]
-z_index = 10
 script = ExtResource("1_8b33x")
 input_handler = NodePath("PlayerInputHandler")
 movement_state = NodePath("MovementState")
@@ -1742,9 +1741,8 @@ script = ExtResource("5_7hae6")
 [node name="CombatState" type="Node" parent="."]
 script = ExtResource("6_1kj5d")
 
-[node name="Interact" type="Area2D" parent="." node_paths=PackedStringArray("speech_bubble")]
+[node name="Interact" type="Area2D" parent="."]
 script = ExtResource("11_yj456")
-speech_bubble = NodePath("../SpeechBubble")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("RectangleShape2D_vwx3l")
