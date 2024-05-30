@@ -50,6 +50,9 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_l2clm"]
 resource_name = "attack_light"
+length = 0.75
+loop_mode = 1
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,10 +60,10 @@ tracks/0/path = NodePath("ik_right_hand_target:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 0.450625, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.4, 0.45, 0.55, 0.65),
+"transitions": PackedFloat32Array(1, 1, 0.450625, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(286, 99), Vector2(278, 88), Vector2(316, 130), Vector2(285, 230), Vector2(285, 230)]
+"values": [Vector2(286, 99), Vector2(278, 88), Vector2(316, 130), Vector2(285, 230), Vector2(285, 230), Vector2(291, 176), Vector2(289, 118)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -69,7 +72,7 @@ tracks/1/path = NodePath("Skeleton2D/hip:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.7),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(270, 161), Vector2(250, 164), Vector2(250, 164), Vector2(270, 161)]
@@ -81,7 +84,7 @@ tracks/2/path = NodePath("ik_left_hand_target:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5, 0.717695),
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(313, 120), Vector2(277, 108), Vector2(296, 119), Vector2(306, 123)]
@@ -255,6 +258,9 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
 root_node = NodePath("../CharacterCollisionShape/ninja")
+libraries = {
+"": SubResource("AnimationLibrary_sxi26")
+}
 tree_root = SubResource("AnimationNodeBlendTree_gd8uc")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -293,10 +299,12 @@ bone_angle = 0.0
 [node name="right_upper_arm" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest"]
 position = Vector2(44.4302, -7.74307)
 rest = Transform2D(1, 0, 0, 1, 44.4302, -7.74307)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm"]
 position = Vector2(-23.5731, -33.3663)
 rest = Transform2D(1, 0, 0, 1, -23.5731, -33.3663)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="spear" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm/right_hand"]
 position = Vector2(-20.7604, 24.6172)
@@ -312,10 +320,12 @@ position = Vector2(-6.047, 38.5285)
 [node name="left_upper_arm" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest"]
 position = Vector2(52.8889, -2.60009)
 rest = Transform2D(1, 0, 0, 1, 52.8889, -2.60009)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm"]
 position = Vector2(-45.305, -8.51223)
 rest = Transform2D(1, 0, 0, 1, -45.305, -8.51223)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="shield" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm/left_hand"]
 position = Vector2(-6.56914, 44.8313)
@@ -328,10 +338,12 @@ position = Vector2(1.17906, 47.0596)
 [node name="left_upper_leg" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest"]
 position = Vector2(7.51136, 1.25678)
 rest = Transform2D(1, 0, 0, 1, 7.51136, 1.25678)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_lower_leg" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg"]
 position = Vector2(-44.5996, 36.6043)
 rest = Transform2D(1, 0, 0, 1, -44.5996, 36.6043)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_foot" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg"]
 position = Vector2(-42.8882, -7.04281)
@@ -341,6 +353,7 @@ rest = Transform2D(0.0732381, 0.997314, -0.997314, 0.0732381, -42.8882, -7.04281
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 1.753
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg/left_foot"]
 position = Vector2(0.494924, 2.95896)
@@ -348,10 +361,12 @@ position = Vector2(0.494924, 2.95896)
 [node name="right_upper_leg" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest"]
 position = Vector2(-0.188445, -9.21762)
 rest = Transform2D(1, 0, 0, 1, -0.188445, -9.21762)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_lower_leg" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg"]
 position = Vector2(-48.8818, -18.9624)
 rest = Transform2D(1, 0, 0, 1, -48.8818, -18.9624)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_foot" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg"]
 position = Vector2(-49.4038, -12.6595)
@@ -360,6 +375,7 @@ rest = Transform2D(-0.0941083, 0.995562, -0.995562, -0.0941083, -49.4038, -12.65
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.147
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg/right_foot"]
 position = Vector2(1.30855, 3.77965)
