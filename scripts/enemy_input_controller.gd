@@ -49,7 +49,7 @@ func get_jump_input() -> bool:
 	return false
 
 func get_attack_input() -> bool:
-	return true
+	return logic_state.current_state == "Attacking"
 
 func get_dash_input() -> bool:
 	return false
