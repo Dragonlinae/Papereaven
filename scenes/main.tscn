@@ -120,4 +120,7 @@ position = Vector2(1647, 130)
 
 [node name="CharacterController" parent="." instance=ExtResource("14_po4vg")]
 
+[node name="left_foot" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
+scale = Vector2(0.999999, 0.999999)
+
 [editable path="CharacterController"]
