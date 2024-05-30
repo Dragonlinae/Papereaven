@@ -67,7 +67,9 @@ func set_damage_factor(new_damage_factor: float):
 	# print("Set new damage factor to", new_damage_factor)
 	damage_factor = new_damage_factor
 
+## Test
 func set_hittable(new_hittable: bool):
+	print("Setting hittable to", new_hittable)
 	hittable = new_hittable
 
 ## This music will be cut short when the entity dies.

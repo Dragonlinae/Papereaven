@@ -8,7 +8,7 @@ extends Node
 @export var ability1: Ability
 
 func cast_ability1():
-	ability1.cast_ability(entity)
+	ability1.cast_ability()
 
 func _process(_delta):
 	if input_handler.get_ability_input():
