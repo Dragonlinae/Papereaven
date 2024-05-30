@@ -48,7 +48,10 @@ position = Vector2(186, 161)
 position = Vector2(4509, -351)
 
 [node name="DoorButton2" parent="." instance=ExtResource("8_v68nr")]
-position = Vector2(1182, 32)
+position = Vector2(1188, 61)
+
+[node name="DoorButton3" parent="." instance=ExtResource("8_v68nr")]
+position = Vector2(2483, -62)
 
 [node name="CharacterController" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)

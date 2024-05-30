@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqklg1cdf3l3d" path="res://assets/flag.png" id="1_y5t2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qk0ph"]
-size = Vector2(114, 202)
+size = Vector2(114, 167)
 
 [node name="Checkpoint" type="Node2D"]
 script = ExtResource("1_ndf58")
