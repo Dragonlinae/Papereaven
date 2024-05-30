@@ -1753,11 +1753,12 @@ script = ExtResource("10_wcbpo")
 script = ExtResource("12_tk644")
 entity = NodePath("..")
 input_handler = NodePath("../PlayerInputHandler")
+ability1_unlocked = null
 ability1 = NodePath("Ability")
 
 [node name="Ability" type="Node" parent="AbilityController"]
 script = ExtResource("13_o0b1c")
-cooldown_time = 5.0
+cooldown_time = 30.0
 ability_time = 3.0
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
