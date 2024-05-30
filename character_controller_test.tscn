@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://xld7e8viee0m"]
+[gd_scene load_steps=69 format=3 uid="uid://xld7e8viee0m"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="5_iu6dk"]
 [ext_resource type="Script" path="res://scripts/combat_state.gd" id="6_1kj5d"]
 [ext_resource type="Script" path="res://scripts/combo_tracker.gd" id="10_wcbpo"]
+[ext_resource type="Script" path="res://scripts/ability_controller.gd" id="12_tk644"]
+[ext_resource type="Script" path="res://scripts/ability.gd" id="13_o0b1c"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -1746,6 +1748,16 @@ shape = SubResource("RectangleShape2D_vwx3l")
 
 [node name="ComboTracker" type="Node" parent="."]
 script = ExtResource("10_wcbpo")
+
+[node name="AbilityController" type="Node" parent="." node_paths=PackedStringArray("entity", "input_handler", "ability1")]
+script = ExtResource("12_tk644")
+entity = NodePath("..")
+input_handler = NodePath("../PlayerInputHandler")
+ability1 = NodePath("Ability")
+
+[node name="Ability" type="Node" parent="AbilityController"]
+script = ExtResource("13_o0b1c")
+cooldown_time = 5.0
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
