@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ur2s7dp5ec72"]
+
+[ext_resource type="Texture2D" uid="uid://dhttuuq8d6mbv" path="res://assets/block.png" id="1_o7uqq"]
+[ext_resource type="Script" path="res://scripts/turret.gd" id="2_vwqrk"]
+
+[node name="Turret" type="Sprite2D"]
+position = Vector2(1.90735e-06, -3.63798e-12)
+scale = Vector2(0.114815, 0.114815)
+texture = ExtResource("1_o7uqq")
+script = ExtResource("2_vwqrk")
+attackName = "straight"
+delay = 1.0

@@ -91,7 +91,7 @@ func jump():
 
 func _process(_delta: float):
 	if input_handler.get_interact_input():
-		for interactable in get_node("Interact").get_overlapping_areas():
+		for interactable in get_node("Player").get_overlapping_areas():
 			if interactable.has_method("interact"):
 				interactable.interact()
 	if is_dead():

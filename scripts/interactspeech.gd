@@ -12,7 +12,7 @@ func _ready():
 func _on_area_entered(area):
 	if area.has_method("interact"):
 		interact_obj_count += 1
-	speech_bubble.visible = true
+		speech_bubble.visible = true
 
 func _on_area_exited(area):
 	if area.has_method("interact"):

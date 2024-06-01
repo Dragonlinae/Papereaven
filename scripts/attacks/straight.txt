@@ -1,0 +1,4 @@
+Straight,1,0
+
+[Pattern]
+0,0,0,0,0,300,0,1,2,basic

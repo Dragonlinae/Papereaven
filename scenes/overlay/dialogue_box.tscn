@@ -2,16 +2,15 @@
 
 [ext_resource type="Script" path="res://scripts/interactables/dialogue_box.gd" id="1_6bvlt"]
 [ext_resource type="Texture2D" uid="uid://dgdg274qn4oef" path="res://assets/frame.png" id="2_wu1gk"]
-[ext_resource type="Texture2D" path="res://assets/overlay/artistblock_pfp.png" id="3_g6i87"]
+[ext_resource type="Texture2D" uid="uid://bpoae1y52glvk" path="res://assets/overlay/artistblock_pfp.png" id="3_g6i87"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xjlcf"]
-font_size = 52
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_u70k1"]
 font_size = 32
 
 [node name="Dialogue" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_6bvlt")
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -1742,11 +1742,11 @@ script = ExtResource("5_7hae6")
 [node name="CombatState" type="Node" parent="."]
 script = ExtResource("6_1kj5d")
 
-[node name="Interact" type="Area2D" parent="." node_paths=PackedStringArray("speech_bubble")]
+[node name="Player" type="Area2D" parent="." node_paths=PackedStringArray("speech_bubble")]
 script = ExtResource("11_yj456")
 speech_bubble = NodePath("../SpeechBubble")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_vwx3l")
 
 [node name="ComboTracker" type="Node" parent="."]
