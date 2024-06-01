@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckgiruawn7v75"]
+
+[ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="1_sp2d5"]
+[ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="2_86wgb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_sp2d5")]
+
+[node name="Checkpoint" parent="." instance=ExtResource("2_86wgb")]
+position = Vector2(-704, 414)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("2_86wgb")]
+position = Vector2(2635, -1124)
