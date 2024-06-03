@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0vl6qf3onhcn"]
 
-[ext_resource type="Script" path="res://scripts/overlay/combo.gd" id="1_5vbfn"]
+[ext_resource type="Script" path="res://scenes/overlay/combo.gd" id="1_5vbfn"]
 [ext_resource type="Shader" path="res://scenes/overlay/combo.gdshader" id="1_cshhw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xajt1"]

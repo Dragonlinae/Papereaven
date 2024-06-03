@@ -1,3 +1,4 @@
+class_name ComboGUI
 extends CanvasLayer
 
 var combo_counter : Label

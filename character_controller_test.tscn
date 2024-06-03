@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://xld7e8viee0m"]
+[gd_scene load_steps=72 format=3 uid="uid://xld7e8viee0m"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="5_iu6dk"]
 [ext_resource type="Script" path="res://scripts/combat_state.gd" id="6_1kj5d"]
 [ext_resource type="Script" path="res://scripts/combo_tracker.gd" id="10_wcbpo"]
-[ext_resource type="PackedScene" path="res://scenes/overlay/combo.tscn" id="12_iqvf3"]
+[ext_resource type="Script" path="res://scripts/interactspeech.gd" id="11_yj456"]
+[ext_resource type="PackedScene" uid="uid://d0vl6qf3onhcn" path="res://scenes/overlay/combo.tscn" id="12_iqvf3"]
 [ext_resource type="Script" path="res://scripts/ability_controller.gd" id="12_tk644"]
+[ext_resource type="Texture2D" uid="uid://cocdfvpjow5q5" path="res://assets/sprites/interact.png" id="12_x6dli"]
 [ext_resource type="Script" path="res://scripts/ability.gd" id="13_o0b1c"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
@@ -1558,6 +1560,7 @@ auto_calculate_length_and_angle = false
 length = 40.28
 bone_angle = -359.128
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm"]
 position = Vector2(47, 1)
@@ -1566,6 +1569,7 @@ auto_calculate_length_and_angle = false
 length = 48.244
 bone_angle = 0.0
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="sword" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm/left_hand"]
 position = Vector2(41, 0)
@@ -1597,6 +1601,7 @@ auto_calculate_length_and_angle = false
 length = 42.521
 bone_angle = -230.322
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm"]
 position = Vector2(-32, 41)
@@ -1605,6 +1610,7 @@ auto_calculate_length_and_angle = false
 length = 39.45
 bone_angle = 90.774
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm/right_hand"]
 position = Vector2(-0.294134, 29.9761)
@@ -1630,6 +1636,7 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(9, -10)
 rest = Transform2D(1, 0, 0, 1, 9, -10)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_knee" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg"]
 position = Vector2(28, 60)
@@ -1643,11 +1650,13 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(28, 60)
 rest = Transform2D(1, 0, 0, 1, 28, 60)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg/left_lower_leg"]
 position = Vector2(19, 39)
 rest = Transform2D(1, 0, 0, 1, 19, 39)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg/left_lower_leg/left_foot"]
 position = Vector2(2.00001, 5)
@@ -1656,6 +1665,7 @@ position = Vector2(2.00001, 5)
 position = Vector2(-12, -8)
 rest = Transform2D(1, 0, 0, 1, -12, -8)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_knee" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg"]
 position = Vector2(-44, 58)
@@ -1669,11 +1679,13 @@ editor_settings/show_bone_gizmo = false
 position = Vector2(-44, 58)
 rest = Transform2D(1, 0, 0, 1, -44, 58)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg"]
 position = Vector2(-21, 41)
 rest = Transform2D(1, 0, 0, 1, -21, 41)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg/right_foot"]
 position = Vector2(1, 4)
@@ -1744,14 +1756,22 @@ script = ExtResource("5_7hae6")
 [node name="CombatState" type="Node" parent="."]
 script = ExtResource("6_1kj5d")
 
-[node name="Interact" type="Area2D" parent="."]
-visible = false
+[node name="Interact" type="Area2D" parent="." node_paths=PackedStringArray("speech_bubble")]
+script = ExtResource("11_yj456")
+speech_bubble = NodePath("../SpeechBubble")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("RectangleShape2D_vwx3l")
 
+[node name="SpeechBubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(22, -33)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("12_x6dli")
+
 [node name="ComboTracker" type="Node" parent="." node_paths=PackedStringArray("combo_UI")]
 script = ExtResource("10_wcbpo")
+combo_decay_time = null
 combo_UI = NodePath("../Combo")
 
 [node name="Combo" parent="." instance=ExtResource("12_iqvf3")]

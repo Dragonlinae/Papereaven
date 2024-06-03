@@ -2,7 +2,7 @@ class_name ComboTracker
 extends Node
 
 @export var combo_decay_time: float = 3
-@export var combo_UI: CanvasLayer
+@export var combo_UI: ComboGUI
 
 var combo_timer: Timer
 var combo_count: int = 0
