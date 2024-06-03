@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://f3iqltb0tjvx"]
+
+[ext_resource type="Script" path="res://scripts/trap.gd" id="1_l5ygp"]
+[ext_resource type="Texture2D" uid="uid://dhttuuq8d6mbv" path="res://assets/block.png" id="2_2pvgn"]
+
+[node name="Trap" type="Area2D"]
+position = Vector2(1.90735e-06, -3.63798e-12)
+scale = Vector2(0.114815, 0.114815)
+script = ExtResource("1_l5ygp")
+attackName = "straight"
+delay = 1.0
+
+[node name="Block" type="Sprite2D" parent="."]
+position = Vector2(-1.66124e-05, -8.70968)
+texture = ExtResource("2_2pvgn")

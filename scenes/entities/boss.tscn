@@ -17,8 +17,8 @@ script = ExtResource("1_u81my")
 attacks = Array[PackedStringArray]([PackedStringArray("star", "square", "break"), PackedStringArray("aim")])
 attack_weights = Array[PackedInt32Array]([PackedInt32Array(1, 1, 1), PackedInt32Array(1)])
 health_thresholds = Array[float]([0.4])
-max_health = 20
-current_health = 20
+max_health = 10000
+current_health = 10000
 
 [node name="Artistblock" type="Sprite2D" parent="."]
 position = Vector2(-10, 0)

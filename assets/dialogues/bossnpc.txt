@@ -1,2 +1,2 @@
-Artist Block`artistblock_pfp.png` Hello!
-Artist Block`artistblock_pfp.png` I am a friendly NPC!
+Artist Block`artistblock_pfp.png` Hello! Press (Q) to advance the text!
+Artist Block`artistblock_pfp.png` You can interact with things when a speech bubble appears above your head!
