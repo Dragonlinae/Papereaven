@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvdui005h7drr"]
+[gd_scene load_steps=6 format=3 uid="uid://cvdui005h7drr"]
 
 [ext_resource type="Texture2D" uid="uid://0m12yy0n0pv3" path="res://assets/overlay/Heartfill.png" id="1_0mhap"]
 [ext_resource type="Texture2D" uid="uid://dvakfw6wf6p56" path="res://assets/overlay/Outline.png" id="1_c4upc"]
+[ext_resource type="Script" path="res://scenes/overlay/player/player_health.gd" id="1_h8jjh"]
 [ext_resource type="Texture2D" uid="uid://b1qltjhh5sdil" path="res://assets/overlay/Infill.png" id="2_m1uev"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lbuae"]
 
 [node name="PlayerHealthBar" type="CanvasLayer"]
+script = ExtResource("1_h8jjh")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 self_modulate = Color(1, 0, 0, 1)

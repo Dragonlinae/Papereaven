@@ -14,7 +14,7 @@ class_name Entity
 
 var hittable: bool = true
 
-signal damage_taken(damage_amount)
+signal damage_taken(damage_amount: int)
 
 # Hit indicators
 var hit_counter: int = 0
@@ -43,8 +43,8 @@ func take_damage(damage: int):
 func force_full_damage(damage: int):
 	if not hittable: return
 	if damage <= 0: return # don't start the flicker behavior
-	damage_taken.emit(damage)
 	current_health -= damage
+	damage_taken.emit(damage)
 	if health_bar != null:
 		health_bar.update_health(current_health, max_health)
 	if is_dead() and destroy_when_dead:

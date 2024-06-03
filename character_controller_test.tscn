@@ -12,11 +12,11 @@
 [ext_resource type="Script" path="res://scripts/combat_state.gd" id="6_1kj5d"]
 [ext_resource type="Script" path="res://scripts/combo_tracker.gd" id="10_wcbpo"]
 [ext_resource type="Script" path="res://scripts/interactspeech.gd" id="11_yj456"]
-[ext_resource type="PackedScene" uid="uid://cvfm2t5v2kwog" path="res://scenes/overlay/combo.tscn" id="12_iqvf3"]
+[ext_resource type="PackedScene" uid="uid://d0vl6qf3onhcn" path="res://scenes/overlay/combo.tscn" id="12_iqvf3"]
 [ext_resource type="Script" path="res://scripts/ability_controller.gd" id="12_tk644"]
 [ext_resource type="Texture2D" uid="uid://cocdfvpjow5q5" path="res://assets/sprites/interact.png" id="12_x6dli"]
 [ext_resource type="Script" path="res://scripts/ability.gd" id="13_o0b1c"]
-[ext_resource type="PackedScene" uid="uid://cvdui005h7drr" path="res://scenes/overlay/player/player_health.tscn" id="17_flsj7"]
+[ext_resource type="PackedScene" uid="uid://dgxqlt22rclpf" path="res://scenes/overlay/player_health_bar.tscn" id="17_arowv"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -1284,14 +1284,13 @@ size = Vector2(54, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwx3l"]
 size = Vector2(40, 66)
 
-[node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree", "health_bar")]
+[node name="CharacterController2" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree")]
 script = ExtResource("1_8b33x")
 input_handler = NodePath("PlayerInputHandler")
 movement_state = NodePath("MovementState")
 combat_state = NodePath("CombatState")
 animation_tree = NodePath("AnimationTree")
 destroy_when_dead = false
-health_bar = NodePath("PlayerHealthBar")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 deterministic = true
@@ -1302,6 +1301,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
+libraries = {
+"": SubResource("AnimationLibrary_37tsb")
+}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5
@@ -1777,7 +1779,8 @@ script = ExtResource("13_o0b1c")
 cooldown_time = 30.0
 ability_time = 3.0
 
-[node name="PlayerHealthBar" parent="." instance=ExtResource("17_flsj7")]
+[node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("17_arowv")]
+entity = NodePath("..")
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
