@@ -142,6 +142,7 @@ top_level = true
 z_index = -6
 position = Vector2(-285.386, -163.383)
 rotation = -1.75055
+scale = Vector2(0.999999, 0.999999)
 
 [node name="sword_rotation" type="Node2D" parent="polygons/sword_position"]
 

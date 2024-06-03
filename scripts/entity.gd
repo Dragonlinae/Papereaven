@@ -10,6 +10,8 @@ class_name Entity
 ## Should the tree be removed when health <= 0
 @export var destroy_when_dead: bool = true
 
+var hittable: bool = true
+
 signal damage_taken(damage_amount)
 
 # Hit indicators
@@ -35,6 +37,7 @@ func take_damage(damage: int):
 ## This method does the actual damaging and post-damage events.
 ## `take_damage` will scale damage before passing it though.
 func force_full_damage(damage: int):
+	if not hittable: return
 	if damage <= 0: return # don't start the flicker behavior
 	damage_taken.emit(damage)
 	current_health -= damage
@@ -50,9 +53,9 @@ func force_full_damage(damage: int):
 		var curr_hit_counter = hit_counter
 		var flicker_frames = 6
 		while flicker_frames != 0 and curr_hit_counter == hit_counter:
-			set_modulate(default_color if flicker_frames & 1 else hit_color)
+			set_modulate(default_color if flicker_frames&1 else hit_color)
 			flicker_frames -= 1
-			await get_tree().create_timer(2/60.0).timeout
+			await get_tree().create_timer(2 / 60.0).timeout
 
 func is_dead():
 	return current_health <= 0
@@ -63,6 +66,11 @@ func is_alive():
 func set_damage_factor(new_damage_factor: float):
 	# print("Set new damage factor to", new_damage_factor)
 	damage_factor = new_damage_factor
+
+## Test
+func set_hittable(new_hittable: bool):
+	print("Setting hittable to", new_hittable)
+	hittable = new_hittable
 
 ## This music will be cut short when the entity dies.
 func set_audio_stream_player(new_audio_stream_player: AudioStreamPlayer):
