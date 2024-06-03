@@ -10,10 +10,9 @@ class_name Entity
 ## Should the tree be removed when health <= 0
 @export var destroy_when_dead: bool = true
 
-@export var health_bar: HealthGUI = null
-
 var hittable: bool = true
 
+signal health_changed()
 signal damage_taken(damage_amount: int)
 
 # Hit indicators
@@ -29,8 +28,7 @@ var damage_factor: float = 1.0
 
 func restore_health():
 	current_health = max_health
-	if health_bar != null:
-		health_bar.update_health(current_health, max_health)
+	health_changed.emit()
 
 ## Damage taken will have damage reduction applied.
 ## This method scales the damage before applying.
@@ -45,8 +43,7 @@ func force_full_damage(damage: int):
 	if damage <= 0: return # don't start the flicker behavior
 	current_health -= damage
 	damage_taken.emit(damage)
-	if health_bar != null:
-		health_bar.update_health(current_health, max_health)
+	health_changed.emit()
 	if is_dead() and destroy_when_dead:
 		if audio_stream_player != null:
 			audio_stream_player.stop()

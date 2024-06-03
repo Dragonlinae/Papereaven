@@ -7,12 +7,11 @@ extends CanvasLayer
 @export var progress_bar: TextureProgressBar
 
 # signal callbacks NEED to have the same shape! (same arg count and arg types)
-func _update_health(damage_amount: int):
+func _update_health():
 	progress_bar.value = 100.0 * entity.current_health / entity.max_health
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if progress_bar == null:
 		progress_bar = $HealthBar
 	assert(entity != null, "In a PlayerHealthBar, an Entity must be assigned to player_health")
-	entity.damage_taken.connect(_update_health, 18)
+	entity.health_changed.connect(_update_health)
