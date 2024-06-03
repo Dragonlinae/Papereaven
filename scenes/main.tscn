@@ -44,11 +44,9 @@ offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(186, 161)
-spawnpoint = false
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(4509, -351)
-spawnpoint = false
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_8yg16")]
 position = Vector2(614, -18)
@@ -65,6 +63,7 @@ jump_velocity = 1500.0
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
 position = Vector2(236, 121)
 scale = Vector2(4, 4)
 zoom = Vector2(0.5, 0.5)

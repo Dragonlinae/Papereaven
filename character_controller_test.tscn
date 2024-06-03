@@ -1279,7 +1279,7 @@ size = Vector2(54, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwx3l"]
 size = Vector2(40, 66)
 
-[node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree")]
+[node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree") groups=["Persist"]]
 script = ExtResource("1_8b33x")
 input_handler = NodePath("PlayerInputHandler")
 movement_state = NodePath("MovementState")
