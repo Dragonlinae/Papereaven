@@ -7,20 +7,31 @@ var animation_playback: AnimationNodeStateMachinePlayback
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-## (Should be) Grace period after leaving the ground that you can still jump.
-@export var coyote_time : float = 0.10
+## Grace period after leaving the ground that you can still jump.
+@export var coyote_time: float = 0.2
 var coyote_window : bool = false
 var floor_prev : bool = false
-var coyote_timer : Timer
+var coyote_timer: Timer
 
-var used_second_jump = true
+var used_second_jump = false
 var do_second_jump = false
+var did_manual_jump = false
+
+## Duration of dash (note: May replace with animation in future)
+@export var dash_time: float = 0.2
+var dash_timer: Timer
+var dashing : bool = false
+var used_dash : bool = false
+var dash_velocity : int = 3000
+var dash_direction : float = 1
 
 func _on_coyote_timeout():
 	coyote_window = false
 
-func _init():
+func _on_dash_timeout():
+	dashing = false
 
+func _init():
 	super("Idle")
 	add_state("Moving")
 	add_state("Dash")
@@ -33,13 +44,20 @@ func _init():
 	add_transition("Dash", "Idle")
 
 func _ready():
+	# Initialize timers
 	coyote_timer = Timer.new()
+	add_child(coyote_timer)
 	coyote_timer.autostart = false
 	coyote_timer.one_shot = false
 	coyote_timer.wait_time = coyote_time
-	if not coyote_timer.is_stopped():
-		coyote_timer.stop()
 	coyote_timer.timeout.connect(_on_coyote_timeout)
+	
+	dash_timer = Timer.new()
+	add_child(dash_timer)
+	dash_timer.autostart = false
+	dash_timer.one_shot = false
+	dash_timer.wait_time = dash_time
+	dash_timer.timeout.connect(_on_dash_timeout)
 
 func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
@@ -50,11 +68,6 @@ func _inject_input_interface(interface: InputHandler):
 func handle_jump():
 	# TODO: Add checks for stun to prevent jump
 	var jump_input: bool = input_interface.get_jump_input()
-	if jump_input and (char_controller.is_on_floor() or coyote_window):
-		char_controller.jump()
-		coyote_window = false
-	
-
 	if !jump_input and !used_second_jump:
 		do_second_jump = true
 
@@ -62,7 +75,8 @@ func handle_jump():
 		if char_controller.is_on_floor() or coyote_window:
 			char_controller.jump()
 			coyote_window = false
-			used_second_jump = false
+			do_second_jump = false
+			did_manual_jump = true
 		elif do_second_jump:
 			char_controller.jump()
 			do_second_jump = false
@@ -78,26 +92,46 @@ func process_idle():
 	var movement_direction: float = input_interface.get_movement_direction()
 	if movement_direction and can_move():
 		transition_state("Moving")
+		char_controller.play_animation("walk")
 	elif false:
 		transition_state("Dash")
 	else:
 		char_controller.velocity.x = 0
-		if char_controller.combat_state.current_state == "Idle":
+		
+		# only start idle animation when the combat state isn't doing anything
+		if can_move():
 			char_controller.play_animation("idle")
 
 func process_moving():
-	var movement_direction: float = input_interface.get_movement_direction()
-	if movement_direction and can_move():
+	var movement_direction : float = input_interface.get_movement_direction()
+
+	if char_controller.is_on_floor() and !dashing and can_move():
+		used_dash = false
+
+	if input_interface.get_dash_input() and !used_dash and can_move():
+		dashing = true
+		dash_direction = movement_direction
+		dash_timer.start()
+		transition_state("Dash")
+	if movement_direction:
 		# TODO: Add checks for stun or anything that might prevent the character from moving
-		char_controller.velocity.x = movement_direction * char_controller.move_velocity * char_controller.animation_walk
-		char_controller.play_animation("walk")
+		char_controller.velocity.x = movement_direction * char_controller.move_velocity
 	else:
 		transition_state("Idle")
 
 func process_dash():
-	assert(false, "Called an unimplemented function")
+	if !dashing:
+		transition_state("Idle")
+		char_controller.velocity.x = 0
+	else:
+		char_controller.velocity.x = dash_velocity * dash_direction
+		char_controller.velocity.y = 0
+		used_dash = true
 
+
+# Is this even used?
 func _on_state_transition(_previous_state: String, new_state: String):
+	print("new_state " + new_state)
 	if new_state == "Idle":
 		process_idle()
 	elif new_state == "Moving":
@@ -108,9 +142,13 @@ func _on_state_transition(_previous_state: String, new_state: String):
 		assert(false, "Unreachable state")
 
 func process_state():
-	if !char_controller.is_on_floor() and floor_prev:
-		coyote_window = true
-		coyote_timer.start()
+	if !char_controller.is_on_floor():
+		if floor_prev and !did_manual_jump:
+			coyote_window = true
+			coyote_timer.start()
+	else:
+		did_manual_jump = false
+		used_second_jump = false
 
 	match current_state:
 		"Idle":

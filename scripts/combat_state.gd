@@ -50,7 +50,7 @@ func attack_heavy():
 
 func on_attack_end():
 	# TODO: Think about what would happen if attack gets interrupted -> stagger
-	print("Attack ended!")
+	# print("Attack ended!")
 	transition_state("Idle")
 
 func can_block() -> bool:
@@ -62,7 +62,6 @@ func block():
 	print("In Block()")
 	transition_state("Blocking")
 	char_controller.play_animation("block")
-	pass
 
 func on_block_end():
 	# TODO: Think about what would happen if an attack pierces block -> stagger
@@ -109,7 +108,6 @@ func on_anim_changing(animationName: String):
 func process_state():
 	if Input.is_action_pressed("debug_print"):
 		print(current_state)
-		pass
 	match current_state:
 		"Idle":
 			process_idle()
