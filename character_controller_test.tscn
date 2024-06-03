@@ -1297,6 +1297,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
+libraries = {
+"": SubResource("AnimationLibrary_37tsb")
+}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5
@@ -1762,4 +1765,3 @@ cooldown_time = 30.0
 ability_time = 3.0
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
-[connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
