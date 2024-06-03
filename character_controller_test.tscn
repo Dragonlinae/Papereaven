@@ -1750,8 +1750,9 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("RectangleShape2D_vwx3l")
 
-[node name="ComboTracker" type="Node" parent="."]
+[node name="ComboTracker" type="Node" parent="." node_paths=PackedStringArray("combo_UI")]
 script = ExtResource("10_wcbpo")
+combo_UI = NodePath("../Combo")
 
 [node name="Combo" parent="." instance=ExtResource("12_iqvf3")]
 
