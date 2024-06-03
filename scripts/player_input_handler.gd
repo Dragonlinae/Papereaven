@@ -20,7 +20,6 @@ func get_dash_input() -> bool:
 	var dash_input: bool = Input.is_action_pressed("dash")
 	return dash_input
 
-
 func get_attack_heavy_input() -> bool:
 	var attack_heavy_input: bool = Input.is_action_pressed("attack heavy")
 	return attack_heavy_input
@@ -32,5 +31,9 @@ func get_block_input() -> bool:
 func get_interact_input() -> bool:
 	var interact_input: bool = Input.is_action_just_pressed("interact")
 	return interact_input
+
+func get_ability_input() -> bool:
+	var ability_input: bool = Input.is_action_pressed("ability")
+	return ability_input
 
 # TODO: Implement get combat inputs

@@ -30,7 +30,6 @@ func _ready():
 
 func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
-	char_controller.animation_changed_signal.connect(on_anim_changing)
 
 func _inject_input_interface(interface: InputHandler):
 	input_interface = interface
@@ -101,9 +100,6 @@ func _on_state_transition(_previous_state: String, new_state: String):
 		pass
 	if new_state == "Stagger":
 		pass
-
-func on_anim_changing(animationName: String):
-	print(animationName, " was played.")
 
 func process_state():
 	if Input.is_action_pressed("debug_print"):
