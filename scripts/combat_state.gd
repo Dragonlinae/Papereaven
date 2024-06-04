@@ -51,6 +51,7 @@ func on_attack_end():
 	# TODO: Think about what would happen if attack gets interrupted -> stagger
 	# print("Attack ended!")
 	transition_state("Idle")
+	print("Called on attack ended")
 
 func can_block() -> bool:
 	if current_state != "Idle":
