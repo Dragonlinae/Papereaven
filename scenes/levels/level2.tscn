@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://durs7gwooqlr1"]
+[gd_scene load_steps=35 format=3 uid="uid://durs7gwooqlr1"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_6vwb3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_o6fuv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_xgbg2"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_fyuqb"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_3jwb7"]
+[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_7cwhd"]
 [ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_su7md"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_t8hkt"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_1j5di"]
@@ -373,6 +374,13 @@ modifications/1 = SubResource("SkeletonModification2DCCDIK_lks6c")
 modifications/2 = SubResource("SkeletonModification2DCCDIK_8bk5s")
 modifications/3 = SubResource("SkeletonModification2DCCDIK_cdfox")
 
+[sub_resource type="Gradient" id="Gradient_k25uk"]
+colors = PackedColorArray(1, 0, 0, 1, 0.639216, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u5jq3"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_k25uk")
+
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_6vwb3")
 
@@ -674,6 +682,22 @@ scale = Vector2(0.999951, 0.999951)
 [node name="right_foot" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg/right_lower_leg" index="0"]
 scale = Vector2(0.999955, 0.999955)
 
+[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_7cwhd")]
+position = Vector2(8951, 4347)
+player_character = NodePath("../Player")
+dialogue_file = null
+boss_health = 100
+
+[node name="Dialoguearea" parent="CharacterBody2D" index="2"]
+dialogue_file = "res://assets/dialogues/bossnpc2.txt"
+
+[node name="AttackParticles" parent="CharacterBody2D/AttackFX" index="0"]
+texture = SubResource("GradientTexture2D_u5jq3")
+
+[node name="AttackParticles2" parent="CharacterBody2D/AttackFX" index="1"]
+texture = SubResource("GradientTexture2D_u5jq3")
+
 [editable path="ninja_char"]
 [editable path="ninja_char2"]
 [editable path="ninja_char3"]
+[editable path="CharacterBody2D"]
