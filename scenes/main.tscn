@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=18 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
@@ -14,7 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="12_60juf"]
-[ext_resource type="PackedScene" uid="uid://bq0a1s8iccwpk" path="res://spikeTrap.tscn" id="15_m0d14"]
+[ext_resource type="PackedScene" uid="uid://b667p2yb355os" path="res://scenes/spike_puzzle_trap.tscn" id="16_rdane"]
+[ext_resource type="PackedScene" uid="uid://dhft2gnqwlb3p" path="res://environment/rigid_box_2d.tscn" id="16_y0oga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
@@ -74,6 +75,8 @@ dialogue_file = "res://assets/dialogues/bossprefight.txt"
 [node name="Player" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)
 scale = Vector2(4, 4)
+collision_layer = 2
+collision_mask = 7
 move_velocity = 1000.0
 jump_velocity = 1500.0
 
@@ -109,12 +112,13 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="SomethingToHit" type="CharacterBody2D" parent="."]
-position = Vector2(1892, 419)
+position = Vector2(815, 168)
 script = ExtResource("9_6onl3")
 max_health = 1000
 current_health = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit"]
+position = Vector2(2, -11)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
@@ -128,19 +132,15 @@ script = ExtResource("12_5s1u7")
 entity = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit/Hurtbox"]
-position = Vector2(-106, -29)
+position = Vector2(-123, -47)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="Moving Platform" parent="." instance=ExtResource("12_60juf")]
 position = Vector2(1647, 130)
 
-[node name="Area2D" parent="." instance=ExtResource("15_m0d14")]
-position = Vector2(1175, 105)
-actuate = false
+[node name="Crate" parent="." instance=ExtResource("16_y0oga")]
+position = Vector2(1654, -144)
 
-[node name="Area2D2" parent="." instance=ExtResource("15_m0d14")]
-position = Vector2(1239, 104)
-
-[node name="Area2D3" parent="." instance=ExtResource("15_m0d14")]
-position = Vector2(1341, 104)
+[node name="SpikePuzzleTrap" parent="." instance=ExtResource("16_rdane")]
+position = Vector2(1369, 105)

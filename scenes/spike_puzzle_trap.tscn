@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://b667p2yb355os"]
+
+[ext_resource type="Script" path="res://scenes/spike_puzzle_trap.gd" id="1_1ku3j"]
+[ext_resource type="Texture2D" uid="uid://quqursee4de3" path="res://assets/tilesheet.png" id="1_m4s7w"]
+[ext_resource type="PackedScene" uid="uid://bq0a1s8iccwpk" path="res://spikeTrap.tscn" id="2_g564y"]
+[ext_resource type="PackedScene" uid="uid://dhft2gnqwlb3p" path="res://environment/rigid_box_2d.tscn" id="3_6anlc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nowu4"]
+size = Vector2(100.585, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54ddi"]
+size = Vector2(85.2468, 188)
+
+[node name="SpikePuzzleTrap" type="Node2D"]
+position = Vector2(-15, -24)
+script = ExtResource("1_1ku3j")
+
+[node name="SpikeTrap1" parent="." instance=ExtResource("2_g564y")]
+position = Vector2(598, 588)
+
+[node name="SpikeTrap2" parent="SpikeTrap1" instance=ExtResource("2_g564y")]
+position = Vector2(119, -3)
+
+[node name="SpikeTrap3" parent="SpikeTrap1/SpikeTrap2" instance=ExtResource("2_g564y")]
+position = Vector2(130, 7)
+
+[node name="Crate" parent="." instance=ExtResource("3_6anlc")]
+position = Vector2(-322, -15)
+
+[node name="Button" type="Sprite2D" parent="."]
+position = Vector2(13.881, -4)
+scale = Vector2(1.30238, 1)
+texture = ExtResource("1_m4s7w")
+region_enabled = true
+region_rect = Rect2(1935, 990, 100, 35)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/StaticBody2D"]
+position = Vector2(-0.292502, 7)
+shape = SubResource("RectangleShape2D_nowu4")
+
+[node name="Area2D" type="Area2D" parent="Button"]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Area2D"]
+position = Vector2(-0.301644, -98)
+shape = SubResource("RectangleShape2D_54ddi")
+
+[connection signal="body_shape_entered" from="Button/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Button/Area2D" to="." method="_on_area_2d_body_shape_exited"]
