@@ -15,6 +15,7 @@ extends Area2D
 ## to set the damage (nonzero will enable, zero will disable).
 @export var damage: int
 @export var can_block: bool = true
+@export var damage_mult: float = 1.0
 
 #@export var hitbox_state : HitboxState = HitboxState.new()
 
@@ -46,7 +47,7 @@ func disable_hitbox():
 ## hitbox when zero damage. Enabling hitbox will allow it to
 ## collide again with anything currently intersecting it.
 func enable_hitbox_damage(new_damage: int):
-	damage = new_damage
+	damage = new_damage * damage_mult
 	if new_damage > 0: enable_hitbox()
 	else: disable_hitbox()
 

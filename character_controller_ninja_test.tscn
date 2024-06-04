@@ -258,9 +258,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
 root_node = NodePath("../CharacterCollisionShape/ninja")
-libraries = {
-"": SubResource("AnimationLibrary_sxi26")
-}
 tree_root = SubResource("AnimationNodeBlendTree_gd8uc")
 anim_player = NodePath("../AnimationPlayer")
 
