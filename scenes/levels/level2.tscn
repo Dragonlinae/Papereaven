@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ownws35oiq6p" path="res://environment/nonmoving_platform.tscn" id="14_2oa83"]
 [ext_resource type="Texture2D" uid="uid://c8p6u0bm56c02" path="res://assets/sprites/signs/pitfall.png" id="14_y6i8k"]
 [ext_resource type="Script" path="res://scripts/portal_activator.gd" id="15_0u5qr"]
-[ext_resource type="PackedScene" uid="uid://cxjyhq0tnelfk" path="res://character_controller_ninja_test.tscn" id="16_3ubwk"]
+[ext_resource type="PackedScene" uid="uid://cxjyhq0tnelfk" path="res://character_controller_ninja.tscn" id="16_3ubwk"]
 [ext_resource type="Texture2D" uid="uid://dyswkoxe6pwht" path="res://assets/sprites/signs/down.png" id="16_wfixx"]
 [ext_resource type="PackedScene" uid="uid://i7d6j16p6gle" path="res://scenes/levels/portal.tscn" id="17_w8wwu"]
 
@@ -529,164 +529,121 @@ target_portal = NodePath("..")
 
 [node name="ninja_char" parent="." instance=ExtResource("16_3ubwk")]
 position = Vector2(7537, 1200)
+max_health = 20
+current_health = 20
 
 [node name="Skeleton2D" parent="ninja_char/CharacterCollisionShape/ninja" index="0"]
 modification_stack = SubResource("SkeletonModificationStack2D_un6t2")
 
+[node name="right_upper_arm" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="1"]
+scale = Vector2(0.999898, 0.999898)
+
+[node name="right_hand" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm" index="0"]
+scale = Vector2(0.999959, 0.999959)
+
+[node name="left_upper_arm" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="2"]
+scale = Vector2(0.999868, 0.999868)
+
+[node name="left_hand" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm" index="0"]
+scale = Vector2(0.999959, 0.999959)
+
+[node name="left_upper_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="3"]
+scale = Vector2(0.999854, 0.999854)
+
+[node name="left_lower_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg" index="0"]
+scale = Vector2(0.999942, 0.999942)
+
 [node name="left_foot" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
-scale = Vector2(0.999999, 0.999999)
+scale = Vector2(0.999998, 0.999998)
 
-[node name="left_lower_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg" index="0"]
-scale = Vector2(0.999975, 0.999975)
+[node name="right_upper_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="4"]
+scale = Vector2(0.999851, 0.999851)
 
-[node name="left_foot" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg/left_lower_leg" index="0"]
-scale = Vector2(0.999952, 0.999952)
+[node name="right_lower_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg" index="0"]
+scale = Vector2(0.999968, 0.999968)
 
-[node name="right_lower_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg" index="0"]
-scale = Vector2(0.999951, 0.999951)
-
-[node name="right_foot" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg/right_lower_leg" index="0"]
-scale = Vector2(0.999955, 0.999955)
+[node name="right_foot" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
+scale = Vector2(0.999977, 0.999977)
 
 [node name="ninja_char2" parent="." instance=ExtResource("16_3ubwk")]
 position = Vector2(9279, 1200)
+max_health = 20
+current_health = 20
 
 [node name="Skeleton2D" parent="ninja_char2/CharacterCollisionShape/ninja" index="0"]
 modification_stack = SubResource("SkeletonModificationStack2D_wtxuq")
 
 [node name="right_upper_arm" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="1"]
-position = Vector2(44.4327, -7.73584)
-rotation = -1.99713
 scale = Vector2(0.999994, 0.999994)
 
 [node name="right_hand" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm" index="0"]
-position = Vector2(-23.5801, -33.3672)
-rotation = -0.459366
 scale = Vector2(1, 1)
 
 [node name="left_upper_arm" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="2"]
-position = Vector2(52.8873, -2.60986)
-rotation = 1.51528
 scale = Vector2(0.99998, 0.99998)
 
 [node name="left_hand" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm" index="0"]
-position = Vector2(-45.2983, -8.51306)
-rotation = -1.04179
 scale = Vector2(1, 1)
 
 [node name="left_upper_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="3"]
-position = Vector2(7.50781, 1.26318)
-rotation = 0.276884
 scale = Vector2(0.999977, 0.999977)
 
 [node name="left_lower_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg" index="0"]
-position = Vector2(-44.6021, 36.6128)
-rotation = -0.850086
 scale = Vector2(1, 1)
 
 [node name="left_foot" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
-position = Vector2(-42.8884, -7.04395)
-rotation = 1.89925
 scale = Vector2(1, 1)
 
 [node name="right_upper_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="4"]
-position = Vector2(-0.187744, -9.21875)
-rotation = -0.156532
 scale = Vector2(0.999991, 0.999991)
 
 [node name="right_lower_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg" index="0"]
-position = Vector2(-48.8823, -18.9658)
-rotation = 0.268896
 scale = Vector2(0.999999, 0.999999)
 
 [node name="right_foot" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
-position = Vector2(-49.4052, -12.6543)
-rotation = 1.85138
 scale = Vector2(1, 1)
-
-[node name="left_lower_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg" index="0"]
-scale = Vector2(0.999975, 0.999975)
-
-[node name="left_foot" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg/left_lower_leg" index="0"]
-scale = Vector2(0.999952, 0.999952)
-
-[node name="right_lower_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg" index="0"]
-scale = Vector2(0.999951, 0.999951)
-
-[node name="right_foot" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg/right_lower_leg" index="0"]
-scale = Vector2(0.999955, 0.999955)
 
 [node name="ninja_char3" parent="." instance=ExtResource("16_3ubwk")]
 position = Vector2(5457, 4248)
+max_health = 20
+current_health = 20
 
 [node name="Skeleton2D" parent="ninja_char3/CharacterCollisionShape/ninja" index="0"]
 modification_stack = SubResource("SkeletonModificationStack2D_3ewl0")
 
 [node name="right_upper_arm" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="1"]
-position = Vector2(44.4308, -7.75684)
-rotation = -1.99615
 scale = Vector2(0.999988, 0.999988)
 
 [node name="right_hand" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm" index="0"]
-position = Vector2(-23.5762, -33.3687)
-rotation = -0.458824
 scale = Vector2(1, 1)
 
 [node name="left_upper_arm" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="2"]
-position = Vector2(52.8827, -2.64551)
-rotation = 1.51257
-scale = Vector2(0.999982, 0.999982)
+scale = Vector2(0.99998, 0.99998)
 
 [node name="left_hand" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm" index="0"]
-position = Vector2(-45.2939, -8.50842)
-rotation = -1.04179
+scale = Vector2(0.999959, 0.999959)
 
 [node name="left_upper_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="3"]
-position = Vector2(7.50659, 1.24414)
-rotation = 0.276814
 scale = Vector2(0.999963, 0.999963)
 
 [node name="left_lower_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg" index="0"]
-position = Vector2(-44.604, 36.626)
-rotation = -0.850661
 scale = Vector2(1, 1)
 
 [node name="left_foot" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
-position = Vector2(-42.876, -7.06738)
-rotation = 1.89949
 scale = Vector2(1, 1)
 
 [node name="right_upper_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="4"]
-position = Vector2(-0.190063, -9.24609)
-rotation = -0.15606
 scale = Vector2(0.999987, 0.999987)
 
 [node name="right_lower_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg" index="0"]
-position = Vector2(-48.8828, -18.9785)
-rotation = 0.268802
 scale = Vector2(1, 1)
 
 [node name="right_foot" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
-position = Vector2(-49.4081, -12.6563)
-rotation = 1.82976
 scale = Vector2(0.999999, 0.999999)
-
-[node name="left_lower_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg" index="0"]
-scale = Vector2(0.999975, 0.999975)
-
-[node name="left_foot" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg/left_lower_leg" index="0"]
-scale = Vector2(0.999952, 0.999952)
-
-[node name="right_lower_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg" index="0"]
-scale = Vector2(0.999951, 0.999951)
-
-[node name="right_foot" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg/right_lower_leg" index="0"]
-scale = Vector2(0.999955, 0.999955)
 
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_7cwhd")]
 position = Vector2(8951, 4347)
 player_character = NodePath("../Player")
-dialogue_file = null
 boss_health = 100
 
 [node name="Dialoguearea" parent="CharacterBody2D" index="2"]

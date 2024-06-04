@@ -759,7 +759,7 @@ tracks/8/keys = {
 "args": [],
 "method": &"disable_hitbox"
 }, {
-"args": [25],
+"args": [3],
 "method": &"enable_hitbox_damage"
 }, {
 "args": [],
@@ -1202,7 +1202,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [5],
+"args": [1],
 "method": &"enable_hitbox_damage"
 }, {
 "args": [],
@@ -3879,7 +3879,7 @@ top_level = true
 z_index = -6
 position = Vector2(13.1309, -14.0494)
 rotation = -1.75652
-scale = Vector2(0.99991, 0.99991)
+scale = Vector2(0.249977, 0.249977)
 
 [node name="sword_rotation" type="Node2D" parent="CharacterCollisionShape/character_root/polygons/sword_position"]
 

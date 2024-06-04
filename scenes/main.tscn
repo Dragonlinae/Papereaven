@@ -72,7 +72,6 @@ position = Vector2(2483, -62)
 position = Vector2(614, -18)
 player_character = NodePath("../Player")
 dialogue_file = "res://assets/dialogues/bossprefight.txt"
-boss_health = null
 
 [node name="Player" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)
