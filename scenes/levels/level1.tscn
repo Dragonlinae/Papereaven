@@ -69,6 +69,7 @@ position = Vector2(14087, 289)
 
 [node name="Checkpoint4" parent="." instance=ExtResource("6_dapi5")]
 position = Vector2(25568, -1369)
+target_scene_path = "res://scenes/homelevel.tscn"
 
 [node name="Player" parent="." instance=ExtResource("8_wtave")]
 position = Vector2(236, 121)
