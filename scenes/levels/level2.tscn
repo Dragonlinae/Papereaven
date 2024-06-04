@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://durs7gwooqlr1"]
+[gd_scene load_steps=19 format=3 uid="uid://durs7gwooqlr1"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_6vwb3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_o6fuv"]
@@ -16,11 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://ownws35oiq6p" path="res://environment/nonmoving_platform.tscn" id="14_2oa83"]
 [ext_resource type="Texture2D" uid="uid://c8p6u0bm56c02" path="res://assets/sprites/signs/pitfall.png" id="14_y6i8k"]
 [ext_resource type="Texture2D" uid="uid://dyswkoxe6pwht" path="res://assets/sprites/signs/down.png" id="16_wfixx"]
+[ext_resource type="PackedScene" uid="uid://i7d6j16p6gle" path="res://scenes/levels/portal.tscn" id="17_w8wwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 material = ExtResource("1_6vwb3")
 
 [node name="Node2D" parent="." instance=ExtResource("2_o6fuv")]
@@ -66,7 +67,6 @@ player_character = NodePath("../Player")
 dialogue_file = "res://assets/dialogues/bossprefight.txt"
 
 [node name="Player" parent="." instance=ExtResource("8_su7md")]
-visible = false
 position = Vector2(236, 121)
 scale = Vector2(4, 4)
 move_velocity = 1000.0
@@ -194,3 +194,8 @@ position = Vector2(9867, 867)
 position = Vector2(6000, -501)
 rotation = -0.00148079
 texture = ExtResource("16_wfixx")
+
+[node name="Portal" parent="." instance=ExtResource("17_w8wwu")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(9453, 4410)
+target_scene_path = "res://scenes/levels/level3.tscn"
