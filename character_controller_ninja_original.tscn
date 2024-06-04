@@ -1,15 +1,15 @@
-[gd_scene load_steps=41 format=3 uid="uid://cxjyhq0tnelfk"]
+[gd_scene load_steps=41 format=3 uid="uid://b0u6cvotp05qo"]
 
-[ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_3de81"]
-[ext_resource type="Texture2D" uid="uid://bjiesyuoyg0mt" path="res://assets/NinjaSpriteSheet.png" id="2_h5cjp"]
-[ext_resource type="Script" path="res://scripts/combat_state.gd" id="3_fhdsx"]
-[ext_resource type="Script" path="res://scripts/movement_state.gd" id="4_igege"]
-[ext_resource type="Script" path="res://scripts/enemy_input_controller.gd" id="5_mwo1r"]
-[ext_resource type="Script" path="res://scripts/enemy_logic_state.gd" id="6_ff1gv"]
-[ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="7_3pp1b"]
-[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="7_nddlr"]
-[ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="8_nco8p"]
-[ext_resource type="Script" path="res://scripts/hurtbox_state.gd" id="8_yh4g5"]
+[ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_p5mqv"]
+[ext_resource type="Texture2D" uid="uid://bjiesyuoyg0mt" path="res://assets/NinjaSpriteSheet.png" id="2_l3ubm"]
+[ext_resource type="Script" path="res://scripts/combat_state.gd" id="3_phdy3"]
+[ext_resource type="Script" path="res://scripts/movement_state.gd" id="4_pgr1s"]
+[ext_resource type="Script" path="res://scripts/enemy_input_controller.gd" id="5_7a21x"]
+[ext_resource type="Script" path="res://scripts/enemy_logic_state.gd" id="6_38ij6"]
+[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="7_n4u4t"]
+[ext_resource type="Texture2D" uid="uid://bnkkemaq6fwbi" path="res://assets/paper.jpg" id="8_pkacl"]
+[ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="9_bqvsv"]
+[ext_resource type="Script" path="res://scripts/hurtbox_state.gd" id="10_iv126"]
 
 [sub_resource type="Animation" id="Animation_iqigd"]
 length = 0.001
@@ -553,7 +553,7 @@ size = Vector2(54, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5man"]
 
 [node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree")]
-script = ExtResource("1_3de81")
+script = ExtResource("1_p5mqv")
 move_velocity = 250.0
 input_handler = NodePath("EnemyInputHandler")
 movement_state = NodePath("MovementState")
@@ -805,7 +805,7 @@ position = Vector2(1.30855, 3.77965)
 [node name="shield" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(238.488, 257.33)
 rotation = -1.48081
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(147.71, 43.5114, 134.351, 21.7557, 109.924, 11.8321, 85.8779, 14.8855, 70.9924, 40.0763, 63.7405, 58.7786, 70.9924, 81.2977, 83.5878, 94.2748, 104.962, 97.7099, 129.771, 90.0763, 143.893, 71.7557, 150, 54.1985)
 uv = PackedVector2Array(147.71, 43.5114, 134.351, 21.7557, 109.924, 11.8321, 85.8779, 14.8855, 70.9924, 40.0763, 63.7405, 58.7786, 70.9924, 81.2977, 83.5878, 94.2748, 104.962, 97.7099, 129.771, 90.0763, 143.893, 71.7557, 150, 54.1985)
@@ -813,7 +813,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/che
 
 [node name="left_lower_leg" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(143.929, -22.0992)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(145.659, 212.595, 165.506, 204.962, 173.14, 211.832, 172.376, 225.191, 165.888, 234.351, 159.399, 250.763, 155.201, 263.359, 140.315, 263.74, 126.575, 254.962, 126.575, 238.931)
 uv = PackedVector2Array(145.659, 212.595, 165.506, 204.962, 173.14, 211.832, 172.376, 225.191, 165.888, 234.351, 159.399, 250.763, 155.201, 263.359, 140.315, 263.74, 126.575, 254.962, 126.575, 238.931)
@@ -821,7 +821,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", P
 
 [node name="left_upper_leg" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(150.929, 7.90076)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(112.071, 135.878, 118.941, 127.099, 131.918, 127.099, 154.056, 156.87, 164.361, 163.74, 167.796, 189.313, 160.926, 196.565, 148.331, 203.053, 135.735, 194.275, 126.193, 193.511, 123.14, 180.534)
 uv = PackedVector2Array(112.071, 135.878, 118.941, 127.099, 131.918, 127.099, 154.056, 156.87, 164.361, 163.74, 167.796, 189.313, 160.926, 196.565, 148.331, 203.053, 135.735, 194.275, 126.193, 193.511, 123.14, 180.534)
@@ -829,7 +829,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest"
 
 [node name="left_foot" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(137.929, -50.0992)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(135.353, 269.084, 125.811, 291.221, 163.979, 291.603, 160.926, 274.046)
 uv = PackedVector2Array(135.353, 269.084, 125.811, 291.221, 163.979, 291.603, 160.926, 274.046)
@@ -837,7 +837,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0), "hip/chest", PackedFloat32Array(
 
 [node name="left_upper_arm" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(-191.511, 86.7252)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(468.702, -3.43512, 456.87, 12.5954, 446.565, 40.0763, 443.511, 58.3969, 448.473, 66.4122, 466.031, 63.3588, 477.863, 40.0763, 488.55, 10.3053, 479.389, -5.72519)
 uv = PackedVector2Array(468.702, -3.43512, 456.87, 12.5954, 446.565, 40.0763, 443.511, 58.3969, 448.473, 66.4122, 466.031, 63.3588, 477.863, 40.0763, 488.55, 10.3053, 479.389, -5.72519)
@@ -845,7 +845,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", Pack
 
 [node name="left_lower_arm" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(-194.511, 65.7252)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(501.145, 76.3359, 506.87, 89.313, 499.237, 103.053, 488.55, 103.817, 448.473, 84.7328, 446.565, 70.6107, 450.763, 64.1221, 466.031, 63.3588)
 uv = PackedVector2Array(501.145, 76.3359, 506.87, 89.313, 499.237, 103.053, 488.55, 103.817, 448.473, 84.7328, 446.565, 70.6107, 450.763, 64.1221, 466.031, 63.3588)
@@ -853,7 +853,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedF
 
 [node name="left_hand" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(-213.511, 36.7252)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(513.359, 99.2366, 498.092, 105.344, 492.366, 118.321, 492.366, 133.206, 506.489, 132.061, 519.847, 140.076, 532.061, 138.931, 542.748, 126.718, 547.71, 117.176, 539.695, 106.87, 522.519, 106.107)
 uv = PackedVector2Array(513.359, 99.2366, 498.092, 105.344, 492.366, 118.321, 492.366, 133.206, 506.489, 132.061, 519.847, 140.076, 532.061, 138.931, 542.748, 126.718, 547.71, 117.176, 539.695, 106.87, 522.519, 106.107)
@@ -862,7 +862,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest"
 [node name="shield_strap" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(192.487, 208.33)
 rotation = -1.48081
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(39.1157, 100, 64.9584, 96.0674, 82.3741, 100, 84.0595, 115.73, 72.2618, 116.854, 41.3629, 116.854)
 uv = PackedVector2Array(39.1157, 100, 64.9584, 96.0674, 82.3741, 100, 84.0595, 115.73, 72.2618, 116.854, 41.3629, 116.854)
@@ -870,7 +870,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32
 
 [node name="torso" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(-298, 66)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(559.924, 6.10687, 553.053, 15.2672, 553.053, 25.1908, 550.763, 33.5878, 553.435, 49.2366, 545.42, 68.3206, 535.878, 88.9313, 544.275, 107.252, 566.031, 110.687, 589.695, 103.817, 599.237, 84.7328, 592.366, 66.4122, 598.473, 51.145, 600.382, 34.3511, 609.16, 18.3206, 589.695, 6.48854)
 uv = PackedVector2Array(559.924, 6.10687, 553.053, 15.2672, 553.053, 25.1908, 550.763, 33.5878, 553.435, 49.2366, 545.42, 68.3206, 535.878, 88.9313, 544.275, 107.252, 566.031, 110.687, 589.695, 103.817, 599.237, 84.7328, 592.366, 66.4122, 598.473, 51.145, 600.382, 34.3511, 609.16, 18.3206, 589.695, 6.48854)
@@ -878,14 +878,14 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 
 [node name="scarf" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(22, -2)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(220.611, 32.0611, 202.672, 40.0763, 178.626, 46.1832, 175.954, 59.1603, 185.496, 70.229, 185.496, 79.0076, 206.107, 85.1145, 212.214, 70.229, 222.901, 66.7939, 229.771, 50.3817, 230.534, 34.3511)
 uv = PackedVector2Array(220.611, 32.0611, 202.672, 40.0763, 178.626, 46.1832, 175.954, 59.1603, 185.496, 70.229, 185.496, 79.0076, 206.107, 85.1145, 212.214, 70.229, 222.901, 66.7939, 229.771, 50.3817, 230.534, 34.3511)
 bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/scarf", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "hip/chest/right_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand/spear", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand/shield", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_leg/left_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_leg/left_lower_leg/left_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_leg/right_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_leg/right_lower_leg/right_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="head" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(256.87, 9.54198, 244.275, 25.5725, 237.786, 41.2214, 238.168, 61.0687, 248.855, 82.0611, 270.611, 91.2214, 290.84, 90.0763, 302.672, 101.908, 312.595, 90.8397, 319.466, 67.5573, 324.427, 47.3282, 319.466, 20.6107, 301.527, 3.43511, 280.153, -0.381683)
 uv = PackedVector2Array(256.87, 9.54198, 244.275, 25.5725, 237.786, 41.2214, 238.168, 61.0687, 248.855, 82.0611, 270.611, 91.2214, 290.84, 90.0763, 302.672, 101.908, 312.595, 90.8397, 319.466, 67.5573, 324.427, 47.3282, 319.466, 20.6107, 301.527, 3.43511, 280.153, -0.381683)
@@ -893,7 +893,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "h
 
 [node name="right_lower_leg" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(180.547, -16.2977)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(49.4756, 197.71, 36.4985, 206.107, 22.758, 233.206, 17.7962, 247.328, 22.758, 257.634, 40.3153, 260.305, 49.4756, 247.71, 68.9412, 212.595, 62.8343, 200)
 uv = PackedVector2Array(49.4756, 197.71, 36.4985, 206.107, 22.758, 233.206, 17.7962, 247.328, 22.758, 257.634, 40.3153, 260.305, 49.4756, 247.71, 68.9412, 212.595, 62.8343, 200)
@@ -901,7 +901,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", Pack
 
 [node name="right_upper_leg" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(193.547, 13.7023)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(55.5824, 131.298, 73.5214, 131.679, 78.4832, 140.076, 77.7198, 150.763, 70.8496, 162.977, 67.0328, 177.099, 62.8343, 183.588, 51.7656, 189.313, 47.1855, 192.748, 32.6817, 194.275, 22.758, 188.931, 20.8496, 171.374, 18.9412, 161.069, 27.3382, 158.779, 39.5519, 148.092)
 uv = PackedVector2Array(55.5824, 131.298, 73.5214, 131.679, 78.4832, 140.076, 77.7198, 150.763, 70.8496, 162.977, 67.0328, 177.099, 62.8343, 183.588, 51.7656, 189.313, 47.1855, 192.748, 32.6817, 194.275, 22.758, 188.931, 20.8496, 171.374, 18.9412, 161.069, 27.3382, 158.779, 39.5519, 148.092)
@@ -909,7 +909,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 
 [node name="right_foot" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(179.547, -41.2977)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(20.8496, 261.45, 12.4527, 284.351, 43.7504, 287.405, 47.5672, 275.954)
 uv = PackedVector2Array(20.8496, 261.45, 12.4527, 284.351, 43.7504, 287.405, 47.5672, 275.954)
@@ -917,7 +917,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0), "hip/chest", PackedFloat32Array(
 
 [node name="right_lower_arm" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(-135, 62)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(387.786, 51.145, 403.817, 70.9924, 403.053, 86.6412, 392.748, 96.9466, 378.626, 95.4198, 362.595, 78.6259, 357.252, 53.8168, 367.557, 45.4198)
 uv = PackedVector2Array(387.786, 51.145, 403.817, 70.9924, 403.053, 86.6412, 392.748, 96.9466, 378.626, 95.4198, 362.595, 78.6259, 357.252, 53.8168, 367.557, 45.4198)
@@ -925,7 +925,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedF
 
 [node name="right_upper_arm" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(-133, 86)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(406.87, 6.48854, 384.733, 6.48854, 358.779, 21.7557, 355.344, 35.4962, 359.542, 46.9466, 375.191, 45.0382, 406.87, 34.3511, 421.374, 16.4122)
 uv = PackedVector2Array(406.87, 6.48854, 384.733, 6.48854, 358.779, 21.7557, 355.344, 35.4962, 359.542, 46.9466, 375.191, 45.0382, 406.87, 34.3511, 421.374, 16.4122)
@@ -934,7 +934,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedF
 [node name="spear" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(66, 174)
 rotation = -0.766994
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(108.779, 108.989, 321.7, 107.865, 346.981, 118.539, 341.363, 124.719, 106.531, 124.719)
 uv = PackedVector2Array(108.779, 108.989, 321.7, 107.865, 346.981, 118.539, 341.363, 124.719, 106.531, 124.719)
@@ -942,7 +942,7 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0), "hip/chest", PackedFloat32Arr
 
 [node name="right_hand" type="Polygon2D" parent="CharacterCollisionShape/ninja/polygons"]
 position = Vector2(-161, 32)
-texture = ExtResource("2_h5cjp")
+texture = ExtResource("2_l3ubm")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(415.267, 87.0229, 399.237, 92.7481, 388.168, 105.725, 396.947, 116.031, 403.053, 125.954, 413.359, 132.824, 429.389, 127.863, 437.405, 112.214, 427.099, 100.763)
 uv = PackedVector2Array(415.267, 87.0229, 399.237, 92.7481, 388.168, 105.725, 396.947, 116.031, 403.053, 125.954, 413.359, 132.824, 429.389, 127.863, 437.405, 112.214, 427.099, 100.763)
@@ -961,30 +961,30 @@ position = Vector2(210, 241)
 position = Vector2(286, 99)
 
 [node name="CombatState" type="Node" parent="."]
-script = ExtResource("3_fhdsx")
+script = ExtResource("3_phdy3")
 
 [node name="MovementState" type="Node" parent="."]
-script = ExtResource("4_igege")
+script = ExtResource("4_pgr1s")
 
 [node name="EnemyInputHandler" type="Node" parent="." node_paths=PackedStringArray("logic_state")]
-script = ExtResource("5_mwo1r")
+script = ExtResource("5_7a21x")
 logic_state = NodePath("EnemyLogicState")
 
 [node name="EnemyLogicState" type="Node" parent="EnemyInputHandler" node_paths=PackedStringArray("enemy_input_handler")]
-script = ExtResource("6_ff1gv")
+script = ExtResource("6_38ij6")
 enemy_input_handler = NodePath("..")
 
 [node name="Hitbox_Light" type="Area2D" parent="."]
 modulate = Color(1, 1, 1, 0.2)
 position = Vector2(259, 127)
 scale = Vector2(3.3037, 3.23364)
-script = ExtResource("7_nddlr")
+script = ExtResource("7_n4u4t")
 
 [node name="Polygon2D" type="Polygon2D" parent="Hitbox_Light"]
 position = Vector2(28.0397, 0.684922)
 scale = Vector2(0.164941, 0.241982)
 offset = Vector2(-685, -314)
-texture = ExtResource("8_nco8p")
+texture = ExtResource("8_pkacl")
 polygon = PackedVector2Array(536.956, 172.837, 534.783, 450.011, 842.391, 453.272, 829.348, 173.924, 551.087, 170.663)
 uv = PackedVector2Array(536.956, 172.837, 534.783, 450.011, 842.391, 453.272, 829.348, 173.924, 551.087, 170.663)
 
@@ -993,7 +993,7 @@ position = Vector2(27, 0)
 shape = SubResource("RectangleShape2D_f5cc0")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("entity")]
-script = ExtResource("7_3pp1b")
+script = ExtResource("9_bqvsv")
 entity = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -1002,4 +1002,4 @@ scale = Vector2(4, 12)
 shape = SubResource("RectangleShape2D_y5man")
 
 [node name="HurtboxState" type="Node" parent="Hurtbox"]
-script = ExtResource("8_yh4g5")
+script = ExtResource("10_iv126")
