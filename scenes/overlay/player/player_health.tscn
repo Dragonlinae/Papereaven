@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvdui005h7drr"]
+
+[ext_resource type="Texture2D" uid="uid://0m12yy0n0pv3" path="res://assets/overlay/Heartfill.png" id="1_0mhap"]
+[ext_resource type="Texture2D" uid="uid://dvakfw6wf6p56" path="res://assets/overlay/Outline.png" id="1_c4upc"]
+[ext_resource type="Script" path="res://scenes/overlay/player/player_health.gd" id="1_h8jjh"]
+[ext_resource type="Texture2D" uid="uid://b1qltjhh5sdil" path="res://assets/overlay/Infill.png" id="2_m1uev"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lbuae"]
+
+[node name="PlayerHealthBar" type="CanvasLayer"]
+script = ExtResource("1_h8jjh")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_lbuae")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -198.0
+offset_right = 1080.0
+offset_bottom = 202.0
+grow_vertical = 0
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("1_0mhap")
+texture_over = ExtResource("1_c4upc")
+texture_progress = ExtResource("2_m1uev")
+radial_initial_angle = 270.0
+radial_fill_degrees = 225.0
+radial_center_offset = Vector2(-100, -100)

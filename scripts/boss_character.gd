@@ -24,7 +24,7 @@ enum STATE {
 
 var curr_state: STATE = STATE.IDLE
 
-var health_bar: TextureProgressBar
+var boss_health_bar: TextureProgressBar
 
 func set_state(new_state):
 	if curr_state == new_state:
@@ -49,9 +49,9 @@ func _ready():
 	floor_constant_speed = true
 
 	# Set up the health bar
-	health_bar = get_node("BossHealthBar/HealthBar")
-	health_bar.max_value = max_health
-	health_bar.value = current_health
+	boss_health_bar = get_node("BossHealthBar/HealthBar")
+	boss_health_bar.max_value = max_health
+	boss_health_bar.value = current_health
 
 	# wait 2 seconds before starting the boss
 	set_physics_process(false)
@@ -119,7 +119,7 @@ func update_state(delta):
 
 	move_and_slide()
 
-	health_bar.value = current_health
+	boss_health_bar.value = current_health
 
 func enter_state(state):
 	match state:

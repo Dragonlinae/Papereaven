@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://xld7e8viee0m"]
+[gd_scene load_steps=73 format=3 uid="uid://xld7e8viee0m"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/ability_controller.gd" id="12_tk644"]
 [ext_resource type="Texture2D" uid="uid://cocdfvpjow5q5" path="res://assets/sprites/interact.png" id="12_x6dli"]
 [ext_resource type="Script" path="res://scripts/ability.gd" id="13_o0b1c"]
+[ext_resource type="PackedScene" uid="uid://dgxqlt22rclpf" path="res://scenes/overlay/player_health_bar.tscn" id="17_arowv"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -1283,7 +1284,7 @@ size = Vector2(54, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwx3l"]
 size = Vector2(40, 66)
 
-[node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree")]
+[node name="CharacterController2" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree")]
 script = ExtResource("1_8b33x")
 input_handler = NodePath("PlayerInputHandler")
 movement_state = NodePath("MovementState")
@@ -1777,6 +1778,9 @@ ability1 = NodePath("Ability")
 script = ExtResource("13_o0b1c")
 cooldown_time = 30.0
 ability_time = 3.0
+
+[node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("17_arowv")]
+entity = NodePath("..")
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
