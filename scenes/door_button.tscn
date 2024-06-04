@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuwbjxg3a1bjw"]
+
+[ext_resource type="Texture2D" uid="uid://c7p7jisx0e7tp" path="res://assets/ButtonPlaceholder.png" id="1_ayobt"]
+[ext_resource type="Texture2D" uid="uid://cjngmaor6723j" path="res://assets/DoorPlaceholder.png" id="2_i05qs"]
+[ext_resource type="Script" path="res://scripts/DoorButton.gd" id="2_s8u7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y36gg"]
+size = Vector2(363.921, 285.806)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jud70"]
+size = Vector2(133, 675)
+
+[node name="DoorButton" type="Node2D"]
+script = ExtResource("2_s8u7o")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(95, 4.38776)
+scale = Vector2(0.182819, 0.184641)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-21.619, -3.05176e-05)
+shape = SubResource("RectangleShape2D_y36gg")
+
+[node name="ButtonSprite" type="Sprite2D" parent="."]
+position = Vector2(95, 9)
+scale = Vector2(0.182819, 0.184641)
+texture = ExtResource("1_ayobt")
+
+[node name="DoorSprite" type="Sprite2D" parent="."]
+position = Vector2(168, -286.583)
+scale = Vector2(0.333333, 0.785582)
+texture = ExtResource("2_i05qs")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="DoorSprite"]
+position = Vector2(6.10352e-05, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorSprite/RigidBody2D"]
+position = Vector2(-6.50003, -11.5)
+shape = SubResource("RectangleShape2D_jud70")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

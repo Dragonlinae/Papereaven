@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=19 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
@@ -7,15 +7,29 @@
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
 [ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_8yg16"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
+[ext_resource type="PackedScene" uid="uid://dyyoiodf3idvr" path="res://scenes/DoorButton2.tscn" id="8_v68nr"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
 [ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="12_60juf"]
+[ext_resource type="PackedScene" uid="uid://cxjyhq0tnelfk" path="res://character_controller_ninja_test.tscn" id="14_po4vg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
+
+[sub_resource type="Curve2D" id="Curve2D_6bifu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -2, 0, 0, 0, 0, 562, -2)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_nfvlx"]
+_data = {
+"points": PackedVector2Array(-49.5569, 5.03968, 49.5569, -5.03968, 0, 0, -2.51984, 128.512, 2.51984, -128.512, 190, -181, 127.672, 0.839947, -127.672, -0.839947, 0, -381, -1.67989, -102.474, 1.67989, 102.474, -192, -182, -130.071, -16.3331, 130.071, 16.3331, 0, 1)
+}
+point_count = 5
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_dxjqc")
@@ -37,16 +51,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(186, 161)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_1g06w")]
 position = Vector2(4509, -351)
+
+[node name="DoorButton2" parent="." instance=ExtResource("8_v68nr")]
+position = Vector2(1188, 61)
+
+[node name="DoorButton3" parent="." instance=ExtResource("8_v68nr")]
+position = Vector2(2483, -62)
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_8yg16")]
 position = Vector2(614, -18)
@@ -115,3 +131,30 @@ shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="Moving Platform" parent="." instance=ExtResource("12_60juf")]
 position = Vector2(1647, 130)
+curve = SubResource("Curve2D_6bifu")
+closed = false
+speed_scale = 3.0
+
+[node name="MovingPlatform" parent="." instance=ExtResource("12_60juf")]
+position = Vector2(1243, -233)
+curve = SubResource("Curve2D_nfvlx")
+speed = 10.0
+
+[node name="CharacterController" parent="." instance=ExtResource("14_po4vg")]
+
+[node name="left_foot" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
+scale = Vector2(0.999999, 0.999999)
+
+[node name="left_lower_leg" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg" index="0"]
+scale = Vector2(0.999975, 0.999975)
+
+[node name="left_foot" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg/left_lower_leg" index="0"]
+scale = Vector2(0.999952, 0.999952)
+
+[node name="right_lower_leg" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg" index="0"]
+scale = Vector2(0.999951, 0.999951)
+
+[node name="right_foot" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg/right_lower_leg" index="0"]
+scale = Vector2(0.999955, 0.999955)
+
+[editable path="CharacterController"]

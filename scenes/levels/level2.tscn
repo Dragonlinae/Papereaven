@@ -1,0 +1,123 @@
+[gd_scene load_steps=15 format=3 uid="uid://durs7gwooqlr1"]
+
+[ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_6vwb3"]
+[ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_o6fuv"]
+[ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="3_s3thf"]
+[ext_resource type="Script" path="res://scenes/hud.gd" id="4_xgbg2"]
+[ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_fyuqb"]
+[ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_3jwb7"]
+[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_7cwhd"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_su7md"]
+[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_t8hkt"]
+[ext_resource type="Script" path="res://scripts/entity.gd" id="10_qb7fs"]
+[ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="11_pkan3"]
+[ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_ogb3r"]
+[ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_1j5di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
+size = Vector2(60, 60)
+
+[node name="Node2D" type="Node2D"]
+material = ExtResource("1_6vwb3")
+
+[node name="Node2D" parent="." instance=ExtResource("2_o6fuv")]
+visible = false
+layer_0/tile_data = PackedInt32Array(131072, 65536, 1, 131073, 131072, 0, 131074, 131072, 0, 131075, 131072, 0, 131076, 131072, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 196608, 65536, 2, 196613, 0, 0, 262149, 0, 0, 262148, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196614, 0, 2, 262150, 0, 2, 131082, 0, 1, 196618, 0, 1, 262154, 0, 1, 196619, 0, 0, 262155, 0, 0, 131084, 131072, 1, 196620, 131072, 2, 262156, 0, 0, 262157, 131072, 2, 262158, 131072, 0, 196621, 131072, 1, 262159, 131072, 0, 262160, 131072, 0, 262161, 131072, 1, 131091, 262144, 0, 327697, 0, 2, 327696, 0, 0, 327695, 0, 0, 327694, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 1, 327679, 0, 1, 262143, 65536, 1, -131048, 131072, 0, -131047, 131072, 0, -131046, 131072, 0, -131045, 131072, 1, -131049, 65536, 1, -131036, 131072, 1, -131037, 131072, 0, -131038, 131072, 0, -131039, 65536, 1, -393172, 131072, 1, -393173, 65536, 1, -327638, 65536, 1, -262102, 0, 1, -262101, 0, 0, -196565, 0, 0, -196564, 0, 2, -262100, 0, 2, -327636, 0, 2, -327637, 65536, 2, -196566, 0, 1, -131030, 0, 1, -131031, 262144, 0, -65494, 0, 1, -196560, 65536, 2, -262095, 131072, 0, -262094, 131072, 1, -262096, 65536, 1, -131034, 65536, 1, -131033, 131072, 1, -65503, 0, 1, -65502, 0, 0, -65501, 0, 0, -65500, 0, 2, -65498, 0, 1, -65497, 0, 2, -131029, 0, 0, -65493, 0, 2, -131028, 0, 2, 131078, 131072, 1, 131077, 131072, 0, 131083, 131072, 2, 65546, 65536, 1, 65547, 131072, 1)
+
+[node name="Node2D2" parent="." instance=ExtResource("2_o6fuv")]
+layer_0/tile_data = PackedInt32Array(131072, 65536, 1, 131073, 131072, 0, 131074, 131072, 0, 131075, 131072, 0, 131076, 131072, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 196608, 65536, 2, 196613, 0, 0, 262149, 0, 0, 262148, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196614, 0, 2, 262150, 0, 2, 131082, 0, 1, 196618, 0, 1, 262154, 0, 1, 196619, 0, 0, 262155, 0, 0, 131084, 131072, 1, 196620, 131072, 2, 262156, 0, 0, 262157, 131072, 2, 262158, 131072, 0, 196621, 131072, 1, 262159, 131072, 0, 262160, 131072, 0, 262161, 131072, 1, 131091, 262144, 0, 327697, 0, 2, 327696, 0, 0, 327695, 0, 0, 327694, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 1, 327679, 0, 1, 262143, 65536, 1, -131048, 131072, 0, -131047, 131072, 0, -131046, 131072, 0, -131045, 131072, 1, -131049, 65536, 1, -131036, 131072, 1, -131037, 131072, 0, -131038, 131072, 0, -131039, 65536, 1, -393172, 131072, 1, -393173, 65536, 1, -327638, 65536, 1, -262102, 0, 1, -262101, 0, 0, -196565, 0, 0, -196564, 0, 2, -262100, 0, 2, -327636, 0, 2, -327637, 65536, 2, -196566, 0, 1, -131030, 0, 1, -131031, 262144, 0, -65494, 0, 1, -196560, 65536, 2, -262095, 131072, 0, -262094, 131072, 1, -262096, 65536, 1, -131034, 65536, 1, -131033, 131072, 1, -65503, 0, 1, -65502, 0, 0, -65501, 0, 0, -65500, 0, 2, -65498, 0, 1, -65497, 0, 2, -131029, 0, 0, -65493, 0, 2, -131028, 0, 2, 131078, 131072, 1, 131077, 131072, 0, 131083, 131072, 2, 65546, 65536, 1, 65547, 131072, 1)
+
+[node name="Bg" parent="." instance=ExtResource("3_s3thf")]
+scroll_offset = Vector2(176.366, 266.627)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("4_xgbg2")
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("5_fyuqb")]
+visible = false
+modulate = Color(0.972549, 1, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Checkpoint" parent="." instance=ExtResource("6_3jwb7")]
+position = Vector2(186, 161)
+spawnpoint = false
+
+[node name="Checkpoint2" parent="." instance=ExtResource("6_3jwb7")]
+position = Vector2(4509, -351)
+spawnpoint = false
+
+[node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_7cwhd")]
+position = Vector2(614, -18)
+player_character = NodePath("../Player")
+dialogue_file = "res://assets/dialogues/bossprefight.txt"
+
+[node name="Player" parent="." instance=ExtResource("8_su7md")]
+position = Vector2(236, 121)
+scale = Vector2(4, 4)
+move_velocity = 1000.0
+jump_velocity = 1500.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(236, 121)
+scale = Vector2(4, 4)
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.13
+drag_top_margin = 0.13
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
+
+[node name="HitboxFloor" type="Area2D" parent="."]
+position = Vector2(0, 5000)
+scale = Vector2(100, 1)
+script = ExtResource("9_t8hkt")
+damage = 9999
+can_block = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxFloor"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_1k57n")
+
+[node name="SomethingToHit" type="CharacterBody2D" parent="."]
+position = Vector2(1892, 419)
+script = ExtResource("10_qb7fs")
+max_health = 1000
+current_health = 1000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit"]
+visible = false
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_1k57n")
+
+[node name="SomethingToHit" type="Sprite2D" parent="SomethingToHit"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_pkan3")
+
+[node name="Hurtbox" type="Area2D" parent="SomethingToHit" node_paths=PackedStringArray("entity")]
+position = Vector2(131, 35)
+script = ExtResource("12_ogb3r")
+entity = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit/Hurtbox"]
+position = Vector2(-106, -29)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_1k57n")
+
+[node name="Moving Platform" parent="." instance=ExtResource("13_1j5di")]
+position = Vector2(1647, 130)
