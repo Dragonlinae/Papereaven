@@ -130,7 +130,7 @@ func _physics_process(delta: float):
 var current_checkpoint: Checkpoint
 func respawn():
 	if current_checkpoint != null:
-		global_position = current_checkpoint.global_position
+		current_checkpoint.teleport(self)
 		restore_health()
 
 func attackEnded():

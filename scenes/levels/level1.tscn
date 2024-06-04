@@ -71,6 +71,7 @@ position = Vector2(14087, 289)
 
 [node name="Checkpoint4" parent="." instance=ExtResource("6_dapi5")]
 position = Vector2(25568, -1369)
+target_scene_path = "res://scenes/homelevel.tscn"
 
 [node name="Player" parent="." instance=ExtResource("8_wtave")]
 position = Vector2(236, 121)
@@ -240,6 +241,7 @@ texture = ExtResource("23_cc3tj")
 position = Vector2(26345, -1531)
 player_character = NodePath("../Player")
 dialogue_file = "res://assets/dialogues/bossprefight.txt"
+boss_health = null
 
 [node name="Turret" parent="." instance=ExtResource("25_bhl4a")]
 position = Vector2(14599, -1155)

@@ -33,9 +33,14 @@ func _inject_char_controller(controller: CharacterController):
 	char_controller = controller
 
 func process_patrolling():
+	print("Patrolling")
+	if distance_to_player < 1500:
+		transition_state("Following")
 	pass
 
 func process_following():
+	if distance_to_player >= 1500:
+		transition_state("Patrolling")
 	if distance_to_player <= far_distance:
 		print("Going to attacking phase")
 		transition_state("Attacking")
