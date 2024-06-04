@@ -30,11 +30,11 @@ func get_movement_direction() -> float:
 		var distance_to_player: float = abs(player_x - enemy_x)
 
 		var signFlip = 1
-		if distance_to_player < 200:
+		if distance_to_player < 250:
 			signFlip = -1
-		if distance_to_player < 350 and distance_to_player > 250:
-			pass
-			# return 0
+		if distance_to_player < 300 and distance_to_player > 250:
+			# close enough, striking distance
+			return 0
 
 		if (player_x > enemy_x):
 			#print("Moving Right")
