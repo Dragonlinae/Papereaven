@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/ability_controller.gd" id="15_d84sa"]
 [ext_resource type="Script" path="res://scripts/ability.gd" id="16_jrki5"]
 [ext_resource type="PackedScene" uid="uid://dgxqlt22rclpf" path="res://scenes/overlay/player_health_bar.tscn" id="17_878jk"]
+[ext_resource type="PackedScene" uid="uid://cothxrcideg1n" path="res://scenes/overlay/minimap.tscn" id="17_2wjyb"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -1302,9 +1303,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
-libraries = {
-"": SubResource("AnimationLibrary_37tsb")
-}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5
@@ -1799,6 +1797,8 @@ ability_time = 3.0
 
 [node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("17_878jk")]
 entity = NodePath("..")
+
+[node name="Minimap" parent="." instance=ExtResource("17_2wjyb")]
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]

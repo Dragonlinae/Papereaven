@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://xld7e8viee0m"]
+[gd_scene load_steps=74 format=3 uid="uid://xld7e8viee0m"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_efsdr"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_atoso"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/ability_controller.gd" id="15_3s24k"]
 [ext_resource type="Script" path="res://scripts/ability.gd" id="16_wcrda"]
 [ext_resource type="PackedScene" uid="uid://dgxqlt22rclpf" path="res://scenes/overlay/player_health_bar.tscn" id="17_30y3n"]
+[ext_resource type="PackedScene" uid="uid://snl07ha2j4p6" path="res://scenes/overlay/minimap.tscn" id="18_n2rxr"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -4356,6 +4357,9 @@ ability_time = 3.0
 
 [node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("17_30y3n")]
 entity = NodePath("..")
+
+[node name="Minimap" parent="." instance=ExtResource("18_n2rxr")]
+position = Vector2(64, 90)
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]
