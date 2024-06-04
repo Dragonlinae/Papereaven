@@ -8,3 +8,6 @@ func _ready():
 		$AnimationPlayer.play("activate")
 	else:
 		$CollisionShape2D.disabled = false
+
+func spikes_off():
+	$AnimationPlayer.play("off")

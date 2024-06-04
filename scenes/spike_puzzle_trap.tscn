@@ -16,7 +16,7 @@ position = Vector2(-15, -24)
 script = ExtResource("1_1ku3j")
 
 [node name="SpikeTrap1" parent="." instance=ExtResource("2_g564y")]
-position = Vector2(598, 588)
+position = Vector2(1770, -411)
 
 [node name="SpikeTrap2" parent="SpikeTrap1" instance=ExtResource("2_g564y")]
 position = Vector2(119, -3)
@@ -28,23 +28,27 @@ position = Vector2(130, 7)
 position = Vector2(-322, -15)
 
 [node name="Button" type="Sprite2D" parent="."]
-position = Vector2(13.881, -4)
+position = Vector2(2639, -123)
 scale = Vector2(1.30238, 1)
 texture = ExtResource("1_m4s7w")
 region_enabled = true
 region_rect = Rect2(1935, 990, 100, 35)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Button"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button/StaticBody2D"]
+visible = false
 position = Vector2(-0.292502, 7)
 shape = SubResource("RectangleShape2D_nowu4")
 
 [node name="Area2D" type="Area2D" parent="Button"]
+visible = false
 collision_layer = 2
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Area2D"]
+visible = false
 position = Vector2(-0.301644, -98)
 shape = SubResource("RectangleShape2D_54ddi")
 
