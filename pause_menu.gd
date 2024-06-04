@@ -37,6 +37,8 @@ func _on_load_pressed():
 			continue
 
 		var node_data = json.get_data()
+		if node_data == null:
+			continue
 
 		var node = get_node(node_data["node_path"])
 		
