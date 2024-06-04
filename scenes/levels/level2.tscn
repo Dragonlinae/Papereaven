@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_xgbg2"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_fyuqb"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_3jwb7"]
-[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_7cwhd"]
+[ext_resource type="PackedScene" path="res://scenes/entities/bossnpc.tscn" id="7_7cwhd"]
 [ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_su7md"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_t8hkt"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="10_qb7fs"]
@@ -42,18 +42,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_3jwb7")]
 position = Vector2(186, 161)
-spawnpoint = false
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_3jwb7")]
 position = Vector2(4509, -351)
-spawnpoint = false
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_7cwhd")]
 position = Vector2(614, -18)

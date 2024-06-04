@@ -12,7 +12,8 @@ class_name Entity
 
 var hittable: bool = true
 
-signal damage_taken(damage_amount)
+signal health_changed()
+signal damage_taken(damage_amount: int)
 
 # Hit indicators
 var hit_counter: int = 0
@@ -27,6 +28,7 @@ var damage_factor: float = 1.0
 
 func restore_health():
 	current_health = max_health
+	health_changed.emit()
 
 ## Damage taken will have damage reduction applied.
 ## This method scales the damage before applying.
@@ -39,8 +41,9 @@ func take_damage(damage: int):
 func force_full_damage(damage: int):
 	if not hittable: return
 	if damage <= 0: return # don't start the flicker behavior
-	damage_taken.emit(damage)
 	current_health -= damage
+	damage_taken.emit(damage)
+	health_changed.emit()
 	if is_dead() and destroy_when_dead:
 		if audio_stream_player != null:
 			audio_stream_player.stop()

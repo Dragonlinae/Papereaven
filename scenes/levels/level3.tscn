@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4rwiyvh7y7qk"]
+[gd_scene load_steps=16 format=3 uid="uid://b4rwiyvh7y7qk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_5g2h5"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_gt47s"]
@@ -6,13 +6,14 @@
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_jfxvi"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_vbq6o"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_0v58n"]
-[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_i0xay"]
+[ext_resource type="PackedScene" path="res://scenes/entities/bossnpc.tscn" id="7_i0xay"]
 [ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_3lofb"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_e7kaa"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="10_k63hh"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="11_co85q"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_2y2pk"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_5mww1"]
+[ext_resource type="PackedScene" path="res://scenes/entities/turret.tscn" id="14_1osow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
@@ -37,18 +38,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_0v58n")]
 position = Vector2(186, 161)
-spawnpoint = false
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_0v58n")]
 position = Vector2(4509, -351)
-spawnpoint = false
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_i0xay")]
 position = Vector2(614, -18)
@@ -116,3 +111,7 @@ shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="Moving Platform" parent="." instance=ExtResource("13_5mww1")]
 position = Vector2(1647, 130)
+
+[node name="Turret" parent="." instance=ExtResource("14_1osow")]
+position = Vector2(1742, -260)
+rotation = 1.5708
