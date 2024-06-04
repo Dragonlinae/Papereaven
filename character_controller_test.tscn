@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://xld7e8viee0m"]
+[gd_scene load_steps=74 format=3 uid="uid://xld7e8viee0m"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_8b33x"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_re5j2"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cocdfvpjow5q5" path="res://assets/sprites/interact.png" id="12_x6dli"]
 [ext_resource type="Script" path="res://scripts/ability.gd" id="13_o0b1c"]
 [ext_resource type="PackedScene" uid="uid://dgxqlt22rclpf" path="res://scenes/overlay/player_health_bar.tscn" id="17_arowv"]
+[ext_resource type="Script" path="res://scripts/experience_manager.gd" id="18_leje1"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -1321,7 +1322,7 @@ top_level = true
 z_index = -6
 position = Vector2(6.29179, -16.542)
 rotation = 1.5653
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.249999, 0.249999)
 
 [node name="sword_rotation" type="Node2D" parent="CharacterCollisionShape/character_root/polygons/sword_position"]
 
@@ -1788,6 +1789,11 @@ ability_time = 3.0
 
 [node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("17_arowv")]
 entity = NodePath("..")
+
+[node name="ExperienceManager" type="Node" parent="." node_paths=PackedStringArray("entity", "hitbox")]
+script = ExtResource("18_leje1")
+entity = NodePath("..")
+hitbox = NodePath("../Hitbox")
 
 [connection signal="damage_taken" from="." to="ComboTracker" method="_on_character_controller_damage_taken"]
 [connection signal="hitbox_triggered" from="Hitbox" to="ComboTracker" method="_on_hitbox_hitbox_triggered"]

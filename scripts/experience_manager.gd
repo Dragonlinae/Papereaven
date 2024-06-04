@@ -13,9 +13,6 @@ extends Node
 @export var entity: Entity
 @export var hitbox: Hitbox
 
-func _ready():
-	pass
-
 func level_up():
 	if current_level == max_level:
 		return
