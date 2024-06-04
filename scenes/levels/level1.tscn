@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_jj70f"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_4tnim"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_dapi5"]
-[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_jej7o"]
+[ext_resource type="PackedScene" path="res://scenes/entities/bossnpc.tscn" id="7_jej7o"]
 [ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_wtave"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_1jltw"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="10_capx7"]
@@ -24,8 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://cgrfkqeug657o" path="res://assets/sprites/signs/stab.png" id="21_7npal"]
 [ext_resource type="Texture2D" uid="uid://su88u0aho7y7" path="res://assets/sprites/signs/attack.png" id="22_cn36g"]
 [ext_resource type="Texture2D" uid="uid://bm2hstl8k7e7k" path="res://assets/sprites/signs/inspect.png" id="23_cc3tj"]
-[ext_resource type="PackedScene" uid="uid://ur2s7dp5ec72" path="res://scenes/entities/turret.tscn" id="25_bhl4a"]
-[ext_resource type="PackedScene" uid="uid://f3iqltb0tjvx" path="res://scenes/entities/trap.tscn" id="26_5xc07"]
+[ext_resource type="PackedScene" path="res://scenes/entities/turret.tscn" id="25_bhl4a"]
+[ext_resource type="PackedScene" path="res://scenes/entities/trap.tscn" id="26_5xc07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0n07"]
 size = Vector2(176.15, 60)
@@ -36,7 +36,7 @@ size = Vector2(27.3335, 60)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fsox"]
 size = Vector2(1305.16, 2320.48)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 material = ExtResource("1_nxvye")
 
 [node name="Node2D" parent="." instance=ExtResource("2_8rci0")]

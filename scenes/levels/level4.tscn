@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_pi53b"]
 [ext_resource type="Texture2D" uid="uid://cn0464l5bom03" path="res://assets/sprites/signs/warning.png" id="14_51nt7"]
 [ext_resource type="PackedScene" path="res://scenes/entities/turret.tscn" id="14_q4mwu"]
-[ext_resource type="PackedScene" path="res://scenes/DoorButton2.tscn" id="16_xy22k"]
+[ext_resource type="PackedScene" uid="uid://ihcsis674dju" path="res://scenes/DoorButton2.tscn" id="16_xy22k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
@@ -60,11 +60,6 @@ position = Vector2(14045, -983)
 
 [node name="Checkpoint5" parent="." instance=ExtResource("6_jtekk")]
 position = Vector2(15693, 142)
-
-[node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_x4as8")]
-position = Vector2(18213, -27)
-player_character = NodePath("../Player")
-dialogue_file = "res://assets/dialogues/bossprefight.txt"
 
 [node name="Player" parent="." instance=ExtResource("8_ex3jm")]
 position = Vector2(236, 121)
@@ -199,3 +194,8 @@ shape = SubResource("RectangleShape2D_kb2dc")
 
 [node name="DoorButton3" parent="." instance=ExtResource("16_xy22k")]
 position = Vector2(15296, -858)
+
+[node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_x4as8")]
+position = Vector2(17515, -10)
+player_character = NodePath("")
+dialogue_file = "res://assets/dialogues/bossprefight.txt"

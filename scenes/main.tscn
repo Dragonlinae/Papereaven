@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
 [ext_resource type="PackedScene" path="res://scenes/entities/bossnpc.tscn" id="7_8yg16"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
-[ext_resource type="PackedScene" path="res://scenes/DoorButton2.tscn" id="8_v68nr"]
+[ext_resource type="PackedScene" uid="uid://ihcsis674dju" path="res://scenes/DoorButton2.tscn" id="8_v68nr"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
 [ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="9_ujg57"]
@@ -31,7 +31,7 @@ _data = {
 }
 point_count = 5
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 material = ExtResource("1_dxjqc")
 
 [node name="Node2D" parent="." instance=ExtResource("9_mo5sx")]
