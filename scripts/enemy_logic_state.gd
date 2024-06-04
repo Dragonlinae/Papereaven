@@ -4,7 +4,7 @@ extends StateMachine
 var char_controller: CharacterController
 
 func _init():
-	super("Patrolling")
+	super("Following")
 	add_state("Following")
 	add_state("Attacking")
 

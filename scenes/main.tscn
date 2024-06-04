@@ -144,4 +144,16 @@ speed = 10.0
 [node name="left_foot" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
 scale = Vector2(0.999999, 0.999999)
 
+[node name="left_lower_leg" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg" index="0"]
+scale = Vector2(0.999975, 0.999975)
+
+[node name="left_foot" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/left_upper_leg/left_lower_leg" index="0"]
+scale = Vector2(0.999952, 0.999952)
+
+[node name="right_lower_leg" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg" index="0"]
+scale = Vector2(0.999951, 0.999951)
+
+[node name="right_foot" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/hip/chest/right_upper_leg/right_lower_leg" index="0"]
+scale = Vector2(0.999955, 0.999955)
+
 [editable path="CharacterController"]

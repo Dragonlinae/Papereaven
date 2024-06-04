@@ -37,10 +37,10 @@ func get_movement_direction() -> float:
 			# return 0
 
 		if (player_x > enemy_x):
-			print("Moving Right")
+			#print("Moving Right")
 			return 1 * signFlip
 		else:
-			print("Moving Left")
+			#print("Moving Left")
 			return - 1 * signFlip
 	else:
 		return 0

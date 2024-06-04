@@ -43,6 +43,7 @@ func _ready_deferred():
 	set_physics_process(true)
 
 func play_animation(new_state: String):
+	#print("play animation", new_state)
 	if animation_playback != null:
 		#print(animation_playback.get_current_node())
 		if animation_playback.get_current_node() != new_state:
