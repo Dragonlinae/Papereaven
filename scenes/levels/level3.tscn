@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4rwiyvh7y7qk"]
+[gd_scene load_steps=19 format=3 uid="uid://b4rwiyvh7y7qk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_5g2h5"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_gt47s"]
@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="11_co85q"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_2y2pk"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_5mww1"]
+[ext_resource type="PackedScene" path="res://environment/rigid_box_2d.tscn" id="14_6bey7"]
+[ext_resource type="Script" path="res://scripts/Puzzle1.gd" id="14_w3qe0"]
+[ext_resource type="PackedScene" path="res://spikeTrap.tscn" id="15_vtbp8"]
+[ext_resource type="PackedScene" uid="uid://bkpqppbxdwsee" path="res://environment/button.tscn" id="16_8q1bv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
@@ -37,18 +41,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_0v58n")]
 position = Vector2(186, 161)
-spawnpoint = false
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_0v58n")]
 position = Vector2(4509, -351)
-spawnpoint = false
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_i0xay")]
 position = Vector2(614, -18)
@@ -58,6 +56,8 @@ dialogue_file = "res://assets/dialogues/bossprefight.txt"
 [node name="Player" parent="." instance=ExtResource("8_3lofb")]
 position = Vector2(236, 121)
 scale = Vector2(4, 4)
+collision_layer = 2
+collision_mask = 7
 move_velocity = 1000.0
 jump_velocity = 1500.0
 
@@ -90,7 +90,7 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="SomethingToHit" type="CharacterBody2D" parent="."]
-position = Vector2(1892, 419)
+position = Vector2(5392, 31)
 script = ExtResource("10_k63hh")
 max_health = 1000
 current_health = 1000
@@ -101,18 +101,48 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="SomethingToHit" type="Sprite2D" parent="SomethingToHit"]
+position = Vector2(-647, -383)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("11_co85q")
 
 [node name="Hurtbox" type="Area2D" parent="SomethingToHit" node_paths=PackedStringArray("entity")]
-position = Vector2(131, 35)
+position = Vector2(603, -206)
 script = ExtResource("12_2y2pk")
 entity = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit/Hurtbox"]
-position = Vector2(-106, -29)
+position = Vector2(-1225, -167)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="Moving Platform" parent="." instance=ExtResource("13_5mww1")]
-position = Vector2(1647, 130)
+position = Vector2(1629, -9)
+
+[node name="Crate1" parent="." instance=ExtResource("14_6bey7")]
+position = Vector2(1661, -96)
+script = null
+
+[node name="Puzzle1" type="Node2D" parent="."]
+script = ExtResource("14_w3qe0")
+
+[node name="SpikeTrap3" parent="Puzzle1" instance=ExtResource("15_vtbp8")]
+position = Vector2(3391, -304)
+
+[node name="SpikeTrap2" parent="Puzzle1" instance=ExtResource("15_vtbp8")]
+position = Vector2(3261, -311)
+
+[node name="SpikeTrap1" parent="Puzzle1" instance=ExtResource("15_vtbp8")]
+position = Vector2(3142, -308)
+
+[node name="Button2" parent="Puzzle1" instance=ExtResource("16_8q1bv")]
+position = Vector2(-1436, 618)
+collision_layer = 4
+
+[node name="Button" parent="Puzzle1" instance=ExtResource("16_8q1bv")]
+position = Vector2(-813, -23)
+collision_layer = 4
+
+[connection signal="body_shape_entered" from="Puzzle1/Button2" to="Puzzle1" method="_on_button_body_shape_entered"]
+[connection signal="body_shape_exited" from="Puzzle1/Button2" to="Puzzle1" method="_on_button_body_shape_exited"]
+[connection signal="body_shape_entered" from="Puzzle1/Button" to="Puzzle1" method="_on_button_2_body_shape_entered"]
+[connection signal="body_shape_exited" from="Puzzle1/Button" to="Puzzle1" method="_on_button_2_body_shape_exited"]

@@ -5,4 +5,4 @@ extends RigidBody2D
 func _ready():
 	var material = PhysicsMaterial.new()
 	material.friction = 0.1
-	#$CollisionShape2D.shape.set_material(material)
+

@@ -42,18 +42,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_3jwb7")]
 position = Vector2(186, 161)
-spawnpoint = false
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_3jwb7")]
 position = Vector2(4509, -351)
-spawnpoint = false
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_7cwhd")]
 position = Vector2(614, -18)

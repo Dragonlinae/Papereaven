@@ -20,7 +20,7 @@ var animation_changed_signal
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var counter: int = 0
 var jump_flag: bool = false
-var push_force = 60.0
+var push_force = 80.0
 func _init():
 	pass
 
