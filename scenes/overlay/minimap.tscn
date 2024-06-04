@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cothxrcideg1n"]
+
+[ext_resource type="Script" path="res://scripts/overlay/minimap.gd" id="1_6ja0s"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g1w6x"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Minimap" type="Node2D"]
+script = ExtResource("1_6ja0s")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport"]
+zoom = Vector2(0.1, 0.1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(106, 104)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("ViewportTexture_g1w6x")
