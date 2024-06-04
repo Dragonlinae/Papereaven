@@ -1285,7 +1285,7 @@ size = Vector2(54, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwx3l"]
 size = Vector2(40, 66)
 
-[node name="CharacterController2" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree")]
+[node name="CharacterController2" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_state", "combat_state", "animation_tree") groups=["Persist"]]
 script = ExtResource("1_8b33x")
 input_handler = NodePath("PlayerInputHandler")
 movement_state = NodePath("MovementState")
@@ -1302,6 +1302,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
+libraries = {
+"": SubResource("AnimationLibrary_37tsb")
+}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5

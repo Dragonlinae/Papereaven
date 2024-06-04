@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qk0ph"]
 size = Vector2(114, 167)
 
-[node name="Checkpoint" type="Node2D"]
+[node name="Checkpoint" type="Node2D" groups=["Persist"]]
 script = ExtResource("1_ndf58")
 
 [node name="Area2D" type="Area2D" parent="."]

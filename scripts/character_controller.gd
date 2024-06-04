@@ -133,3 +133,12 @@ func parryEnded():
 func blockEnded():
 	combat_state.on_block_end()
 	pass
+	
+func save():
+	if current_checkpoint != null:
+		var save_dict = {
+			"node_path": get_path(),
+			"pos_x": current_checkpoint.global_position.x,
+			"pos_y": current_checkpoint.global_position.y,
+		}
+		return save_dict
