@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1yo0r2f12mmy"]
+
+[ext_resource type="Script" path="res://scripts/puzzles/circlepuzzle.gd" id="1_c6kt8"]
+[ext_resource type="Texture2D" uid="uid://cfcrgqf7ut8e8" path="res://assets/puzzles/Base.png" id="2_n0523"]
+[ext_resource type="Texture2D" uid="uid://vtxi3d04myma" path="res://assets/puzzles/Outer.png" id="3_57eo0"]
+[ext_resource type="Texture2D" uid="uid://00wt3i0l2yda" path="res://assets/puzzles/Middle.png" id="4_xyjnx"]
+[ext_resource type="Texture2D" uid="uid://bp81rg1ysk22s" path="res://assets/puzzles/Inner.png" id="5_gokyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay52i"]
+size = Vector2(1064, 1028)
+
+[node name="Circlepuzzle" type="Area2D" node_paths=PackedStringArray("sprites")]
+z_index = -1
+script = ExtResource("1_c6kt8")
+sprites = [NodePath("Sprites/Outer"), NodePath("Sprites/Middle"), NodePath("Sprites/Inner")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ay52i")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="Sprites"]
+scale = Vector2(5, 5)
+texture = ExtResource("2_n0523")
+
+[node name="Outer" type="Sprite2D" parent="Sprites"]
+scale = Vector2(5, 5)
+texture = ExtResource("3_57eo0")
+
+[node name="Middle" type="Sprite2D" parent="Sprites"]
+scale = Vector2(5, 5)
+texture = ExtResource("4_xyjnx")
+
+[node name="Inner" type="Sprite2D" parent="Sprites"]
+scale = Vector2(5, 5)
+texture = ExtResource("5_gokyp")

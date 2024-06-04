@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://0xuuvauvjvik"]
+[gd_scene load_steps=32 format=3 uid="uid://0xuuvauvjvik"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_nxvye"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_8rci0"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://bm2hstl8k7e7k" path="res://assets/sprites/signs/inspect.png" id="23_cc3tj"]
 [ext_resource type="PackedScene" uid="uid://ur2s7dp5ec72" path="res://scenes/entities/turret.tscn" id="25_bhl4a"]
 [ext_resource type="PackedScene" uid="uid://f3iqltb0tjvx" path="res://scenes/entities/trap.tscn" id="26_5xc07"]
+[ext_resource type="PackedScene" uid="uid://c1yo0r2f12mmy" path="res://scenes/puzzles/circlepuzzle.tscn" id="27_ocrmf"]
+[ext_resource type="PackedScene" uid="uid://csugxvm4uulpc" path="res://scenes/puzzles/door.tscn" id="28_jsv34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0n07"]
 size = Vector2(176.15, 60)
@@ -57,26 +59,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_dapi5")]
 position = Vector2(197, 287)
-spawnpoint = false
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_dapi5")]
 position = Vector2(5940, 290)
-spawnpoint = false
 
 [node name="Checkpoint3" parent="." instance=ExtResource("6_dapi5")]
 position = Vector2(14087, 289)
-spawnpoint = false
 
 [node name="Checkpoint4" parent="." instance=ExtResource("6_dapi5")]
 position = Vector2(25568, -1369)
-spawnpoint = false
 
 [node name="Player" parent="." instance=ExtResource("8_wtave")]
 position = Vector2(236, 121)
@@ -238,6 +232,10 @@ texture = ExtResource("22_cn36g")
 position = Vector2(25964, -1368)
 texture = ExtResource("23_cc3tj")
 
+[node name="Inspect2" type="Sprite2D" parent="."]
+position = Vector2(23103, -1371)
+texture = ExtResource("23_cc3tj")
+
 [node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_jej7o")]
 position = Vector2(26345, -1531)
 player_character = NodePath("../Player")
@@ -262,3 +260,16 @@ rotation = 3.14159
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Turret3"]
 position = Vector2(14074.8, 409.353)
 shape = SubResource("RectangleShape2D_4fsox")
+
+[node name="Circlepuzzle" parent="." instance=ExtResource("27_ocrmf")]
+position = Vector2(23941, -1819)
+
+[node name="Door" parent="." node_paths=PackedStringArray("target") instance=ExtResource("28_jsv34")]
+position = Vector2(24571, -1274)
+target = NodePath("../Circlepuzzle")
+
+[node name="Map" parent="Door" index="0"]
+layer_0/tile_data = PackedInt32Array(-65536, 1114112, 5, -131072, 917504, 5, -196608, 917504, 5, -262144, 917504, 5, -262143, 851968, 5, -196607, 851968, 5, -131071, 851968, 5, -65535, 851968, 5, -327680, 917504, 5, -327679, 851968, 5, -393215, 851968, 5, -458751, 851968, 5, -524287, 851968, 5, -393216, 917504, 5, -458752, 917504, 5, -524288, 917504, 5, -589824, 917504, 5, -655360, 917504, 5, -720896, 917504, 5, -786432, 917504, 5, -851968, 917504, 5, -917504, 917504, 5, -983040, 917504, 5, -1048576, 917504, 5, -1114112, 917504, 5, -1179648, 917504, 5, -1245184, 917504, 5, -1310720, 917504, 5, -1376256, 917504, 5, -1441792, 917504, 5, -1507328, 917504, 5, -1572864, 917504, 5, -1638400, 917504, 5, -1703936, 917504, 5, -1769472, 917504, 5, -1835008, 917504, 5, -1900544, 917504, 5, -1966080, 917504, 5, -2031616, 917504, 5, -2097152, 917504, 5, -2162688, 917504, 5, -2228224, 917504, 5, -2228223, 851968, 5, -2162687, 851968, 5, -2097151, 851968, 5, -2031615, 851968, 5, -1966079, 851968, 5, -1900543, 851968, 5, -1835007, 851968, 5, -1769471, 851968, 5, -1703935, 851968, 5, -1638399, 851968, 5, -1572863, 851968, 5, -1507327, 851968, 5, -1441791, 851968, 5, -1376255, 851968, 5, -1310719, 851968, 5, -1245183, 851968, 5, -1179647, 851968, 5, -1114111, 851968, 5, -1048575, 851968, 5, -983039, 851968, 5, -917503, 851968, 5, -851967, 851968, 5, -786431, 851968, 5, -720895, 851968, 5, -655359, 851968, 5, -589823, 851968, 5)
+
+[editable path="Door"]
+[editable path="Door/Map"]
