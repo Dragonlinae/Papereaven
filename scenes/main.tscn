@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
 [ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_8yg16"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
-[ext_resource type="PackedScene" uid="uid://dyyoiodf3idvr" path="res://scenes/DoorButton2.tscn" id="8_v68nr"]
+[ext_resource type="PackedScene" uid="uid://1uyi1gdg16iu" path="res://scenes/DoorButton2.tscn" id="8_v68nr"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
-[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="9_ujg57"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_player.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="12_60juf"]
@@ -150,37 +150,10 @@ speed = 10.0
 [node name="Ninja" parent="." instance=ExtResource("14_po4vg")]
 position = Vector2(416, 132)
 
-[node name="right_upper_arm" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="1"]
-position = Vector2(44.4293, -7.74283)
-
-[node name="right_hand" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm" index="0"]
-position = Vector2(-23.5736, -33.3671)
-
-[node name="left_upper_arm" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="2"]
-position = Vector2(52.8878, -2.59921)
-
-[node name="left_hand" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm" index="0"]
-position = Vector2(-45.3058, -8.51192)
-
-[node name="left_upper_leg" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="3"]
-position = Vector2(7.51105, 1.25674)
-
-[node name="left_lower_leg" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg" index="0"]
-position = Vector2(-44.6014, 36.6051)
-scale = Vector2(0.999942, 0.999942)
-
 [node name="left_foot" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
-position = Vector2(-42.8902, -7.04425)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="right_upper_leg" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="4"]
-position = Vector2(-0.188301, -9.21756)
-
-[node name="right_lower_leg" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg" index="0"]
-position = Vector2(-48.8833, -18.9629)
-
 [node name="right_foot" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
-position = Vector2(-49.405, -12.6602)
 scale = Vector2(0.999976, 0.999976)
 
 [node name="Crate" parent="." instance=ExtResource("16_y0oga")]
