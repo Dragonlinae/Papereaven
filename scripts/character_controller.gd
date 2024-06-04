@@ -88,9 +88,19 @@ func jump():
 	if velocity.x != 0:
 		velocity.x += abs(velocity.x) / velocity.x * 100
 
-# Do we want to put movement into a function too?
+# logic for making sure you face the right direction
+var looking_right: bool = true
+func face_movement_direction():
+	if velocity.x != 0:
+		var moving_right: bool = velocity.x > 0
+		if moving_right != looking_right:
+			looking_right = !looking_right
+			apply_scale(Vector2(-1, 1))
 
+# Do we want to put movement into a function too?
 func _process(_delta: float):
+	face_movement_direction()
+	
 	if input_handler.get_interact_input():
 		for interactable in get_node("Player").get_overlapping_areas():
 			if interactable.has_method("interact"):

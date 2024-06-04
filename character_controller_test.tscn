@@ -1302,6 +1302,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
+libraries = {
+"": SubResource("AnimationLibrary_37tsb")
+}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5
@@ -1322,7 +1325,7 @@ top_level = true
 z_index = -6
 position = Vector2(6.29179, -16.542)
 rotation = 1.5653
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.249999, 0.249999)
 
 [node name="sword_rotation" type="Node2D" parent="CharacterCollisionShape/character_root/polygons/sword_position"]
 
@@ -1607,7 +1610,7 @@ editor_settings/show_bone_gizmo = false
 [node name="right_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm"]
 position = Vector2(-32.0007, 41.0007)
 rotation = -0.269546
-scale = Vector2(1, 1)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -32, 41)
 auto_calculate_length_and_angle = false
 length = 39.45

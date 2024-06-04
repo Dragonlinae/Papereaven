@@ -1720,7 +1720,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 root_node = NodePath("../CharacterCollisionShape/ninja")
 libraries = {
 "": SubResource("AnimationLibrary_sxi26")
@@ -1729,7 +1728,7 @@ tree_root = SubResource("AnimationNodeBlendTree_gd8uc")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="CharacterCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(281, 124)
+position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_djvua")
 
 [node name="ninja" type="Node2D" parent="CharacterCollisionShape"]
@@ -1829,13 +1828,13 @@ position = Vector2(0.494924, 2.95896)
 [node name="right_upper_leg" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest"]
 position = Vector2(-0.188301, -9.21756)
 rotation = -0.15907
-scale = Vector2(0.999852, 0.999852)
+scale = Vector2(0.999851, 0.999851)
 rest = Transform2D(1, 0, 0, 1, -0.188445, -9.21762)
 
 [node name="right_lower_leg" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg"]
 position = Vector2(-48.8833, -18.9629)
 rotation = 0.272592
-scale = Vector2(0.999969, 0.999969)
+scale = Vector2(0.999968, 0.999968)
 rest = Transform2D(1, 0, 0, 1, -48.8818, -18.9624)
 
 [node name="right_foot" type="Bone2D" parent="CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg"]
@@ -2026,7 +2025,7 @@ enemy_input_handler = NodePath("..")
 
 [node name="Hitbox_Light" type="Area2D" parent="."]
 modulate = Color(1, 1, 1, 0.2)
-position = Vector2(259, 127)
+position = Vector2(-21, 2.00001)
 scale = Vector2(3.3037, 3.23364)
 script = ExtResource("7_nddlr")
 
@@ -2043,6 +2042,7 @@ position = Vector2(27, 0)
 shape = SubResource("RectangleShape2D_f5cc0")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("entity")]
+position = Vector2(-280, -125)
 script = ExtResource("7_3pp1b")
 entity = NodePath("..")
 
