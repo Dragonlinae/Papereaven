@@ -9,6 +9,8 @@ var dialogue_box = null
 var dialogues: PackedStringArray
 var activated = false
 
+signal boss_spawned(boss_entity: Entity)
+
 func _ready():
 	if dialogue_file != "":
 		var file = FileAccess.open(dialogue_file, FileAccess.READ)
@@ -16,7 +18,7 @@ func _ready():
 		file.close()
 	area_exited.connect(Callable(self, "_on_area_exited"))
 
-func _process(delta):
+func _process(_delta):
 	if activated:
 		activated = false
 		dialogue_box = get_node("Dialogue")
@@ -41,9 +43,12 @@ func _process(delta):
 		boss.current_health = boss_health
 		boss.set_audio_stream_player(audio)
 		get_parent().add_child(boss)
+
+		boss_spawned.emit(boss)
+
 		queue_free()
 
-func _on_area_exited(area):
+func _on_area_exited(_area):
 	var dialogue_area: DialogueArea2D = get_node("Dialoguearea")
 	if dialogue_area != null and dialogue_area.spoken:
 		get_node("Dialoguearea").queue_free()

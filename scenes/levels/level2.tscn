@@ -521,6 +521,7 @@ texture = ExtResource("16_wfixx")
 modulate = Color(0, 1, 0, 1)
 position = Vector2(9453, 4410)
 target_scene_path = "res://scenes/levels/level3.tscn"
+can_interact = false
 
 [node name="portal_activator" type="Node" parent="Portal" node_paths=PackedStringArray("target_portal")]
 script = ExtResource("15_0u5qr")
@@ -696,6 +697,8 @@ texture = SubResource("GradientTexture2D_u5jq3")
 
 [node name="AttackParticles2" parent="CharacterBody2D/AttackFX" index="1"]
 texture = SubResource("GradientTexture2D_u5jq3")
+
+[connection signal="boss_spawned" from="CharacterBody2D" to="Portal/portal_activator" method="_on_character_body_2d_boss_spawned"]
 
 [editable path="ninja_char"]
 [editable path="ninja_char2"]
