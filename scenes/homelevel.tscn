@@ -73,6 +73,7 @@ shape = SubResource("RectangleShape2D_1k57n")
 position = Vector2(1647, 130)
 
 [node name="Portal4" parent="." instance=ExtResource("9_l2mtn")]
+visible = false
 modulate = Color(0, 1, 0, 1)
 position = Vector2(59, 329)
 target_scene_path = "res://scenes/main.tscn"
