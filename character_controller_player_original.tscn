@@ -1724,18 +1724,18 @@ script = ExtResource("3_i4coi")
 entity = NodePath("..")
 friendly = true
 
-[node name="Polygon2D" type="Polygon2D" parent="Hurtbox"]
-position = Vector2(-106.466, -200.732)
-scale = Vector2(0.6195, 0.487805)
-texture = ExtResource("4_ppaue")
-polygon = PackedVector2Array(157, 391, 156.463, 431.973, 188, 432, 187.755, 391.156)
-uv = PackedVector2Array(160.544, 399.32, 156.463, 431.973, 187.075, 429.932, 187.755, 391.156)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_sbxtj")
 
 [node name="HurtboxState" type="Node" parent="Hurtbox"]
 script = ExtResource("5_k1nje")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hurtbox"]
+position = Vector2(1.41799, -0.401596)
+scale = Vector2(0.285608, 0.28652)
+texture = ExtResource("4_ppaue")
+region_enabled = true
+region_rect = Rect2(1949.92, 285.924, 68.866, 67.1725)
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
