@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1vc5tr7ubtwa"]
+[gd_scene load_steps=12 format=3 uid="uid://d1vc5tr7ubtwa"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_ai0xf"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_oh4ky"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="3_m4pck"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_coear"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_fl1am"]
-[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_player.tscn" id="8_c0ale"]
+[ext_resource type="PackedScene" uid="uid://kornwd8ansay" path="res://character_controller_player.tscn" id="8_c0ale"]
 [ext_resource type="PackedScene" uid="uid://i7d6j16p6gle" path="res://scenes/levels/portal.tscn" id="9_l2mtn"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_lwlot"]
+[ext_resource type="Texture2D" uid="uid://bm2hstl8k7e7k" path="res://assets/sprites/signs/inspect.png" id="10_pdig8"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_yk3t5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
@@ -92,3 +93,7 @@ target_scene_path = "res://scenes/levels/level2.tscn"
 modulate = Color(1, 0.180392, 0.184314, 1)
 position = Vector2(2665.13, 237.821)
 target_scene_path = "res://scenes/levels/level3.tscn"
+
+[node name="Inspect" type="Sprite2D" parent="."]
+position = Vector2(915, 289)
+texture = ExtResource("10_pdig8")
