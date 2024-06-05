@@ -2,6 +2,7 @@ class_name ComboTracker
 extends Node
 
 @export var combo_decay_time: float = 3
+@export var combo_UI: ComboGUI
 
 var combo_timer: Timer
 var combo_count: int = 0
@@ -22,6 +23,8 @@ func _ready():
 func _on_hit_registered():
 	combo_count += 1
 	print(combo_count)
+	if combo_UI:
+		combo_UI.recombo(combo_count)
 	combo_timer.stop()
 	combo_timer.start()
 

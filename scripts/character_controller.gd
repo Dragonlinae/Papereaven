@@ -20,7 +20,7 @@ var animation_changed_signal
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var counter: int = 0
 var jump_flag: bool = false
-
+var push_force = 60.0
 func _init():
 	pass
 
@@ -43,6 +43,7 @@ func _ready_deferred():
 	set_physics_process(true)
 
 func play_animation(new_state: String):
+	#print("play animation", new_state)
 	if animation_playback != null:
 		#print(animation_playback.get_current_node())
 		if animation_playback.get_current_node() != new_state:
@@ -87,11 +88,21 @@ func jump():
 	if velocity.x != 0:
 		velocity.x += abs(velocity.x) / velocity.x * 100
 
-# Do we want to put movement into a function too?
+# logic for making sure you face the right direction
+var looking_right: bool = true
+func face_movement_direction():
+	if velocity.x != 0:
+		var moving_right: bool = velocity.x > 0
+		if moving_right != looking_right:
+			looking_right = !looking_right
+			apply_scale(Vector2(-1, 1))
 
+# Do we want to put movement into a function too?
 func _process(_delta: float):
+	face_movement_direction()
+	
 	if input_handler.get_interact_input():
-		for interactable in get_node("Interact").get_overlapping_areas():
+		for interactable in get_node("Player").get_overlapping_areas():
 			if interactable.has_method("interact"):
 				interactable.interact()
 	if is_dead():
@@ -110,11 +121,16 @@ func _physics_process(delta: float):
 	
 	move_and_slide()
 	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+	
 # Checkpoint logic
 var current_checkpoint: Checkpoint
 func respawn():
 	if current_checkpoint != null:
-		global_position = current_checkpoint.global_position
+		current_checkpoint.teleport(self)
 		restore_health()
 
 func attackEnded():
