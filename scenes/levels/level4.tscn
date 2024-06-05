@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_2g0v1"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_nec66"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_jtekk"]
-[ext_resource type="PackedScene" path="res://scenes/entities/bossnpc.tscn" id="7_x4as8"]
+[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_x4as8"]
 [ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_ex3jm"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_wdwer"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="10_ogpqg"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_yu4on"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_pi53b"]
 [ext_resource type="Texture2D" uid="uid://cn0464l5bom03" path="res://assets/sprites/signs/warning.png" id="14_51nt7"]
-[ext_resource type="PackedScene" path="res://scenes/entities/turret.tscn" id="14_q4mwu"]
+[ext_resource type="PackedScene" uid="uid://ur2s7dp5ec72" path="res://scenes/entities/turret.tscn" id="14_q4mwu"]
 [ext_resource type="PackedScene" uid="uid://ihcsis674dju" path="res://scenes/DoorButton2.tscn" id="16_xy22k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
@@ -113,9 +113,8 @@ shape = SubResource("RectangleShape2D_1k57n")
 position = Vector2(1647, 130)
 
 [node name="Warning" type="Sprite2D" parent="."]
-position = Vector2(4916, -372)
+position = Vector2(4916, -331)
 rotation = 0.00913596
-scale = Vector2(-1.91819, 1.28719)
 texture = ExtResource("14_51nt7")
 
 [node name="Turret" parent="." instance=ExtResource("14_q4mwu")]
@@ -132,6 +131,7 @@ position = Vector2(7355, -1873)
 rotation = 1.5708
 
 [node name="DoorButton2" parent="." instance=ExtResource("16_xy22k")]
+visible = false
 position = Vector2(7927, -232)
 
 [node name="Turret3" parent="." instance=ExtResource("14_q4mwu")]
@@ -193,9 +193,9 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_kb2dc")
 
 [node name="DoorButton3" parent="." instance=ExtResource("16_xy22k")]
+visible = false
 position = Vector2(15296, -858)
 
-[node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_x4as8")]
+[node name="Boss" parent="." instance=ExtResource("7_x4as8")]
 position = Vector2(17515, -10)
-player_character = NodePath("")
 dialogue_file = "res://assets/dialogues/bossprefight.txt"
