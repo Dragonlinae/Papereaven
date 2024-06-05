@@ -1,4 +1,4 @@
-extends Area2D
+extends Interactable
 class_name DialogueArea2D
 
 @export_file var dialogue_file : String

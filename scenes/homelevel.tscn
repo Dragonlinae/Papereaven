@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwe2lil68ehu3"]
+
+[ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_ai0xf"]
+[ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_oh4ky"]
+[ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="3_m4pck"]
+[ext_resource type="Script" path="res://scenes/hud.gd" id="4_coear"]
+[ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_fl1am"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_c0ale"]
+[ext_resource type="PackedScene" uid="uid://i7d6j16p6gle" path="res://scenes/levels/portal.tscn" id="9_l2mtn"]
+[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_lwlot"]
+[ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_yk3t5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
+size = Vector2(60, 60)
+
+[node name="Node2D3" type="Node2D"]
+material = ExtResource("1_ai0xf")
+
+[node name="Node2D" parent="." instance=ExtResource("2_oh4ky")]
+layer_0/tile_data = PackedInt32Array(196611, 720896, 0, 196613, 65536, 1, 262149, 65536, 2, 262148, 131072, 0, 262147, 131072, 0, 262146, 131072, 0, 262145, 131072, 0, 262144, 131072, 0, 196614, 131072, 0, 196615, 131072, 0, 262151, 0, 0, 262150, 0, 0, 196616, 131072, 0, 131080, 589824, 0, 262152, 0, 0, 196617, 131072, 0, 262153, 0, 0, 196618, 131072, 0, 262154, 0, 0, 196619, 131072, 0, 262155, 0, 0, 196620, 131072, 0, 262156, 0, 0, 262157, 131072, 2, 262158, 131072, 0, 196621, 131072, 1, 262159, 131072, 0, 262160, 131072, 0, 262161, 65536, 2, 262162, 0, 0, 262163, 0, 0, 196627, 131072, 0, 196628, 131072, 0, 196626, 131072, 0, 131090, 589824, 0, 196625, 65536, 1, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 196630, 131072, 0, 196629, 131072, 0, 131093, 720896, 1, 262167, 0, 0, 327702, 0, 0, 327703, 0, 0, 327701, 0, 0, 327700, 0, 0, 327699, 0, 0, 327698, 0, 0, 327697, 0, 0, 327696, 0, 0, 327695, 0, 0, 327694, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 0, 327689, 0, 0, 327688, 0, 0, 327687, 0, 0, 327686, 0, 0, 327685, 0, 0, 327684, 0, 0, 327683, 0, 0, 327682, 0, 0, 327681, 0, 0, 327680, 0, 0, 327679, 131072, 2, 393215, 0, 0, 262143, 0, 2, -393173, 0, 2, -327638, 0, 1, -262102, 0, 1, -262101, 0, 2, -196565, 131072, 2, -196564, 131072, 1, -327637, 0, 2, -196566, 0, 1, -131030, 0, 1, -65494, 0, 1, -131029, 0, 0, -65493, 0, 0, -131028, 0, 2, 131079, 655360, 0, 131083, 589824, 1, 196631, 131072, 0, 196633, 131072, 0, 196634, 131072, 0, 196635, 131072, 1, 262168, 0, 0, 262169, 0, 0, 262171, 131072, 2, 196632, 131072, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327704, 0, 0, 262170, 0, 0, 262172, 131072, 0, 262173, 131072, 0, 262174, 131072, 0, 262175, 131072, 1, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 327711, 131072, 2, 327712, 131072, 0, 327713, 131072, 0, 327714, 131072, 0, 327715, 131072, 0, 327716, 131072, 0, 327717, 131072, 0, 327718, 131072, 0, 327719, 131072, 0, 327720, 131072, 0, 327721, 65536, 2, 327722, 0, 0, 327723, 0, 0, 327724, 0, 2, 393238, 0, 0, 393237, 0, 0, 393236, 0, 0, 393223, 0, 0, 393222, 0, 0, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 0, 0, 393217, 0, 0, 393216, 0, 0, 458751, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0, 393250, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0, 393255, 0, 0, 393257, 0, 0, 393256, 0, 0, 393258, 0, 0, 393259, 0, 0, 393260, 0, 2, 458796, 0, 2, 458795, 0, 0, 458794, 0, 0, 458793, 0, 0, 458792, 0, 0, 458791, 0, 0, 458790, 0, 0, 458789, 0, 0, 458788, 0, 0, 458787, 0, 0, 458786, 0, 0, 458785, 0, 0, 458784, 0, 0, 458783, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 458779, 0, 0, 458780, 0, 0, 458781, 0, 0, 458782, 0, 0, 458769, 0, 0, 458768, 0, 0, 458767, 0, 0, 458770, 0, 0, 524310, 0, 0, 524309, 0, 0, 524308, 0, 0, 524307, 0, 0, 524306, 0, 0, 524305, 0, 0, 524304, 0, 0, 524303, 0, 0, 524302, 0, 0, 524301, 0, 0, 524300, 0, 0, 524299, 0, 0, 524298, 0, 0, 524297, 0, 0, 524296, 0, 0, 524295, 0, 0, 524294, 0, 0, 524293, 0, 0, 524292, 0, 0, 524291, 0, 0, 524290, 0, 0, 524289, 0, 0, 524288, 0, 0, 589823, 0, 0, 524287, 0, 0, 524286, 0, 0, 458750, 0, 0, 458752, 0, 0, 458753, 0, 0, 589822, 0, 1, 393214, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458761, 0, 0, 458762, 0, 0, 458760, 0, 0, 458759, 0, 0, 458754, 0, 0, 458766, 0, 0, 458765, 0, 0, 458764, 0, 0, 458763, 0, 0, 524316, 0, 0, 524315, 0, 0, 524314, 0, 0, 524313, 0, 0, 524312, 0, 0, 524311, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524318, 0, 0, 524317, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524322, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524331, 0, 0, 524332, 0, 2, 327678, 0, 0, 262142, 0, 0, 196606, 65536, 2, 131070, 0, 1, 65534, 0, 1, -2, 0, 1, -65538, 0, 1, -131074, 65536, 1, 327677, 0, 1, 393213, 0, 1, 458749, 0, 1, 196607, 0, 2, 131071, 0, 2, 65535, 0, 2, -1, 0, 2, -65537, 0, 2, -131073, 0, 2, -196609, 0, 2, 262141, 0, 1, 524285, 0, 1, 196605, 65536, 1, 262188, 0, 2, 196652, 0, 2, 131116, 0, 2, 65580, 0, 2, 44, 0, 2, -65492, 0, 2, 262187, 0, 0, 196651, 0, 0, 131115, 0, 0, 65579, 0, 0, 43, 0, 0, 262186, 0, 0, 196650, 0, 0, 131114, 65536, 2, 65578, 0, 1, 42, 0, 1, 196649, 0, 1, 131113, 65536, 1, 262185, 0, 1, -393174, 0, 1, -458709, 0, 2, -458710, 0, 1, -327681, 262144, 0, -262145, 0, 2, -524246, 0, 1, -589782, 65536, 1, -524245, 0, 2, -589781, 131072, 1, 196638, 720896, 1, 262180, 720896, 1, 196623, 720896, 0, 131097, 720896, 0, 262182, 589824, 0, 262178, 655360, 0)
+
+[node name="Bg" parent="." instance=ExtResource("3_m4pck")]
+scroll_offset = Vector2(-95.5626, 145.09)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("4_coear")
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("5_fl1am")]
+visible = false
+modulate = Color(0.972549, 1, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Player" parent="." instance=ExtResource("8_c0ale")]
+position = Vector2(236, 121)
+scale = Vector2(4, 4)
+move_velocity = 1000.0
+jump_velocity = 1500.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(236, 121)
+scale = Vector2(4, 4)
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.13
+drag_top_margin = 0.13
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
+
+[node name="HitboxFloor" type="Area2D" parent="."]
+position = Vector2(0, 5000)
+scale = Vector2(100, 1)
+script = ExtResource("9_lwlot")
+damage = 9999
+can_block = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxFloor"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_1k57n")
+
+[node name="Moving Platform" parent="." instance=ExtResource("13_yk3t5")]
+position = Vector2(1647, 130)
+
+[node name="Portal4" parent="." instance=ExtResource("9_l2mtn")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(59, 329)
+target_scene_path = "res://scenes/main.tscn"
+
+[node name="Portal" parent="." instance=ExtResource("9_l2mtn")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(649, 197)
+target_scene_path = "res://scenes/levels/level1.tscn"
+
+[node name="Portal2" parent="." instance=ExtResource("9_l2mtn")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(1541.13, 203.821)
+target_scene_path = "res://scenes/levels/level2.tscn"
+
+[node name="Portal3" parent="." instance=ExtResource("9_l2mtn")]
+modulate = Color(1, 0.180392, 0.184314, 1)
+position = Vector2(2665.13, 237.821)
+target_scene_path = "res://scenes/levels/level3.tscn"

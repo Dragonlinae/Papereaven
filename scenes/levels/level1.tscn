@@ -1,0 +1,256 @@
+[gd_scene load_steps=30 format=3 uid="uid://0xuuvauvjvik"]
+
+[ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_nxvye"]
+[ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="2_8rci0"]
+[ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="3_qj666"]
+[ext_resource type="Script" path="res://scenes/hud.gd" id="4_jj70f"]
+[ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_4tnim"]
+[ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_dapi5"]
+[ext_resource type="PackedScene" path="res://scenes/entities/bossnpc.tscn" id="7_jej7o"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_wtave"]
+[ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_1jltw"]
+[ext_resource type="Script" path="res://scripts/entity.gd" id="10_capx7"]
+[ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="11_ng703"]
+[ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_0nf06"]
+[ext_resource type="PackedScene" uid="uid://ownws35oiq6p" path="res://environment/nonmoving_platform.tscn" id="12_jemte"]
+[ext_resource type="Texture2D" uid="uid://crx4fu26rtfas" path="res://assets/sprites/signs/rightkey.png" id="13_51vu8"]
+[ext_resource type="Texture2D" uid="uid://5rhagx7i5fp" path="res://assets/sprites/signs/right.png" id="13_dllm2"]
+[ext_resource type="Texture2D" uid="uid://bkj0gas6o56ql" path="res://assets/sprites/signs/up.png" id="14_58joo"]
+[ext_resource type="Texture2D" uid="uid://b5evojw8edt1h" path="res://assets/sprites/signs/upkey.png" id="14_h5nkh"]
+[ext_resource type="Texture2D" uid="uid://dyswkoxe6pwht" path="res://assets/sprites/signs/down.png" id="15_13xao"]
+[ext_resource type="Texture2D" uid="uid://c8p6u0bm56c02" path="res://assets/sprites/signs/pitfall.png" id="18_uw6jh"]
+[ext_resource type="Texture2D" uid="uid://dp0ouopde06wh" path="res://assets/sprites/signs/danger.png" id="19_kbunn"]
+[ext_resource type="Texture2D" uid="uid://cn0464l5bom03" path="res://assets/sprites/signs/warning.png" id="20_14rqo"]
+[ext_resource type="Texture2D" uid="uid://cgrfkqeug657o" path="res://assets/sprites/signs/stab.png" id="21_7npal"]
+[ext_resource type="Texture2D" uid="uid://su88u0aho7y7" path="res://assets/sprites/signs/attack.png" id="22_cn36g"]
+[ext_resource type="Texture2D" uid="uid://bm2hstl8k7e7k" path="res://assets/sprites/signs/inspect.png" id="23_cc3tj"]
+[ext_resource type="PackedScene" path="res://scenes/entities/turret.tscn" id="25_bhl4a"]
+[ext_resource type="PackedScene" path="res://scenes/entities/trap.tscn" id="26_5xc07"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0n07"]
+size = Vector2(176.15, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
+size = Vector2(27.3335, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fsox"]
+size = Vector2(1305.16, 2320.48)
+
+[node name="Node2D2" type="Node2D"]
+material = ExtResource("1_nxvye")
+
+[node name="Node2D" parent="." instance=ExtResource("2_8rci0")]
+layer_0/tile_data = PackedInt32Array(196612, 131072, 0, 196611, 131072, 0, 196610, 131072, 0, 196609, 131072, 0, 196608, 131072, 0, 196613, 131072, 0, 262149, 0, 0, 262148, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196614, 131072, 0, 196615, 131072, 0, 262151, 0, 0, 262150, 0, 0, 196616, 131072, 0, 262152, 0, 0, 196617, 131072, 0, 262153, 0, 0, 196618, 131072, 0, 262154, 0, 0, 196619, 131072, 0, 262155, 0, 0, 196620, 131072, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 196621, 131072, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 196627, 131072, 0, 196628, 131072, 0, 196626, 131072, 0, 196625, 131072, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 196630, 131072, 0, 196629, 131072, 0, 262167, 0, 0, 327702, 0, 0, 327703, 0, 0, 327701, 0, 0, 327700, 0, 0, 327699, 0, 0, 327698, 0, 0, 327697, 0, 0, 327696, 0, 0, 327695, 0, 0, 327694, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 0, 327689, 0, 0, 327688, 0, 0, 327687, 0, 0, 327686, 0, 0, 327685, 0, 0, 327684, 0, 0, 327683, 0, 0, 327682, 0, 0, 327681, 0, 0, 327680, 0, 0, 327679, 0, 0, 393215, 0, 0, 262143, 131072, 0, -131048, 0, 1, -131047, 0, 2, 196624, 131072, 0, 196623, 131072, 0, 196622, 131072, 0, 262142, 131072, 2, 327678, 0, 0, 393214, 0, 0, 393213, 0, 0, 327677, 0, 0, 327676, 0, 0, 262140, 0, 0, 262141, 0, 0, 196605, 0, 0, 131069, 0, 0, 65533, 0, 0, 65532, 65536, 2, -4, 0, 1, -65540, 0, 1, -131076, 0, 1, -196612, 0, 1, -196611, 0, 2, -131075, 131072, 2, -65539, 0, 0, -3, 0, 0, 196604, 0, 0, 131068, 0, 0, -262148, 0, 1, -327684, 0, 1, -393220, 0, 1, -458756, 0, 1, -458755, 0, 2, -393219, 0, 2, -327683, 0, 2, -262147, 0, 2, 196606, 0, 2, 131070, 0, 2, 65534, 0, 2, -2, 0, 2, 393212, 0, 0, 393211, 0, 1, 327675, 0, 1, 262139, 0, 1, 196603, 0, 1, 131067, 0, 1, 65531, 65536, 1, -65538, 0, 2, -131074, 131072, 1, -524291, 0, 2, -589827, 0, 2, -655363, 0, 2, -720899, 0, 2, -786435, 0, 2, -851971, 0, 2, -917507, 131072, 1, -524292, 0, 1, -589828, 0, 1, -655364, 0, 1, -720900, 0, 1, -786436, 0, 1, -851972, 0, 1, -917508, 65536, 1, 196631, 131072, 0, 196632, 65536, 2, 196633, 0, 0, 196634, 131072, 2, 327704, 0, 0, 262169, 0, 0, 262170, 0, 0, 262168, 0, 0, 327706, 0, 0, 327705, 0, 0, 262171, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 327707, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 262175, 0, 0, 327711, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 327712, 0, 0, 327713, 0, 0, 327714, 0, 0, 262179, 0, 0, 196643, 131072, 0, 327715, 0, 0, 327716, 0, 0, 262180, 0, 0, 196644, 131072, 0, 262181, 0, 0, 327717, 0, 0, 196645, 131072, 0, 262182, 0, 0, 327718, 0, 0, 262183, 0, 0, 196647, 131072, 0, 196646, 131072, 0, 327719, 0, 0, 196648, 131072, 0, 262184, 0, 0, 196649, 131072, 0, 262185, 0, 0, 327720, 0, 0, 327721, 0, 0, 196650, 131072, 0, 262186, 0, 0, 327722, 0, 0, 327723, 0, 0, 262187, 0, 0, 196651, 131072, 0, 196652, 131072, 0, 196653, 131072, 0, 262189, 0, 0, 327725, 0, 0, 327724, 0, 0, 262188, 0, 0, 196654, 131072, 0, 262191, 0, 0, 262190, 0, 0, 196655, 131072, 0, 262192, 0, 0, 327726, 0, 0, 327727, 0, 0, 327728, 0, 0, 327729, 0, 0, 327730, 0, 0, 262194, 0, 0, 262195, 0, 0, 262196, 0, 2, 262193, 0, 0, 327731, 0, 0, 327732, 0, 2, 327738, 0, 1, 262202, 0, 1, 262203, 0, 0, 262204, 0, 0, 327740, 0, 0, 327739, 0, 0, 327741, 0, 0, 327742, 0, 0, 327743, 0, 0, 262206, 0, 0, 262205, 0, 0, 262207, 0, 0, 262208, 0, 2, 327744, 0, 2, 196642, 131072, 0, 196635, 131072, 0, 196636, 131072, 0, 196637, 131072, 0, 196638, 131072, 0, 196639, 131072, 0, 196640, 131072, 0, 196641, 131072, 0, -131054, 0, 2, -196590, 0, 2, -262126, 0, 2, -327662, 0, 2, 131096, 0, 1, 65560, 0, 1, 24, 0, 1, -65512, 0, 1, -196584, 0, 1, -262120, 0, 1, 131097, 0, 0, 65561, 0, 0, 25, 0, 0, -65511, 131072, 2, -196583, 0, 2, -262119, 0, 2, -65510, 131072, 1, 26, 0, 2, 65562, 0, 2, 131098, 0, 2, -327655, 0, 2, -393191, 0, 2, -393192, 0, 1, -458728, 0, 1, -327656, 0, 1, -524264, 0, 1, -458727, 0, 2, -524263, 0, 2, -589799, 0, 2, -655335, 0, 2, -720871, 0, 2, -589800, 0, 1, -655336, 0, 1, -720872, 0, 1, -786408, 0, 1, -786407, 0, 2, -851943, 131072, 2, -851944, 0, 1, -917479, 131072, 1, -917480, 0, 1, -983016, 0, 1, -1048552, 262144, 0, -393198, 0, 2, -458734, 0, 2, -524270, 0, 2, -589806, 0, 2, -655342, 0, 2, -720878, 0, 2, -786414, 0, 2, -851950, 0, 2, -917486, 0, 2, -983022, 0, 2, -131055, 0, 1, -196591, 0, 1, -262127, 0, 1, -327663, 0, 1, -393199, 0, 1, -458735, 0, 1, -524271, 0, 1, -589807, 65536, 1, -1048558, 262144, 0, -65519, 0, 1, -65518, 0, 2, 196656, 131072, 0, 196657, 131072, 0, 196658, 131072, 0, 196659, 131072, 0, 196660, 131072, 1, 196666, 65536, 1, 196667, 131072, 0, 196668, 131072, 0, 196669, 131072, 0, 196670, 131072, 0, 196671, 131072, 0, 196672, 131072, 1, 327750, 0, 1, 262214, 0, 1, 196678, 65536, 1, 196679, 131072, 0, 196680, 131072, 0, 196681, 131072, 0, 196682, 131072, 0, 196683, 131072, 0, 262219, 0, 0, 327755, 0, 0, 327754, 0, 0, 327753, 0, 0, 327752, 0, 0, 327751, 0, 0, 262215, 0, 0, 262218, 0, 0, 262217, 0, 0, 262216, 0, 0, 196684, 131072, 0, 262220, 0, 0, 327756, 0, 0, 327757, 0, 0, 262221, 0, 0, 196685, 131072, 0, 196686, 131072, 1, 262222, 0, 2, 327758, 0, 2, 327775, 0, 1, 262239, 0, 0, 196703, 65536, 1, 262240, 0, 0, 196704, 131072, 0, 327776, 0, 0, 327777, 0, 0, 327778, 0, 0, 327779, 0, 0, 327780, 0, 0, 327781, 0, 0, 327782, 0, 0, 262246, 0, 0, 196710, 131072, 0, 196709, 131072, 0, 196708, 131072, 0, 196707, 131072, 0, 196706, 131072, 0, 196705, 131072, 0, 262241, 0, 0, 262242, 0, 0, 262243, 0, 0, 262244, 0, 0, 262245, 0, 0, 327783, 0, 0, 262247, 0, 0, 196711, 131072, 0, 327784, 0, 0, 262248, 0, 0, 196712, 131072, 0, 196713, 131072, 0, 196714, 131072, 0, 196715, 131072, 0, 196716, 131072, 0, 262253, 0, 0, 262254, 0, 0, 262255, 0, 0, 262256, 0, 0, 262257, 0, 0, 262258, 0, 0, 262259, 0, 0, 262260, 0, 0, 196725, 131072, 0, 196726, 131072, 0, 196724, 131072, 0, 196723, 131072, 0, 196722, 131072, 0, 196721, 131072, 0, 196720, 131072, 0, 196719, 131072, 0, 196718, 131072, 0, 196717, 131072, 0, 262249, 0, 0, 262251, 0, 0, 262250, 0, 0, 262252, 0, 0, 262261, 0, 0, 262262, 0, 0, 262263, 0, 0, 327797, 0, 0, 327796, 0, 0, 327795, 0, 0, 327794, 0, 0, 327792, 0, 0, 327793, 0, 0, 327790, 0, 0, 327791, 0, 0, 327789, 0, 0, 327788, 0, 0, 327786, 0, 0, 327787, 0, 0, 327785, 0, 0, 262264, 0, 0, 262265, 0, 0, 262266, 0, 0, 327802, 0, 0, 327801, 0, 0, 327800, 0, 0, 327799, 0, 0, 327798, 0, 0, 196727, 131072, 0, 196728, 131072, 0, 196729, 131072, 0, 196730, 131072, 0, 327803, 0, 0, 262267, 0, 0, 196731, 131072, 0, 196732, 131072, 0, 196733, 131072, 0, 196734, 131072, 0, 196735, 131072, 0, 262271, 0, 0, 262272, 0, 0, 327808, 0, 0, 327807, 0, 0, 327806, 0, 0, 327805, 0, 0, 327804, 0, 0, 196736, 131072, 0, 262270, 0, 0, 262269, 0, 0, 262268, 0, 0, 327809, 0, 0, 262273, 0, 0, 196737, 131072, 0, 327810, 0, 0, 262274, 0, 0, 196738, 131072, 0, 262276, 0, 0, 327812, 0, 0, 327811, 0, 0, 262275, 0, 0, 196739, 131072, 0, 196740, 131072, 0, 327813, 0, 2, 262277, 0, 2, 196741, 131072, 1, -65398, 0, 1, -130934, 65536, 1, -130933, 131072, 0, -130932, 131072, 0, -130931, 131072, 1, -65395, 0, 2, -65396, 0, 0, -65397, 0, 0, -393069, 131072, 0, -393068, 131072, 0, -393067, 131072, 1, -327534, 0, 1, -393070, 65536, 1, -327533, 0, 0, -327532, 0, 0, -327531, 0, 2, -655206, 65536, 1, -655205, 131072, 0, -655204, 131072, 0, -655203, 131072, 0, -589670, 0, 1, -589669, 0, 0, -589668, 0, 0, -589667, 0, 0, -589666, 0, 0, -655202, 131072, 0, -655201, 131072, 0, -655200, 131072, 0, -655199, 131072, 0, -655198, 131072, 0, -655197, 131072, 0, -655196, 131072, 0, -655195, 131072, 0, -655194, 131072, 0, -655193, 131072, 0, -589665, 0, 0, -589664, 0, 0, -589663, 0, 0, -589662, 0, 0, -589661, 0, 0, -589660, 0, 0, -589659, 0, 0, -589658, 0, 0, -589657, 0, 0, -655191, 131072, 0, -655192, 131072, 0, -655190, 131072, 0, -655189, 131072, 0, -655188, 131072, 0, -589652, 0, 0, -589653, 0, 0, -589654, 0, 0, -589655, 0, 0, -589656, 0, 0, -589651, 0, 0, -655187, 131072, 0, -655186, 131072, 0, -655185, 131072, 0, -655184, 131072, 0, -655183, 131072, 0, -589649, 0, 0, -589648, 0, 0, -589647, 0, 0, -589650, 0, 0, 131123, 983040, 2, 53, 851968, 0, 57, 851968, 0, 131131, 851968, 0, -65481, 851968, 0, -65469, 851968, 0, 65, 851968, 0, 69, 851968, 0, 131143, 851968, 0, 131135, 983040, 2, 131149, 983040, 2, 79, 851968, 0, -65455, 851968, 0, -65451, 851968, 0, 87, 851968, 0, -65453, 851968, 0, 131161, 983040, 2, 65627, 851968, 0, 131169, 851968, 0, 65631, 851968, 0, 93, 851968, 0, -655182, 131072, 0, -655181, 131072, 0, -655180, 131072, 0, -655179, 131072, 0, -655178, 131072, 0, -589641, 0, 0, -589640, 0, 0, -589639, 0, 0, -589638, 0, 0, -589637, 0, 0, -589636, 0, 0, -589635, 0, 0, -589634, 0, 0, -589633, 0, 0, -589632, 0, 0, -655168, 131072, 0, -655167, 131072, 0, -655169, 131072, 0, -655170, 131072, 0, -655171, 131072, 0, -655172, 131072, 0, -655173, 131072, 0, -655174, 131072, 0, -655175, 131072, 0, -655176, 131072, 0, -655177, 131072, 0, -589646, 0, 0, -589645, 0, 0, -589644, 0, 0, -589643, 0, 0, -589642, 0, 0, -589631, 0, 0, -589630, 0, 0, -589629, 0, 0, -589628, 0, 0, -589627, 0, 0, -589626, 0, 0, -589625, 0, 0, -589624, 0, 0, -589623, 0, 0, -589622, 0, 0, -589621, 0, 0, -589620, 0, 0, -589619, 0, 0, -589618, 0, 0, -589617, 0, 0, -589616, 0, 0, -589615, 0, 0, -589614, 0, 0, -589613, 0, 0, -589612, 0, 0, -589611, 0, 0, -589610, 0, 0, -589609, 0, 0, -589608, 0, 0, -589607, 0, 0, -655143, 0, 0, -655144, 65536, 2, -655145, 131072, 0, -655146, 131072, 0, -655147, 131072, 0, -655148, 131072, 0, -655149, 131072, 0, -655150, 131072, 0, -655151, 131072, 0, -655152, 131072, 0, -655153, 131072, 0, -655154, 131072, 0, -655155, 131072, 0, -655156, 131072, 0, -655157, 131072, 0, -655162, 131072, 0, -655163, 131072, 0, -655164, 131072, 0, -655165, 131072, 0, -655166, 131072, 0, -655161, 131072, 0, -655160, 131072, 0, -655159, 131072, 0, -655158, 131072, 0, -720679, 0, 0, -786215, 0, 0, -851751, 0, 0, -917287, 0, 0, -982823, 0, 0, -1048359, 0, 0, -1113895, 0, 0, -1179431, 0, 0, -720680, 0, 1, -786216, 0, 1, -851752, 0, 1, -917288, 0, 1, -982824, 0, 1, -1048360, 0, 1, -1113896, 0, 1, -1179432, 0, 1, -1244968, 0, 1, -1310504, 0, 1, -1376040, 0, 1, -1441576, 0, 1, -1244967, 0, 0, -1310503, 131072, 2, -1376039, 0, 2, -1441575, 0, 2, -1507111, 0, 2, -1572647, 0, 2, -1638183, 0, 2, -1703719, 0, 2, -1769255, 0, 2, -1834791, 0, 2, -1900327, 0, 2, -1965863, 0, 2, -2031399, 0, 2, -2096935, 0, 2, -2162471, 0, 2, -2228007, 0, 2, -2096936, 0, 1, -2031400, 0, 1, -1965864, 0, 1, -1900328, 0, 1, -1834792, 0, 1, -1769256, 0, 1, -1703720, 0, 1, -1507112, 0, 1, -1572648, 0, 1, -1638184, 0, 1, -2162472, 0, 1, -2228008, 0, 1, -2293544, 0, 1, -2359080, 0, 1, -2424615, 0, 2, -2490151, 0, 2, -2555687, 0, 2, -2621223, 0, 2, -2686759, 131072, 1, -2359079, 0, 2, -2293543, 0, 2, -2424616, 0, 1, -2490152, 0, 1, -2555688, 0, 1, -2621224, 0, 1, -2686760, 65536, 1, -1244966, 0, 2, -1179430, 0, 2, -1113894, 0, 2, -1048358, 0, 2, -982822, 0, 2, -917286, 0, 2, -851750, 0, 2, -589606, 0, 2, -655142, 0, 2, -720678, 0, 2, -786214, 0, 2, -1310502, 131072, 1)
+
+[node name="Bg" parent="." instance=ExtResource("3_qj666")]
+scroll_offset = Vector2(176.366, 266.627)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("4_jj70f")
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("5_4tnim")]
+visible = false
+modulate = Color(0.972549, 1, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Checkpoint" parent="." instance=ExtResource("6_dapi5")]
+position = Vector2(197, 287)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("6_dapi5")]
+position = Vector2(5940, 290)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("6_dapi5")]
+position = Vector2(14087, 289)
+
+[node name="Checkpoint4" parent="." instance=ExtResource("6_dapi5")]
+position = Vector2(25568, -1369)
+
+[node name="Player" parent="." instance=ExtResource("8_wtave")]
+position = Vector2(236, 121)
+scale = Vector2(4, 4)
+move_velocity = 1000.0
+jump_velocity = 1500.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(236, 121)
+scale = Vector2(4, 4)
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.13
+drag_top_margin = 0.13
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
+
+[node name="HitboxFloor" type="Area2D" parent="."]
+position = Vector2(0, 5000)
+scale = Vector2(100, 1)
+script = ExtResource("9_1jltw")
+damage = 9999
+can_block = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxFloor"]
+position = Vector2(178.785, 0)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_i0n07")
+
+[node name="SomethingToHit" type="CharacterBody2D" parent="."]
+position = Vector2(21967, -1347)
+script = ExtResource("10_capx7")
+max_health = 1
+current_health = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit"]
+visible = false
+position = Vector2(11, 5)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_1k57n")
+
+[node name="SomethingToHit" type="Sprite2D" parent="SomethingToHit"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_ng703")
+
+[node name="Hurtbox" type="Area2D" parent="SomethingToHit" node_paths=PackedStringArray("entity")]
+position = Vector2(131, 35)
+script = ExtResource("12_0nf06")
+entity = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit/Hurtbox"]
+position = Vector2(-119, -28)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_1k57n")
+
+[node name="NonMovingPlatform" parent="." instance=ExtResource("12_jemte")]
+z_index = -1
+position = Vector2(2996, 114)
+
+[node name="NonMovingPlatform2" parent="." instance=ExtResource("12_jemte")]
+z_index = -1
+position = Vector2(2999, -196)
+
+[node name="NonMovingPlatform3" parent="." instance=ExtResource("12_jemte")]
+z_index = -1
+position = Vector2(3000, -519)
+
+[node name="NonMovingPlatform4" parent="." instance=ExtResource("12_jemte")]
+z_index = -1
+position = Vector2(3001, -1184)
+
+[node name="NonMovingPlatform5" parent="." instance=ExtResource("12_jemte")]
+z_index = -1
+position = Vector2(3022, -2039)
+
+[node name="Right" type="Sprite2D" parent="."]
+position = Vector2(443, 296)
+texture = ExtResource("13_51vu8")
+
+[node name="Up" type="Sprite2D" parent="."]
+position = Vector2(2966, 294)
+texture = ExtResource("14_h5nkh")
+
+[node name="Up2" type="Sprite2D" parent="."]
+position = Vector2(2968, 16)
+texture = ExtResource("14_58joo")
+
+[node name="Up3" type="Sprite2D" parent="."]
+position = Vector2(2965, -296)
+texture = ExtResource("14_58joo")
+
+[node name="Up4" type="Sprite2D" parent="."]
+position = Vector2(2972, -725)
+scale = Vector2(1, 2.13)
+texture = ExtResource("14_58joo")
+
+[node name="Up5" type="Sprite2D" parent="."]
+position = Vector2(2978, -1389)
+scale = Vector2(1, 2.13)
+texture = ExtResource("14_58joo")
+
+[node name="Up6" type="Sprite2D" parent="."]
+position = Vector2(3039, -1900)
+rotation = -0.444595
+texture = ExtResource("14_58joo")
+
+[node name="Down" type="Sprite2D" parent="."]
+position = Vector2(3306, -1779)
+rotation = 0.424151
+texture = ExtResource("15_13xao")
+
+[node name="Down2" type="Sprite2D" parent="."]
+position = Vector2(3427, -131)
+rotation = 0.153618
+texture = ExtResource("15_13xao")
+
+[node name="Right2" type="Sprite2D" parent="."]
+position = Vector2(3792, 296)
+texture = ExtResource("13_dllm2")
+
+[node name="Pitfall" type="Sprite2D" parent="."]
+position = Vector2(6468, 301)
+texture = ExtResource("18_uw6jh")
+
+[node name="Danger" type="Sprite2D" parent="."]
+position = Vector2(6855, 584)
+rotation = 1.04892
+texture = ExtResource("19_kbunn")
+
+[node name="Danger2" type="Sprite2D" parent="."]
+position = Vector2(8395, 595)
+rotation = 1.04892
+texture = ExtResource("19_kbunn")
+
+[node name="Warning" type="Sprite2D" parent="."]
+position = Vector2(14322, 301)
+texture = ExtResource("20_14rqo")
+
+[node name="Warning2" type="Sprite2D" parent="."]
+position = Vector2(18035, -339)
+texture = ExtResource("20_14rqo")
+
+[node name="Stab" type="Sprite2D" parent="."]
+position = Vector2(21338, -1361)
+texture = ExtResource("21_7npal")
+
+[node name="Attack" type="Sprite2D" parent="."]
+position = Vector2(21119, -1364)
+texture = ExtResource("22_cn36g")
+
+[node name="Inspect" type="Sprite2D" parent="."]
+position = Vector2(25964, -1368)
+texture = ExtResource("23_cc3tj")
+
+[node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_jej7o")]
+position = Vector2(26345, -1531)
+player_character = NodePath("../Player")
+dialogue_file = "res://assets/dialogues/bossprefight.txt"
+
+[node name="Turret" parent="." instance=ExtResource("25_bhl4a")]
+position = Vector2(14599, -1155)
+rotation = 1.5708
+
+[node name="Turret2" parent="." instance=ExtResource("26_5xc07")]
+position = Vector2(19531, -341)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret2"]
+position = Vector2(14074.8, 409.353)
+shape = SubResource("RectangleShape2D_4fsox")
+
+[node name="Turret3" parent="." instance=ExtResource("26_5xc07")]
+position = Vector2(20564, -851)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret3"]
+position = Vector2(14074.8, 409.353)
+shape = SubResource("RectangleShape2D_4fsox")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvfm2t5v2kwog"]
+
+[ext_resource type="Script" path="res://scripts/overlay/combo.gd" id="1_eadth"]
+[ext_resource type="Shader" path="res://scripts/overlay/combo.gdshader" id="2_1ur7n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xajt1"]
+shader = ExtResource("2_1ur7n")
+shader_parameter/progress = 100.0
+shader_parameter/width = 600.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_807ob"]
+font_size = 50
+font_color = Color(1, 0, 0, 1)
+
+[node name="Combo" type="CanvasLayer"]
+script = ExtResource("1_eadth")
+
+[node name="Progress" type="Label" parent="."]
+material = SubResource("ShaderMaterial_xajt1")
+offset_right = 241.0
+offset_bottom = 69.0
+text = "0x COMBO"
+label_settings = SubResource("LabelSettings_807ob")
