@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_fyuqb"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_3jwb7"]
 [ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_7cwhd"]
-[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_player.tscn" id="8_su7md"]
+[ext_resource type="PackedScene" uid="uid://kornwd8ansay" path="res://character_controller_player.tscn" id="8_su7md"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_t8hkt"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_1j5di"]
 [ext_resource type="PackedScene" uid="uid://ownws35oiq6p" path="res://environment/nonmoving_platform.tscn" id="14_2oa83"]
@@ -537,33 +537,42 @@ modification_stack = SubResource("SkeletonModificationStack2D_un6t2")
 
 [node name="right_upper_arm" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="1"]
 scale = Vector2(0.999898, 0.999898)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm" index="0"]
 scale = Vector2(0.999959, 0.999959)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_upper_arm" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="2"]
 scale = Vector2(0.999868, 0.999868)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm" index="0"]
 scale = Vector2(0.999959, 0.999959)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_upper_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="3"]
-scale = Vector2(0.999854, 0.999854)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_lower_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg" index="0"]
 scale = Vector2(0.999942, 0.999942)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_foot" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(0.999997, 0.999997)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_upper_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="4"]
 scale = Vector2(0.999851, 0.999851)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_lower_leg" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg" index="0"]
 scale = Vector2(0.999968, 0.999968)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_foot" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
 scale = Vector2(0.999977, 0.999977)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ninja_char2" parent="." instance=ExtResource("16_3ubwk")]
 position = Vector2(9279, 1200)
@@ -575,33 +584,43 @@ modification_stack = SubResource("SkeletonModificationStack2D_wtxuq")
 
 [node name="right_upper_arm" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="1"]
 scale = Vector2(0.999994, 0.999994)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_upper_arm" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="2"]
 scale = Vector2(0.99998, 0.99998)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_upper_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="3"]
 scale = Vector2(0.999977, 0.999977)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_lower_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_foot" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_upper_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="4"]
 scale = Vector2(0.999991, 0.999991)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_lower_leg" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg" index="0"]
 scale = Vector2(0.999999, 0.999999)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_foot" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ninja_char3" parent="." instance=ExtResource("16_3ubwk")]
 position = Vector2(5457, 4248)
@@ -613,33 +632,43 @@ modification_stack = SubResource("SkeletonModificationStack2D_3ewl0")
 
 [node name="right_upper_arm" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="1"]
 scale = Vector2(0.999988, 0.999988)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_arm" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_upper_arm" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="2"]
 scale = Vector2(0.99998, 0.99998)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_arm" index="0"]
 scale = Vector2(0.999959, 0.999959)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_upper_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="3"]
 scale = Vector2(0.999963, 0.999963)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_lower_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_foot" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_upper_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest" index="4"]
 scale = Vector2(0.999987, 0.999987)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_lower_leg" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg" index="0"]
 scale = Vector2(1, 1)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_foot" parent="ninja_char3/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
 scale = Vector2(0.999999, 0.999999)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_7cwhd")]
 position = Vector2(8951, 4347)
