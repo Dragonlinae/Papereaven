@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="3_m4pck"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_coear"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_fl1am"]
-[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_c0ale"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_player.tscn" id="8_c0ale"]
 [ext_resource type="PackedScene" uid="uid://i7d6j16p6gle" path="res://scenes/levels/portal.tscn" id="9_l2mtn"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_lwlot"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_yk3t5"]
@@ -73,6 +73,7 @@ shape = SubResource("RectangleShape2D_1k57n")
 position = Vector2(1647, 130)
 
 [node name="Portal4" parent="." instance=ExtResource("9_l2mtn")]
+visible = false
 modulate = Color(0, 1, 0, 1)
 position = Vector2(59, 329)
 target_scene_path = "res://scenes/main.tscn"

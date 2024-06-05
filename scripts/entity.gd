@@ -20,6 +20,8 @@ var hit_counter: int = 0
 const hit_color := Color(1, 0, 0)
 const default_color := Color(1, 1, 1)
 
+signal died()
+
 # Music to unload when dead
 var audio_stream_player: AudioStreamPlayer = null
 
@@ -48,6 +50,7 @@ func force_full_damage(damage: int):
 		if audio_stream_player != null:
 			audio_stream_player.stop()
 			audio_stream_player.queue_free()
+		died.emit()
 		queue_free()
 	else: # Wrap this into a function? Also, do all entities have the same knockup? Are some enemies immune to knockup?
 		set_velocity(Vector2(0, -400))

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://djnrgy3j1yd7s"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4vhym"]
+
+[node name="Minimap" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(98, 98)
+scale = Vector2(0.304688, 0.304688)
+texture = SubResource("ViewportTexture_4vhym")

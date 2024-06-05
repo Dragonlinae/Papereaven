@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd08howw4cat"]
+
+[ext_resource type="Texture2D" uid="uid://quqursee4de3" path="res://assets/tilesheet.png" id="1_1dcst"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_tqbmb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s52y"]
+size = Vector2(68.9778, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yk2x"]
+size = Vector2(81.9478, 20)
+
+[node name="Button" type="Area2D"]
+position = Vector2(2640, -123)
+scale = Vector2(1.30238, 1)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_tqbmb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2636.33, -193.5)
+scale = Vector2(1.30238, 1)
+shape = SubResource("RectangleShape2D_8s52y")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(2639, -123)
+scale = Vector2(1.30238, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1.46411, 7)
+shape = SubResource("RectangleShape2D_1yk2x")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2636.71, -123)
+scale = Vector2(1.07495, 1)
+texture = ExtResource("1_1dcst")
+region_enabled = true
+region_rect = Rect2(1680, 990, 100, 35)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

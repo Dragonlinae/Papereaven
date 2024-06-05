@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csugxvm4uulpc"]
+
+[ext_resource type="Script" path="res://scripts/puzzles/door.gd" id="1_qwxtk"]
+[ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="1_v8205"]
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_qwxtk")
+
+[node name="Map" parent="." instance=ExtResource("1_v8205")]
+layer_0/tile_data = PackedInt32Array(-65536, 1114112, 5, -131072, 917504, 5, -196608, 917504, 5, -262144, 917504, 5, -262143, 851968, 5, -196607, 851968, 5, -131071, 851968, 5, -65535, 851968, 5)
