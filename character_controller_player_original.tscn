@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://bjsvqna777lsl"]
+[gd_scene load_steps=74 format=3 uid="uid://crsh34rwo71k0"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_e654y"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_tuiil"]
@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://cvfm2t5v2kwog" path="res://scenes/overlay/combo.tscn" id="14_segjf"]
 [ext_resource type="Script" path="res://scripts/ability_controller.gd" id="15_d84sa"]
 [ext_resource type="Script" path="res://scripts/ability.gd" id="16_jrki5"]
+[ext_resource type="PackedScene" path="res://scenes/overlay/minimap.tscn" id="17_2wjyb"]
 [ext_resource type="PackedScene" uid="uid://dgxqlt22rclpf" path="res://scenes/overlay/player_health_bar.tscn" id="17_878jk"]
-[ext_resource type="PackedScene" uid="uid://cothxrcideg1n" path="res://scenes/overlay/minimap.tscn" id="17_2wjyb"]
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
@@ -1303,6 +1303,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterCollisionShape/character_root")
+libraries = {
+"": SubResource("AnimationLibrary_37tsb")
+}
 tree_root = SubResource("AnimationNodeBlendTree_22yuy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.5
@@ -1323,7 +1326,7 @@ top_level = true
 z_index = -6
 position = Vector2(6.29179, -16.542)
 rotation = 1.5653
-scale = Vector2(0.249999, 0.249999)
+scale = Vector2(0.25, 0.25)
 
 [node name="sword_rotation" type="Node2D" parent="CharacterCollisionShape/character_root/polygons/sword_position"]
 
@@ -1562,6 +1565,7 @@ auto_calculate_length_and_angle = false
 length = 40.28
 bone_angle = -359.128
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm"]
 position = Vector2(47.001, 0.999937)
@@ -1571,6 +1575,7 @@ auto_calculate_length_and_angle = false
 length = 48.244
 bone_angle = 0.0
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="sword" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm/left_hand"]
 position = Vector2(41, 0)
@@ -1604,6 +1609,7 @@ auto_calculate_length_and_angle = false
 length = 42.521
 bone_angle = -230.322
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm"]
 position = Vector2(-32.0007, 41.0007)
@@ -1614,6 +1620,7 @@ auto_calculate_length_and_angle = false
 length = 39.45
 bone_angle = 90.774
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm/right_hand"]
 position = Vector2(-0.294134, 29.9761)
@@ -1641,6 +1648,7 @@ rotation = 0.180163
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 9, -10)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_knee" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg"]
 position = Vector2(28, 60)
@@ -1656,6 +1664,7 @@ rotation = 0.0167116
 scale = Vector2(0.999966, 0.999966)
 rest = Transform2D(1, 0, 0, 1, 28, 60)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="left_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg/left_lower_leg"]
 position = Vector2(19.0003, 39.0005)
@@ -1663,6 +1672,7 @@ rotation = -1.01343
 scale = Vector2(0.999988, 0.999988)
 rest = Transform2D(1, 0, 0, 1, 19, 39)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg/left_lower_leg/left_foot"]
 position = Vector2(2.00001, 5)
@@ -1673,6 +1683,7 @@ rotation = -0.702303
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -12, -8)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_knee" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg"]
 position = Vector2(-44, 58)
@@ -1687,12 +1698,14 @@ position = Vector2(-44.0003, 58.0005)
 rotation = 0.906536
 rest = Transform2D(1, 0, 0, 1, -44, 58)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="right_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg"]
 position = Vector2(-21.0003, 41.0006)
 rotation = 0.651444
 rest = Transform2D(1, 0, 0, 1, -21, 41)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
 
 [node name="end" type="Marker2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg/right_foot"]
 position = Vector2(1, 4)
@@ -1725,6 +1738,7 @@ entity = NodePath("..")
 friendly = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
 shape = SubResource("RectangleShape2D_sbxtj")
 
 [node name="HurtboxState" type="Node" parent="Hurtbox"]
@@ -1736,6 +1750,7 @@ scale = Vector2(0.285608, 0.28652)
 texture = ExtResource("4_ppaue")
 region_enabled = true
 region_rect = Rect2(1949.92, 285.924, 68.866, 67.1725)
+region_filter_clip_enabled = true
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
@@ -1768,6 +1783,7 @@ script = ExtResource("11_5ywyf")
 speech_bubble = NodePath("../SpeechBubble")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
 shape = SubResource("RectangleShape2D_vwx3l")
 
 [node name="SpeechBubble" type="Sprite2D" parent="."]
