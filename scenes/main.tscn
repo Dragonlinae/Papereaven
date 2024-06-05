@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://s2f60dixjtyk"]
+[gd_scene load_steps=23 format=3 uid="uid://s2f60dixjtyk"]
 
 [ext_resource type="Material" uid="uid://y4ol0mki3u1h" path="res://scenes/entities/character.tres" id="1_dxjqc"]
 [ext_resource type="PackedScene" uid="uid://51gl4tp26xr8" path="res://scenes/bg.tscn" id="4_t0ony"]
@@ -7,14 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="6_wkpwb"]
 [ext_resource type="PackedScene" path="res://scenes/entities/bossnpc.tscn" id="7_8yg16"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="8_nmi2r"]
-[ext_resource type="PackedScene" uid="uid://ihcsis674dju" path="res://scenes/DoorButton2.tscn" id="8_v68nr"]
+[ext_resource type="PackedScene" uid="uid://1uyi1gdg16iu" path="res://scenes/DoorButton2.tscn" id="8_v68nr"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="9_6onl3"]
 [ext_resource type="PackedScene" uid="uid://blvymffpl5npd" path="res://scenes/map.tscn" id="9_mo5sx"]
-[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="9_ujg57"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_player.tscn" id="9_ujg57"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="10_r3y1e"]
 [ext_resource type="Script" path="res://scripts/Hurtbox.gd" id="12_5s1u7"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="12_60juf"]
-[ext_resource type="PackedScene" path="res://character_controller_ninja_test.tscn" id="14_po4vg"]
+[ext_resource type="PackedScene" uid="uid://cxjyhq0tnelfk" path="res://character_controller_ninja.tscn" id="14_po4vg"]
+[ext_resource type="PackedScene" uid="uid://bq0a1s8iccwpk" path="res://spikeTrap.tscn" id="15_m0d14"]
+[ext_resource type="Script" path="res://scripts/Puzzle1.gd" id="16_rtpyt"]
+[ext_resource type="PackedScene" uid="uid://dhft2gnqwlb3p" path="res://environment/rigid_box_2d.tscn" id="16_y0oga"]
+[ext_resource type="PackedScene" uid="uid://bd08howw4cat" path="res://environment/button.tscn" id="17_sl4vp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k57n"]
 size = Vector2(60, 60)
@@ -72,11 +76,15 @@ dialogue_file = "res://assets/dialogues/bossprefight.txt"
 [node name="Player" parent="." instance=ExtResource("9_ujg57")]
 position = Vector2(236, 121)
 scale = Vector2(4, 4)
+collision_layer = 2
+collision_mask = 7
 move_velocity = 1000.0
 jump_velocity = 1500.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+
+[node name="MiniMapRemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(236, 121)
@@ -104,13 +112,13 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
 [node name="SomethingToHit" type="CharacterBody2D" parent="."]
-position = Vector2(1892, 419)
+position = Vector2(815, 168)
 script = ExtResource("9_6onl3")
 max_health = 1000
 current_health = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit"]
-visible = false
+position = Vector2(2, -11)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
@@ -124,7 +132,7 @@ script = ExtResource("12_5s1u7")
 entity = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SomethingToHit/Hurtbox"]
-position = Vector2(-106, -29)
+position = Vector2(-123, -47)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1k57n")
 
@@ -139,9 +147,39 @@ position = Vector2(1243, -233)
 curve = SubResource("Curve2D_nfvlx")
 speed = 10.0
 
-[node name="CharacterController" parent="." instance=ExtResource("14_po4vg")]
+[node name="Ninja" parent="." instance=ExtResource("14_po4vg")]
+position = Vector2(416, 132)
 
-[node name="left_foot" parent="CharacterController/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
+[node name="left_foot" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/left_upper_leg/left_lower_leg" index="0"]
 scale = Vector2(0.999999, 0.999999)
 
-[editable path="CharacterController"]
+[node name="right_foot" parent="Ninja/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
+scale = Vector2(0.999976, 0.999976)
+
+[node name="Crate" parent="." instance=ExtResource("16_y0oga")]
+position = Vector2(1577, -168)
+
+[node name="Puzzle1" type="Node2D" parent="."]
+script = ExtResource("16_rtpyt")
+
+[node name="SpikeTrap3" parent="Puzzle1" instance=ExtResource("15_m0d14")]
+position = Vector2(3391, -304)
+
+[node name="SpikeTrap2" parent="Puzzle1" instance=ExtResource("15_m0d14")]
+position = Vector2(3261, -311)
+
+[node name="SpikeTrap1" parent="Puzzle1" instance=ExtResource("15_m0d14")]
+position = Vector2(3142, -308)
+
+[node name="Button2" parent="Puzzle1" instance=ExtResource("17_sl4vp")]
+position = Vector2(-1436, 618)
+
+[node name="Button" parent="Puzzle1" instance=ExtResource("17_sl4vp")]
+position = Vector2(-813, -23)
+
+[connection signal="body_shape_entered" from="Puzzle1/Button2" to="Puzzle1" method="_on_button_body_shape_entered"]
+[connection signal="body_shape_exited" from="Puzzle1/Button2" to="Puzzle1" method="_on_button_body_shape_exited"]
+[connection signal="body_shape_entered" from="Puzzle1/Button" to="Puzzle1" method="_on_button_2_body_shape_entered"]
+[connection signal="body_shape_exited" from="Puzzle1/Button" to="Puzzle1" method="_on_button_2_body_shape_exited"]
+
+[editable path="Ninja"]

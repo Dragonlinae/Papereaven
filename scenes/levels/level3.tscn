@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_jfxvi"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_vbq6o"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_0v58n"]
-[ext_resource type="PackedScene" path="res://scenes/entities/bossnpc.tscn" id="7_i0xay"]
-[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_test.tscn" id="8_3lofb"]
+[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_i0xay"]
+[ext_resource type="PackedScene" uid="uid://xld7e8viee0m" path="res://character_controller_player.tscn" id="8_3lofb"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_e7kaa"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="10_k63hh"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="11_co85q"]
@@ -49,6 +49,7 @@ position = Vector2(4509, -351)
 position = Vector2(614, -18)
 player_character = NodePath("../Player")
 dialogue_file = "res://assets/dialogues/bossprefight.txt"
+boss_health = null
 
 [node name="Player" parent="." instance=ExtResource("8_3lofb")]
 position = Vector2(236, 121)

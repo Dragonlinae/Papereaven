@@ -26,7 +26,7 @@ enum STATE {
 
 var currState = STATE.IDLE
 
-var current_checkpoint : Checkpoint
+var current_checkpoint: Checkpoint
 
 func setState(new_state):
 	if currState == new_state:
@@ -177,4 +177,3 @@ func set_health(new_health):
 		set_collision_mask_value(1, false)
 	else:
 		set_collision_mask_value(1, true)
-	
