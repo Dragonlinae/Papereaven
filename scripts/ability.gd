@@ -8,6 +8,8 @@ var cooldown_timer: Timer
 @export var ability_time: float
 var ability_timer: Timer
 
+@export var ability_sprite: Sprite2D
+
 func _ready():
 	cooldown_timer = Timer.new()
 	add_child(cooldown_timer)
@@ -30,6 +32,7 @@ func start_cooldown():
 func execute_ability():
 	var entity: Entity = get_parent().get_parent() as Entity
 	entity.set_hittable(false)
+	ability_sprite.visible = true
 	ability_timer.start()
 	return
 
@@ -47,3 +50,4 @@ func _on_cooldown_timeout():
 func _on_ability_timout():
 	var entity: Entity = get_parent().get_parent() as Entity
 	entity.set_hittable(true)
+	ability_sprite.visible = false

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_fyuqb"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_3jwb7"]
 [ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_7cwhd"]
-[ext_resource type="PackedScene" uid="uid://kornwd8ansay" path="res://character_controller_player.tscn" id="8_su7md"]
+[ext_resource type="PackedScene" uid="uid://ngtej2pddksx" path="res://character_controller_player.tscn" id="8_su7md"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_t8hkt"]
 [ext_resource type="PackedScene" uid="uid://cribeoi7ltdur" path="res://environment/moving_platform.tscn" id="13_1j5di"]
 [ext_resource type="PackedScene" uid="uid://ownws35oiq6p" path="res://environment/nonmoving_platform.tscn" id="14_2oa83"]
@@ -529,8 +529,8 @@ target_portal = NodePath("..")
 
 [node name="ninja_char" parent="." instance=ExtResource("16_3ubwk")]
 position = Vector2(7537, 1200)
-max_health = 20
-current_health = 20
+max_health = 24
+current_health = 24
 
 [node name="Skeleton2D" parent="ninja_char/CharacterCollisionShape/ninja" index="0"]
 modification_stack = SubResource("SkeletonModificationStack2D_un6t2")
@@ -561,6 +561,11 @@ scale = Vector2(0.999968, 0.999968)
 
 [node name="right_foot" parent="ninja_char/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
 scale = Vector2(0.999977, 0.999977)
+
+[node name="head" parent="ninja_char/CharacterCollisionShape/ninja/polygons" index="10"]
+position = Vector2(-119, -142)
+polygon = PackedVector2Array(395.486, 140.625, 371.875, 150, 357.292, 167.708, 354.861, 193.75, 366.667, 221.181, 389.236, 229.167, 409.028, 230.208, 419.444, 240.278, 428.125, 228.472, 434.028, 202.431, 443.75, 187.153, 445.486, 165.625, 432.292, 150, 408.681, 141.667)
+uv = PackedVector2Array(395.486, 140.625, 371.875, 150, 357.292, 167.708, 354.861, 193.75, 366.667, 221.181, 389.236, 229.167, 409.028, 230.208, 419.444, 240.278, 428.125, 228.472, 434.028, 202.431, 443.75, 187.153, 445.486, 165.625, 432.292, 150, 408.681, 141.667)
 
 [node name="ninja_char2" parent="." instance=ExtResource("16_3ubwk")]
 position = Vector2(9279, 1200)
@@ -599,6 +604,12 @@ scale = Vector2(0.999999, 0.999999)
 
 [node name="right_foot" parent="ninja_char2/CharacterCollisionShape/ninja/Skeleton2D/hip/chest/right_upper_leg/right_lower_leg" index="0"]
 scale = Vector2(1, 1)
+
+[node name="head" parent="ninja_char2/CharacterCollisionShape/ninja/polygons" index="10"]
+position = Vector2(-1, -143)
+polygon = PackedVector2Array(276.736, 138.889, 254.514, 150, 239.583, 170.486, 238.889, 194.444, 245.833, 214.931, 263.194, 225.694, 284.028, 227.431, 298.958, 238.542, 307.639, 233.681, 313.194, 210.764, 319.444, 193.403, 331.597, 168.75, 321.528, 147.917)
+uv = PackedVector2Array(276.736, 138.889, 254.514, 150, 239.583, 170.486, 238.889, 194.444, 245.833, 214.931, 263.194, 225.694, 284.028, 227.431, 298.958, 238.542, 307.639, 233.681, 313.194, 210.764, 319.444, 193.403, 331.597, 168.75, 321.528, 147.917)
+bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "hip/chest/head/scarf", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand/spear", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand/shield", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_leg/left_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_leg/left_lower_leg/left_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_leg/right_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_leg/right_lower_leg/right_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="ninja_char3" parent="." instance=ExtResource("16_3ubwk")]
 position = Vector2(5457, 4248)

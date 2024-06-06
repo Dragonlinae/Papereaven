@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://ngtej2pddksx"]
+[gd_scene load_steps=77 format=3 uid="uid://ngtej2pddksx"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_efsdr"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_atoso"]
@@ -12,12 +12,13 @@
 [ext_resource type="Script" path="res://scripts/interactspeech.gd" id="11_reryd"]
 [ext_resource type="Texture2D" uid="uid://cocdfvpjow5q5" path="res://assets/sprites/interact.png" id="12_yfrxi"]
 [ext_resource type="Script" path="res://scripts/combo_tracker.gd" id="13_6c3q6"]
-[ext_resource type="PackedScene" uid="uid://d0vl6qf3onhcn" path="res://scenes/overlay/combo.tscn" id="14_4gp8c"]
+[ext_resource type="PackedScene" uid="uid://cvfm2t5v2kwog" path="res://scenes/overlay/combo.tscn" id="14_4gp8c"]
 [ext_resource type="Script" path="res://scripts/ability_controller.gd" id="15_3s24k"]
+[ext_resource type="Texture2D" uid="uid://dnabrcbgnxo1y" path="res://assets/shield_sprite.png" id="16_ge425"]
 [ext_resource type="Script" path="res://scripts/ability.gd" id="16_wcrda"]
-[ext_resource type="PackedScene" path="res://scenes/overlay/player_health_bar.tscn" id="17_30y3n"]
+[ext_resource type="PackedScene" uid="uid://dgxqlt22rclpf" path="res://scenes/overlay/player_health_bar.tscn" id="17_30y3n"]
 [ext_resource type="PackedScene" uid="uid://c2dalakg4cf5o" path="res://scenes/grab.tscn" id="18_862fo"]
-[ext_resource type="PackedScene" uid="uid://cothxrcideg1n" path="res://scenes/overlay/minimap.tscn" id="18_n2rxr"]
+[ext_resource type="PackedScene" uid="uid://snl07ha2j4p6" path="res://scenes/overlay/minimap.tscn" id="18_n2rxr"]
 [ext_resource type="Texture2D" uid="uid://de40axklw6s5r" path="res://assets/sprites/crumpled.png" id="19_7bd5k"]
 [ext_resource type="Script" path="res://scripts/crumpled.gd" id="20_hqocr"]
 
@@ -4019,6 +4020,11 @@ polygon = PackedVector2Array(174.212, 111.461, 178.51, 173.352, 161.891, 195.702
 uv = PackedVector2Array(174.212, 111.461, 178.51, 173.352, 161.891, 195.702, 173.926, 228.653, 201.719, 196.562, 212.894, 194.842, 232.665, 217.192, 246.991, 215.186, 226.648, 181.662, 225.501, 170.201, 234.384, 151.289, 209.169, 113.754)
 bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "hip/chest/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_bang", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head/head_pony", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/left_upper_arm/left_hand/sword", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_shoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/right_upper_arm/right_hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/cape", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/torso_cloth", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/left_upper_leg/left_lower_leg/left_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_knee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/right_upper_leg/right_lower_leg/right_foot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterCollisionShape/character_root/polygons/torso"]
+position = Vector2(176.389, 151.63)
+scale = Vector2(1.5, 1.5)
+remote_path = NodePath("../../../../../AbilityController/Sprite2D")
+
 [node name="head" type="Polygon2D" parent="CharacterCollisionShape/character_root/polygons"]
 position = Vector2(-101.389, 10.3696)
 texture = ExtResource("2_atoso")
@@ -4347,13 +4353,21 @@ combo_UI = NodePath("../Combo")
 script = ExtResource("15_3s24k")
 entity = NodePath("..")
 input_handler = NodePath("../PlayerInputHandler")
-ability1_unlocked = null
+ability1_unlocked = true
 ability1 = NodePath("Ability")
 
-[node name="Ability" type="Node" parent="AbilityController"]
+[node name="Ability" type="Node" parent="AbilityController" node_paths=PackedStringArray("ability_sprite")]
 script = ExtResource("16_wcrda")
 cooldown_time = 30.0
 ability_time = 3.0
+ability_sprite = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="AbilityController"]
+visible = false
+z_index = 200
+position = Vector2(-6, -5)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("16_ge425")
 
 [node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("17_30y3n")]
 entity = NodePath("..")

@@ -35,13 +35,13 @@ func restore_health():
 ## Damage taken will have damage reduction applied.
 ## This method scales the damage before applying.
 func take_damage(damage: int):
+	if not hittable: return
 	force_full_damage(int(damage * damage_factor))
 
 ## Damage will not have damage reduction applied.
 ## This method does the actual damaging and post-damage events.
 ## `take_damage` will scale damage before passing it though.
 func force_full_damage(damage: int):
-	if not hittable: return
 	if damage <= 0: return # don't start the flicker behavior
 	current_health -= damage
 	damage_taken.emit(damage)
