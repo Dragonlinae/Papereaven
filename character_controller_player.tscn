@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://kornwd8ansay"]
+[gd_scene load_steps=74 format=3 uid="uid://kornwd8ansay"]
 
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_efsdr"]
 [ext_resource type="Texture2D" uid="uid://dck7lerxeo2k1" path="res://assets/Knight_rig.png" id="2_atoso"]
@@ -95,7 +95,7 @@ tracks/5/keys = {
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -2210,7 +2210,7 @@ tracks/5/path = NodePath("polygons/sword_position:top_level")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -3186,7 +3186,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("polygons/sword_position:top_level")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -3649,7 +3649,7 @@ point_count = 2
 xfade_time = 0.2
 xfade_curve = SubResource("Curve_ea800")
 switch_mode = 2
-advance_mode = 2
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kq6jh"]
 
@@ -3691,6 +3691,12 @@ switch_mode = 1
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7ckhi"]
+xfade_time = 0.2
+xfade_curve = SubResource("Curve_ea800")
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sklym"]
 states/End/position = Vector2(695, 60)
 states/RESET/node = SubResource("AnimationNodeAnimation_5dt8m")
@@ -3714,8 +3720,8 @@ states/walk_end/node = SubResource("AnimationNodeBlendTree_f2wsn")
 states/walk_end/position = Vector2(444, 60)
 states/walk_start/node = SubResource("AnimationNodeBlendTree_83odd")
 states/walk_start/position = Vector2(240, -37)
-transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_go4uu"), "RESET", "attack_light", SubResource("AnimationNodeStateMachineTransition_lnv7x"), "attack_light", "RESET", SubResource("AnimationNodeStateMachineTransition_fvqav"), "RESET", "attack_heavy", SubResource("AnimationNodeStateMachineTransition_kq6jh"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_14koc"), "idle", "RESET", SubResource("AnimationNodeStateMachineTransition_2sdka"), "attack_heavy", "attack_heavy_back", SubResource("AnimationNodeStateMachineTransition_bx34q"), "RESET_recover", "idle", SubResource("AnimationNodeStateMachineTransition_2j5v6"), "attack_heavy_back", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_r0rde"), "RESET", "walk_start", SubResource("AnimationNodeStateMachineTransition_xt5v6"), "walk_start", "walk", SubResource("AnimationNodeStateMachineTransition_ixqai"), "walk_end", "RESET", SubResource("AnimationNodeStateMachineTransition_mraed"), "walk", "walk_end", SubResource("AnimationNodeStateMachineTransition_oyvii"), "walk_end", "walk", SubResource("AnimationNodeStateMachineTransition_i6jff"), "RESET", "block", SubResource("AnimationNodeStateMachineTransition_0cl4l"), "block", "RESET", SubResource("AnimationNodeStateMachineTransition_cucfq")]
-graph_offset = Vector2(-92.4255, -75.3396)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_go4uu"), "RESET", "attack_light", SubResource("AnimationNodeStateMachineTransition_lnv7x"), "attack_light", "RESET", SubResource("AnimationNodeStateMachineTransition_fvqav"), "RESET", "attack_heavy", SubResource("AnimationNodeStateMachineTransition_kq6jh"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_14koc"), "idle", "RESET", SubResource("AnimationNodeStateMachineTransition_2sdka"), "attack_heavy", "attack_heavy_back", SubResource("AnimationNodeStateMachineTransition_bx34q"), "RESET_recover", "idle", SubResource("AnimationNodeStateMachineTransition_2j5v6"), "attack_heavy_back", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_r0rde"), "RESET", "walk_start", SubResource("AnimationNodeStateMachineTransition_xt5v6"), "walk_start", "walk", SubResource("AnimationNodeStateMachineTransition_ixqai"), "walk_end", "RESET", SubResource("AnimationNodeStateMachineTransition_mraed"), "walk", "walk_end", SubResource("AnimationNodeStateMachineTransition_oyvii"), "walk_end", "walk", SubResource("AnimationNodeStateMachineTransition_i6jff"), "RESET", "block", SubResource("AnimationNodeStateMachineTransition_0cl4l"), "block", "RESET", SubResource("AnimationNodeStateMachineTransition_cucfq"), "attack_light", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_7ckhi")]
+graph_offset = Vector2(-92.4255, 19.8552)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_22yuy"]
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ptfbj")
