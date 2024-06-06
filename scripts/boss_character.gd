@@ -140,5 +140,6 @@ func exit_state(state):
 			pass
 
 func _physics_process(delta):
-	update_state(delta)
+	if is_instance_valid(player_character):
+		update_state(delta)
 

@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://scenes/hud.gd" id="4_jj70f"]
 [ext_resource type="PackedScene" uid="uid://dmygof706sgp1" path="res://pause_menu.tscn" id="5_4tnim"]
 [ext_resource type="PackedScene" uid="uid://cs4nmk67pnl3q" path="res://scenes/checkpoint.tscn" id="6_dapi5"]
-[ext_resource type="PackedScene" uid="uid://kornwd8ansay" path="res://character_controller_player.tscn" id="8_wtave"]
+[ext_resource type="PackedScene" uid="uid://cdf011y3wlhce" path="res://scenes/entities/bossnpc.tscn" id="7_jej7o"]
+[ext_resource type="PackedScene" uid="uid://ngtej2pddksx" path="res://character_controller_player.tscn" id="8_wtave"]
 [ext_resource type="Script" path="res://scripts/Hitbox.gd" id="9_1jltw"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="10_capx7"]
 [ext_resource type="Texture2D" uid="uid://dwq5ammtovb3i" path="res://assets/walk1.png" id="11_ng703"]
@@ -26,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://ur2s7dp5ec72" path="res://scenes/entities/turret.tscn" id="25_bhl4a"]
 [ext_resource type="PackedScene" uid="uid://f3iqltb0tjvx" path="res://scenes/entities/trap.tscn" id="26_5xc07"]
 [ext_resource type="PackedScene" uid="uid://c1yo0r2f12mmy" path="res://scenes/puzzles/circlepuzzle.tscn" id="27_ocrmf"]
-[ext_resource type="PackedScene" uid="uid://i7d6j16p6gle" path="res://scenes/levels/portal.tscn" id="28_gdsq7"]
 [ext_resource type="PackedScene" uid="uid://csugxvm4uulpc" path="res://scenes/puzzles/door.tscn" id="28_jsv34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0n07"]
@@ -68,6 +68,10 @@ position = Vector2(5940, 290)
 
 [node name="Checkpoint3" parent="." instance=ExtResource("6_dapi5")]
 position = Vector2(14087, 289)
+
+[node name="Checkpoint4" parent="." instance=ExtResource("6_dapi5")]
+position = Vector2(25568, -1369)
+target_scene_path = "res://scenes/homelevel.tscn"
 
 [node name="Player" parent="." instance=ExtResource("8_wtave")]
 position = Vector2(236, 121)
@@ -233,6 +237,11 @@ texture = ExtResource("23_cc3tj")
 position = Vector2(23103, -1371)
 texture = ExtResource("23_cc3tj")
 
+[node name="Boss" parent="." node_paths=PackedStringArray("player_character") instance=ExtResource("7_jej7o")]
+position = Vector2(26345, -1531)
+player_character = NodePath("../Player")
+dialogue_file = "res://assets/dialogues/bossprefight.txt"
+
 [node name="Turret" parent="." instance=ExtResource("25_bhl4a")]
 position = Vector2(14599, -1155)
 rotation = 1.5708
@@ -263,11 +272,6 @@ target = NodePath("../Circlepuzzle")
 
 [node name="Map" parent="Door" index="0"]
 layer_0/tile_data = PackedInt32Array(-65536, 1114112, 5, -131072, 917504, 5, -196608, 917504, 5, -262144, 917504, 5, -262143, 851968, 5, -196607, 851968, 5, -131071, 851968, 5, -65535, 851968, 5, -327680, 917504, 5, -327679, 851968, 5, -393215, 851968, 5, -458751, 851968, 5, -524287, 851968, 5, -393216, 917504, 5, -458752, 917504, 5, -524288, 917504, 5, -589824, 917504, 5, -655360, 917504, 5, -720896, 917504, 5, -786432, 917504, 5, -851968, 917504, 5, -917504, 917504, 5, -983040, 917504, 5, -1048576, 917504, 5, -1114112, 917504, 5, -1179648, 917504, 5, -1245184, 917504, 5, -1310720, 917504, 5, -1376256, 917504, 5, -1441792, 917504, 5, -1507328, 917504, 5, -1572864, 917504, 5, -1638400, 917504, 5, -1703936, 917504, 5, -1769472, 917504, 5, -1835008, 917504, 5, -1900544, 917504, 5, -1966080, 917504, 5, -2031616, 917504, 5, -2097152, 917504, 5, -2162688, 917504, 5, -2228224, 917504, 5, -2228223, 851968, 5, -2162687, 851968, 5, -2097151, 851968, 5, -2031615, 851968, 5, -1966079, 851968, 5, -1900543, 851968, 5, -1835007, 851968, 5, -1769471, 851968, 5, -1703935, 851968, 5, -1638399, 851968, 5, -1572863, 851968, 5, -1507327, 851968, 5, -1441791, 851968, 5, -1376255, 851968, 5, -1310719, 851968, 5, -1245183, 851968, 5, -1179647, 851968, 5, -1114111, 851968, 5, -1048575, 851968, 5, -983039, 851968, 5, -917503, 851968, 5, -851967, 851968, 5, -786431, 851968, 5, -720895, 851968, 5, -655359, 851968, 5, -589823, 851968, 5)
-
-[node name="Portal2" parent="." instance=ExtResource("28_gdsq7")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(26161, -1467)
-target_scene_path = "res://scenes/levels/level2.tscn"
 
 [editable path="Door"]
 [editable path="Door/Map"]

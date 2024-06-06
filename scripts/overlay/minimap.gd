@@ -14,3 +14,14 @@ func _ready():
 	remote_transform.name = "RemoteTransformMinimap"
 	remote_transform.remote_path = camera.get_path()
 	charcontroller.call_deferred("add_child", remote_transform)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+# func _process(delta):
+# 	var remote_transform := RemoteTransform2D.new()
+# 	remote_transform.name = "RemoteTransformMinimap"
+# 	remote_transform.remote_path = camera.get_path()
+# 	charcontroller.add_child(remote_transform)
+# 	print(charcontroller)
+# 	print(charcontroller.get_node("RemoteTransformMinimap"))
+# 	pass
