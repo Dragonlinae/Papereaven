@@ -23,7 +23,7 @@
 
 [sub_resource type="Animation" id="Animation_d5sym"]
 resource_name = "RESET"
-loop_mode = 1
+length = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -98,7 +98,7 @@ tracks/5/keys = {
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -2145,6 +2145,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_hbloa"]
 resource_name = "walk_end"
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2164,7 +2165,7 @@ tracks/1/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -2212,7 +2213,7 @@ tracks/5/path = NodePath("polygons/sword_position:top_level")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -2685,10 +2686,10 @@ tracks/7/path = NodePath("polygons/sword_position:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(125.746, 213.003), Vector2(125.714, 212.603), Vector2(125.683, 212.202), Vector2(125.652, 211.802), Vector2(125.621, 211.402), Vector2(125.591, 211.002), Vector2(125.621, 211.402), Vector2(125.652, 211.802), Vector2(125.683, 212.202), Vector2(125.714, 212.602), Vector2(125.746, 213.002), Vector2(125.714, 212.602), Vector2(125.683, 212.202), Vector2(125.652, 211.801), Vector2(125.621, 211.401), Vector2(125.591, 211.001), Vector2(125.621, 211.401), Vector2(125.652, 211.801), Vector2(125.683, 212.201), Vector2(125.714, 212.601)]
+"values": [Vector2(136, 72)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -2697,10 +2698,10 @@ tracks/8/path = NodePath("polygons/sword_position:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.56232, 1.56268, 1.56304, 1.56339, 1.56374, 1.56408, 1.56374, 1.56339, 1.56303, 1.56268, 1.56232, 1.56268, 1.56303, 1.56339, 1.56374, 1.56408, 1.56374, 1.56339, 1.56303, 1.56268]
+"values": [-2.51846]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -3098,6 +3099,30 @@ tracks/41/keys = {
 "update": 0,
 "values": [0.651444, 0.0, 0.0, 0.0, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444, 0.651444]
 }
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("knight_skeleton/hip/chest/left_upper_arm/left_hand/end/RemoteTransform2D:update_rotation")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_kswel"]
 resource_name = "walk"
@@ -3164,7 +3189,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("polygons/sword_position:top_level")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -3563,7 +3588,7 @@ _data = {
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ptfbj"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5dt8m"]
-animation = &"idle"
+animation = &"RESET"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mcw8a"]
 animation = &"RESET"
@@ -3627,7 +3652,7 @@ point_count = 2
 xfade_time = 0.2
 xfade_curve = SubResource("Curve_ea800")
 switch_mode = 2
-advance_mode = 2
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kq6jh"]
 
@@ -3647,6 +3672,7 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xt5v6"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ixqai"]
 xfade_time = 1.0
@@ -3665,6 +3691,12 @@ switch_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0cl4l"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cucfq"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7ckhi"]
+xfade_time = 0.2
+xfade_curve = SubResource("Curve_ea800")
 switch_mode = 2
 advance_mode = 2
 
@@ -3691,8 +3723,8 @@ states/walk_end/node = SubResource("AnimationNodeBlendTree_f2wsn")
 states/walk_end/position = Vector2(444, 60)
 states/walk_start/node = SubResource("AnimationNodeBlendTree_83odd")
 states/walk_start/position = Vector2(240, -37)
-transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_go4uu"), "RESET", "attack_light", SubResource("AnimationNodeStateMachineTransition_lnv7x"), "attack_light", "RESET", SubResource("AnimationNodeStateMachineTransition_fvqav"), "RESET", "attack_heavy", SubResource("AnimationNodeStateMachineTransition_kq6jh"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_14koc"), "idle", "RESET", SubResource("AnimationNodeStateMachineTransition_2sdka"), "attack_heavy", "attack_heavy_back", SubResource("AnimationNodeStateMachineTransition_bx34q"), "RESET_recover", "idle", SubResource("AnimationNodeStateMachineTransition_2j5v6"), "attack_heavy_back", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_r0rde"), "RESET", "walk_start", SubResource("AnimationNodeStateMachineTransition_xt5v6"), "walk_start", "walk", SubResource("AnimationNodeStateMachineTransition_ixqai"), "walk_end", "RESET", SubResource("AnimationNodeStateMachineTransition_mraed"), "walk", "walk_end", SubResource("AnimationNodeStateMachineTransition_oyvii"), "walk_end", "walk", SubResource("AnimationNodeStateMachineTransition_i6jff"), "RESET", "block", SubResource("AnimationNodeStateMachineTransition_0cl4l"), "block", "RESET", SubResource("AnimationNodeStateMachineTransition_cucfq")]
-graph_offset = Vector2(-92.4255, -75.3396)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_go4uu"), "RESET", "attack_light", SubResource("AnimationNodeStateMachineTransition_lnv7x"), "attack_light", "RESET", SubResource("AnimationNodeStateMachineTransition_fvqav"), "RESET", "attack_heavy", SubResource("AnimationNodeStateMachineTransition_kq6jh"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_14koc"), "idle", "RESET", SubResource("AnimationNodeStateMachineTransition_2sdka"), "attack_heavy", "attack_heavy_back", SubResource("AnimationNodeStateMachineTransition_bx34q"), "RESET_recover", "idle", SubResource("AnimationNodeStateMachineTransition_2j5v6"), "attack_heavy_back", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_r0rde"), "RESET", "walk_start", SubResource("AnimationNodeStateMachineTransition_xt5v6"), "walk_start", "walk", SubResource("AnimationNodeStateMachineTransition_ixqai"), "walk_end", "RESET", SubResource("AnimationNodeStateMachineTransition_mraed"), "walk", "walk_end", SubResource("AnimationNodeStateMachineTransition_oyvii"), "walk_end", "walk", SubResource("AnimationNodeStateMachineTransition_i6jff"), "RESET", "block", SubResource("AnimationNodeStateMachineTransition_0cl4l"), "block", "RESET", SubResource("AnimationNodeStateMachineTransition_cucfq"), "attack_light", "RESET_recover", SubResource("AnimationNodeStateMachineTransition_7ckhi")]
+graph_offset = Vector2(-92.4255, 19.8552)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_22yuy"]
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ptfbj")
@@ -3880,7 +3912,7 @@ top_level = true
 z_index = -6
 position = Vector2(13.1309, -14.0494)
 rotation = -1.75652
-scale = Vector2(0.249977, 0.249977)
+scale = Vector2(0.24994, 0.24994)
 
 [node name="sword_rotation" type="Node2D" parent="CharacterCollisionShape/character_root/polygons/sword_position"]
 
@@ -4113,7 +4145,7 @@ editor_settings/show_bone_gizmo = false
 [node name="left_upper_arm" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest"]
 position = Vector2(12, -35)
 rotation = 0.176605
-scale = Vector2(0.999913, 0.999913)
+scale = Vector2(0.999852, 0.999852)
 rest = Transform2D(1, 0, 0, 1, 12, -35)
 auto_calculate_length_and_angle = false
 length = 40.28
@@ -4123,7 +4155,7 @@ editor_settings/show_bone_gizmo = false
 [node name="left_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/left_upper_arm"]
 position = Vector2(47.001, 0.999937)
 rotation = -1.93312
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.99991, 0.99991)
 rest = Transform2D(1, 0, 0, 1, 47, 1)
 auto_calculate_length_and_angle = false
 length = 48.244
@@ -4156,7 +4188,7 @@ editor_settings/show_bone_gizmo = false
 [node name="right_upper_arm" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest"]
 position = Vector2(-12, -35)
 rotation = -0.261193
-scale = Vector2(0.999973, 0.999973)
+scale = Vector2(0.999884, 0.999884)
 rest = Transform2D(1, 0, 0, 1, -12, -35)
 auto_calculate_length_and_angle = false
 length = 42.521
@@ -4166,7 +4198,7 @@ editor_settings/show_bone_gizmo = false
 [node name="right_hand" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/chest/right_upper_arm"]
 position = Vector2(-32.0007, 41.0007)
 rotation = -0.269546
-scale = Vector2(0.999994, 0.999994)
+scale = Vector2(0.999922, 0.999922)
 rest = Transform2D(1, 0, 0, 1, -32, 41)
 auto_calculate_length_and_angle = false
 length = 39.45
@@ -4196,7 +4228,7 @@ editor_settings/show_bone_gizmo = false
 [node name="left_upper_leg" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip"]
 position = Vector2(9, -10)
 rotation = 0.180163
-scale = Vector2(0.999976, 0.999976)
+scale = Vector2(0.999848, 0.999848)
 rest = Transform2D(1, 0, 0, 1, 9, -10)
 editor_settings/show_bone_gizmo = false
 
@@ -4211,7 +4243,7 @@ editor_settings/show_bone_gizmo = false
 [node name="left_lower_leg" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/left_upper_leg"]
 position = Vector2(28.0005, 60.0013)
 rotation = 0.0167116
-scale = Vector2(0.999964, 0.999964)
+scale = Vector2(0.99984, 0.99984)
 rest = Transform2D(1, 0, 0, 1, 28, 60)
 editor_settings/show_bone_gizmo = false
 
@@ -4228,7 +4260,7 @@ position = Vector2(2.00001, 5)
 [node name="right_upper_leg" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip"]
 position = Vector2(-12, -8)
 rotation = -0.702303
-scale = Vector2(0.999982, 0.999982)
+scale = Vector2(0.999864, 0.999864)
 rest = Transform2D(1, 0, 0, 1, -12, -8)
 editor_settings/show_bone_gizmo = false
 
@@ -4243,14 +4275,14 @@ editor_settings/show_bone_gizmo = false
 [node name="right_lower_leg" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg"]
 position = Vector2(-44.0003, 58.0005)
 rotation = 0.906536
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.99987, 0.99987)
 rest = Transform2D(1, 0, 0, 1, -44, 58)
 editor_settings/show_bone_gizmo = false
 
 [node name="right_foot" type="Bone2D" parent="CharacterCollisionShape/character_root/knight_skeleton/hip/right_upper_leg/right_lower_leg"]
 position = Vector2(-21.0003, 41.0006)
 rotation = 0.651444
-scale = Vector2(0.999994, 0.999994)
+scale = Vector2(0.999948, 0.999948)
 rest = Transform2D(1, 0, 0, 1, -21, 41)
 editor_settings/show_bone_gizmo = false
 
