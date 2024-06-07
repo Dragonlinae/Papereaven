@@ -38,8 +38,8 @@ func teleport(player: CharacterController):
 		get_parent().add_child(crumpled)
 		await get_tree().create_timer(1).timeout
 		grabsprite.setpos(player.global_position)
-		player.remove_child(player_transform)
 		grabsprite.add_child(player_transform)
+		player.remove_child(player_transform)
 		await get_tree().create_timer(1).timeout
 		grabsprite.release()
 		await get_tree().create_timer(1).timeout
@@ -49,8 +49,8 @@ func teleport(player: CharacterController):
 		grabsprite.release()
 		crumpled.global_position = grabsprite.global_position
 		crumpled.yvelocity = 0.0
-		grabsprite.remove_child(player_transform)
 		crumpled.add_child(player_transform)
+		grabsprite.remove_child(player_transform)
 		crumpled.visible = true
 		await get_tree().create_timer(1).timeout
 
